@@ -1,0 +1,180 @@
+/*========================================
+          [Item - 결과화면] 
+==========================================*/
+.musiclists-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  width: 100%;
+  max-width: 500px;
+  height: 100vh;
+  max-height: 900px;
+  margin: 1rem auto;
+  padding: 2rem;
+
+  @media (max-width: 400px) {
+    padding: 2rem 1rem;
+  }
+
+  /* 결과타이틀 */
+  .result-title {
+    text-align: center;
+  }
+  /* 플레이리스트 */
+  .music-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100%;
+    padding: 2rem;
+
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.8);
+
+    .music-img {
+      width: 18.75rem;
+      height: 18.75rem;
+      background-image: url(../src/assets/img/noimg.png);
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      @media (max-width: 400px) {
+        width: 15.625rem;
+        height: 15.625rem;
+      }
+    }
+  }
+
+  /* 음악 타이틀 */
+  .music-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    .music-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .music-singer {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+
+  /* 음악 프로그레스바 */
+  .music-progressbar {
+    position: relative;
+
+    width: 100%;
+    height: 2px;
+    margin: 1rem 0;
+
+    border-radius: 999px;
+    background: #d3d3d3;
+
+    .progress-status {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 50%;
+      height: 100%;
+
+      border-radius: 999px;
+      background: #222;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateY(-50%);
+
+        width: 1rem;
+        height: 1rem;
+
+        border-radius: 50%;
+        background-color: #222;
+      }
+    }
+  }
+
+  /* 음악 재생버튼 */
+  .music-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 5rem;
+    height: 5rem;
+
+    border-radius: 50%;
+    color: #222;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(178, 109, 120, 0.25);
+
+    .pause {
+      display: none;
+    }
+  }
+
+  #youtubePlayer {
+    display: none;
+  }
+}
+
+/*=====***** 상태별 배경 *****=====*/
+/* happy */
+.musiclists-wrap.happy {
+  background: url(/src/assets/img/playlists/playlists-happy.png) center center / cover
+    no-repeat;
+
+  /* 음악 프로그레스바 */
+  .music-progressbar {
+    .progress-status {
+      background: #ff9c97;
+
+      &:after {
+        background-color: #ff9c97;
+      }
+    }
+  }
+
+  /* 음악 재생버튼 */
+  .music-btn {
+    color: #ff9c97;
+    box-shadow: 0px 4px 4px 0px rgba(178, 109, 120, 0.25);
+  }
+}
+
+.musiclists-wrap.sad {
+  background: url(/src/assets/img/playlists/playlists-sad.png) center center / cover
+    no-repeat;
+
+  /* 음악 프로그레스바 */
+  .music-progressbar {
+    .progress-status {
+      background: #70bfff;
+
+      &:after {
+        background-color: #70bfff;
+      }
+    }
+  }
+
+  /* 음악 재생버튼 */
+  .music-btn {
+    color: #70bfff;
+    box-shadow: 0px 4px 4px 0px rgba(109, 147, 178, 0.25);
+  }
+}
