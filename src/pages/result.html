@@ -9,36 +9,53 @@
     <!-- 폰트설정 -->
     <link
       rel="preload"
-      href="/public/assets/fonts/pretendard/woff2/PretendardVariable.woff2"
+      href="/assets/fonts/pretendard/woff2/PretendardVariable.woff2"
       as="font"
       type="font/woff2"
       crossorigin />
-    <link
-      rel="stylesheet"
-      href="/public/assets/fonts/pretendard/pretendardvariable.css" />
+    <link rel="stylesheet" href="/assets/fonts/pretendard/pretendardvariable.css" />
+
+    <!-- 스타일설정 -->
     <script type="module" src="/src/main.ts"></script>
-    <script type="module" src="/src/js/conversation.js"></script>
+
+    <!-- 기능설정 -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script type="module" src="/src/js/PlayMusic.ts"></script>
   </head>
   <body>
     <section class="musiclists-wrap happy">
-      <h2 class="result-title">{user.name}님의 감정에 <br />어울리는 곡이에요🩷</h2>
+      <h2 class="result-title">
+        <span class="result-username">사용자</span>님의 감정에 <br />어울리는 곡이에요🩷
+      </h2>
       <div class="music-box">
         <div class="music-img">
           <img src="/src/assets/img/playlists/happy01.jpg" alt="" />
         </div>
         <h3 class="music-name">
-          <span class="music-title">{music.title}</span>
-          <span class="music-singer">{music.singer}</span>
+          <span class="music-title">제목</span>
+          <span class="music-singer">가수</span>
         </h3>
         <div class="music-progressbar">
           <div class="progress-status"></div>
         </div>
+        <iframe
+          id="youtubePlayer"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/3yaab2_EEHM?enablejsapi=1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
         <button
           id="musicBtn"
           class="music-btn"
-          aria-label="재생일시정지버튼"
+          aria-label="재생버튼"
           aria-live="assertive">
-          <!-- <svg
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
             height="50"
@@ -47,7 +64,7 @@
             viewBox="0 0 16 16">
             <path
               d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
-          </svg> -->
+          </svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
@@ -60,7 +77,10 @@
           </svg>
         </button>
       </div>
-      <button id="shareBtn" class="btn share">공유하기</button>
+      <div class="btn-wrap">
+        <button id="shareBtn" class="btn share">공유하기</button>
+        <button id="shareBtn" class="btn retry">다시하기</button>
+      </div>
     </section>
   </body>
 </html>

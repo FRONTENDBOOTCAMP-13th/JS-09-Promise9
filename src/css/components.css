@@ -13,6 +13,12 @@
 /*========================================
           [Components - btn] 
 ==========================================*/
+.btn-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .btn {
   min-width: 120px;
   height: 40px;
@@ -24,6 +30,10 @@
   font-size: 0.875rem;
 
   &:hover {
+    background: #e2e2e2;
+  }
+
+  &:focus {
     background: #e2e2e2;
   }
 }

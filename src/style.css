@@ -3,6 +3,14 @@
 @import '/src/css/components.css';
 @import '/src/css/index.css';
 
+body {
+  font-family: 'Pretendard Variable', sans-serif;
+  color: #222;
+  background: #fff;
+  line-height: 1.15;
+  font-weight: 400;
+}
+
 /*========================================
           [Item - 게임화면] 
 ==========================================*/
@@ -152,13 +160,18 @@
     gap: 1rem;
 
     .music-img {
-      width: 300px;
-      height: 300px;
+      width: 18.75rem;
+      height: 18.75rem;
       background-image: url(../src/assets/img/noimg.png);
 
       img {
         width: 100%;
         object-fit: cover;
+      }
+
+      @media (max-width: 400px) {
+        width: 15.625rem;
+        height: 15.625rem;
       }
     }
   }
@@ -217,9 +230,20 @@
     width: 5rem;
     height: 5rem;
     background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #ff9c97;
     border-radius: 50%;
     box-shadow: 0px 4px 4px 0px rgba(178, 109, 120, 0.25);
+
+    .pause {
+      display: none;
+    }
+  }
+
+  #youtubePlayer {
+    display: none;
   }
 }
 
