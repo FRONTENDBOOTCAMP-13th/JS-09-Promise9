@@ -38,3 +38,18 @@ function updateImg(line) {
   const filename = emotionImages[emotion] || emotionImages.default;
   characterImg.src = `/src/assets/img/${filename}`;
 }
+
+const scenes = {
+  scene1: {
+    text: "오늘 뭐 하고 싶어?",
+    easterEgg: 0,
+    choices: [
+      { text: "영화 보기", nextScene: "movieScene", emotion: "relax", },
+      { text: "카페 가기", nextScene: "cafeScene", emotion: "happy", },
+      { text: "그냥 집에 있기", nextScene: "homeScene", emotion: "sad", },
+      { text: "영화 보기", nextScene: "movieScene", emotion: "lonely", },
+      { text: "카페 가기", nextScene: "cafeScene", emotion: "excited", },
+      { text: "그냥 집에 있기", nextScene: "homeScene", emotion: "fresh", },
+    ]
+  },
+};
