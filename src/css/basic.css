@@ -1,0 +1,24 @@
+/* 스크린리더 사용자를 위한 클래스 (화면에는 보이지 않지만 스크린 리더 사용자는 접근해서 읽을 수 있음) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+button {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
