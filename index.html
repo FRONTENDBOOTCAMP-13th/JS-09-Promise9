@@ -14,11 +14,10 @@
       type="font/woff2"
       crossorigin
     />
-    <link
-      rel="stylesheet"
-      href="/public/assets/fonts/pretendard/pretendardvariable.css"
-    />
+    <link rel="stylesheet" href="/public/assets/fonts/pretendard/pretendardvariable.css" />
     <script type="module" src="/src/main.ts"></script>
+    <!-- Kakao SDK 외부에서 직접 불러오기 -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   </head>
   <body>
     <div class="index-wrap">
@@ -28,6 +27,9 @@
         </li>
         <li>
           <a href="/src/pages/result.html">결과페이지</a>
+        </li>
+        <li>
+          <button id="shareBtn">카카오톡으로 공유하기</button>
         </li>
       </ul>
     </div>
