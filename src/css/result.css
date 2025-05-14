@@ -136,7 +136,7 @@
 /*=====***** 상태별 배경 *****=====*/
 /* happy */
 .musiclists-wrap.happy {
-  background: url(/src/assets/img/playlists/playlists-happy.png) center center / cover
+  background: url(/assets/img/playlists/playlists-happy.png) center center / cover
     no-repeat;
 
   /* 음악 프로그레스바 */
@@ -158,8 +158,7 @@
 }
 
 .musiclists-wrap.sad {
-  background: url(/src/assets/img/playlists/playlists-sad.png) center center / cover
-    no-repeat;
+  background: url(/assets/img/playlists/playlists-sad.png) center center / cover no-repeat;
 
   /* 음악 프로그레스바 */
   .music-progressbar {
