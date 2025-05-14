@@ -10,11 +10,12 @@ const config = {
   // 여러 줄의 쉼표로 구분된 구문 구조에서 후행 쉼표를 추가(none: 설정 안함, es5: 객체,배열에 설정, all(기본값): 함수 정의나 호출 등 가능한 모든 곳에 설정)
   trailingComma: 'all',
   // 한줄에 80 글자가 넘어가면 줄바꿈(기본값 80)
-  printWidth: 120,
+  printWidth: 90,
   // 화살표 함수의 매개변수가 하나만 지정될 때 괄호 생략(always: 항상 괄호 명시, avoid: 가능하면 생략)
   arrowParens: 'always',
   // windows에 뜨는 'Delete cr' 에러 해결
   endOfLine: 'auto',
+  bracketSameLine: true,
 };
 
 module.exports = config;
