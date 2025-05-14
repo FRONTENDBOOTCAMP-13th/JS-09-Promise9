@@ -17,8 +17,6 @@ type PlayLists = {
 
 // 감정에 따른 플레이리스트
 const playLists: PlayLists = {
-  // https://www.youtube.com/embed/3yaab2_EEHM?enablejsapi=1',  // 아이스크림
-  // https://www.youtube.com/embed/3yaab2_EEHM?si=6I6RbZnSLEpTUR__
   happy: [
     {
       url: 'https://www.youtube.com/embed/A9MjGpCRmoQ?enablejsapi=1',
@@ -84,6 +82,39 @@ const playLists: PlayLists = {
       img: 'sad05.jpg',
     },
   ],
+
+  excited: [
+    {
+      url: 'https://www.youtube.com/embed/3yaab2_EEHM?enablejsapi=1',
+      title: '愛♡スクリ～ム！',
+      singer: 'AiScReam',
+      img: 'excited01.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/RuCTeTMEtAk?enablejsapi=1',
+      title: 'poppop',
+      singer: 'NCT WISH',
+      img: 'excited02.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/cQY5brXxEig?enablejsapi=1',
+      title: 'Super Shy',
+      singer: 'NewJeans',
+      img: 'excited03.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/jhOVibLEDhA?enablejsapi=1',
+      title: '恋(Koi)',
+      singer: 'Gen Hoshino(星野 源)',
+      img: 'excited04.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/AtUNXZNgZ3w?enablejsapi=1',
+      title: 'JACKPOT',
+      singer: '블락비',
+      img: 'excited05.jpg',
+    },
+  ],
 };
 
 // -----------------------------------샛별님 함수 쓸 예정
@@ -95,8 +126,9 @@ type EmotionScores = {
 
 // 감정별 점수 객체 (예시 값)
 const emotionScores: EmotionScores = {
-  happy: 5, // 예시 점수
-  sad: 6, // 예시 점수
+  happy: 1,
+  sad: 1,
+  excited: 6,
 };
 
 /**

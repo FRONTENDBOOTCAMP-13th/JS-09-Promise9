@@ -38,11 +38,9 @@
     width: 100%;
   }
 
-  &:hover {
-    background: #e2e2e2;
-  }
-
+  &:hover,
   &:focus {
-    background: #e2e2e2;
+    color: #fff;
+    background: #7a7a7a;
   }
 }
