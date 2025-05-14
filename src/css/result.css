@@ -39,7 +39,7 @@
     .music-img {
       width: 18.75rem;
       height: 18.75rem;
-      background-image: url(../src/assets/img/noimg.png);
+      background-color: white;
 
       img {
         width: 100%;
