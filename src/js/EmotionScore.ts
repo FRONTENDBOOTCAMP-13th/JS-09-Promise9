@@ -7,10 +7,10 @@ interface Choice {
   easterEgg?: number;
 }
 
-interface Scene {
-  lines: string[];
-  choices: Choice[];
-}
+// interface Scene {
+//   lines: string[];
+//   choices: Choice[];
+// }
 
 const emotionScores: Record<Emotion, number> = {
   relax: 0,
@@ -21,14 +21,14 @@ const emotionScores: Record<Emotion, number> = {
   fresh: 0,
 };
 
-const scene1: Scene = {
-  lines: ['[등굣길]', '어...? 얼굴이 조금 피곤해 보여...<br/>설마 어제 잠 못 잔거야?'],
-  choices: [
-    { text: '영화 보기', nextScene: 'movieScene', emotion: 'relax' },
-    { text: '카페 가기', nextScene: 'cafeScene', emotion: 'happy' },
-    { text: '그냥 집에 있기', nextScene: 'homeScene', emotion: 'sad', easterEgg: 0 },
-  ],
-};
+// const scene1: Scene = {
+//   lines: ['[등굣길]', '어...? 얼굴이 조금 피곤해 보여...<br/>설마 어제 잠 못 잔거야?'],
+//   choices: [
+//     { text: '영화 보기', nextScene: 'movieScene', emotion: 'relax' },
+//     { text: '카페 가기', nextScene: 'cafeScene', emotion: 'happy' },
+//     { text: '그냥 집에 있기', nextScene: 'homeScene', emotion: 'sad', easterEgg: 0 },
+//   ],
+// };
 
 /**
  * handleChoice
