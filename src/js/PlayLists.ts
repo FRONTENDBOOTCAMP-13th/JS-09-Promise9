@@ -115,6 +115,39 @@ const playLists: PlayLists = {
       img: 'excited05.jpg',
     },
   ],
+
+  relax: [
+    {
+      url: 'https://www.youtube.com/embed/uG2se-8-BzE?enablejsapi=1',
+      title: '기다린 만큼, 더',
+      singer: '검정치마',
+      img: 'relax01.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/_XFuXLliXlY?enablejsapi=1',
+      title: '사랑 없이 사는게 왜 그렇게 어려울까요',
+      singer: '겸',
+      img: 'relax02.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/COcuU8LKawk?enablejsapi=1',
+      title: '숲',
+      singer: '최유리',
+      img: 'relax03.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/bL0Y4C76mCs?enablejsapi=1',
+      title: "You Can't Control Who You Fall For",
+      singer: 'Victor Lundberg',
+      img: 'relax04.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/AjW_F-mkfU0?enablejsapi=1',
+      title: 'Aoiito',
+      singer: 'Awaku,Moroku.',
+      img: 'relax05.jpg',
+    },
+  ],
 };
 
 // -----------------------------------샛별님 함수 쓸 예정
@@ -128,7 +161,8 @@ type EmotionScores = {
 const emotionScores: EmotionScores = {
   happy: 1,
   sad: 1,
-  excited: 6,
+  excited: 1,
+  relax: 6,
 };
 
 /**
@@ -140,15 +174,21 @@ const emotionScores: EmotionScores = {
  */
 
 function resultEmotionScore(scores: EmotionScores): string {
+  // function resultEmotionScore(scores: EmotionScores): string[] {
   let highScore = -1;
   let resultEmotion = '';
+  // let resultEmotion: string[] = [];
 
   for (const emotion in scores) {
     const score = scores[emotion];
     if (score > highScore) {
       highScore = score;
       resultEmotion = emotion;
+      // resultEmotion = [emotion];
     }
+    // else if (score === highScore) {
+    //   resultEmotion.push(emotion);
+    // }
   }
 
   return resultEmotion;
@@ -209,6 +249,7 @@ function updateMusic(song: Song, mood: string) {
 // -----------------------------
 const resultEmotion = resultEmotionScore(emotionScores);
 const randomSong = getRandomSong(playLists, resultEmotion);
-console.log(randomSong);
+// console.log(randomSong);
+// console.log(resultEmotion);
 
 updateMusic(randomSong, resultEmotion);

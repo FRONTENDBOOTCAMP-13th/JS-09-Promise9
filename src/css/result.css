@@ -63,7 +63,7 @@
     gap: 0.5rem;
 
     .music-title {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 500;
     }
 
@@ -239,23 +239,33 @@
 
 /* relax */
 .musiclists-wrap.relax {
-  background: url(/assets/img/playlists/playlists-sad.png) center center / cover no-repeat;
+  background: url(/assets/img/playlists/playlists-relax.png) center center / cover
+    no-repeat;
 
   /* 음악 프로그레스바 */
   .music-progressbar {
     .progress-status {
-      background: #70bfff;
+      background: #047c00;
 
       &:after {
-        background-color: #70bfff;
+        background-color: #047c00;
       }
     }
   }
 
   /* 음악 재생버튼 */
   .music-btn {
-    color: #70bfff;
-    box-shadow: 0px 4px 4px 0px rgba(109, 147, 178, 0.25);
+    color: #047c00;
+    box-shadow: 0px 4px 4px 0px rgba(0, 109, 27, 0.25);
+  }
+
+  /* 하단 버튼 */
+  .btn {
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: #035c00;
+    }
   }
 }
 
