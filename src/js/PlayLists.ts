@@ -1,3 +1,7 @@
+// -----------------------------
+//      타입 지정 및 객체 설정
+// -----------------------------
+
 // 노래 정보를 담는 타입
 type Song = {
   url: string;
@@ -35,15 +39,15 @@ const playLists: PlayLists = {
       img: 'happy03.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/9Ibf10h9U0c?enablejsapi=1',
+      url: 'https://www.youtube.com/embed/B9kmcigMv-M?enablejsapi=1',
       title: 'I Am Better Off',
       singer: 'Wildson',
       img: 'happy04.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/Ry1RrIVyl1M?enablejsapi=1',
-      title: '恋愛サーキュレーション ("化物語"OP)',
-      singer: '花澤香菜',
+      url: 'https://www.youtube.com/embed/2sy3H9rnk9A?enablejsapi=1',
+      title: 'サムライハ-ト(Some Like It Hot!!)',
+      singer: 'スパイエアー(SPYAIR)',
       img: 'happy05.jpg',
     },
   ],
@@ -120,6 +124,10 @@ function resultEmotionScore(scores: EmotionScores): string {
 
 // -----------------------------------
 
+// -----------------------------
+//      함수 정의
+// -----------------------------
+
 /**
  * 주어진 감정에 해당하는 플레이리스트에서 랜덤한 노래 하나를 반환
  *
@@ -137,7 +145,38 @@ function getRandomSong(playLists: PlayLists, mood: string): Song {
   return resultSongs[randomIndex];
 }
 
-const bestEmotion = resultEmotionScore(emotionScores);
-const randomSong = getRandomSong(playLists, bestEmotion);
-console.log(bestEmotion);
+/**
+ * 전달받은 노래와 감정에 따라 음악 관련 UI를 업데이트
+ *
+ * @function updateMusic
+ * @param {Song} song - 선택된 노래 객체
+ * @param {string} mood - 감정 키 (예: 'happy', 'sad')
+ * @returns {void}
+ */
+
+function updateMusic(song: Song, mood: string) {
+  const musicLists = document.querySelector('.musiclists-wrap') as HTMLElement;
+  const musicImg = document.querySelector('.music-box img') as HTMLImageElement;
+  const musicTitle = document.querySelector('.music-box .music-title') as HTMLElement;
+  const musicSinger = document.querySelector('.music-box .music-singer') as HTMLElement;
+  const musicIframe = document.querySelector('#youtubePlayer') as HTMLIFrameElement;
+  // 감정 클래스 추가
+  musicLists.classList.add(mood);
+
+  // UI업데이트
+  musicImg.src = `/src/assets/img/playlists/${song.img}`;
+  musicTitle.textContent = song.title;
+  musicSinger.textContent = song.singer;
+
+  // Iframe업데이트
+  musicIframe.src = song.url;
+}
+
+// -----------------------------
+//      함수 호출
+// -----------------------------
+const resultEmotion = resultEmotionScore(emotionScores);
+const randomSong = getRandomSong(playLists, resultEmotion);
 console.log(randomSong);
+
+updateMusic(randomSong, resultEmotion);
