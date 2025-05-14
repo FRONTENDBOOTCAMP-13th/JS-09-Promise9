@@ -64,7 +64,7 @@
       </div>
     </section>
 
-    <!-- 프롤로그 2-1 : 교실-->
+    <!-- 프롤로그 2-1 : 교실 창가-->
     <section
       class="playlists-wrap room"
       data-prolog="classWindowScene"
@@ -80,16 +80,9 @@
         <div class="conversation-wrap line-box">
           <p class="name-tag">{girls.name}</p>
           <ul class="conversation-box">
-            <li class="line" data-emotion="default">[하교]</li>
+            <li class="line" data-emotion="default">[교실 창가에 기대어]</li>
             <li class="line" data-emotion="sad">
-              <p>asdfasdfasdf...</p>
-              <p>설마 어제 잠 못 잔 거야?</p>
-            </li>
-            <li class="line narration" data-emotion="default">
-              (잠깐 {user.name}을 바라보다가 조심스럽게 말을 잇는다)
-            </li>
-            <li class="line" data-emotion="concern">
-              <p>나한텐 말해줘도 괜찮아. {user.name} 네 기분 알고 싶어.</p>
+              {user.name} 너는 말이야, 무언가에 푹 빠진 적 있어?
             </li>
           </ul>
           <button class="next-btn">다음</button>
@@ -103,7 +96,7 @@
       </div>
     </section>
 
-    <!-- 프롤로그 2-2 : 교실-->
+    <!-- 프롤로그 2-2 : 수업시간 쪽지 -->
     <section
       class="playlists-wrap room"
       data-prolog="classNoteScene"
@@ -119,17 +112,182 @@
         <div class="conversation-wrap line-box">
           <p class="name-tag">{girls.name}</p>
           <ul class="conversation-box">
-            <li class="line" data-emotion="default">[등ㅇㄴ굣길]</li>
+            <li class="line" data-emotion="default">[수업시간, 쪽지를 받는다]</li>
             <li class="line" data-emotion="sad">
-              <p>어...? 얼굴이 조금 피곤해 보여...</p>
-              <p>설마 어제 잠 못 잔 거야?</p>
+              『살짝 접힌 쪽지, 조심스럽게 펼치면…』
             </li>
             <li class="line narration" data-emotion="default">
-              (잠깐 {user.name}을 바라보다가 조심스럽게 말을 잇는다)
+              <p>매점에 신상빵 나왔다던데</p>
+              <p>오늘 점심은... 급식 말고, 매점 어때?</p>
             </li>
-            <li class="line" data-emotion="concern">
-              <p>나한텐 말해줘도 괜찮아. {user.name} 네 기분 알고 싶어.</p>
+          </ul>
+          <button class="next-btn">다음</button>
+          <button class="prev-btn">이전</button>
+        </div>
+
+        <div class="conversation-wrap user-select">
+          <p class="name-tag">{user.name}</p>
+          <ul class="select-box"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 프롤로그 2-3 : 복도 창가 -->
+    <section
+      class="playlists-wrap room"
+      data-prolog="hallwayWindowScene"
+      style="display: none">
+      <div class="character-img-wrap">
+        <img
+          id="character-img"
+          src="/src/assets/img/girl-default.png"
+          alt="기본 캐릭터" />
+      </div>
+
+      <div class="container">
+        <div class="conversation-wrap line-box">
+          <p class="name-tag">{girls.name}</p>
+          <ul class="conversation-box">
+            <li class="line" data-emotion="default">
+              [복도 창가에 기대어 조용히 말한다]
             </li>
+            <li class="line" data-emotion="sad">
+              <p>햇살 따듯하고... 바람도 살랑거리고...</p>
+              <p>이런 날엔 왠지 마음이 조금 가벼워지지 않아?</p>
+            </li>
+            <li class="line narration" data-emotion="default">
+              너라면... 지금 뭘 하고 싶어질까?
+            </li>
+          </ul>
+          <button class="next-btn">다음</button>
+          <button class="prev-btn">이전</button>
+        </div>
+
+        <div class="conversation-wrap user-select">
+          <p class="name-tag">{user.name}</p>
+          <ul class="select-box"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 프롤로그 3-1 : 매점 -->
+    <section class="playlists-wrap room" data-prolog="stallScene" style="display: none">
+      <div class="character-img-wrap">
+        <img
+          id="character-img"
+          src="/src/assets/img/girl-default.png"
+          alt="기본 캐릭터" />
+      </div>
+
+      <div class="container">
+        <div class="conversation-wrap line-box">
+          <p class="name-tag">{girls.name}</p>
+          <ul class="conversation-box">
+            <li class="line" data-emotion="default">[점심시간, 매점 안에서]</li>
+            <li class="line" data-emotion="sad">
+              <p>(매점에 도착하자, 서로 살짝 눈을 마주친다.</p>
+              <p>분위기가 어색한 듯, 하지만 설렘은 가득하다)</p>
+            </li>
+            <li class="line narration" data-emotion="default">
+              <p>(피자빵을 고르며)</p>
+              <p>네가 고른 걸 먹을까?</p>
+              <p>아니면 내가 고른 걸 먹을까?</p>
+            </li>
+          </ul>
+          <button class="next-btn">다음</button>
+          <button class="prev-btn">이전</button>
+        </div>
+
+        <div class="conversation-wrap user-select">
+          <p class="name-tag">{user.name}</p>
+          <ul class="select-box"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 프롤로그 3-2 : 급식실 -->
+    <section
+      class="playlists-wrap room"
+      data-prolog="cafeteriaScene"
+      style="display: none">
+      <div class="character-img-wrap">
+        <img
+          id="character-img"
+          src="/src/assets/img/girl-default.png"
+          alt="기본 캐릭터" />
+      </div>
+
+      <div class="container">
+        <div class="conversation-wrap line-box">
+          <p class="name-tag">{girls.name}</p>
+          <ul class="conversation-box">
+            <li class="line" data-emotion="default">[점심시간, 급식실 안에서]</li>
+            <li class="line" data-emotion="sad">
+              <p>(식탁에 둘이 앉아 가볍게 대화 중,</p>
+              <p>주변은 소란스러운데, 둘만의 특혈한 공기가</p>
+              <p>흐른다.)</p>
+            </li>
+            <li class="line narration" data-emotion="default">
+              <p>급식 맛있긴 한데...</p>
+              <p>너랑 먹으니까 더 맛있는 것 같아</p>
+            </li>
+          </ul>
+          <button class="next-btn">다음</button>
+          <button class="prev-btn">이전</button>
+        </div>
+
+        <div class="conversation-wrap user-select">
+          <p class="name-tag">{user.name}</p>
+          <ul class="select-box"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 프롤로그 4 : 동아리 -->
+    <section class="playlists-wrap room" data-prolog="clubScene" style="display: none">
+      <div class="character-img-wrap">
+        <img
+          id="character-img"
+          src="/src/assets/img/girl-default.png"
+          alt="기본 캐릭터" />
+      </div>
+
+      <div class="container">
+        <div class="conversation-wrap line-box">
+          <p class="name-tag">{girls.name}</p>
+          <ul class="conversation-box">
+            <li class="line" data-emotion="default">[동아리 활동 시간 종이 울린다]</li>
+            <li class="line" data-emotion="sad">내가 선택한 동아리는 무엇일까</li>
+          </ul>
+          <button class="next-btn">다음</button>
+          <button class="prev-btn">이전</button>
+        </div>
+
+        <div class="conversation-wrap user-select">
+          <p class="name-tag">{user.name}</p>
+          <ul class="select-box"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 프롤로그 5 : 비 -->
+    <section class="playlists-wrap room" data-prolog="rainScene" style="display: none">
+      <div class="character-img-wrap">
+        <img
+          id="character-img"
+          src="/src/assets/img/girl-default.png"
+          alt="기본 캐릭터" />
+      </div>
+
+      <div class="container">
+        <div class="conversation-wrap line-box">
+          <p class="name-tag">{girls.name}</p>
+          <ul class="conversation-box">
+            <li class="line" data-emotion="default">[비 오는 하굣길]</li>
+            <li class="line" data-emotion="sad">
+              (조금 당황한 듯, 우산을 찾으며 말한다.)
+            </li>
+            <li class="line" data-emotion="sad">어? 비가 오네... 혹시 우산 있어?</li>
           </ul>
           <button class="next-btn">다음</button>
           <button class="prev-btn">이전</button>
