@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- 폰트설정 -->
+    <link
+      rel="preload"
+      href="/public/assets/fonts/pretendard/woff2/PretendardVariable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="/public/assets/fonts/pretendard/pretendardvariable.css"
+    />
+    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/js/branch-structure.ts"></script>
+  </head>
+  <body>
+    <h1 class="sr-only">두근두근 플레이리스트 게임</h1>
+
+    <!-- 프롤로그 1 : 등굣길 -->
+    <section
+      class="playlists-wrap morning"
+      data-prolog="scene1"
+      style="display: block"
+    >
+      <!-- 캐릭터 이미지 -->
+      <div class="character-img-wrap">
+        <img
+          id="character-img"
+          src="/src/assets/img/girl-default.png"
+          alt="기본 캐릭터"
+        />
+      </div>
+
+      <!-- 대화 컨테이너 1-->
+      <div class="container">
+        <!-- 캐릭터 대화 -->
+        <div class="conversation-wrap line-box">
+          <p class="name-tag">{girls.name}</p>
+          <ul class="conversation-box">
+            <li class="line" data-emotion="default">[등굣길]</li>
+            <li class="line" data-emotion="sad">
+              <p>어...? 얼굴이 조금 피곤해 보여...</p>
+              <p>설마 어제 잠 못 잔 거야?</p>
+            </li>
+            <li class="line narration" data-emotion="default">
+              (잠깐 {user.name}을 바라보다가 조심스럽게 말을 잇는다)
+            </li>
+            <li class="line" data-emotion="concern">
+              <p>나한텐 말해줘도 괜찮아. {user.name} 네 기분 알고 싶어.</p>
+            </li>
+          </ul>
+          <button class="next-btn">다음</button>
+          <button class="prev-btn">이전</button>
+        </div>
+
+        <!-- 사용자 선택지 -->
+        <div class="conversation-wrap user-select">
+          <p class="name-tag">{user.name}</p>
+          <ul class="select-box"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 프롤로그 2-1 : 교실-->
+    <section
+      class="playlists-wrap room"
+      data-prolog="classWindowScene"
+      style="display: none"
+    >
+      <div class="character-img-wrap">
+        <img
+          id="character-img"
+          src="/src/assets/img/girl-default.png"
+          alt="기본 캐릭터"
+        />
+      </div>
+
+      <div class="container">
+        <div class="conversation-wrap line-box">
+          <p class="name-tag">{girls.name}</p>
+          <ul class="conversation-box">
+            <li class="line" data-emotion="default">[하교]</li>
+            <li class="line" data-emotion="sad">
+              <p>asdfasdfasdf...</p>
+              <p>설마 어제 잠 못 잔 거야?</p>
+            </li>
+            <li class="line narration" data-emotion="default">
+              (잠깐 {user.name}을 바라보다가 조심스럽게 말을 잇는다)
+            </li>
+            <li class="line" data-emotion="concern">
+              <p>나한텐 말해줘도 괜찮아. {user.name} 네 기분 알고 싶어.</p>
+            </li>
+          </ul>
+          <button class="next-btn">다음</button>
+          <button class="prev-btn">이전</button>
+        </div>
+
+        <div class="conversation-wrap user-select">
+          <p class="name-tag">{user.name}</p>
+          <ul class="select-box"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 프롤로그 2-2 : 교실-->
+    <section
+      class="playlists-wrap room"
+      data-prolog="classNoteScene"
+      style="display: none"
+    >
+      <div class="character-img-wrap">
+        <img
+          id="character-img"
+          src="/src/assets/img/girl-default.png"
+          alt="기본 캐릭터"
+        />
+      </div>
+
+      <div class="container">
+        <div class="conversation-wrap line-box">
+          <p class="name-tag">{girls.name}</p>
+          <ul class="conversation-box">
+            <li class="line" data-emotion="default">[등ㅇㄴ굣길]</li>
+            <li class="line" data-emotion="sad">
+              <p>어...? 얼굴이 조금 피곤해 보여...</p>
+              <p>설마 어제 잠 못 잔 거야?</p>
+            </li>
+            <li class="line narration" data-emotion="default">
+              (잠깐 {user.name}을 바라보다가 조심스럽게 말을 잇는다)
+            </li>
+            <li class="line" data-emotion="concern">
+              <p>나한텐 말해줘도 괜찮아. {user.name} 네 기분 알고 싶어.</p>
+            </li>
+          </ul>
+          <button class="next-btn">다음</button>
+          <button class="prev-btn">이전</button>
+        </div>
+
+        <div class="conversation-wrap user-select">
+          <p class="name-tag">{user.name}</p>
+          <ul class="select-box"></ul>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
