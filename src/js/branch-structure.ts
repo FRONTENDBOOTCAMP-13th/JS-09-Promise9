@@ -29,38 +29,66 @@ const emotionImages: emotionsBgImg = {
 
 const scene1: Scene = {
   choices: [
-    { text: "영화 보기", nextScene: "movieScene", emotion: "relax" },
-    { text: "카페 가기", nextScene: "libraryScene", emotion: "happy" },
     {
-      text: "그냥 집에 있기",
-      nextScene: "homeScene",
-      emotion: "sad",
+      text: "오늘은 왠지 모르게 기분이 좋아!<br/>네가 있어서 그런가 봐",
+      nextScene: "classWindowScene",
+      emotion: "excited",
       easterEgg: 0,
+    },
+    {
+      text: "...그냥 멍한 느낌이야. 뭔가 비어있는 느낌?",
+      nextScene: "classNoteScene",
+      emotion: "lonely",
+    },
+    {
+      text: "기분이 별로야... 그냥 많이 지쳤어",
+      nextScene: "hallwayWindowScene",
+      emotion: "sad",
     },
   ],
 };
 
-const movieScene: Scene = {
+const classWindowScene: Scene = {
   choices: [
-    { text: "ㅁㅁㅁ 보기", nextScene: "movieScene", emotion: "relax" },
-    { text: "ㄴㄴㄴ 가기", nextScene: "libraryScene", emotion: "happy" },
     {
-      text: "ㅇㅇㅇ 집에 있기",
-      nextScene: "homeScene",
-      emotion: "sad",
+      text: "그런 사람... 나한텐... 바로 너 뿐이야",
+      nextScene: "stallScene",
+      emotion: "happy",
       easterEgg: 0,
+    },
+    {
+      text: "...지금도 그래 너랑 있으면... 마음이 편해져",
+      nextScene: "cafeteriaScene",
+      emotion: "relaxed",
     },
   ],
 };
-const libraryScene: Scene = {
+const classNoteScene: Scene = {
   choices: [
-    { text: "도서관보기", nextScene: "movieScene", emotion: "relax" },
-    { text: "도서서ㄴ 가기", nextScene: "cafeScene", emotion: "happy" },
     {
-      text: "ㅇㅇㅇ 집에 있기",
-      nextScene: "homeScene",
+      text: "좋아, 오늘은 특별히 네 입맛 따라줄게.<br/>신상이라니 궁금하긴 하네",
+      nextScene: "stallScene",
+      emotion: "refresh",
+    },
+    {
+      text: "...근데 나, 급식 먹고 싶은데",
+      nextScene: "cafeteriaScene",
       emotion: "sad",
-      easterEgg: 0,
+    },
+  ],
+};
+
+const hallwayWindowScene: Scene = {
+  choices: [
+    {
+      text: "누군가랑 아무 말 없이 같이 걷고 싶어",
+      nextScene: "stallScene",
+      emotion: "lonely",
+    },
+    {
+      text: "이어폰 꽂고 좋아하는 노래 들으면서 걷고 싶어",
+      nextScene: "cafeteriaScene",
+      emotion: "relaxed",
     },
   ],
 };
@@ -150,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const choiceLi = document.createElement("li");
       const choiceBtn = document.createElement("button");
 
-      choiceBtn.textContent = choice.text;
+      choiceBtn.innerHTML = choice.text;
 
       choiceBtn.addEventListener("click", () => {
         // 현재 선택지 숨기기
@@ -176,8 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
           // 선택한 섹션 보이기
           targetSection.style.display = "block";
         }
-        index = 0;
-        prevIndex = [];
 
         // 다음 질문지로 넘아가기
         moveToScene(choice.nextScene);
@@ -241,6 +267,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function handlePrev() {
+    const section = document.querySelector(
+      '.playlists-wrap[style*="display: block"]'
+    ) as HTMLElement;
+    const lines = section.querySelectorAll(
+      ".conversation-box > .line"
+    ) as NodeListOf<HTMLElement>;
+    const girlTalk = section.querySelector(".line-box") as HTMLElement;
+
     if (prevIndex.length > 0) {
       lines[index].style.display = "none";
       index = prevIndex.pop()!;
