@@ -54,34 +54,34 @@ const playLists: PlayLists = {
 
   sad: [
     {
-      url: 'https://www.youtube.com/embed/3yaab2_EEHM?enablejsapi=1',
-      title: '잘 지내자, 우리',
-      singer: '최유리',
+      url: 'https://www.youtube.com/embed/WbhK3wMXluE?enablejsapi=1',
+      title: 'Bye bye my blue',
+      singer: '백예린',
       img: 'sad01.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/PuPF5WXlNYU?enablejsapi=1',
-      title: '혼자인 밤',
-      singer: '태연',
+      url: 'https://www.youtube.com/embed/EwLMA5XYnKI?enablejsapi=1',
+      title: 'I Loved You',
+      singer: 'DAY6',
       img: 'sad02.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/a-NR-ZAOvZ4?enablejsapi=1',
-      title: '눈물이 차올라서',
-      singer: '백지영',
+      url: 'https://www.youtube.com/embed/q4CbHfW3Ji8?enablejsapi=1',
+      title: 'スパークル',
+      singer: '幾田りら',
       img: 'sad03.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/V0I5eglJMRI?enablejsapi=1',
-      title: 'You Were Beautiful',
-      singer: 'DAY6',
+      url: 'https://www.youtube.com/embed/2bsWj69jhAo?enablejsapi=1',
+      title: '나무 (Always)',
+      singer: '박종민',
       img: 'sad04.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/V0I5eglJMRI?enablejsapi=1',
-      title: 'You Were SAd',
-      singer: 'DAY6',
-      img: 'sad04.jpg',
+      url: 'https://www.youtube.com/embed/OyTIMOlY1ag?enablejsapi=1',
+      title: '12:45',
+      singer: 'Etham',
+      img: 'sad05.jpg',
     },
   ],
 };
@@ -96,7 +96,7 @@ type EmotionScores = {
 // 감정별 점수 객체 (예시 값)
 const emotionScores: EmotionScores = {
   happy: 5, // 예시 점수
-  sad: 1, // 예시 점수
+  sad: 6, // 예시 점수
 };
 
 /**
