@@ -81,3 +81,41 @@ const playLists: PlayLists = {
     },
   ],
 };
+
+// -----------------------------------샛별님 함수 쓸 예정
+
+// 감정별 점수를 나타내는 타입
+type EmotionScores = {
+  [emotion: string]: number;
+};
+
+// 감정별 점수 객체 (예시 값)
+const emotionScores: EmotionScores = {
+  happy: 5, // 예시 점수
+  sad: 1, // 예시 점수
+};
+
+/**
+ * 감정 점수 중 가장 높은 감정을 반환
+ *
+ * @function resultEmotionScore
+ * @param {EmotionScores} scores - 감정별 점수 객체
+ * @returns {string} 가장 점수가 높은 감정 키(happy, sad 등)
+ */
+
+function resultEmotionScore(scores: EmotionScores): string {
+  let highScore = -1;
+  let resultEmotion = '';
+
+  for (const emotion in scores) {
+    const score = scores[emotion];
+    if (score > highScore) {
+      highScore = score;
+      resultEmotion = emotion;
+    }
+  }
+
+  return resultEmotion;
+}
+
+// -----------------------------------
