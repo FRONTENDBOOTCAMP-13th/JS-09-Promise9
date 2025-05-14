@@ -175,10 +175,43 @@ const playLists: PlayLists = {
       img: 'fresh04.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/mQLJzQnfC0A?enablejsapi=1',
+      url: 'https://www.youtube.com/embed/Kq4dbZJakMs?enablejsapi=1',
       title: 'blue',
       singer: 'yung kai',
       img: 'fresh05.jpg',
+    },
+  ],
+
+  lonely: [
+    {
+      url: 'https://www.youtube.com/embed/4QDEWNg5hAM?enablejsapi=1',
+      title: 'Secret Base~君がくれたもの~',
+      singer: '茅野愛衣, 戸松遥, 早見沙織',
+      img: 'lonely01.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/45rc4Goo2dw?enablejsapi=1',
+      title: 'Fine Thank You And You?',
+      singer: '10CM',
+      img: 'lonely02.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/XikFceAeBII?enablejsapi=1',
+      title: '아무것도 상관없어',
+      singer: '허회경',
+      img: 'lonely03.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/EjMTw4xLcBI?enablejsapi=1',
+      title: '밤편지',
+      singer: '아이유(IU)',
+      img: 'lonely04.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/4Fx76jjQCro?enablejsapi=1',
+      title: '외로움이라는 건',
+      singer: '최유리',
+      img: 'lonely05.jpg',
     },
   ],
 };
@@ -196,7 +229,8 @@ const emotionScores: EmotionScores = {
   sad: 1,
   excited: 1,
   relax: 1,
-  fresh: 6,
+  fresh: 1,
+  lonely: 6,
 };
 
 /**

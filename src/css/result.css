@@ -25,6 +25,7 @@
   .result-title {
     text-align: center;
   }
+
   /* 플레이리스트 */
   .music-box {
     display: flex;
@@ -224,7 +225,7 @@
   /* 음악 재생버튼 */
   .music-btn {
     color: #ffa928;
-    box-shadow: 0px 4px 4px 0px rgba(49, 109, 36, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(168, 112, 9, 0.25);
   }
 
   /* 하단 버튼 */
@@ -303,22 +304,39 @@
 
 /* lonely */
 .musiclists-wrap.lonely {
-  background: url(/assets/img/playlists/playlists-sad.png) center center / cover no-repeat;
+  background: url(/assets/img/playlists/playlists-lonely.png) center center / cover
+    no-repeat;
+
+  /* 결과타이틀 */
+  .result-title {
+    color: #fff;
+  }
 
   /* 음악 프로그레스바 */
   .music-progressbar {
+    background: #b8b8b8;
+
     .progress-status {
-      background: #70bfff;
+      background: #e07800;
 
       &:after {
-        background-color: #70bfff;
+        background-color: #e07800;
       }
     }
   }
 
   /* 음악 재생버튼 */
   .music-btn {
-    color: #70bfff;
-    box-shadow: 0px 4px 4px 0px rgba(109, 147, 178, 0.25);
+    color: #e07800;
+    box-shadow: 0px 4px 4px 0px rgba(168, 112, 9, 0.25);
+  }
+
+  /* 하단 버튼 */
+  .btn {
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: rgb(165, 88, 0);
+    }
   }
 }
