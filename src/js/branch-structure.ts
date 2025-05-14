@@ -217,10 +217,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 씬 찾기
   function getSceneByPrologId(prologId: string): Scene {
     switch (prologId) {
-      case "movieScene":
-        return movieScene;
-      case "libraryScene":
-        return libraryScene;
+      case "classWindowScene":
+        return classWindowScene;
+      case "classNoteScene":
+        return classNoteScene;
       default:
         return scene1;
     }
