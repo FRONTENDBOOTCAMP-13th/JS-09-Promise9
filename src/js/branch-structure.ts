@@ -69,6 +69,7 @@ const classNoteScene: Scene = {
       text: '좋아, 오늘은 특별히 네 입맛 따라줄게.<br/>신상이라니 궁금하긴 하네',
       nextScene: 'stallScene',
       emotion: 'refresh',
+      easterEgg: 0,
     },
     {
       text: '...근데 나, 급식 먹고 싶은데',
@@ -78,20 +79,200 @@ const classNoteScene: Scene = {
   ],
 };
 
-// const hallwayWindowScene: Scene = {
-//   choices: [
-//     {
-//       text: "누군가랑 아무 말 없이 같이 걷고 싶어",
-//       nextScene: "stallScene",
-//       emotion: "lonely",
-//     },
-//     {
-//       text: "이어폰 꽂고 좋아하는 노래 들으면서 걷고 싶어",
-//       nextScene: "cafeteriaScene",
-//       emotion: "relaxed",
-//     },
-//   ],
-// };
+const hallwayWindowScene: Scene = {
+  choices: [
+    {
+      text: '누군가랑 아무 말 없이 같이 걷고 싶어',
+      nextScene: 'stallScene',
+      emotion: 'lonely',
+    },
+    {
+      text: '이어폰 꽂고 좋아하는 노래 들으면서 걷고 싶어',
+      nextScene: 'cafeteriaScene',
+      emotion: 'relaxed',
+    },
+  ],
+};
+
+const stallScene: Scene = {
+  choices: [
+    {
+      text: '네가 고른 거! 꼭 먹어보고 싶어!<br/>너의 취향이 궁금하거든...',
+      nextScene: 'clubScene',
+      emotion: 'excited',
+      easterEgg: 0,
+    },
+    {
+      text: '음, 둘 다 먹어야지! 두 개 다 맛있을 거 같아.',
+      nextScene: 'clubScene',
+      emotion: 'excited',
+    },
+  ],
+};
+const cafeteriaScene: Scene = {
+  choices: [
+    {
+      text: '나도, 너랑 먹으니까 괜히 맛있어',
+      nextScene: 'clubScene',
+      emotion: 'happy',
+      easterEgg: 0,
+    },
+    {
+      text: '그치만, 급식은 그냥 그런 맛인 것 같아.<br/>평소랑 다를 게 없네...',
+      nextScene: 'clubScene',
+      emotion: 'sad',
+    },
+  ],
+};
+
+const clubScene: Scene = {
+  choices: [
+    {
+      text: '시끌벅적 흥이 넘치는 밴드부',
+      nextScene: 'rainScene',
+      emotion: 'excited',
+    },
+    {
+      text: '최신 영화를 즐겨보는 영화감상부',
+      nextScene: 'rainScene',
+      emotion: 'refresh',
+    },
+    {
+      text: '조용하게 차를 즐기는 다도부',
+      nextScene: 'rainScene',
+      emotion: 'relaxed',
+    },
+  ],
+};
+
+const rainScene: Scene = {
+  choices: [
+    {
+      text: '어, 내가 우산 갖고 있어. 같이 가자',
+      nextScene: 'rainStopScene',
+      emotion: 'happy',
+    },
+    {
+      text: '혹시 우산 없으면 같이 기다릴까?<br/>비가 좀 그칠 때까지...',
+      nextScene: 'rainStopScene',
+      emotion: 'refresh',
+      easterEgg: 0,
+    },
+    {
+      text: '아쉽게도 우산은 없는데... 그냥 뛰어서 갈래?',
+      nextScene: 'rainStopScene',
+      emotion: 'refresh',
+    },
+  ],
+};
+
+const rainStopScene: Scene = {
+  choices: [
+    {
+      text: '그래, 비도 그쳤으니까<br/>걷는 김에 집에 데려다줄게.',
+      nextScene: 'nextDayScene',
+      emotion: 'refresh',
+      easterEgg: 0,
+    },
+    {
+      text: '미안... 오늘은 좀 피곤해서, 먼저 집에 갈게',
+      nextScene: 'nextDayScene',
+      emotion: 'lonely',
+    },
+  ],
+};
+
+const arcadeScene: Scene = {
+  choices: [
+    {
+      text: '계속 옆에 있었는데... 네가 너무 집중하고 있어서, 괜히 말 걸기 망설여졌어.',
+      nextScene: 'cafeScene',
+      emotion: 'sad',
+    },
+    {
+      text: '헐, 너였어? 나 진짜 몰랐는데...<br/>여긴 어떻게 온 거야?',
+      nextScene: 'cafeScene',
+      emotion: 'excited',
+    },
+  ],
+};
+const movieScene: Scene = {
+  choices: [
+    {
+      text: '(얼굴이 붉어지며)<br/>응, 나도! 이렇게 우연히 만날 줄 몰랐어.<br/>기분 진짜 좋다',
+      nextScene: 'cafeScene',
+      emotion: 'happy',
+      easterEgg: 0,
+    },
+    {
+      text: '어, 카리나? 이렇게 마주칠 줄은 몰랐어...<br/>사실, 조금 놀랐어',
+      nextScene: 'cafeScene',
+      emotion: 'refresh',
+    },
+  ],
+};
+
+const bookstoreScene: Scene = {
+  choices: [
+    {
+      text: '그러게, 같이 봤으면 더 재밌었을 텐데.<br/>다음에는 같이 보자~ 약속!',
+      nextScene: 'cafeScene',
+      emotion: 'refresh',
+    },
+    {
+      text: '사실... 나는 영화 혼자 보는 거 좋아해',
+      nextScene: 'cafeScene',
+      emotion: 'lonely',
+    },
+  ],
+};
+const cafeScene: Scene = {
+  choices: [
+    {
+      text: '신나는 댄스 음악 듣는 걸 좋아해.<br/>기분 좋을 때 듣기 딱 좋아',
+      nextScene: 'lastChoiceScene',
+      emotion: 'refresh',
+    },
+    {
+      text: '클래식이나 어쿠스틱 음악을 많이 들어.<br/>차분한 분위기에서 힐링되는 느낌이 좋아',
+      nextScene: 'lastChoiceScene',
+      emotion: 'lonely',
+    },
+    {
+      text: '슬픈 노래 들으면서 우는 걸 좋아해.<br/>그런 노래가 위로가 되는 것 같아.',
+      nextScene: 'lastChoiceScene',
+      emotion: 'lonely',
+    },
+  ],
+};
+const busScene: Scene = {
+  choices: [
+    {
+      text: '오, 진짜? 나도 오늘 즐거웠어!<br/>월요일에 같이 가면 좋겠다. 기대된다!',
+      nextScene: 'endingScene',
+      emotion: 'happy',
+    },
+    {
+      text: '월요일에는 친구랑 약속이 있어서...<br/>다음에 꼭 같이 가자!',
+      nextScene: 'endingScene',
+      emotion: 'lonely',
+    },
+  ],
+};
+const parkScene: Scene = {
+  choices: [
+    {
+      text: '고마워. 나도 너무 좋아! 오늘부터 1일이다!',
+      nextScene: 'loveScene',
+      emotion: 'excited',
+    },
+    {
+      text: '나는... 우리 그냥 친구로 지내는게 좋을 것 같아. 친구 이상은 아닌 것 같아...',
+      nextScene: 'breakScene',
+      emotion: 'sad',
+    },
+  ],
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
@@ -217,6 +398,30 @@ document.addEventListener('DOMContentLoaded', () => {
         return classWindowScene;
       case 'classNoteScene':
         return classNoteScene;
+      case 'hallwayWindowScene':
+        return hallwayWindowScene;
+      case 'stallScene':
+        return stallScene;
+      case 'cafeteriaScene':
+        return cafeteriaScene;
+      case 'clubScene':
+        return clubScene;
+      case 'rainScene':
+        return rainScene;
+      case 'rainStopScene':
+        return rainStopScene;
+      case 'arcadeScene':
+        return arcadeScene;
+      case 'movieScene':
+        return movieScene;
+      case 'bookstoreScene':
+        return bookstoreScene;
+      case 'cafeScene':
+        return cafeScene;
+      case 'busScene':
+        return busScene;
+      case 'parkScene':
+        return parkScene;
       default:
         return scene1;
     }
