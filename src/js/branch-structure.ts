@@ -72,10 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const lines = document.querySelectorAll(
     ".conversation-box > .line"
   ) as NodeListOf<HTMLElement>;
-  const girlTalk = document.querySelector(".line-box") as HTMLElement;
-  const selectBox = document.querySelector(
-    ".user-select .select-box"
-  ) as HTMLUListElement;
+
   const characterImg = document.getElementById(
     "character-img"
   ) as HTMLImageElement;
@@ -138,6 +135,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 선택지 함수
   function showChoices(scene: Scene) {
+    const section = document.querySelector(
+      '.playlists-wrap[style*="display: block"]'
+    ) as HTMLElement;
+
+    const selectBox = section.querySelector(
+      ".user-select .select-box"
+    ) as HTMLUListElement;
+
+    console.log();
     selectBox.innerHTML = "";
 
     scene.choices.forEach((choice) => {
@@ -153,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ) as HTMLElement;
         userSelect.style.display = "none";
 
-        // 현재 씬 찾기
+        // 다음 씬 찾기
         const targetSection = document.querySelector(
           `section[data-prolog="${choice.nextScene}"]`
         ) as HTMLElement;
@@ -173,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
         index = 0;
         prevIndex = [];
 
-        // 다음 질문지로 넘아가는 로직
+        // 다음 질문지로 넘아가기
         moveToScene(choice.nextScene);
       });
 
@@ -182,16 +188,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 씬 매핑을 위한 간단한 함수 사용
+  // 씬 찾기
   function getSceneByPrologId(prologId: string): Scene {
     switch (prologId) {
       case "movieScene":
         return movieScene;
       case "libraryScene":
         return libraryScene;
-      // 다른 씬들 추가 가능
       default:
-        return scene1; // 기본 씬
+        return scene1;
     }
   }
 
@@ -202,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const lines = section.querySelectorAll(
       ".conversation-box > .line"
     ) as NodeListOf<HTMLElement>;
+    const girlTalk = section.querySelector(".line-box") as HTMLElement;
 
     if (index < lines.length - 1) {
       prevIndex.push(index);
@@ -219,6 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ) as HTMLElement;
       if (currentSection) {
         const currentSceneId = currentSection.getAttribute("data-prolog");
+
         if (currentSceneId) {
           showChoices(getSceneByPrologId(currentSceneId));
         } else {
@@ -228,7 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showChoices(scene1);
       }
 
-      const userSelect = document.querySelector(".user-select") as HTMLElement;
+      const userSelect = section.querySelector(".user-select") as HTMLElement;
       userSelect.style.display = "block";
     }
   }
