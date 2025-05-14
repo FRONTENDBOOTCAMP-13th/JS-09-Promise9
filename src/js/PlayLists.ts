@@ -119,3 +119,25 @@ function resultEmotionScore(scores: EmotionScores): string {
 }
 
 // -----------------------------------
+
+/**
+ * 주어진 감정에 해당하는 플레이리스트에서 랜덤한 노래 하나를 반환
+ *
+ * @function getRandomSong
+ * @param {PlayLists} playLists - 감정별로 분류된 노래 목록
+ * @param {string} mood - 감정 키 (예: 'happy', 'sad')
+ * @returns {Song} 감정 키에 따라 무작위로 선택된 노래 객체
+ * @throws {Error} 해당 감정에 대한 노래 목록이 없거나 비어있을 경우
+ */
+
+function getRandomSong(playLists: PlayLists, mood: string): Song {
+  const resultSongs = playLists[mood];
+  const randomIndex = Math.floor(Math.random() * resultSongs.length);
+
+  return resultSongs[randomIndex];
+}
+
+const bestEmotion = resultEmotionScore(emotionScores);
+const randomSong = getRandomSong(playLists, bestEmotion);
+console.log(bestEmotion);
+console.log(randomSong);
