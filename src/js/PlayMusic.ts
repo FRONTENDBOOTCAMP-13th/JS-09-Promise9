@@ -64,9 +64,6 @@ function toggleMusic() {
 //      이벤트 등록
 // -----------------------------
 
-/**
- * 사용자가 버튼을 클릭하면 toggleMusic을 호출하여 음악을 제어
- */
 musicBtn?.addEventListener('click', toggleMusic);
 
 /**
@@ -77,6 +74,7 @@ musicBtn?.addEventListener('click', toggleMusic);
  * @function onYouTubeIframeAPIReady
  * @global
  */
+
 window.onYouTubeIframeAPIReady = () => {
   player = new YT.Player('youtubePlayer', {
     events: {
