@@ -1,0 +1,48 @@
+.components-item-wrap {
+  max-width: 500px;
+  margin: 1rem;
+  padding: 1rem;
+  background: #fff;
+  color: #222;
+}
+
+.components-item-wrap.dark {
+  background: #222;
+  color: #fff;
+}
+/*========================================
+          [Components - btn] 
+==========================================*/
+.btn-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+
+.btn {
+  min-width: 7rem;
+  height: 40px;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background: #fff;
+  transition: background 0.3s;
+  color: #222;
+  font-size: 0.875rem;
+
+  @media (max-width: 400px) {
+    min-width: auto;
+    width: 100%;
+  }
+
+  &:hover {
+    background: #e2e2e2;
+  }
+
+  &:focus {
+    background: #e2e2e2;
+  }
+}
