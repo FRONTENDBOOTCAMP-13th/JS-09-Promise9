@@ -164,7 +164,7 @@ function updateMusic(song: Song, mood: string) {
   musicLists.classList.add(mood);
 
   // UI업데이트
-  musicImg.src = `/src/assets/img/playlists/${song.img}`;
+  musicImg.src = `/assets/img/playlists/${song.img}`;
   musicTitle.textContent = song.title;
   musicSinger.textContent = song.singer;
 
