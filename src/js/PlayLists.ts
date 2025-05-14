@@ -148,6 +148,39 @@ const playLists: PlayLists = {
       img: 'relax05.jpg',
     },
   ],
+
+  fresh: [
+    {
+      url: 'https://www.youtube.com/embed/pERDk4KoW-s?enablejsapi=1',
+      title: 'Antifreeze',
+      singer: '백예린',
+      img: 'fresh01.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/G36dgsEKAQQ?enablejsapi=1',
+      title: 'Waving At Cars',
+      singer: 'Isac Elliot',
+      img: 'fresh02.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/U7c4y4qvBGk?enablejsapi=1',
+      title: '내 이름 맑음',
+      singer: 'QWER ',
+      img: 'fresh03.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/5IlZ-dBItAY?enablejsapi=1',
+      title: '한강에서',
+      singer: '폴킴',
+      img: 'fresh04.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/mQLJzQnfC0A?enablejsapi=1',
+      title: 'blue',
+      singer: 'yung kai',
+      img: 'fresh05.jpg',
+    },
+  ],
 };
 
 // -----------------------------------샛별님 함수 쓸 예정
@@ -162,7 +195,8 @@ const emotionScores: EmotionScores = {
   happy: 1,
   sad: 1,
   excited: 1,
-  relax: 6,
+  relax: 1,
+  fresh: 6,
 };
 
 /**

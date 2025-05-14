@@ -269,9 +269,10 @@
   }
 }
 
-/* lonely */
-.musiclists-wrap.lonely {
-  background: url(/assets/img/playlists/playlists-sad.png) center center / cover no-repeat;
+/* fresh */
+.musiclists-wrap.fresh {
+  background: url(/assets/img/playlists/playlists-fresh.png) center center / cover
+    no-repeat;
 
   /* 음악 프로그레스바 */
   .music-progressbar {
@@ -289,9 +290,18 @@
     color: #70bfff;
     box-shadow: 0px 4px 4px 0px rgba(109, 147, 178, 0.25);
   }
+
+  /* 하단 버튼 */
+  .btn {
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: #51b1ff;
+    }
+  }
 }
 
-/* fresh */
+/* lonely */
 .musiclists-wrap.lonely {
   background: url(/assets/img/playlists/playlists-sad.png) center center / cover no-repeat;
 
