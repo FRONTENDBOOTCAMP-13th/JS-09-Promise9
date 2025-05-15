@@ -21,9 +21,22 @@
     <!-- 기능설정 -->
     <script type="module" src="/src/js/branch-structure.ts"></script>
     <script type="module" src="/src/js/EmotionScore.ts"></script>
+    <script type="module" src="/src/js/bgm.ts"></script>
   </head>
   <body>
     <h1 class="sr-only">두근두근 플레이리스트 게임</h1>
+
+    <!-- BGM ON / OFF 버튼 -->
+    <button id="bgm" class="bgmBtn">
+      <img id="bgmOn" src="/src/assets/img/bgmOn.png" alt="백그라운드 사운드 on" />
+      <img
+        id="bgmOff"
+        src="/src/assets/img/bgmOff.png"
+        alt="백그라운드 사운드 off"
+        style="display: none" />
+    </button>
+    <!-- BGM -->
+    <audio id="bgm" src="../../public/bgm/bgm.mp3" autoplay loop></audio>
 
     <!-- 프롤로그 1 : 등굣길 -->
     <section class="playlists-wrap" data-prolog="scene1" style="display: block">
