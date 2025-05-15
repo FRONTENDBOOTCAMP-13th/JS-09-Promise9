@@ -24,6 +24,7 @@
 }
 
 .btn {
+  position: relative;
   min-width: 7rem;
   height: 40px;
   padding: 0.5rem 1rem;
@@ -42,5 +43,59 @@
   &:focus {
     color: #fff;
     background: #7a7a7a;
+  }
+}
+
+.btn-lg {
+  min-width: 9rem;
+  height: auto;
+  padding: 0.875rem 2rem;
+  border-radius: 1.5rem;
+  font-size: 1.25rem;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.btn.gradient {
+  background-image: linear-gradient(to right, #667eea, #764ba2, #6b8dd6, #8e37d7);
+  background-size: 300% 100%;
+  box-shadow: 0 4px 12px 0 rgba(116, 79, 168, 0.75);
+  border-radius: 50px;
+  color: #fff;
+  transition: background 0.3s linear;
+
+  &:hover,
+  &:focus {
+    background-position: 100% 0;
+    transition: all 0.4s ease-in-out;
+  }
+}
+/*========================================
+          [Components - input] 
+==========================================*/
+.flex-box {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-default {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  height: 40px;
+
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+
+  &:hover,
+  &:focus {
+    border: 1px solid #70bfff;
+    box-shadow: 0 0 4px #70bfff;
+    outline: none;
   }
 }
