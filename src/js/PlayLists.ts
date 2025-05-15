@@ -1,16 +1,16 @@
-// -----------------------------
-//      타입 지정 및 객체 설정
-// -----------------------------
+// ==========================================
+//              타입 지정 및 데이터
+// ==========================================
 
-// 노래 정보를 담는 타입
+// 노래 정보를 담는 타입 정의
 type Song = {
-  url: string;
-  title: string;
-  singer: string;
-  img: string;
+  url: string; // 유튜브 영상 URL
+  title: string; // 노래 제목
+  singer: string; // 가수 이름
+  img: string; // 썸네일 이미지 파일명
 };
 
-// 감정 키(happy, sad 등)를 기준으로 분류된 노래 목록
+// 감정별로 분류된 노래 리스트 타입 정의
 type PlayLists = {
   [mood: string]: Song[];
 };
@@ -116,69 +116,69 @@ const playLists: PlayLists = {
     },
   ],
 
-  relax: [
+  relaxed: [
     {
       url: 'https://www.youtube.com/embed/uG2se-8-BzE?enablejsapi=1',
       title: '기다린 만큼, 더',
       singer: '검정치마',
-      img: 'relax01.jpg',
+      img: 'relaxed01.jpg',
     },
     {
       url: 'https://www.youtube.com/embed/_XFuXLliXlY?enablejsapi=1',
       title: '사랑 없이 사는게 왜 그렇게 어려울까요',
       singer: '겸',
-      img: 'relax02.jpg',
+      img: 'relaxed02.jpg',
     },
     {
       url: 'https://www.youtube.com/embed/COcuU8LKawk?enablejsapi=1',
       title: '숲',
       singer: '최유리',
-      img: 'relax03.jpg',
+      img: 'relaxed03.jpg',
     },
     {
       url: 'https://www.youtube.com/embed/bL0Y4C76mCs?enablejsapi=1',
       title: "You Can't Control Who You Fall For",
       singer: 'Victor Lundberg',
-      img: 'relax04.jpg',
+      img: 'relaxed04.jpg',
     },
     {
       url: 'https://www.youtube.com/embed/AjW_F-mkfU0?enablejsapi=1',
       title: 'Aoiito',
       singer: 'Awaku,Moroku.',
-      img: 'relax05.jpg',
+      img: 'relaxed05.jpg',
     },
   ],
 
-  fresh: [
+  refresh: [
     {
       url: 'https://www.youtube.com/embed/pERDk4KoW-s?enablejsapi=1',
       title: 'Antifreeze',
       singer: '백예린',
-      img: 'fresh01.jpg',
+      img: 'refresh01.jpg',
     },
     {
       url: 'https://www.youtube.com/embed/G36dgsEKAQQ?enablejsapi=1',
       title: 'Waving At Cars',
       singer: 'Isac Elliot',
-      img: 'fresh02.jpg',
+      img: 'refresh02.jpg',
     },
     {
       url: 'https://www.youtube.com/embed/U7c4y4qvBGk?enablejsapi=1',
       title: '내 이름 맑음',
       singer: 'QWER ',
-      img: 'fresh03.jpg',
+      img: 'refresh03.jpg',
     },
     {
       url: 'https://www.youtube.com/embed/5IlZ-dBItAY?enablejsapi=1',
       title: '한강에서',
       singer: '폴킴',
-      img: 'fresh04.jpg',
+      img: 'refresh04.jpg',
     },
     {
       url: 'https://www.youtube.com/embed/Kq4dbZJakMs?enablejsapi=1',
       title: 'blue',
       singer: 'yung kai',
-      img: 'fresh05.jpg',
+      img: 'refresh05.jpg',
     },
   ],
 
@@ -218,45 +218,49 @@ const playLists: PlayLists = {
 
 // -----------------------------------샛별님 함수 쓸 예정
 
-// 감정별 점수를 나타내는 타입
+// 감정 점수를 담는 타입 정의
 type EmotionScores = {
-  [emotion: string]: number;
+  relaxed: number;
+  happy: number;
+  sad: number;
+  lonely: number;
+  excited: number;
+  refresh: number;
 };
 
-// 감정별 점수 객체 (예시 값)
+// 감정 점수 초기값 설정 (이후 사용자 입력 등으로 변경될 수 있음)
 const emotionScores: EmotionScores = {
-  happy: 1,
-  sad: 1,
-  excited: 1,
-  relax: 1,
-  fresh: 1,
-  lonely: 6,
+  relaxed: 0,
+  happy: 0,
+  sad: 0,
+  lonely: 0,
+  excited: 0,
+  refresh: 0,
 };
 
 /**
  * 감정 점수 중 가장 높은 감정을 반환
+ * 여러 감정이 같은 최고 점수일 경우 배열로 반환됨
  *
  * @function resultEmotionScore
  * @param {EmotionScores} scores - 감정별 점수 객체
  * @returns {string} 가장 점수가 높은 감정 키(happy, sad 등)
  */
 
-function resultEmotionScore(scores: EmotionScores): string {
-  // function resultEmotionScore(scores: EmotionScores): string[] {
+function resultEmotionScore(scores: EmotionScores): string[] {
   let highScore = -1;
-  let resultEmotion = '';
-  // let resultEmotion: string[] = [];
+  let resultEmotion: string[] = [];
 
   for (const emotion in scores) {
-    const score = scores[emotion];
+    const key = emotion as keyof EmotionScores;
+    const score = scores[key];
+
     if (score > highScore) {
       highScore = score;
-      resultEmotion = emotion;
-      // resultEmotion = [emotion];
+      resultEmotion = [key];
+    } else if (score === highScore) {
+      resultEmotion.push(key);
     }
-    // else if (score === highScore) {
-    //   resultEmotion.push(emotion);
-    // }
   }
 
   return resultEmotion;
@@ -264,12 +268,12 @@ function resultEmotionScore(scores: EmotionScores): string {
 
 // -----------------------------------
 
-// -----------------------------
-//      함수 정의
-// -----------------------------
+// ==========================================
+//                  함수 정의
+// ==========================================
 
 /**
- * 주어진 감정에 해당하는 플레이리스트에서 랜덤한 노래 하나를 반환
+ *  주어진 감정 키에 해당하는 노래 목록에서 무작위로 하나를 선택
  *
  * @function getRandomSong
  * @param {PlayLists} playLists - 감정별로 분류된 노래 목록
@@ -286,7 +290,7 @@ function getRandomSong(playLists: PlayLists, mood: string): Song {
 }
 
 /**
- * 전달받은 노래와 감정에 따라 음악 관련 UI를 업데이트
+ * 전달받은 노래 정보로 UI를 업데이트
  *
  * @function updateMusic
  * @param {Song} song - 선택된 노래 객체
@@ -300,6 +304,7 @@ function updateMusic(song: Song, mood: string) {
   const musicTitle = document.querySelector('.music-box .music-title') as HTMLElement;
   const musicSinger = document.querySelector('.music-box .music-singer') as HTMLElement;
   const musicIframe = document.querySelector('#youtubePlayer') as HTMLIFrameElement;
+
   // 감정 클래스 추가
   musicLists.classList.add(mood);
 
@@ -312,12 +317,17 @@ function updateMusic(song: Song, mood: string) {
   musicIframe.src = song.url;
 }
 
-// -----------------------------
-//      함수 호출
-// -----------------------------
-const resultEmotion = resultEmotionScore(emotionScores);
-const randomSong = getRandomSong(playLists, resultEmotion);
-// console.log(randomSong);
-// console.log(resultEmotion);
+// ==========================================
+//              실행 로직 (시작점)
+// ==========================================
 
-updateMusic(randomSong, resultEmotion);
+// 1. 감정 점수 중 가장 높은 감정을 계산
+const resultEmotion = resultEmotionScore(emotionScores);
+
+// 2. 최고 감정 중 무작위로 하나 선택
+// 3. 감정에 해당하는 노래 중 무작위로 하나 선택
+const randomEmotion = resultEmotion[Math.floor(Math.random() * resultEmotion.length)];
+const randomSong = getRandomSong(playLists, randomEmotion);
+
+// 4. UI에 음악 정보 적용
+updateMusic(randomSong, randomEmotion);
