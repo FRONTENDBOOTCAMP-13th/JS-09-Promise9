@@ -22,7 +22,96 @@ body {
   max-height: 800px;
   margin: 1rem auto;
   padding: 3rem 0;
-  background: url(/src/assets/img/room.png) center center;
+  background: url(/src/assets/img/room.png) center center / cover no-repeat;
+}
+
+.select-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/*=====***** 상황에 따른 배경이미지 *****=====*/
+/* 등굣길 */
+.playlists-wrap[data-prolog='scene1'] {
+  background: url(/src/assets/img/scene1.png) center center / cover no-repeat;
+}
+
+/* 교실창가 */
+.playlists-wrap[data-prolog='classWindowScene'] {
+  background: url(/src/assets/img/classWindowScene.png) center center / cover no-repeat;
+}
+
+/* 수업시간쪽지 */
+.playlists-wrap[data-prolog='classNoteScene'] {
+  background: url(/src/assets/img/classNoteScene.png) center center / cover no-repeat;
+}
+
+/* 복도 창가 */
+.playlists-wrap[data-prolog='hallwayWindowScene'] {
+  background: url(/src/assets/img/hallwayWindowScene.png) center center / cover no-repeat;
+}
+
+/* 매점 */
+.playlists-wrap[data-prolog='stallScene'] {
+  background: url(/src/assets/img/stallScene.png) center center / cover no-repeat;
+}
+
+/* 급식실 */
+.playlists-wrap[data-prolog='cafeteriaScene'] {
+  background: url(/src/assets/img/cafeteriaScene.png) center center / cover no-repeat;
+}
+
+/* 동아리 */
+.playlists-wrap[data-prolog='clubScene'] {
+  background: url(/src/assets/img/clubScene.png) center center / cover no-repeat;
+}
+
+/* 비 */
+.playlists-wrap[data-prolog='rainScene'] {
+  background: url(/src/assets/img/rainScene.png) center center / cover no-repeat;
+}
+
+/* 비 그침 */
+.playlists-wrap[data-prolog='rainStopScene'] {
+  background: url(/src/assets/img/rainStopScene.png) center center / cover no-repeat;
+}
+
+/* 오락실 */
+.playlists-wrap[data-prolog='arcadeScene'] {
+  background: url(/src/assets/img/arcadeScene.png) center center / cover no-repeat;
+}
+
+/* 영화관 */
+.playlists-wrap[data-prolog='movieScene'] {
+  background: url(/src/assets/img/movieScene.png) center center / cover no-repeat;
+}
+
+/* 서점 */
+.playlists-wrap[data-prolog='bookstoreScene'] {
+  background: url(/src/assets/img/bookstoreScene.png) center center / cover no-repeat;
+}
+
+/* 밑에는 아직 이미지 X */
+/* 카페 */
+.playlists-wrap[data-prolog='cafeScene'] {
+  background: url(/src/assets/img/cafeScene.png) center center / cover no-repeat;
+}
+
+/* 버스 */
+.playlists-wrap[data-prolog='busScene'] {
+  background: url(/src/assets/img/busScene.png) center center / cover no-repeat;
+}
+
+/* 공원 */
+.playlists-wrap[data-prolog='parkScene'] {
+  background: url(/src/assets/img/parkScene.png) center center / cover no-repeat;
+}
+
+/* 러브엔딩 */
+.playlists-wrap[data-prolog='loveScene'] {
+  background: url(/src/assets/img/loveScene.png) center center / cover no-repeat;
 }
 
 .container {
@@ -70,6 +159,7 @@ body {
   }
 
   .conversation-box {
+    width: 100%;
     word-break: keep-all;
   }
 
