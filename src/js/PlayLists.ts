@@ -60,7 +60,7 @@ const playLists: PlayLists = {
       img: 'sad01.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/EwLMA5XYnKI?enablejsapi=1',
+      url: 'https://www.youtube.com/embed/_ic_YorjjAY?enablejsapi=1',
       title: 'I Loved You',
       singer: 'DAY6',
       img: 'sad02.jpg',

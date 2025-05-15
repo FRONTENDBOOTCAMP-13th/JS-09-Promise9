@@ -1,44 +1,23 @@
-/**
- * 전역 window 객체에 YouTube API 관련 속성을 선언
- * - onYouTubeIframeAPIReady: API가 로드되면 자동으로 호출
- * - YT: YouTube API 네임스페이스 (iframe player 생성에 사용)
- */
 declare global {
   interface Window {
     onYouTubeIframeAPIReady: () => void;
     YT: any;
   }
 }
+export {};
 
-export {}; // 이 파일이 모듈로 간주되도록 하여 전역 변수 오염 방지
-
-// -----------------------------
-//      상태 및 요소 선언
-// -----------------------------
-
-let isPlaying = false; // true: 재생 중, false: 일시정지 상태
+let isPlaying = false;
 let player: YT.Player | null = null;
 let isPlayerReady = false;
+let progressUpdateInterval: number | null = null;
+let isDragging = false;
 
 const musicBtn = document.querySelector('#musicBtn');
 const playIcon = document.querySelector('#musicBtn > .play');
 const pauseIcon = document.querySelector('#musicBtn > .pause');
-
-// -----------------------------
-//      함수 정의
-// -----------------------------
-
-/**
- * 음악 재생 상태를 토글
- *
- * @function toggleMusic
- * @returns {void}
- *
- * @description
- * - 유튜브 플레이어가 준비되지 않았으면 콘솔 경고 후 실행 중단
- * - isPlaying 값을 반전시키고, 이에 따라 아이콘과 재생 상태를 변경
- * - 접근성 향상을 위한 aria-label 속성도 함께 변경
- */
+const progressBar = document.querySelector('.music-progressbar') as HTMLElement;
+const progressStatus = document.querySelector('.progress-status') as HTMLElement;
+const dot = document.querySelector('.dot') as HTMLElement;
 
 function toggleMusic() {
   if (!isPlayerReady || !player) {
@@ -53,61 +32,160 @@ function toggleMusic() {
 
   if (isPlaying) {
     player.playVideo();
+    startProgressUpdate();
   } else {
     player.pauseVideo();
+    stopProgressUpdate();
   }
 
   musicBtn?.setAttribute('aria-label', isPlaying ? '일시정지' : '재생');
+}
 
-  const remainTime = getRamainTime();
-  if (remainTime !== null) {
-    console.log(remainTime);
+function startProgressUpdate() {
+  if (progressUpdateInterval !== null) return;
+
+  progressUpdateInterval = window.setInterval(() => {
+    if (!isDragging) updateProgressBar();
+  }, 100);
+}
+
+function stopProgressUpdate() {
+  if (progressUpdateInterval !== null) {
+    window.clearInterval(progressUpdateInterval);
+    progressUpdateInterval = null;
   }
 }
 
-// 남은 시간 함수
-function getRamainTime(): string | null {
-  if (!isPlayerReady || !player) {
-    console.warn('플레이어가 준비되지 않았습니다.');
-    return null;
+function updateProgressBar() {
+  if (!isPlayerReady || !player || !progressStatus) return;
+
+  const duration = player.getDuration();
+  const currentTime = player.getCurrentTime();
+
+  if (duration > 0) {
+    const percent = (currentTime / duration) * 100;
+    updateProgressUI(percent);
   }
-
-  const duration = player?.getDuration(); // 영상 전체 길이
-  const currentTime = player?.getCurrentTime(); // 영상 재생 중인 시간
-
-  const timeString = formatTime(Math.trunc(duration - currentTime));
-  return timeString; // 남은 시간
 }
 
-// 남은 시간 분:초
-function formatTime(time: number): string {
-  const minutes = Math.floor(time / 60);
-  const seconds = Math.floor(time % 60);
-
-  return `${minutes}:${seconds}`;
+// 프로그레스 UI만 업데이트하는 함수 분리
+function updateProgressUI(percent: number) {
+  progressStatus.style.width = `${percent}%`;
 }
 
-// -----------------------------
-//      이벤트 등록
-// -----------------------------
+function seekToPercent(percent: number) {
+  if (!isPlayerReady || !player) return;
 
+  // 퍼센트 값 범위 제한 (0~1)
+  percent = Math.max(0, Math.min(1, percent));
+
+  const duration = player.getDuration();
+  const newTime = duration * percent;
+  player.seekTo(newTime, true);
+  updateProgressUI(percent * 100);
+}
+
+function onProgressBarClick(event: MouseEvent) {
+  if (!isPlayerReady || !player) return;
+
+  // 드래그 중에는 처리하지 않음
+  if (isDragging) return;
+
+  const bounds = progressBar.getBoundingClientRect();
+  const clickX = event.clientX - bounds.left;
+  const percent = clickX / bounds.width;
+
+  seekToPercent(percent);
+}
+
+// 드래그 기능 개선
+function onDragStart(event: MouseEvent | TouchEvent) {
+  event.preventDefault(); // 기본 동작 방지
+
+  isDragging = true;
+
+  // 드래그 시작 즉시 위치 업데이트
+  const clientX = 'touches' in event ? event.touches[0].clientX : event.clientX;
+  updateDragPosition(clientX);
+
+  document.addEventListener('mousemove', onDragMove, { passive: false });
+  document.addEventListener('mouseup', onDragEnd);
+  document.addEventListener('touchmove', onDragMove, { passive: false });
+  document.addEventListener('touchend', onDragEnd);
+}
+
+function onDragMove(event: MouseEvent | TouchEvent) {
+  if (!isDragging) return;
+
+  event.preventDefault(); // 기본 동작 방지
+
+  const clientX = 'touches' in event ? event.touches[0].clientX : event.clientX;
+  updateDragPosition(clientX);
+}
+
+// 드래그 위치 업데이트 함수 분리
+function updateDragPosition(clientX: number) {
+  const bounds = progressBar.getBoundingClientRect();
+  const offsetX = Math.min(Math.max(0, clientX - bounds.left), bounds.width);
+  const percent = offsetX / bounds.width;
+
+  // UI만 업데이트 (실제 재생 위치는 드래그 종료 시 변경)
+  updateProgressUI(percent * 100);
+}
+
+function onDragEnd(event: MouseEvent | TouchEvent) {
+  if (!isDragging) return;
+
+  // 마지막 위치 계산
+  const clientX =
+    'changedTouches' in event ? event.changedTouches[0].clientX : event.clientX;
+
+  const bounds = progressBar.getBoundingClientRect();
+  const offsetX = Math.min(Math.max(0, clientX - bounds.left), bounds.width);
+  const percent = offsetX / bounds.width;
+
+  // 드래그 종료 시 실제 재생 위치 변경
+  seekToPercent(percent);
+
+  // 드래그 상태 및 이벤트 리스너 정리
+  isDragging = false;
+  document.removeEventListener('mousemove', onDragMove);
+  document.removeEventListener('mouseup', onDragEnd);
+  document.removeEventListener('touchmove', onDragMove);
+  document.removeEventListener('touchend', onDragEnd);
+
+  // 재생 중이면 progressUpdate 다시 시작
+  if (isPlaying) {
+    stopProgressUpdate(); // 기존 인터벌 제거
+    startProgressUpdate(); // 새로운 인터벌 시작
+  }
+}
+
+// 이벤트 등록
 musicBtn?.addEventListener('click', toggleMusic);
-
-/**
- * 유튜브 Iframe API가 로드되면 자동으로 호출되는 전역 함수
- * - YT.Player 객체를 생성하여 iframe 플레이어를 초기화
- * - onReady 콜백에서 플레이어 준비 완료 상태를 true로 설정
- *
- * @function onYouTubeIframeAPIReady
- * @global
- */
+progressBar?.addEventListener('click', onProgressBarClick);
+dot?.addEventListener('mousedown', onDragStart);
+dot?.addEventListener('touchstart', onDragStart, { passive: false });
+// 프로그레스바에서도 드래그 시작 가능하도록 추가
+progressBar?.addEventListener('mousedown', onDragStart);
+progressBar?.addEventListener('touchstart', onDragStart, { passive: false });
 
 window.onYouTubeIframeAPIReady = () => {
   player = new YT.Player('youtubePlayer', {
     events: {
-      // 플레이어가 완전히 준비되었을 때 실행됨
       onReady: () => {
         isPlayerReady = true;
+        updateProgressUI(0);
+      },
+      onStateChange: (event: any) => {
+        if (event.data === YT.PlayerState.ENDED) {
+          isPlaying = false;
+          playIcon?.setAttribute('style', 'display:block;');
+          pauseIcon?.setAttribute('style', 'display:none;');
+          musicBtn?.setAttribute('aria-label', '재생');
+          stopProgressUpdate();
+          updateProgressUI(0);
+        }
       },
     },
   });
