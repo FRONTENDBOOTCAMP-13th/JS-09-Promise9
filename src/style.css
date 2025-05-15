@@ -83,9 +83,17 @@ body {
   background: url(/src/assets/img/arcadeScene.png) center center / cover no-repeat;
 }
 
+.playlists-wrap[data-prolog='cafeScene'].has-nextday {
+  background: url(/src/assets/img/nextday.png) center center / cover no-repeat;
+}
+
 /* 영화관 */
 .playlists-wrap[data-prolog='movieScene'] {
   background: url(/src/assets/img/movieScene.png) center center / cover no-repeat;
+}
+
+.playlists-wrap[data-prolog='movieScene'].has-nextday {
+  background: url(/src/assets/img/nextday.png) center center / cover no-repeat;
 }
 
 /* 서점 */
@@ -93,10 +101,17 @@ body {
   background: url(/src/assets/img/bookstoreScene.png) center center / cover no-repeat;
 }
 
-/* 밑에는 아직 이미지 X */
+.playlists-wrap[data-prolog='bookstoreScene'].has-nextday {
+  background: url(/src/assets/img/nextday.png) center center / cover no-repeat;
+}
+
 /* 카페 */
 .playlists-wrap[data-prolog='cafeScene'] {
   background: url(/src/assets/img/cafeScene.png) center center / cover no-repeat;
+}
+
+.playlists-wrap[data-prolog='cafeScene'].has-clouds {
+  background: url(/src/assets/img/clouds.png) center center / cover no-repeat;
 }
 
 /* 버스 */
@@ -112,6 +127,11 @@ body {
 /* 러브엔딩 */
 .playlists-wrap[data-prolog='loveScene'] {
   background: url(/src/assets/img/loveScene.png) center center / cover no-repeat;
+}
+
+/* 러브엔딩 */
+.playlists-wrap[data-prolog='sadScene'] {
+  background: url(/src/assets/img/sadScene.png) center center / cover no-repeat;
 }
 
 .container {
