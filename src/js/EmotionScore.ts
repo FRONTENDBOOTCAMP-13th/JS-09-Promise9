@@ -7,12 +7,9 @@ interface Choice {
   easterEgg?: number;
 }
 
-// interface Scene {
-//   lines: string[];
-//   choices: Choice[];
-// }
+type EmotionScores = Record<Emotion, number>;
 
-const emotionScores: Record<Emotion, number> = {
+const emotionScores: EmotionScores = {
   relax: 0,
   happy: 0,
   sad: 0,
@@ -21,23 +18,53 @@ const emotionScores: Record<Emotion, number> = {
   fresh: 0,
 };
 
-// const scene1: Scene = {
-//   lines: ['[등굣길]', '어...? 얼굴이 조금 피곤해 보여...<br/>설마 어제 잠 못 잔거야?'],
-//   choices: [
-//     { text: '영화 보기', nextScene: 'movieScene', emotion: 'relax' },
-//     { text: '카페 가기', nextScene: 'cafeScene', emotion: 'happy' },
-//     { text: '그냥 집에 있기', nextScene: 'homeScene', emotion: 'sad', easterEgg: 0 },
-//   ],
-// };
-
-/**
- * handleChoice
- * 사용자가 선택한 감정(choice.emotion)의 점수를 1 증가시킴
- *
- * @param {Choice} choice - 사용자가 고른 선택지 정보
- * @returns {void}
- */
-export function handleChoice(choice: Choice): void {
+// 감정 점수 저장
+function handleChoice(choice: Choice): void {
   emotionScores[choice.emotion]++;
-  console.log(`[감정 점수] ${choice.emotion}: ${emotionScores[choice.emotion]}`);
+  console.log(`선택한 감정: ${choice.emotion}`);
+  console.log('현재 감정 점수:', { ...emotionScores });
+}
+
+// 버튼 클릭 이벤트 등록
+export function attachChoiceHandler(containerSelector: string): void {
+  const buttons = document.querySelectorAll(`${containerSelector} button`);
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const emotion = button.dataset.emotion as Emotion;
+      const nextScene = button.dataset.nextScene || '';
+      const text = button.textContent || '';
+
+      if (!emotion || !nextScene) {
+        console.warn('❗ 버튼에 data-emotion 또는 data-next-scene 누락');
+        return;
+      }
+
+      const choice: Choice = { text, emotion, nextScene };
+      handleChoice(choice);
+    });
+  });
+}
+
+// 가장 높은 점수의 감정 반환
+export function resultEmotionScore(scores: EmotionScores): string[] {
+  let highScore = -1;
+  let resultEmotion: string[] = [];
+
+  for (const emotion in scores) {
+    const score = scores[emotion as Emotion];
+    if (score > highScore) {
+      highScore = score;
+      resultEmotion = [emotion];
+    } else if (score === highScore) {
+      resultEmotion.push(emotion);
+    }
+  }
+
+  return resultEmotion;
+}
+
+// 현재 점수 복사해서 가져오기
+export function getCurrentScores(): EmotionScores {
+  return { ...emotionScores };
 }
