@@ -15,6 +15,8 @@
   margin: 1rem auto;
   padding: 2rem;
 
+  background: #dee2e6;
+
   @media (max-width: 400px) {
     padding: 2rem 1rem;
   }
@@ -23,6 +25,7 @@
   .result-title {
     text-align: center;
   }
+
   /* 플레이리스트 */
   .music-box {
     display: flex;
@@ -61,7 +64,7 @@
     gap: 0.5rem;
 
     .music-title {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 500;
     }
 
@@ -69,6 +72,12 @@
       font-size: 1rem;
       font-weight: 400;
     }
+  }
+
+  /* 음악 재생버튼 */
+  .music-btn {
+    color: #ff9c97;
+    box-shadow: 0px 4px 4px 0px rgba(178, 109, 120, 0.25);
   }
 
   /* 음악 프로그레스바 */
@@ -80,7 +89,7 @@
     margin: 1rem 0;
 
     border-radius: 999px;
-    background: #d3d3d3;
+    background: #d8d8d8;
 
     .progress-status {
       position: absolute;
@@ -91,7 +100,7 @@
       height: 100%;
 
       border-radius: 999px;
-      background: #222;
+      background: #787878;
 
       &:after {
         content: '';
@@ -104,7 +113,7 @@
         height: 1rem;
 
         border-radius: 50%;
-        background-color: #222;
+        background-color: #787878;
       }
     }
   }
@@ -119,7 +128,7 @@
     height: 5rem;
 
     border-radius: 50%;
-    color: #222;
+    color: #787878;
     background-color: #fff;
     box-shadow: 0px 4px 4px 0px rgba(178, 109, 120, 0.25);
 
@@ -155,8 +164,18 @@
     color: #ff9c97;
     box-shadow: 0px 4px 4px 0px rgba(178, 109, 120, 0.25);
   }
+
+  /* 하단 버튼 */
+  .btn {
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: #ff9c97;
+    }
+  }
 }
 
+/* sad */
 .musiclists-wrap.sad {
   background: url(/assets/img/playlists/playlists-sad.png) center center / cover no-repeat;
 
@@ -175,5 +194,149 @@
   .music-btn {
     color: #70bfff;
     box-shadow: 0px 4px 4px 0px rgba(109, 147, 178, 0.25);
+  }
+
+  /* 하단 버튼 */
+  .btn {
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: #51b1ff;
+    }
+  }
+}
+
+/* excited */
+.musiclists-wrap.excited {
+  background: url(/assets/img/playlists/playlists-excited.png) center center / cover
+    no-repeat;
+
+  /* 음악 프로그레스바 */
+  .music-progressbar {
+    .progress-status {
+      background: #ffa928;
+
+      &:after {
+        background-color: #ffa928;
+      }
+    }
+  }
+
+  /* 음악 재생버튼 */
+  .music-btn {
+    color: #ffa928;
+    box-shadow: 0px 4px 4px 0px rgba(168, 112, 9, 0.25);
+  }
+
+  /* 하단 버튼 */
+  .btn {
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: #e77b00;
+    }
+  }
+}
+
+/* relax */
+.musiclists-wrap.relax {
+  background: url(/assets/img/playlists/playlists-relax.png) center center / cover
+    no-repeat;
+
+  /* 음악 프로그레스바 */
+  .music-progressbar {
+    .progress-status {
+      background: #047c00;
+
+      &:after {
+        background-color: #047c00;
+      }
+    }
+  }
+
+  /* 음악 재생버튼 */
+  .music-btn {
+    color: #047c00;
+    box-shadow: 0px 4px 4px 0px rgba(0, 109, 27, 0.25);
+  }
+
+  /* 하단 버튼 */
+  .btn {
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: #035c00;
+    }
+  }
+}
+
+/* fresh */
+.musiclists-wrap.fresh {
+  background: url(/assets/img/playlists/playlists-fresh.png) center center / cover
+    no-repeat;
+
+  /* 음악 프로그레스바 */
+  .music-progressbar {
+    .progress-status {
+      background: #70bfff;
+
+      &:after {
+        background-color: #70bfff;
+      }
+    }
+  }
+
+  /* 음악 재생버튼 */
+  .music-btn {
+    color: #70bfff;
+    box-shadow: 0px 4px 4px 0px rgba(109, 147, 178, 0.25);
+  }
+
+  /* 하단 버튼 */
+  .btn {
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: #51b1ff;
+    }
+  }
+}
+
+/* lonely */
+.musiclists-wrap.lonely {
+  background: url(/assets/img/playlists/playlists-lonely.png) center center / cover
+    no-repeat;
+
+  /* 결과타이틀 */
+  .result-title {
+    color: #fff;
+  }
+
+  /* 음악 프로그레스바 */
+  .music-progressbar {
+    background: #b8b8b8;
+
+    .progress-status {
+      background: #e07800;
+
+      &:after {
+        background-color: #e07800;
+      }
+    }
+  }
+
+  /* 음악 재생버튼 */
+  .music-btn {
+    color: #e07800;
+    box-shadow: 0px 4px 4px 0px rgba(168, 112, 9, 0.25);
+  }
+
+  /* 하단 버튼 */
+  .btn {
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: rgb(165, 88, 0);
+    }
   }
 }
