@@ -58,6 +58,33 @@ function toggleMusic() {
   }
 
   musicBtn?.setAttribute('aria-label', isPlaying ? '일시정지' : '재생');
+
+  const remainTime = getRamainTime();
+  if (remainTime !== null) {
+    console.log(remainTime);
+  }
+}
+
+// 남은 시간 함수
+function getRamainTime(): string | null {
+  if (!isPlayerReady || !player) {
+    console.warn('플레이어가 준비되지 않았습니다.');
+    return null;
+  }
+
+  const duration = player?.getDuration(); // 영상 전체 길이
+  const currentTime = player?.getCurrentTime(); // 영상 재생 중인 시간
+
+  const timeString = formatTime(Math.trunc(duration - currentTime));
+  return timeString; // 남은 시간
+}
+
+// 남은 시간 분:초
+function formatTime(time: number): string {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+
+  return `${minutes}:${seconds}`;
 }
 
 // -----------------------------
