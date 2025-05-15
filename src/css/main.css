@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'HS봄바람';
+  src: url('/public/fonts/HS봄바람체2.0.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.playlists-wrap.main {
+  background: url(/public/assets/img/main-background.gif) center center / cover no-repeat;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  height: 100%;
+}
+
+.main-title {
+  font-family: 'HS봄바람', sans-serif;
+  -webkit-text-stroke: 2px #ffffff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 80px;
+  color: #ff96bd;
+  margin-top: 160px;
+}
+
+.btn.gradient.main {
+  width: 150px;
+  height: 70px;
+  border-radius: 20px;
+  font-size: 32px;
+  border: 2px solid white;
+}
+
+.main-footer {
+  margin-top: auto;
+}
+
+.main-small {
+  font-size: 1rem;
+  color: white;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.container.main {
+  display: flex;
+  margin-top: auto;
+}
