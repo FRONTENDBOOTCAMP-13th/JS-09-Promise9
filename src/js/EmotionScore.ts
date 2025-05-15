@@ -10,7 +10,7 @@ interface Choice {
 }
 
 // 감정 점수를 저장할 타입 정의 (각 감정에 숫자 점수)
-type EmotionScores = {
+export type EmotionScores = {
   relaxed: number;
   happy: number;
   sad: number;
@@ -20,7 +20,7 @@ type EmotionScores = {
 };
 
 // 실제 감정 점수를 저장하는 객체 (처음에는 전부 0점)
-const emotionScores: EmotionScores = {
+export const emotionScores: EmotionScores = {
   relaxed: 0,
   happy: 0,
   sad: 0,

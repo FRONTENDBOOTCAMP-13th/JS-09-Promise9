@@ -1,3 +1,5 @@
+import { resultEmotionScore, emotionScores } from './EmotionScore.ts';
+
 // ==========================================
 //              타입 지정 및 데이터
 // ==========================================
@@ -58,7 +60,7 @@ const playLists: PlayLists = {
       img: 'sad01.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/EwLMA5XYnKI?enablejsapi=1',
+      url: 'https://www.youtube.com/embed/_ic_YorjjAY?enablejsapi=1',
       title: 'I Loved You',
       singer: 'DAY6',
       img: 'sad02.jpg',
@@ -215,58 +217,6 @@ const playLists: PlayLists = {
     },
   ],
 };
-
-// -----------------------------------샛별님 함수 쓸 예정
-
-// 감정 점수를 담는 타입 정의
-type EmotionScores = {
-  relaxed: number;
-  happy: number;
-  sad: number;
-  lonely: number;
-  excited: number;
-  refresh: number;
-};
-
-// 감정 점수 초기값 설정 (이후 사용자 입력 등으로 변경될 수 있음)
-const emotionScores: EmotionScores = {
-  relaxed: 0,
-  happy: 0,
-  sad: 0,
-  lonely: 0,
-  excited: 0,
-  refresh: 0,
-};
-
-/**
- * 감정 점수 중 가장 높은 감정을 반환
- * 여러 감정이 같은 최고 점수일 경우 배열로 반환됨
- *
- * @function resultEmotionScore
- * @param {EmotionScores} scores - 감정별 점수 객체
- * @returns {string} 가장 점수가 높은 감정 키(happy, sad 등)
- */
-
-function resultEmotionScore(scores: EmotionScores): string[] {
-  let highScore = -1;
-  let resultEmotion: string[] = [];
-
-  for (const emotion in scores) {
-    const key = emotion as keyof EmotionScores;
-    const score = scores[key];
-
-    if (score > highScore) {
-      highScore = score;
-      resultEmotion = [key];
-    } else if (score === highScore) {
-      resultEmotion.push(key);
-    }
-  }
-
-  return resultEmotion;
-}
-
-// -----------------------------------
 
 // ==========================================
 //                  함수 정의
