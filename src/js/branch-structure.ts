@@ -13,19 +13,19 @@ interface Scene {
 }
 
 interface girlEmotion {
+  none: string;
   default: string;
   sad: string;
   happy: string;
-  concern: string;
-  neutral: string;
+  shy: string;
 }
 
 const emotionImages: girlEmotion = {
+  none: '',
   default: 'girl-default.png',
   sad: 'girl-sad.png',
   happy: 'girl-happy.png',
-  concern: 'girl-concern.png',
-  neutral: 'girl-neutral.png',
+  shy: 'girl-shy.png',
 };
 
 // 감정별 점수를 나타내는 타입
@@ -297,12 +297,11 @@ const parkScene: Scene = {
 document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
   let prevBtn = document.querySelector('.prev-btn') as HTMLElement;
+  let characterImg = document.getElementById('character-img') as HTMLImageElement;
 
   const lines = document.querySelectorAll(
     '.conversation-box > .line',
   ) as NodeListOf<HTMLElement>;
-
-  const characterImg = document.getElementById('character-img') as HTMLImageElement;
 
   let index = 0;
   let prevIndex: number[] = [];
@@ -375,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // 버튼 태그 재할당
     nextBtn = section.querySelector('.next-btn') as HTMLElement;
     prevBtn = section.querySelector('.prev-btn') as HTMLElement;
 
@@ -386,6 +386,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     newNextBtn.addEventListener('click', handleNext);
     newPrevBtn.addEventListener('click', handlePrev); // 이것도 동일하게 수정
+
+    // 이미지 태그 재할당
+    characterImg = section.querySelector('#character-img') as HTMLImageElement;
   }
 
   function handleChoice(emotion: string): void {
@@ -556,6 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateImg(line: HTMLElement) {
     const emotion = line.dataset.emotion as keyof girlEmotion | undefined;
+    console.log(emotion);
     if (emotion) {
       const filename = emotionImages[emotion];
       characterImg.src = `/src/assets/img/${filename}`;
