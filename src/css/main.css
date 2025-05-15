@@ -1,55 +1,39 @@
-@font-face {
-  font-family: 'HS봄바람';
-  src: url('/public/fonts/HS봄바람체2.0.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 .playlists-wrap.main {
+  display: none;
+  padding: 3rem 2rem;
   background: url(/public/assets/img/main-background.gif) center center / cover no-repeat;
-}
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-  height: 100%;
-}
+  .main-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    height: 100%;
 
-.main-title {
-  font-family: 'HS봄바람', sans-serif;
-  -webkit-text-stroke: 2px #ffffff;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  font-size: 80px;
-  color: #ff96bd;
-  margin-top: 160px;
-}
+    .btn {
+      min-width: 5rem;
+      width: 100%;
+    }
+    .btn.gradient {
+      border: 1px solid #ffffff83;
+    }
 
-.btn.gradient.main {
-  width: 150px;
-  height: 70px;
-  border-radius: 20px;
-  font-size: 32px;
-  border: 2px solid white;
-}
+    .main-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-.main-footer {
-  margin-top: auto;
-}
+      width: 100%;
 
-.main-small {
-  font-size: 1rem;
-  color: white;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-}
-
-.container.main {
-  display: flex;
-  margin-top: auto;
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.375;
+      color: #fff;
+    }
+  }
 }
