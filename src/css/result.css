@@ -11,8 +11,8 @@
   width: 100%;
   max-width: 500px;
   height: 100vh;
-  max-height: 900px;
-  margin: 1rem auto;
+  min-height: 810px;
+  margin: 0 auto;
   padding: 2rem;
 
   background: #dee2e6;
@@ -24,6 +24,8 @@
   /* 결과타이틀 */
   .result-title {
     text-align: center;
+    color: #fff;
+    line-height: 1.5;
   }
 
   /* 플레이리스트 */
@@ -40,8 +42,10 @@
     background: rgba(255, 255, 255, 0.8);
 
     .music-img {
-      width: 18.75rem;
-      height: 18.75rem;
+      width: 17rem;
+      height: 17rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
       background-color: white;
 
       img {
@@ -124,8 +128,8 @@
     justify-content: center;
     align-items: center;
 
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
 
     border-radius: 50%;
     color: #787878;
@@ -147,6 +151,11 @@
 .musiclists-wrap.happy {
   background: url(/assets/img/playlists/playlists-happy.png) center center / cover
     no-repeat;
+
+  /* 결과타이틀 */
+  .result-title {
+    text-shadow: 0 0 4px #bd3830;
+  }
 
   /* 음악 프로그레스바 */
   .music-progressbar {
@@ -178,6 +187,11 @@
 /* sad */
 .musiclists-wrap.sad {
   background: url(/assets/img/playlists/playlists-sad.png) center center / cover no-repeat;
+
+  /* 결과타이틀 */
+  .result-title {
+    text-shadow: 0 0 4px #0058a1;
+  }
 
   /* 음악 프로그레스바 */
   .music-progressbar {
@@ -211,6 +225,11 @@
   background: url(/assets/img/playlists/playlists-excited.png) center center / cover
     no-repeat;
 
+  /* 결과타이틀 */
+  .result-title {
+    text-shadow: 0 0 4px #000f53;
+  }
+
   /* 음악 프로그레스바 */
   .music-progressbar {
     .progress-status {
@@ -239,9 +258,14 @@
 }
 
 /* relax */
-.musiclists-wrap.relax {
-  background: url(/assets/img/playlists/playlists-relax.png) center center / cover
+.musiclists-wrap.relaxed {
+  background: url(/assets/img/playlists/playlists-relaxed.png) center center / cover
     no-repeat;
+
+  /* 결과타이틀 */
+  .result-title {
+    text-shadow: 0 0 4px #023500;
+  }
 
   /* 음악 프로그레스바 */
   .music-progressbar {
@@ -271,9 +295,14 @@
 }
 
 /* fresh */
-.musiclists-wrap.fresh {
-  background: url(/assets/img/playlists/playlists-fresh.png) center center / cover
+.musiclists-wrap.refresh {
+  background: url(/assets/img/playlists/playlists-refresh.png) center center / cover
     no-repeat;
+
+  /* 결과타이틀 */
+  .result-title {
+    text-shadow: 0 0 4px #008b51;
+  }
 
   /* 음악 프로그레스바 */
   .music-progressbar {
@@ -309,7 +338,7 @@
 
   /* 결과타이틀 */
   .result-title {
-    color: #fff;
+    text-shadow: 0 0 4px #613400;
   }
 
   /* 음악 프로그레스바 */
