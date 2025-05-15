@@ -258,8 +258,8 @@
 }
 
 /* relax */
-.musiclists-wrap.relax {
-  background: url(/assets/img/playlists/playlists-relax.png) center center / cover
+.musiclists-wrap.relaxed {
+  background: url(/assets/img/playlists/playlists-relaxed.png) center center / cover
     no-repeat;
 
   /* 결과타이틀 */
@@ -295,8 +295,8 @@
 }
 
 /* fresh */
-.musiclists-wrap.fresh {
-  background: url(/assets/img/playlists/playlists-fresh.png) center center / cover
+.musiclists-wrap.refresh {
+  background: url(/assets/img/playlists/playlists-refresh.png) center center / cover
     no-repeat;
 
   /* 결과타이틀 */
