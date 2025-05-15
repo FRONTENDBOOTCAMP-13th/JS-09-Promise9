@@ -352,6 +352,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    if (sceneId === 'lastChoiceScene') {
+      if (easterEggScore >= 5) {
+        sceneId = 'parkScene';
+      } else {
+        sceneId = 'busScene';
+      }
+    }
+
     // 섹션 찾기
     const section = document.querySelector(
       `section[data-prolog="${sceneId}"]`,
