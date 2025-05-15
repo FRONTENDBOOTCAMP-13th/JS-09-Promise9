@@ -1,4 +1,5 @@
 import '../style.css';
+import { resultEmotionScore } from './EmotionScore.ts';
 
 interface Choice {
   text: string;
@@ -11,7 +12,7 @@ interface Scene {
   choices: Choice[];
 }
 
-interface emotionsBgImg {
+interface girlEmotion {
   default: string;
   sad: string;
   happy: string;
@@ -19,12 +20,31 @@ interface emotionsBgImg {
   neutral: string;
 }
 
-const emotionImages: emotionsBgImg = {
+const emotionImages: girlEmotion = {
   default: 'girl-default.png',
   sad: 'girl-sad.png',
   happy: 'girl-happy.png',
   concern: 'girl-concern.png',
   neutral: 'girl-neutral.png',
+};
+
+// 감정별 점수를 나타내는 타입
+type EmotionScores = {
+  relaxed: number;
+  happy: number;
+  sad: number;
+  lonely: number;
+  excited: number;
+  refresh: number;
+};
+
+const emotionScores: EmotionScores = {
+  relaxed: 0,
+  happy: 0,
+  sad: 0,
+  lonely: 0,
+  excited: 0,
+  refresh: 0,
 };
 
 const scene1: Scene = {
@@ -303,6 +323,34 @@ document.addEventListener('DOMContentLoaded', () => {
       section.style.display = 'none';
     });
 
+    if (sceneId === 'nextDayScene') {
+      const highScore: string[] = resultEmotionScore(emotionScores);
+      const emotionIndex: number = highScore.length;
+      let emotionPick: string;
+
+      if (emotionIndex !== 1) {
+        const emotionIndex = Math.floor(Math.random() * highScore.length);
+        emotionPick = highScore[emotionIndex];
+      } else {
+        emotionPick = highScore[0];
+      }
+
+      switch (emotionPick) {
+        case 'happy':
+        case 'excited':
+          sceneId = 'arcadeScene';
+          break;
+        case 'refresh':
+        case 'relaxed':
+          sceneId = 'movieScene';
+          break;
+        case 'lonely':
+        case 'sad':
+          sceneId = 'bookstoreScene';
+          break;
+      }
+    }
+
     // 섹션 찾기
     const section = document.querySelector(
       `section[data-prolog="${sceneId}"]`,
@@ -338,6 +386,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     newNextBtn.addEventListener('click', handleNext);
     newPrevBtn.addEventListener('click', handlePrev); // 이것도 동일하게 수정
+  }
+
+  function handleChoice(emotion: string): void {
+    emotionScores[emotion as keyof EmotionScores]++;
+    console.log(`선택한 감정: ${emotion}`);
+    console.log('현재 감정 점수:', { ...emotionScores });
   }
 
   // 선택지 함수
@@ -384,6 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 다음 질문지로 넘아가기
         moveToScene(choice.nextScene);
+        handleChoice(choice.emotion);
       });
 
       choiceLi.appendChild(choiceBtn);
@@ -500,8 +555,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function updateImg(line: HTMLElement) {
-    const emotion = line.dataset.emotion || 'default';
-    const filename = emotionImages[emotion as keyof emotionsBgImg];
-    characterImg.src = `/src/assets/img/${filename}`;
+    const emotion = line.dataset.emotion as keyof girlEmotion | undefined;
+    if (emotion) {
+      const filename = emotionImages[emotion];
+      characterImg.src = `/src/assets/img/${filename}`;
+    }
   }
 });
