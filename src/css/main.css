@@ -12,12 +12,15 @@
     gap: 2rem;
     height: 100%;
 
-    .btn {
-      min-width: 5rem;
-      width: 100%;
-    }
     .btn.gradient {
       border: 1px solid #ffffff83;
+    }
+
+    .flex-box.gender {
+      .btn {
+        min-width: 4rem;
+        width: 100%;
+      }
     }
 
     .main-footer {
