@@ -47,6 +47,8 @@ const emotionScores: EmotionScores = {
   refresh: 0,
 };
 
+let easterEggScore = 0; //이스터에그 변수
+
 const scene1: Scene = {
   choices: [
     {
@@ -442,6 +444,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // 다음 질문지로 넘아가기
         moveToScene(choice.nextScene);
         handleChoice(choice.emotion);
+
+        // 이스터에그 점수 저장
+        if (choice.easterEgg !== undefined) {
+          easterEggScore++;
+          console.log('이스터에그', easterEggScore);
+        }
       });
 
       choiceLi.appendChild(choiceBtn);
