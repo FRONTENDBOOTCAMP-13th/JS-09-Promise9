@@ -28,7 +28,7 @@
   min-width: 7rem;
   height: 40px;
   padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  border-radius: 2rem;
   background: #fff;
   transition: background 0.3s;
   color: #222;
@@ -60,10 +60,10 @@
 }
 
 .btn.gradient {
-  background-image: linear-gradient(to right, #667eea, #764ba2, #6b8dd6, #8e37d7);
   background-size: 300% 100%;
-  box-shadow: 0 4px 12px 0 rgba(116, 79, 168, 0.75);
-  border-radius: 50px;
+  background-image: linear-gradient(to right, #ed6ea0, #9769ec, #7e73d2, #fe96c0);
+  box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+
   color: #fff;
   transition: background 0.3s linear;
 
@@ -73,13 +73,37 @@
     transition: all 0.4s ease-in-out;
   }
 }
+
+.btn.outline-gradient {
+  transition: background 0.3s linear;
+  box-shadow: 0 0px 4px 0 rgba(236, 116, 149, 0.75);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: #e06697;
+
+    color: #fff;
+  }
+}
 /*========================================
           [Components - input] 
 ==========================================*/
 .flex-box {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   gap: 0.5rem;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+
+    .btn.gradient {
+      max-width: 100px;
+    }
+  }
 }
 
 .input-default {

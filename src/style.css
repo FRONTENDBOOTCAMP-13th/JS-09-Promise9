@@ -20,8 +20,8 @@ body {
   width: 100%;
   max-width: 500px;
   height: 100vh;
-  max-height: 800px;
-  margin: 1rem auto;
+  min-height: 810px;
+  margin: 0 auto;
   padding: 3rem 0;
   background: url(/src/assets/img/room.png) center center / cover no-repeat;
 }
@@ -137,6 +137,10 @@ body {
 
 .container {
   padding: 0 2rem;
+
+  @media (max-width: 400px) {
+    padding: 0 1rem;
+  }
 }
 
 /*=====***** 캐릭터이미지 *****=====*/
@@ -161,11 +165,16 @@ body {
   gap: 1rem;
 
   width: 100%;
-  height: 12.5rem;
+  min-height: 12.5rem;
   padding: 1.5rem 2rem;
 
+  word-break: keep-all;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.8);
+
+  @media (max-width: 400px) {
+    padding: 2rem 1.25rem;
+  }
 
   .name-tag {
     position: absolute;
