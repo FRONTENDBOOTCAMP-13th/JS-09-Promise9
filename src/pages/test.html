@@ -54,15 +54,15 @@
             <li class="line" data-emotion="none">
               <span class="sr-only">나레이션</span>[등굣길]
             </li>
-            <li class="line" data-emotion="default">
+            <li class="line" data-emotion="worried">
               <p>어...? 얼굴이 조금 피곤해 보여...</p>
               <p>설마 어제 잠 못 잔 거야?</p>
             </li>
-            <li class="line" data-emotion="shy">
+            <li class="line" data-emotion="default">
               <span class="sr-only">나레이션</span>
               (잠깐 {user.name}을 바라보다가 조심스럽게 말을 잇는다)
             </li>
-            <li class="line" data-emotion="default">
+            <li class="line" data-emotion="shy">
               <p>나한텐 말해줘도 괜찮아. {user.name} 네 기분 알고 싶어.</p>
             </li>
           </ul>
@@ -279,13 +279,13 @@
         <div class="conversation-wrap line-box">
           <p class="name-tag">{girls.name}</p>
           <ul class="conversation-box">
-            <li class="line" data-emotion="nonw">
+            <li class="line" data-emotion="none">
               <span class="sr-only">나레이션</span>[비 오는 하굣길]
             </li>
-            <li class="line" data-emotion="sad">
+            <li class="line" data-emotion="surprised">
               (조금 당황한 듯, 우산을 찾으며 말한다.)
             </li>
-            <li class="line" data-emotion="sad">어? 비가 오네... 혹시 우산 있어?</li>
+            <li class="line" data-emotion="worried">어? 비가 오네... 혹시 우산 있어?</li>
           </ul>
           <button class="next-btn">다음</button>
           <button class="prev-btn">이전</button>
@@ -308,7 +308,7 @@
         <div class="conversation-wrap line-box">
           <p class="name-tag">{girls.name}</p>
           <ul class="conversation-box">
-            <li class="line" data-emotion="default">
+            <li class="line" data-emotion="none">
               <span class="sr-only">나레이션</span>
               <p>잠깐 동안의 비가 멈추자,</p>
               <p>그동안 촉촉해졌던 거리도 다시 숨을 쉬는 것 같았다.</p>
@@ -352,7 +352,7 @@
               <p>(게임에 집중하던 중)</p>
               <p>갑자기 옆에서 누군가가 툭툭 건드린다.</p>
             </li>
-            <li class="line" data-emotion="happy">
+            <li class="line" data-emotion="c-surprised">
               <p>{user.name}!!! 너 사람 놀래키는 재주 있네!</p>
               <p>너 언제부터 옆에 있었던 거야?</p>
             </li>
@@ -387,10 +387,10 @@
             <li class="line" data-emotion="none">
               <span class="sr-only">나레이션</span>갑자기 누군가 내 이름을 부른다
             </li>
-            <li class="line" data-emotion="default">
+            <li class="line" data-emotion="c-surprised">
               어? {user.name}, 너도 이 영화 봤어?
             </li>
-            <li class="line" data-emotion="happy">...이럴 줄 알았으면 같이 올걸!!!</li>
+            <li class="line" data-emotion="c-sad">...이럴 줄 알았으면 같이 올걸!!!</li>
           </ul>
           <button class="next-btn">다음</button>
           <button class="prev-btn">이전</button>
@@ -418,7 +418,7 @@
               <p>[서점의 고요한 분위기 속에서 책을 고르던 중</p>
               <p>그떄, 갑자기 누군가 나에게 다가와 조용히 말을 건다]</p>
             </li>
-            <li class="line" data-emotion="default">
+            <li class="line" data-emotion="c-happy">
               <p>(속닥속닥)</p>
               <p>안녕, 여기서 보네.</p>
               <p>이렇게 우연히 만나다니, 기분 좋다.</p>
@@ -462,7 +462,7 @@
               <span class="sr-only">나레이션</span>
               [좋은 음악이 흘러나오는 카페에서 마주보며]
             </li>
-            <li class="line" data-emotion="happy">
+            <li class="line" data-emotion="c-default">
               <p>여기 음악 진짜 좋지?</p>
               <p>너는 보통 어떤 음악 좋아해?</p>
             </li>
@@ -492,12 +492,12 @@
               <span class="sr-only">나레이션</span>
               [해가 어느덧 저문, 버스를 타러 가는 길]
             </li>
-            <li class="line" data-emotion="happy">
+            <li class="line" data-emotion="c-happy">
               <p>오늘 정말 즐거웠어!</p>
               <p>그럼, 월요일에 같이 등교할래?</p>
               <p>같이 가면 더 좋을 것 같아서...</p>
             </li>
-            <li class="line" data-emotion="shy">
+            <li class="line" data-emotion="c-shy">
               <span class="sr-only">나레이션</span>(살짝 웃으면서 머쓱한 듯이 말한다)
             </li>
           </ul>
@@ -525,19 +525,19 @@
             <li class="line" data-emotion="none">
               <span class="sr-only">나레이션</span>[밤, 조명이 은은한 공원 하늘 아래서]
             </li>
-            <li class="line" data-emotion="default">
+            <li class="line" data-emotion="c-default">
               <p>이렇게 밤하늘 아래서...</p>
               <p>너랑 함께 있는 시간이 너무 좋아...</p>
             </li>
-            <li class="line" data-emotion="default">
+            <li class="line" data-emotion="c-shy">
               <p>사실... 계속 생각해봤는데</p>
               <p>그냥 말하지 않으면 후회할 것 같아서...</p>
             </li>
-            <li class="line" data-emotion="happy">
+            <li class="line" data-emotion="c-shy">
               <p>그동안 너랑 있을 때마다 마음이 설레고,</p>
               <p>정말 소중하게 느껴졌어.</p>
             </li>
-            <li class="line" data-emotion="shy">나랑, 사귈래?</li>
+            <li class="line" data-emotion="c-surprised">나랑, 사귈래?</li>
           </ul>
           <button class="next-btn">다음</button>
           <button class="prev-btn">이전</button>
