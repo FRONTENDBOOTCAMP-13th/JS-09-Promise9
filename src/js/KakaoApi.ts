@@ -36,8 +36,9 @@ shareBtn?.addEventListener('click', () => {
     },
     buttons: [
       {
-        title: '내 기분 보러 가기',
+        title: '내 기분 보러 가기', // 공유하기 눌렀을 때 버튼
         link: {
+          //버튼 눌렀을 때 접속하는 경로
           mobileWebUrl: 'http://localhost:5173/src/pages/main.html',
           webUrl: 'http://localhost:5173/src/pages/main.html',
         },
