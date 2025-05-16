@@ -12,20 +12,49 @@ interface Scene {
   choices: Choice[];
 }
 
-interface girlEmotion {
+interface Emotion {
   none: string;
   default: string;
   sad: string;
   happy: string;
   shy: string;
+  surprised: string;
+  worried: string;
+  c_default: string;
+  c_surprised: string;
+  c_happy: string;
+  c_shy: string;
+  c_sad: string;
 }
 
-const emotionImages: girlEmotion = {
+const girlEmotionImages: Emotion = {
   none: '',
   default: 'girl-default.png',
   sad: 'girl-sad.png',
   happy: 'girl-happy.png',
   shy: 'girl-shy.png',
+  surprised: 'girl-surprised.png',
+  worried: 'girl-worried.png',
+  c_default: 'girl-casual-default.png',
+  c_surprised: 'girl-casual-surprised.png',
+  c_happy: 'girl-casual-happy.png',
+  c_shy: 'girl-casual-shy.png',
+  c_sad: 'girl-casual-sad.png',
+};
+
+const boyEmotionImages: Emotion = {
+  none: '',
+  default: 'boy-default.png',
+  sad: 'boy-sad.png',
+  happy: 'boy-happy.png',
+  shy: 'boy-shy.png',
+  surprised: 'boy-surprised.png',
+  worried: 'boy-worried.png',
+  c_default: 'boy-casual-default.png',
+  c_surprised: 'boy-casual-surprised.png',
+  c_happy: 'boy-casual-happy.png',
+  c_shy: 'boy-casual-shy.png',
+  c_sad: 'boy-casual-sad.png',
 };
 
 // 감정별 점수를 나타내는 타입
@@ -574,11 +603,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function updateImg(line: HTMLElement) {
-    const emotion = line.dataset.emotion as keyof girlEmotion | undefined;
+    const emotion = line.dataset.emotion as keyof Emotion | undefined;
     console.log(emotion);
     if (emotion) {
-      const filename = emotionImages[emotion];
-      characterImg.src = `/src/assets/img/${filename}`;
+      const genderCheck: string = localStorage.getItem('gender');
+      if (genderCheck === '여자') {
+        const filename = girlEmotionImages[emotion];
+        characterImg.src = `/src/assets/img/${filename}`;
+      } else {
+        const filename = boyEmotionImages[emotion];
+        characterImg.src = `/src/assets/img/${filename}`;
+      }
     }
   }
 });
