@@ -337,10 +337,8 @@
         <div class="conversation-wrap line-box">
           <p class="name-tag">{girls.name}</p>
           <ul class="conversation-box">
+            <li class="line"><span class="sr-only">나레이션</span>[다음날]</li>
             <li class="line changeScene">
-              <span class="sr-only">나레이션</span>[다음날]
-            </li>
-            <li class="line">
               <span class="sr-only">나레이션</span>[시끌벅적한 오락실 안에서]
             </li>
             <li class="line">
@@ -561,14 +559,13 @@
               <p>축하드립니다! 👏</p>
             </li>
           </ul>
-          <button class="next-btn">다음</button>
-          <button class="prev-btn">이전</button>
+          <button onclick="location.replace('./result.html');">결과 보러 가기</button>
         </div>
       </div>
     </section>
 
     <!-- 프롤로그 10-2 : 헤어짐엔딩 -->
-    <section class="playlists-wrap" data-prolog="loveScene" style="display: none">
+    <section class="playlists-wrap" data-prolog="breakScene" style="display: none">
       <div class="character-img-wrap">
         <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
       </div>
@@ -582,8 +579,21 @@
               <p>카리나는 그 후로 볼 수 없었다...</p>
             </li>
           </ul>
-          <button class="next-btn">다음</button>
-          <button class="prev-btn">이전</button>
+          <button onclick="location.replace('./result.html');">결과 보러 가기</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 결과 화면 -->
+    <section class="playlists-wrap" data-prolog="resultScene" style="display: none">
+      <div class="character-img-wrap">
+        <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
+      </div>
+      <div class="container">
+        <div class="conversation-wrap line-box">
+          <p class="name-tag">{girls.name}</p>
+          <ul class="conversation-box"></ul>
+          <button onclick="location.replace('./result.html');">결과 보러 가기</button>
         </div>
       </div>
     </section>

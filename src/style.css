@@ -123,6 +123,11 @@ body {
   background: url(/src/assets/img/sadScene.png) center center / cover no-repeat;
 }
 
+/* 결과보기창 */
+.playlists-wrap[data-prolog='resultScene'] {
+  background: url(/src/assets/img/sadScene.png) center center / cover no-repeat;
+}
+
 .container {
   padding: 0 2rem;
 

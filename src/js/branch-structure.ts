@@ -300,12 +300,12 @@ const busScene: Scene = {
   choices: [
     {
       text: '오, 진짜? 나도 오늘 즐거웠어!<br/>월요일에 같이 가면 좋겠다. 기대된다!',
-      nextScene: 'endingScene',
+      nextScene: 'resultScene',
       emotion: 'happy',
     },
     {
       text: '월요일에는 친구랑 약속이 있어서...<br/>다음에 꼭 같이 가자!',
-      nextScene: 'endingScene',
+      nextScene: 'resultScene',
       emotion: 'lonely',
     },
   ],
@@ -321,6 +321,16 @@ const parkScene: Scene = {
       text: '나는... 우리 그냥 친구로 지내는게 좋을 것 같아. 친구 이상은 아닌 것 같아...',
       nextScene: 'breakScene',
       emotion: 'sad',
+    },
+  ],
+};
+
+const resultScene: Scene = {
+  choices: [
+    {
+      text: '',
+      nextScene: '',
+      emotion: '',
     },
   ],
 };
@@ -526,6 +536,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return busScene;
       case 'parkScene':
         return parkScene;
+      case 'resultScene':
+        return resultScene;
       default:
         return scene1;
     }
@@ -539,7 +551,6 @@ document.addEventListener('DOMContentLoaded', () => {
       '.conversation-box > .line',
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
-
     if (index < lines.length - 1) {
       prevIndex.push(index);
       lines[index].style.display = 'none';
