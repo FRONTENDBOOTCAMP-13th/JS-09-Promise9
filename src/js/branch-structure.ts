@@ -20,11 +20,11 @@ interface Emotion {
   shy: string;
   surprised: string;
   worried: string;
-  c_default: string;
-  c_surprised: string;
-  c_happy: string;
-  c_shy: string;
-  c_sad: string;
+  cdefault: string;
+  csurprised: string;
+  chappy: string;
+  cshy: string;
+  csad: string;
 }
 
 const girlEmotionImages: Emotion = {
@@ -35,11 +35,11 @@ const girlEmotionImages: Emotion = {
   shy: 'girl-shy.png',
   surprised: 'girl-surprised.png',
   worried: 'girl-worried.png',
-  c_default: 'girl-casual-default.png',
-  c_surprised: 'girl-casual-surprised.png',
-  c_happy: 'girl-casual-happy.png',
-  c_shy: 'girl-casual-shy.png',
-  c_sad: 'girl-casual-sad.png',
+  cdefault: 'girl-casual-default.png',
+  csurprised: 'girl-casual-surprised.png',
+  chappy: 'girl-casual-happy.png',
+  cshy: 'girl-casual-shy.png',
+  csad: 'girl-casual-sad.png',
 };
 
 const boyEmotionImages: Emotion = {
@@ -50,11 +50,11 @@ const boyEmotionImages: Emotion = {
   shy: 'boy-shy.png',
   surprised: 'boy-surprised.png',
   worried: 'boy-worried.png',
-  c_default: 'boy-casual-default.png',
-  c_surprised: 'boy-casual-surprised.png',
-  c_happy: 'boy-casual-happy.png',
-  c_shy: 'boy-casual-shy.png',
-  c_sad: 'boy-casual-sad.png',
+  cdefault: 'boy-casual-default.png',
+  csurprised: 'boy-casual-surprised.png',
+  chappy: 'boy-casual-happy.png',
+  cshy: 'boy-casual-shy.png',
+  csad: 'boy-casual-sad.png',
 };
 
 // 감정별 점수를 나타내는 타입
@@ -300,12 +300,12 @@ const busScene: Scene = {
   choices: [
     {
       text: '오, 진짜? 나도 오늘 즐거웠어!<br/>월요일에 같이 가면 좋겠다. 기대된다!',
-      nextScene: 'endingScene',
+      nextScene: 'resultScene',
       emotion: 'happy',
     },
     {
       text: '월요일에는 친구랑 약속이 있어서...<br/>다음에 꼭 같이 가자!',
-      nextScene: 'endingScene',
+      nextScene: 'resultScene',
       emotion: 'lonely',
     },
   ],
@@ -325,6 +325,16 @@ const parkScene: Scene = {
   ],
 };
 
+const resultScene: Scene = {
+  choices: [
+    {
+      text: '',
+      nextScene: '',
+      emotion: '',
+    },
+  ],
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
   let prevBtn = document.querySelector('.prev-btn') as HTMLElement;
@@ -333,6 +343,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const lines = document.querySelectorAll(
     '.conversation-box > .line',
   ) as NodeListOf<HTMLElement>;
+
+  const genderCheck = localStorage.getItem('gender');
+  const userName = localStorage.getItem('userName') as string;
+  const nameTags = document.querySelectorAll('.char-name') as NodeListOf<HTMLElement>;
+  if (genderCheck === '여자') {
+    nameTags.forEach((nameTag) => {
+      nameTag.innerHTML = '카리나';
+    });
+  } else {
+    nameTags.forEach((nameTag) => {
+      nameTag.innerHTML = '남캐';
+    });
+  }
+
+  const userNameTags = document.querySelectorAll('.user-name') as NodeListOf<HTMLElement>;
+  userNameTags.forEach((userNameTag) => {
+    userNameTag.innerHTML = userName;
+  });
 
   let index = 0;
   let prevIndex: number[] = [];
@@ -389,6 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    console.log(sceneId);
     // 섹션 찾기
     const section = document.querySelector(
       `section[data-prolog="${sceneId}"]`,
@@ -525,6 +554,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return busScene;
       case 'parkScene':
         return parkScene;
+      case 'resultScene':
+        return resultScene;
       default:
         return scene1;
     }
@@ -538,11 +569,39 @@ document.addEventListener('DOMContentLoaded', () => {
       '.conversation-box > .line',
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
-
     if (index < lines.length - 1) {
       prevIndex.push(index);
       lines[index].style.display = 'none';
       index++;
+      if (lines[index].classList.contains('changeScene')) {
+        const nowScene = section.dataset.prolog;
+        switch (nowScene) {
+          case 'classNoteScene':
+            section.style.background =
+              'url(/src/assets/img/room.png) center center / cover no-repeat';
+            break;
+          case 'arcadeScene':
+            section.style.background =
+              'url(/src/assets/img/arcadeScene.png) center center / cover no-repeat';
+            break;
+          case 'movieScene':
+            section.style.background =
+              'url(/src/assets/img/movieScene.png) center center / cover no-repeat';
+            break;
+          case 'bookstoreScene':
+            section.style.background =
+              'url(/src/assets/img/bookstoreScene.png) center center / cover no-repeat';
+            break;
+          case 'cafeScene':
+            section.style.background =
+              'url(/src/assets/img/cafeScene.png) center center / cover no-repeat';
+            break;
+          case 'parkScene':
+            section.style.background =
+              'url(/src/assets/img/parkLoveScene.png) center center / cover no-repeat';
+            break;
+        }
+      }
       lines[index].style.display = 'block';
       updateImg(lines[index]);
     } else {
@@ -604,16 +663,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateImg(line: HTMLElement) {
     const emotion = line.dataset.emotion as keyof Emotion | undefined;
-    console.log(emotion);
+    characterImg.style.display = 'block';
     if (emotion) {
-      const genderCheck: string = localStorage.getItem('gender');
       if (genderCheck === '여자') {
         const filename = girlEmotionImages[emotion];
         characterImg.src = `/src/assets/img/${filename}`;
-      } else {
+      } else if (genderCheck === '남자') {
         const filename = boyEmotionImages[emotion];
         characterImg.src = `/src/assets/img/${filename}`;
       }
+    } else {
+      characterImg.style.display = 'none';
     }
   }
 });
