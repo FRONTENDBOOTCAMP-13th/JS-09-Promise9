@@ -24,6 +24,7 @@ body {
   margin: 0 auto;
   padding: 3rem 0;
   background: url(/src/assets/img/room.png) center center / cover no-repeat;
+  position: relative;
 }
 
 .select-group {
@@ -234,4 +235,11 @@ body {
 
 .conversation-wrap.user-select {
   display: none;
+}
+
+.bgmBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
 }
