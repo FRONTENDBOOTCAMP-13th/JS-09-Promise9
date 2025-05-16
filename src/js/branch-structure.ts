@@ -389,6 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    console.log(sceneId);
     // 섹션 찾기
     const section = document.querySelector(
       `section[data-prolog="${sceneId}"]`,
