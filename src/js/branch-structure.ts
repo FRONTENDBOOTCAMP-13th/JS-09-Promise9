@@ -344,6 +344,24 @@ document.addEventListener('DOMContentLoaded', () => {
     '.conversation-box > .line',
   ) as NodeListOf<HTMLElement>;
 
+  const genderCheck = localStorage.getItem('gender');
+  const userName = localStorage.getItem('userName') as string;
+  const nameTags = document.querySelectorAll('.char-name') as NodeListOf<HTMLElement>;
+  if (genderCheck === '여자') {
+    nameTags.forEach((nameTag) => {
+      nameTag.innerHTML = '카리나';
+    });
+  } else {
+    nameTags.forEach((nameTag) => {
+      nameTag.innerHTML = '남캐';
+    });
+  }
+
+  const userNameTags = document.querySelectorAll('.user-name') as NodeListOf<HTMLElement>;
+  userNameTags.forEach((userNameTag) => {
+    userNameTag.innerHTML = userName;
+  });
+
   let index = 0;
   let prevIndex: number[] = [];
 
@@ -647,7 +665,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const emotion = line.dataset.emotion as keyof Emotion | undefined;
     characterImg.style.display = 'block';
     if (emotion) {
-      const genderCheck = localStorage.getItem('gender');
       if (genderCheck === '여자') {
         const filename = girlEmotionImages[emotion];
         characterImg.src = `/src/assets/img/${filename}`;
