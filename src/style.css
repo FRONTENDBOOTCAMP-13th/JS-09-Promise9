@@ -49,6 +49,10 @@ body {
   background: url(/src/assets/img/classNoteScene.png) center center / cover no-repeat;
 }
 
+.playlists-wrap[data-prolog='classScene'] {
+  background: url(/src/assets/img/room.png) center center / cover no-repeat;
+}
+
 /* 복도 창가 */
 .playlists-wrap[data-prolog='hallwayWindowScene'] {
   background: url(/src/assets/img/hallwayWindowScene.png) center center / cover no-repeat;
@@ -81,38 +85,38 @@ body {
 
 /* 오락실 */
 .playlists-wrap[data-prolog='arcadeScene'] {
-  background: url(/src/assets/img/arcadeScene.png) center center / cover no-repeat;
-}
-
-.playlists-wrap[data-prolog='cafeScene'].has-nextday {
   background: url(/src/assets/img/nextday.png) center center / cover no-repeat;
+}
+/* 오락실 2 */
+.playlists-wrap[data-prolog='arcadeScene2'] {
+  background: url(/src/assets/img/arcadeScene.png) center center / cover no-repeat;
 }
 
 /* 영화관 */
 .playlists-wrap[data-prolog='movieScene'] {
-  background: url(/src/assets/img/movieScene.png) center center / cover no-repeat;
-}
-
-.playlists-wrap[data-prolog='movieScene'].has-nextday {
   background: url(/src/assets/img/nextday.png) center center / cover no-repeat;
+}
+/* 영화관 2 */
+.playlists-wrap[data-prolog='movieScene2'] {
+  background: url(/src/assets/img/movieScene.png) center center / cover no-repeat;
 }
 
 /* 서점 */
 .playlists-wrap[data-prolog='bookstoreScene'] {
-  background: url(/src/assets/img/bookstoreScene.png) center center / cover no-repeat;
-}
-
-.playlists-wrap[data-prolog='bookstoreScene'].has-nextday {
   background: url(/src/assets/img/nextday.png) center center / cover no-repeat;
+}
+/* 서점 */
+.playlists-wrap[data-prolog='bookstoreScene2'] {
+  background: url(/src/assets/img/bookstoreScene.png) center center / cover no-repeat;
 }
 
 /* 카페 */
 .playlists-wrap[data-prolog='cafeScene'] {
-  background: url(/src/assets/img/cafeScene.png) center center / cover no-repeat;
-}
-
-.playlists-wrap[data-prolog='cafeScene'].has-clouds {
   background: url(/src/assets/img/clouds.png) center center / cover no-repeat;
+}
+/* 카페 2 */
+.playlists-wrap[data-prolog='cafeScene2'] {
+  background: url(/src/assets/img/cafeScene.png) center center / cover no-repeat;
 }
 
 /* 버스 */
@@ -123,6 +127,10 @@ body {
 /* 공원 */
 .playlists-wrap[data-prolog='parkScene'] {
   background: url(/src/assets/img/parkScene.png) center center / cover no-repeat;
+}
+/* 공원 */
+.playlists-wrap[data-prolog='parkScene2'] {
+  background: url(/src/assets/img/parkLoveScene.png) center center / cover no-repeat;
 }
 
 /* 러브엔딩 */

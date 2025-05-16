@@ -20,11 +20,11 @@ interface Emotion {
   shy: string;
   surprised: string;
   worried: string;
-  c_default: string;
-  c_surprised: string;
-  c_happy: string;
-  c_shy: string;
-  c_sad: string;
+  cdefault: string;
+  csurprised: string;
+  chappy: string;
+  cshy: string;
+  csad: string;
 }
 
 const girlEmotionImages: Emotion = {
@@ -35,11 +35,11 @@ const girlEmotionImages: Emotion = {
   shy: 'girl-shy.png',
   surprised: 'girl-surprised.png',
   worried: 'girl-worried.png',
-  c_default: 'girl-casual-default.png',
-  c_surprised: 'girl-casual-surprised.png',
-  c_happy: 'girl-casual-happy.png',
-  c_shy: 'girl-casual-shy.png',
-  c_sad: 'girl-casual-sad.png',
+  cdefault: 'girl-casual-default.png',
+  csurprised: 'girl-casual-surprised.png',
+  chappy: 'girl-casual-happy.png',
+  cshy: 'girl-casual-shy.png',
+  csad: 'girl-casual-sad.png',
 };
 
 const boyEmotionImages: Emotion = {
@@ -50,11 +50,11 @@ const boyEmotionImages: Emotion = {
   shy: 'boy-shy.png',
   surprised: 'boy-surprised.png',
   worried: 'boy-worried.png',
-  c_default: 'boy-casual-default.png',
-  c_surprised: 'boy-casual-surprised.png',
-  c_happy: 'boy-casual-happy.png',
-  c_shy: 'boy-casual-shy.png',
-  c_sad: 'boy-casual-sad.png',
+  cdefault: 'boy-casual-default.png',
+  csurprised: 'boy-casual-surprised.png',
+  chappy: 'boy-casual-happy.png',
+  cshy: 'boy-casual-shy.png',
+  csad: 'boy-casual-sad.png',
 };
 
 // 감정별 점수를 나타내는 타입
@@ -543,6 +543,35 @@ document.addEventListener('DOMContentLoaded', () => {
       prevIndex.push(index);
       lines[index].style.display = 'none';
       index++;
+      if (lines[index].classList.contains('changeScene')) {
+        const nowScene = section.dataset.prolog;
+        switch (nowScene) {
+          case 'classNoteScene':
+            section.style.background =
+              'url(/src/assets/img/room.png) center center / cover no-repeat';
+            break;
+          case 'arcadeScene':
+            section.style.background =
+              'url(/src/assets/img/arcadeScene.png) center center / cover no-repeat';
+            break;
+          case 'movieScene':
+            section.style.background =
+              'url(/src/assets/img/movieScene.png) center center / cover no-repeat';
+            break;
+          case 'bookstoreScene':
+            section.style.background =
+              'url(/src/assets/img/bookstoreScene.png) center center / cover no-repeat';
+            break;
+          case 'cafeScene':
+            section.style.background =
+              'url(/src/assets/img/cafeScene.png) center center / cover no-repeat';
+            break;
+          case 'parkScene':
+            section.style.background =
+              'url(/src/assets/img/parkLoveScene.png) center center / cover no-repeat';
+            break;
+        }
+      }
       lines[index].style.display = 'block';
       updateImg(lines[index]);
     } else {
