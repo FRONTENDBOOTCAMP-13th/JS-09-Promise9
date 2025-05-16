@@ -604,16 +604,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateImg(line: HTMLElement) {
     const emotion = line.dataset.emotion as keyof Emotion | undefined;
-    console.log(emotion);
+    characterImg.style.display = 'block';
     if (emotion) {
-      const genderCheck: string = localStorage.getItem('gender');
+      const genderCheck = localStorage.getItem('gender');
       if (genderCheck === '여자') {
         const filename = girlEmotionImages[emotion];
         characterImg.src = `/src/assets/img/${filename}`;
-      } else {
+      } else if (genderCheck === '남자') {
         const filename = boyEmotionImages[emotion];
         characterImg.src = `/src/assets/img/${filename}`;
       }
+    } else {
+      characterImg.style.display = 'none';
     }
   }
 });
