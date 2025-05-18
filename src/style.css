@@ -63,6 +63,11 @@ body {
   padding: 5rem 0;
   background: url(/src/assets/img/room.png) center center / cover no-repeat;
   position: relative;
+
+  @media (max-width: 400px) {
+    padding: 2rem 0;
+    min-height: 710px;
+  }
 }
 
 .select-group {
