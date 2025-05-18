@@ -12,160 +12,67 @@
       href="/fonts/pretendard/woff2/PretendardVariable.woff2"
       as="font"
       type="font/woff2"
-      crossorigin />
+      crossorigin="anonymous" />
     <link rel="stylesheet" href="/fonts/pretendard/pretendardvariable.css" />
 
     <!-- 스타일설정 -->
     <script type="module" src="/src/main.ts"></script>
-
-    <!-- 기능설정 -->
-    <script type="module" src="/src/js/conversation.js"></script>
+    <!-- main.ts -->
+    <script type="module" src="/src/js/main.ts"></script>
   </head>
   <body>
-    <h1 class="sr-only">두근두근 플레이리스트 게임</h1>
+    <h1 class="sr-only">두근두근 플레이리스트</h1>
 
-    <!-- 프롤로그 1 : 등굣길 -->
-    <section class="playlists-wrap morning" data-prolog="1">
-      <!-- 캐릭터 이미지 -->
-      <div class="character-img-wrap">
-        <img
-          id="character-img"
-          src="/src/assets/img/girl-default.png"
-          alt="기본 캐릭터" />
-      </div>
-
-      <!-- 대화 컨테이너 1-->
-      <div class="container">
-        <!-- 캐릭터 대화 -->
-        <div class="conversation-wrap">
-          <p class="name-tag">{girls.name}</p>
-          <ul class="conversation-box">
-            <li class="line" data-emotion="default">[등굣길]</li>
-            <li class="line" data-emotion="sad">
-              <p>어...? 얼굴이 조금 피곤해 보여...</p>
-              <p>설마 어제 잠 못 잔 거야?</p>
-            </li>
-            <li class="line narration" data-emotion="default">
-              (잠깐 {user.name}을 바라보다가 조심스럽게 말을 잇는다)
-            </li>
-            <li class="line" data-emotion="concern">
-              <p>나한텐 말해줘도 괜찮아. {user.name} 네 기분 알고 싶어.</p>
-            </li>
-          </ul>
+    <!-- 시작 화면 -->
+    <section class="playlists-wrap main" style="display: block">
+      <div class="main-container">
+        <div class="main-title">
+          <h2 class="sr-only">두근두근 플레이리스트</h2>
+          <img src="/public/assets/img/title-logo.png" alt="" aria-hidden="true" />
         </div>
-
-        <!-- 사용자 선택지 -->
-        <div class="conversation-wrap user-select">
-          <p class="name-tag">{user.name}</p>
-          <ul class="select-box">
-            <li>
-              <button>...그냥 멍한 느낌이야. 뭔가 비어있는 느낌?</button>
-            </li>
-            <li>
-              <button>기분이 별로야… 그냥 많이 지쳤어</button>
-            </li>
-            <li>
-              <button>오늘은 왠지 모르게 기분이 좋아!</button>
-            </li>
-          </ul>
+        <button class="btn btn-lg gradient" id="startBtn">START</button>
+        <div class="main-footer">
+          <p>&copy; 2025 by Promise9</p>
+          <p>본 웹 사이트는 멋쟁이사자처럼 프론트엔드</p>
+          <p>부트캠프의 비상업적 프로젝트입니다.</p>
         </div>
       </div>
     </section>
 
-    <!-- 프롤로그 2-1 : 교실-->
-    <!-- <section class="playlists-wrap room" data-prolog="2-1">
-      <div class="character-img-wrap">
-        <img
-          id="character-img"
-          src="/src/assets/img/girl-default.png"
-          alt="기본 캐릭터"
-        />
-      </div>
-
-      <div class="container">
-        <div class="conversation-wrap">
-          <p class="name-tag">{girls.name}</p>
-          <ul class="conversation-box">
-            <li class="line" data-emotion="default">[등굣길]</li>
-            <li class="line" data-emotion="sad">
-              <p>어...? 얼굴이 조금 피곤해 보여...</p>
-              <p>설마 어제 잠 못 잔 거야?</p>
-            </li>
-            <li class="line narration" data-emotion="default">
-              (잠깐 {user.name}을 바라보다가 조심스럽게 말을 잇는다)
-            </li>
-            <li class="line" data-emotion="concern">
-              <p>나한텐 말해줘도 괜찮아. {user.name} 네 기분 알고 싶어.</p>
-            </li>
-          </ul>
-        </div>
-
-        <div class="conversation-wrap user-select">
-          <p class="name-tag">{user.name}</p>
-          <ul class="select-box">
-            <li>
-              <button>...그냥 멍한 느낌이야. 뭔가 비어있는 느낌?</button>
-            </li>
-            <li><button>기분이 별로야… 그냥 많이 지쳤어</button></li>
-            <li>
-              <button>
-                <p>
-                  <span>오늘은 왠지 모르게 기분이 좋아!</span>
-                  <span>네가 있어서 그런가 봐</span>
-                </p>
-              </button>
-            </li>
-          </ul>
+    <!-- 사용자 입력화면 -->
+    <section class="playlists-wrap main">
+      <div class="main-container">
+        <div class="conversation-wrap main">
+          <p class="guide-text">게임에서 사용할 이름을 입력해주세요.</p>
+          <div class="flex-box">
+            <input
+              type="text"
+              class="input-default"
+              id="create-user-name"
+              maxlength="4"
+              placeholder="이름을 입력해주세요." />
+            <button class="btn gradient" id="submit-user-name">확인</button>
+          </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
-    <!-- 프롤로그 2-2 : 교실-->
-    <!-- <section class="playlists-wrap room" data-prolog="2-2">
-      <div class="character-img-wrap">
-        <img
-          id="character-img"
-          src="/src/assets/img/girl-default.png"
-          alt="기본 캐릭터"
-        />
-      </div>
-
-      <div class="container">
-        <div class="conversation-wrap">
-          <p class="name-tag">{girls.name}</p>
-          <ul class="conversation-box">
-            <li class="line" data-emotion="default">[등굣길]</li>
-            <li class="line" data-emotion="sad">
-              <p>어...? 얼굴이 조금 피곤해 보여...</p>
-              <p>설마 어제 잠 못 잔 거야?</p>
-            </li>
-            <li class="line narration" data-emotion="default">
-              (잠깐 {user.name}을 바라보다가 조심스럽게 말을 잇는다)
-            </li>
-            <li class="line" data-emotion="concern">
-              <p>나한텐 말해줘도 괜찮아. {user.name} 네 기분 알고 싶어.</p>
-            </li>
-          </ul>
-        </div>
-
-        <div class="conversation-wrap user-select">
-          <p class="name-tag">{user.name}</p>
-          <ul class="select-box">
-            <li>
-              <button>...그냥 멍한 느낌이야. 뭔가 비어있는 느낌?</button>
-            </li>
-            <li><button>기분이 별로야… 그냥 많이 지쳤어</button></li>
-            <li>
-              <button>
-                <p>
-                  <span>오늘은 왠지 모르게 기분이 좋아!</span>
-                  <span>네가 있어서 그런가 봐</span>
-                </p>
-              </button>
-            </li>
-          </ul>
+    <!-- 사용자 선택화면 -->
+    <section class="playlists-wrap main">
+      <div class="main-container">
+        <div class="conversation-wrap main">
+          <p class="guide-text">원하는 대화 상대의 성별을 선택해주세요.</p>
+          <div class="flex-box gender">
+            <button class="btn outline-gradient" id="select-gen" data-value="여자">
+              여자
+            </button>
+            <button class="btn outline-gradient" id="select-gen" data-value="남자">
+              남자
+            </button>
+            <button class="btn gradient" id="submit-user-gen">확인</button>
+          </div>
         </div>
       </div>
-    </section> -->
+    </section>
   </body>
 </html>

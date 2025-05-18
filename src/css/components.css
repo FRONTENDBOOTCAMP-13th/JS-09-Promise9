@@ -24,10 +24,11 @@
 }
 
 .btn {
+  position: relative;
   min-width: 7rem;
   height: 40px;
   padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  border-radius: 2rem;
   background: #fff;
   transition: background 0.3s;
   color: #222;
@@ -38,11 +39,87 @@
     width: 100%;
   }
 
-  &:hover {
-    background: #e2e2e2;
-  }
-
+  &:hover,
   &:focus {
-    background: #e2e2e2;
+    color: #fff;
+    background: #7a7a7a;
+  }
+}
+
+.btn-lg {
+  min-width: 9rem;
+  height: auto;
+  padding: 0.875rem 2rem;
+  border-radius: 1.5rem;
+  font-size: 1.25rem;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.btn.gradient {
+  background-size: 300% 100%;
+  background-image: linear-gradient(to right, #ed6ea0, #9769ec, #7e73d2, #fe96c0);
+  box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+
+  color: #fff;
+  transition: background 0.3s linear;
+
+  &:hover,
+  &:focus {
+    background-position: 100% 0;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+.btn.outline-gradient {
+  transition: background 0.3s linear;
+  box-shadow: 0 0px 4px 0 rgba(236, 116, 149, 0.75);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: #e06697;
+
+    color: #fff;
+  }
+}
+/*========================================
+          [Components - input] 
+==========================================*/
+.flex-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+
+    .btn.gradient {
+      max-width: 100px;
+    }
+  }
+}
+
+.input-default {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  height: 40px;
+
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+
+  &:hover,
+  &:focus {
+    border: 1px solid #70bfff;
+    box-shadow: 0 0 4px #70bfff;
+    outline: none;
   }
 }

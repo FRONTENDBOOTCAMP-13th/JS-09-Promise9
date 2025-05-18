@@ -1,24 +1,22 @@
-// -----------------------------
-//      타입 지정 및 객체 설정
-// -----------------------------
+// ==========================================
+//              타입 지정 및 데이터
+// ==========================================
 
-// 노래 정보를 담는 타입
+// 노래 정보를 담는 타입 정의
 type Song = {
-  url: string;
-  title: string;
-  singer: string;
-  img: string;
+  url: string; // 유튜브 영상 URL
+  title: string; // 노래 제목
+  singer: string; // 가수 이름
+  img: string; // 썸네일 이미지 파일명
 };
 
-// 감정 키(happy, sad 등)를 기준으로 분류된 노래 목록
+// 감정별로 분류된 노래 리스트 타입 정의
 type PlayLists = {
   [mood: string]: Song[];
 };
 
 // 감정에 따른 플레이리스트
 const playLists: PlayLists = {
-  // https://www.youtube.com/embed/3yaab2_EEHM?enablejsapi=1',  // 아이스크림
-  // https://www.youtube.com/embed/3yaab2_EEHM?si=6I6RbZnSLEpTUR__
   happy: [
     {
       url: 'https://www.youtube.com/embed/A9MjGpCRmoQ?enablejsapi=1',
@@ -54,82 +52,176 @@ const playLists: PlayLists = {
 
   sad: [
     {
-      url: 'https://www.youtube.com/embed/3yaab2_EEHM?enablejsapi=1',
-      title: '잘 지내자, 우리',
-      singer: '최유리',
+      url: 'https://www.youtube.com/embed/WbhK3wMXluE?enablejsapi=1',
+      title: 'Bye bye my blue',
+      singer: '백예린',
       img: 'sad01.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/PuPF5WXlNYU?enablejsapi=1',
-      title: '혼자인 밤',
-      singer: '태연',
+      url: 'https://www.youtube.com/embed/_ic_YorjjAY?enablejsapi=1',
+      title: 'I Loved You',
+      singer: 'DAY6',
       img: 'sad02.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/a-NR-ZAOvZ4?enablejsapi=1',
-      title: '눈물이 차올라서',
-      singer: '백지영',
+      url: 'https://www.youtube.com/embed/q4CbHfW3Ji8?enablejsapi=1',
+      title: 'スパークル',
+      singer: '幾田りら',
       img: 'sad03.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/V0I5eglJMRI?enablejsapi=1',
-      title: 'You Were Beautiful',
-      singer: 'DAY6',
+      url: 'https://www.youtube.com/embed/2bsWj69jhAo?enablejsapi=1',
+      title: '나무 (Always)',
+      singer: '박종민',
       img: 'sad04.jpg',
     },
     {
-      url: 'https://www.youtube.com/embed/V0I5eglJMRI?enablejsapi=1',
-      title: 'You Were SAd',
-      singer: 'DAY6',
-      img: 'sad04.jpg',
+      url: 'https://www.youtube.com/embed/OyTIMOlY1ag?enablejsapi=1',
+      title: '12:45',
+      singer: 'Etham',
+      img: 'sad05.jpg',
+    },
+  ],
+
+  excited: [
+    {
+      url: 'https://www.youtube.com/embed/3yaab2_EEHM?enablejsapi=1',
+      title: '愛♡スクリ～ム！',
+      singer: 'AiScReam',
+      img: 'excited01.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/RuCTeTMEtAk?enablejsapi=1',
+      title: 'poppop',
+      singer: 'NCT WISH',
+      img: 'excited02.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/cQY5brXxEig?enablejsapi=1',
+      title: 'Super Shy',
+      singer: 'NewJeans',
+      img: 'excited03.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/jhOVibLEDhA?enablejsapi=1',
+      title: '恋(Koi)',
+      singer: 'Gen Hoshino(星野 源)',
+      img: 'excited04.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/AtUNXZNgZ3w?enablejsapi=1',
+      title: 'JACKPOT',
+      singer: '블락비',
+      img: 'excited05.jpg',
+    },
+  ],
+
+  relaxed: [
+    {
+      url: 'https://www.youtube.com/embed/uG2se-8-BzE?enablejsapi=1',
+      title: '기다린 만큼, 더',
+      singer: '검정치마',
+      img: 'relaxed01.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/_XFuXLliXlY?enablejsapi=1',
+      title: '사랑 없이 사는게 왜 그렇게 어려울까요',
+      singer: '겸',
+      img: 'relaxed02.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/COcuU8LKawk?enablejsapi=1',
+      title: '숲',
+      singer: '최유리',
+      img: 'relaxed03.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/bL0Y4C76mCs?enablejsapi=1',
+      title: "You Can't Control Who You Fall For",
+      singer: 'Victor Lundberg',
+      img: 'relaxed04.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/AjW_F-mkfU0?enablejsapi=1',
+      title: 'Aoiito',
+      singer: 'Awaku,Moroku.',
+      img: 'relaxed05.jpg',
+    },
+  ],
+
+  refresh: [
+    {
+      url: 'https://www.youtube.com/embed/pERDk4KoW-s?enablejsapi=1',
+      title: 'Antifreeze',
+      singer: '백예린',
+      img: 'refresh01.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/G36dgsEKAQQ?enablejsapi=1',
+      title: 'Waving At Cars',
+      singer: 'Isac Elliot',
+      img: 'refresh02.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/U7c4y4qvBGk?enablejsapi=1',
+      title: '내 이름 맑음',
+      singer: 'QWER ',
+      img: 'refresh03.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/5IlZ-dBItAY?enablejsapi=1',
+      title: '한강에서',
+      singer: '폴킴',
+      img: 'refresh04.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/Kq4dbZJakMs?enablejsapi=1',
+      title: 'blue',
+      singer: 'yung kai',
+      img: 'refresh05.jpg',
+    },
+  ],
+
+  lonely: [
+    {
+      url: 'https://www.youtube.com/embed/4QDEWNg5hAM?enablejsapi=1',
+      title: 'Secret Base~君がくれたもの~',
+      singer: '茅野愛衣, 戸松遥, 早見沙織',
+      img: 'lonely01.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/45rc4Goo2dw?enablejsapi=1',
+      title: 'Fine Thank You And You?',
+      singer: '10CM',
+      img: 'lonely02.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/XikFceAeBII?enablejsapi=1',
+      title: '아무것도 상관없어',
+      singer: '허회경',
+      img: 'lonely03.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/EjMTw4xLcBI?enablejsapi=1',
+      title: '밤편지',
+      singer: '아이유(IU)',
+      img: 'lonely04.jpg',
+    },
+    {
+      url: 'https://www.youtube.com/embed/4Fx76jjQCro?enablejsapi=1',
+      title: '외로움이라는 건',
+      singer: '최유리',
+      img: 'lonely05.jpg',
     },
   ],
 };
 
-// -----------------------------------샛별님 함수 쓸 예정
-
-// 감정별 점수를 나타내는 타입
-type EmotionScores = {
-  [emotion: string]: number;
-};
-
-// 감정별 점수 객체 (예시 값)
-const emotionScores: EmotionScores = {
-  happy: 5, // 예시 점수
-  sad: 1, // 예시 점수
-};
+// ==========================================
+//                  함수 정의
+// ==========================================
 
 /**
- * 감정 점수 중 가장 높은 감정을 반환
- *
- * @function resultEmotionScore
- * @param {EmotionScores} scores - 감정별 점수 객체
- * @returns {string} 가장 점수가 높은 감정 키(happy, sad 등)
- */
-
-function resultEmotionScore(scores: EmotionScores): string {
-  let highScore = -1;
-  let resultEmotion = '';
-
-  for (const emotion in scores) {
-    const score = scores[emotion];
-    if (score > highScore) {
-      highScore = score;
-      resultEmotion = emotion;
-    }
-  }
-
-  return resultEmotion;
-}
-
-// -----------------------------------
-
-// -----------------------------
-//      함수 정의
-// -----------------------------
-
-/**
- * 주어진 감정에 해당하는 플레이리스트에서 랜덤한 노래 하나를 반환
+ *  주어진 감정 키에 해당하는 노래 목록에서 무작위로 하나를 선택
  *
  * @function getRandomSong
  * @param {PlayLists} playLists - 감정별로 분류된 노래 목록
@@ -146,7 +238,7 @@ function getRandomSong(playLists: PlayLists, mood: string): Song {
 }
 
 /**
- * 전달받은 노래와 감정에 따라 음악 관련 UI를 업데이트
+ * 전달받은 노래 정보로 UI를 업데이트
  *
  * @function updateMusic
  * @param {Song} song - 선택된 노래 객체
@@ -160,6 +252,7 @@ function updateMusic(song: Song, mood: string) {
   const musicTitle = document.querySelector('.music-box .music-title') as HTMLElement;
   const musicSinger = document.querySelector('.music-box .music-singer') as HTMLElement;
   const musicIframe = document.querySelector('#youtubePlayer') as HTMLIFrameElement;
+
   // 감정 클래스 추가
   musicLists.classList.add(mood);
 
@@ -172,11 +265,15 @@ function updateMusic(song: Song, mood: string) {
   musicIframe.src = song.url;
 }
 
-// -----------------------------
-//      함수 호출
-// -----------------------------
-const resultEmotion = resultEmotionScore(emotionScores);
-const randomSong = getRandomSong(playLists, resultEmotion);
-console.log(randomSong);
+// ==========================================
+//              실행 로직 (시작점)
+// ==========================================
 
-updateMusic(randomSong, resultEmotion);
+// 1. 로컬스토리지에서 감정 점수 가져오기
+const highScoreMusic = localStorage.getItem('highSchore') as string;
+
+// 2. 감정에 해당하는 노래 중 무작위로 하나 선택
+const randomSong = getRandomSong(playLists, highScoreMusic);
+
+// 3. UI에 음악 정보 적용
+updateMusic(randomSong, highScoreMusic);

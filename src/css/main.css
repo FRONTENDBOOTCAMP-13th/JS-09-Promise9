@@ -1,0 +1,42 @@
+.playlists-wrap.main {
+  display: none;
+  padding: 3rem 2rem;
+  background: url(/public/assets/img/main-background.gif) center center / cover no-repeat;
+
+  .main-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    height: 100%;
+
+    .btn.gradient {
+      border: 1px solid #ffffff83;
+    }
+
+    .flex-box.gender {
+      .btn {
+        min-width: 4rem;
+        width: 100%;
+      }
+    }
+
+    .main-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      width: 100%;
+
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.375;
+      color: #fff;
+    }
+  }
+}

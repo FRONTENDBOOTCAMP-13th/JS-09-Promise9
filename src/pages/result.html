@@ -20,7 +20,7 @@
 
     <!-- 기능설정 -->
     <script type="module" src="/src/js/PlayLists.ts"></script>
-    <script type="module" src="/src/js/PlayMusic.ts"></script>
+    <script type="module" src="/src/js/result-playmusic.ts"></script>
 
     <script defer src="https://www.youtube.com/iframe_api"></script>
 
@@ -33,24 +33,27 @@
   <body>
     <section class="musiclists-wrap">
       <h2 class="result-title">
-        <span class="result-username">최승진</span>님의 감정에 <br />어울리는 곡이에요 😎
+        <span class="user-name"></span>님의 감정에 <br />
+        어울리는 곡이에요 😎
       </h2>
       <div class="music-box">
         <div class="music-img">
-          <img src="/assets/img/playlists/sad01.jpg" alt="" />
+          <img src="" alt="" aria-hidden="true" />
         </div>
         <h3 class="music-name">
-          <span class="music-title">잘 지내자, 우리</span>
-          <span class="music-singer">최유리</span>
+          <span class="music-title">{song.name}</span>
+          <span class="music-singer">{song.singer}</span>
         </h3>
         <div class="music-progressbar">
-          <div class="progress-status"></div>
+          <div class="progress-status">
+            <div class="dot"></div>
+          </div>
         </div>
         <iframe
           id="youtubePlayer"
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/3yaab2_EEHM?enablejsapi=1"
+          src=""
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
