@@ -68,7 +68,7 @@ submitButton.addEventListener('click', () => {
     // 성별이 선택되어 있으면
     localStorage.setItem('gender', selectedGender);
     // localStorage에 성별 저장
-    location.replace('http://localhost:5173/src/pages/test.html');
+    location.replace('/src/pages/test.html');
     // 다음 페이지로 이동
   } else {
     alert('성별을 먼저 선택해 주세요!');
