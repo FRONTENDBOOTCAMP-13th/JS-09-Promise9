@@ -26,17 +26,17 @@
   <body>
     <h1 class="sr-only">두근두근 플레이리스트 게임</h1>
 
+    <!-- BGM -->
+    <audio id="bgmAudio" src="../../public/bgm/bgm.mp3" autoplay loop></audio>
     <!-- BGM ON / OFF 버튼 -->
-    <button id="bgm" class="bgmBtn">
-      <img id="bgmOn" src="/src/assets/img/bgmOn.png" alt="백그라운드 사운드 on" />
+    <button class="bgmBtn">
+      <img class="bgmOn" src="/src/assets/img/bgmOn.png" alt="백그라운드 사운드 on" />
       <img
-        id="bgmOff"
+        class="bgmOff"
         src="/src/assets/img/bgmOff.png"
         alt="백그라운드 사운드 off"
         style="display: none" />
     </button>
-    <!-- BGM -->
-    <audio id="bgm" src="../../public/bgm/bgm.mp3" autoplay loop></audio>
 
     <!-- 프롤로그 1 : 등굣길 -->
     <section class="playlists-wrap" data-prolog="scene1" style="display: block">

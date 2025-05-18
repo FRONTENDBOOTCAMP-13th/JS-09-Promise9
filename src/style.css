@@ -56,6 +56,7 @@ body {
   margin: 0 auto;
   padding: 3rem 0;
   background: url(/src/assets/img/room.png) center center / cover no-repeat;
+  position: relative;
 }
 
 .select-group {
