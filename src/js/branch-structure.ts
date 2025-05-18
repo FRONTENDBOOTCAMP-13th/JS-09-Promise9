@@ -250,6 +250,21 @@ const arcadeScene: Scene = {
 const movieScene: Scene = {
   choices: [
     {
+      text: '그러게, 같이 봤으면 더 재밌었을 텐데.<br/>다음에는 같이 보자~ 약속!',
+      nextScene: 'cafeScene',
+      emotion: 'refresh',
+    },
+    {
+      text: '사실... 나는 영화 혼자 보는 거 좋아해',
+      nextScene: 'cafeScene',
+      emotion: 'lonely',
+    },
+  ],
+};
+
+const bookstoreScene: Scene = {
+  choices: [
+    {
       text: '(얼굴이 붉어지며)<br/>응, 나도! 이렇게 우연히 만날 줄 몰랐어.<br/>기분 진짜 좋다',
       nextScene: 'cafeScene',
       emotion: 'happy',
@@ -259,21 +274,6 @@ const movieScene: Scene = {
       text: '어, 카리나? 이렇게 마주칠 줄은 몰랐어...<br/>사실, 조금 놀랐어',
       nextScene: 'cafeScene',
       emotion: 'refresh',
-    },
-  ],
-};
-
-const bookstoreScene: Scene = {
-  choices: [
-    {
-      text: '그러게, 같이 봤으면 더 재밌었을 텐데.<br/>다음에는 같이 보자~ 약속!',
-      nextScene: 'cafeScene',
-      emotion: 'refresh',
-    },
-    {
-      text: '사실... 나는 영화 혼자 보는 거 좋아해',
-      nextScene: 'cafeScene',
-      emotion: 'lonely',
     },
   ],
 };

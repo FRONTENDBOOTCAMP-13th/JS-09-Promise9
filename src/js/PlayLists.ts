@@ -1,5 +1,3 @@
-import { resultEmotionScore, emotionScores } from './EmotionScore.ts';
-
 // ==========================================
 //              타입 지정 및 데이터
 // ==========================================
@@ -271,13 +269,11 @@ function updateMusic(song: Song, mood: string) {
 //              실행 로직 (시작점)
 // ==========================================
 
-// 1. 감정 점수 중 가장 높은 감정을 계산
-const resultEmotion = resultEmotionScore(emotionScores);
+// 1. 로컬스토리지에서 감정 점수 가져오기
+const highScoreMusic = localStorage.getItem('highSchore') as string;
 
-// 2. 최고 감정 중 무작위로 하나 선택
-// 3. 감정에 해당하는 노래 중 무작위로 하나 선택
-const randomEmotion = resultEmotion[Math.floor(Math.random() * resultEmotion.length)];
-const randomSong = getRandomSong(playLists, randomEmotion);
+// 2. 감정에 해당하는 노래 중 무작위로 하나 선택
+const randomSong = getRandomSong(playLists, highScoreMusic);
 
-// 4. UI에 음악 정보 적용
-updateMusic(randomSong, randomEmotion);
+// 3. UI에 음악 정보 적용
+updateMusic(randomSong, highScoreMusic);
