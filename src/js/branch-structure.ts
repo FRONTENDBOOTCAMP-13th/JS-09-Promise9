@@ -381,18 +381,19 @@ document.addEventListener('DOMContentLoaded', () => {
       section.style.display = 'none';
     });
 
+    const highScore: string[] = resultEmotionScore(emotionScores);
+    const emotionIndex: number = highScore.length;
+    let emotionPick: string;
+
+    if (emotionIndex !== 1) {
+      const emotionIndex = Math.floor(Math.random() * highScore.length);
+      emotionPick = highScore[emotionIndex];
+    } else {
+      emotionPick = highScore[0];
+    }
+
+    localStorage.setItem('highSchore', emotionPick);
     if (sceneId === 'nextDayScene') {
-      const highScore: string[] = resultEmotionScore(emotionScores);
-      const emotionIndex: number = highScore.length;
-      let emotionPick: string;
-
-      if (emotionIndex !== 1) {
-        const emotionIndex = Math.floor(Math.random() * highScore.length);
-        emotionPick = highScore[emotionIndex];
-      } else {
-        emotionPick = highScore[0];
-      }
-
       switch (emotionPick) {
         case 'happy':
         case 'excited':
