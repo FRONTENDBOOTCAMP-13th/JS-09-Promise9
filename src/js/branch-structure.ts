@@ -570,10 +570,16 @@ document.addEventListener('DOMContentLoaded', () => {
       '.conversation-box > .line',
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
+    const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
     if (index < lines.length - 1) {
       prevIndex.push(index);
       lines[index].style.display = 'none';
       index++;
+      if (lines[index].querySelector('.sr-only')) {
+        nowNameTag.style.display = 'none';
+      } else {
+        nowNameTag.style.display = 'block';
+      }
       if (lines[index].classList.contains('changeScene')) {
         const nowScene = section.dataset.prolog;
         switch (nowScene) {
