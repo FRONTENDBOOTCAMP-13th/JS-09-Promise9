@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>두근두근 플레이리스트</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- 폰트설정 -->
     <link
@@ -31,67 +31,68 @@
     <script type="module" src="/src/js/ResultCapture.ts"></script>
   </head>
   <body>
-    <section class="musiclists-wrap">
-      <h2 class="result-title">
-        <span class="result-username">최승진</span>님의 감정에 <br />
-        어울리는 곡이에요 😎
-      </h2>
-      <div class="music-box">
-        <div class="music-img">
-          <img src="" alt="" aria-hidden="true" />
-        </div>
-        <h3 class="music-name">
-          <span class="music-title">{song.name}</span>
-          <span class="music-singer">{song.singer}</span>
-        </h3>
-        <div class="music-progressbar">
-          <div class="progress-status">
-            <div class="dot"></div>
+    <main class="phone-wrap">
+      <section class="musiclists-wrap">
+        <h2 class="result-title">
+          <span class="user-name"></span>님의 감정에 <br />
+          어울리는 곡이에요 😎
+        </h2>
+        <div class="music-box">
+          <div class="music-img">
+            <img src="" alt="" aria-hidden="true" />
           </div>
+          <h3 class="music-name">
+            <span class="music-title">{song.name}</span>
+            <span class="music-singer">{song.singer}</span>
+          </h3>
+          <div class="music-progressbar">
+            <div class="progress-status">
+              <div class="dot"></div>
+            </div>
+          </div>
+          <iframe
+            id="youtubePlayer"
+            width="560"
+            height="315"
+            src=""
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+          <button
+            id="musicBtn"
+            class="music-btn"
+            aria-label="재생버튼"
+            aria-live="assertive">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              fill="currentColor"
+              class="play"
+              viewBox="0 0 16 16">
+              <path
+                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              fill="currentColor"
+              class="pause"
+              viewBox="0 0 16 16">
+              <path
+                d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5" />
+            </svg>
+          </button>
         </div>
-        <iframe
-          id="youtubePlayer"
-          width="560"
-          height="315"
-          src=""
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-
-        <button
-          id="musicBtn"
-          class="music-btn"
-          aria-label="재생버튼"
-          aria-live="assertive">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="50"
-            height="50"
-            fill="currentColor"
-            class="play"
-            viewBox="0 0 16 16">
-            <path
-              d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="50"
-            height="50"
-            fill="currentColor"
-            class="pause"
-            viewBox="0 0 16 16">
-            <path
-              d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5" />
-          </svg>
-        </button>
-      </div>
-      <div class="btn-wrap">
-        <button id="shareBtn" class="btn share">공유하기</button>
-        <button id="retryBtn" class="btn retry">다시하기</button>
-        <button class="btn" onclick="captureResult()">결과 캡처</button>
-      </div>
-    </section>
+        <div class="btn-wrap">
+          <button id="shareBtn" class="btn share">공유하기</button>
+          <a href="/src/pages/main.html" id="retryBtn" class="btn retry">다시하기</a>
+          <button class="btn" onclick="captureResult()">결과 캡처</button>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

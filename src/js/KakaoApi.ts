@@ -36,7 +36,7 @@ shareBtn?.addEventListener('click', () => {
     },
     buttons: [
       {
-        title: '내 기분 보러 가기',
+        title: '내 기분 보러 가기', // 공유하기 눌렀을 때 버튼
         link: {
           mobileWebUrl: 'https://dokidoki-playlists.netlify.app/src/pages/main.html',
           webUrl: 'https://dokidoki-playlists.netlify.app/src/pages/main.html',

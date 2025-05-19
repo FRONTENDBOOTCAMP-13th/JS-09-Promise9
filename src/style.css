@@ -14,6 +14,33 @@ body {
 }
 
 /*========================================
+          [Item - bgmBtn/resultBtn] 
+==========================================*/
+.bgmBtn {
+  position: fixed;
+  top: 1rem;
+  left: calc(50% - 200px);
+  transform: translateX(-50%);
+
+  width: 3rem;
+  height: 3rem;
+
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+  z-index: 10;
+
+  @media (max-width: 500px) {
+    left: 1rem;
+    transform: translateX(0);
+  }
+}
+
+.resultBtn {
+  margin-top: 0.5rem;
+}
+/*========================================
           [Item - 게임화면] 
 ==========================================*/
 .playlists-wrap {
@@ -21,9 +48,19 @@ body {
   max-width: 500px;
   height: 100vh;
   min-height: 810px;
+  max-height: 880px;
+
+  /* align-content: center; */
+  align-content: end;
   margin: 0 auto;
-  padding: 3rem 0;
+  padding: 5rem 0;
   background: url(/src/assets/img/room.png) center center / cover no-repeat;
+  position: relative;
+
+  @media (max-width: 400px) {
+    padding: 2rem 0;
+    min-height: 710px;
+  }
 }
 
 .select-group {
@@ -146,16 +183,16 @@ body {
   img {
     height: 100%;
   }
+
+  @media (max-width: 500px) {
+    height: auto;
+  }
 }
 
 /*=====***** 기본대화 *****=====*/
 .conversation-wrap {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1rem;
+  align-content: center;
 
   width: 100%;
   min-height: 12.5rem;
@@ -169,6 +206,12 @@ body {
     padding: 2rem 1.25rem;
   }
 
+  /* 메인화면 선택지가이드 텍스트 */
+  .guide-text {
+    margin-bottom: 1rem;
+  }
+
+  /* 이름 */
   .name-tag {
     position: absolute;
     top: 0;
@@ -181,20 +224,40 @@ body {
     background: #1e2a70;
   }
 
+  /* 이전/다음 */
+  .btn-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+  }
+
+  /* 대화 */
   .conversation-box {
     width: 100%;
     word-break: keep-all;
+
+    .line {
+      line-height: 1.5;
+    }
   }
 
+  /* 게임 선택지 */
   .select-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 0.5rem;
 
     width: 100%;
     height: 100%;
+
+    @media (max-width: 400px) {
+      gap: 0.125rem;
+    }
 
     li {
       width: 100%;
@@ -202,7 +265,7 @@ body {
 
     button {
       display: grid;
-      grid-template-columns: 2rem 1fr;
+      grid-template-columns: auto 1fr;
       width: 100%;
       padding: 0.5rem 1rem;
 
@@ -227,6 +290,10 @@ body {
       &:focus {
         outline: 2px solid #888;
         outline-offset: 2px;
+      }
+
+      &:hover {
+        text-decoration: 1px underline black;
       }
     }
   }

@@ -34,6 +34,10 @@ const progressBar = document.querySelector('.music-progressbar') as HTMLElement;
 const progressStatus = document.querySelector('.progress-status') as HTMLElement; // 프로그레스바 상태
 const dot = document.querySelector('.dot') as HTMLElement; // 드래그 가능한 점
 
+const userName = localStorage.getItem('userName') as string; // 로컬스토리지에서 사용자 이름 가져오기
+const userNameTag = document.querySelector('.user-name') as HTMLElement;
+userNameTag.innerHTML = userName;
+
 /**
  * YouTube IFrame API가 로드되면 자동으로 호출되는 전역 함수
  * 이 함수에서 YouTube 플레이어를 생성하고 초기 설정을 실행
@@ -44,7 +48,7 @@ window.onYouTubeIframeAPIReady = () => {
     events: {
       onReady: () => {
         isPlayerReady = true;
-        player?.setVolume(80); // 볼륨 설정
+        player?.setVolume(30); // 볼륨 설정
       },
     },
   });
