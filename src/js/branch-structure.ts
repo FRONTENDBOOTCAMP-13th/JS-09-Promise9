@@ -349,11 +349,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const nameTags = document.querySelectorAll('.char-name') as NodeListOf<HTMLElement>;
   if (genderCheck === '여자') {
     nameTags.forEach((nameTag) => {
-      nameTag.innerHTML = '카리나';
+      nameTag.innerHTML = '유키';
     });
   } else {
     nameTags.forEach((nameTag) => {
-      nameTag.innerHTML = '남캐';
+      nameTag.innerHTML = '카이';
     });
   }
 
@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
       emotionPick = highScore[0];
     }
 
-    localStorage.setItem('highSchore', emotionPick);
+    localStorage.setItem('highScore', emotionPick);
     if (sceneId === 'nextDayScene') {
       switch (emotionPick) {
         case 'happy':
@@ -509,8 +509,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // 다음 질문지로 넘아가기
-        moveToScene(choice.nextScene);
         handleChoice(choice.emotion);
+        moveToScene(choice.nextScene);
 
         // 이스터에그 점수 저장
         if (choice.easterEgg !== undefined) {
