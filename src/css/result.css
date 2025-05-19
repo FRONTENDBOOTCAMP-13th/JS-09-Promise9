@@ -21,7 +21,7 @@
 
   background: #dee2e6;
 
-  @media (max-width: 400px) {
+  @media (max-width: 440px) {
     left: 0;
     padding: 2rem 1rem;
 
@@ -64,7 +64,7 @@
         object-fit: cover;
       }
 
-      @media (max-width: 400px) {
+      @media (max-width: 440px) {
         width: 15.625rem;
         height: 15.625rem;
       }
