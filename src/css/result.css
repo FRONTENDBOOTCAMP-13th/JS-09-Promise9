@@ -1,6 +1,14 @@
 /*========================================
           [Item - 결과화면] 
 ==========================================*/
+
+.phone-wrap {
+  width: fit-content;
+  height: fit-content;
+  box-sizing: content-box;
+  padding: 5rem 5rem;
+  background: url('/assets/img/phone.webp') center center / cover no-repeat;
+}
 .musiclists-wrap {
   display: flex;
   flex-direction: column;
@@ -12,6 +20,7 @@
   max-width: 500px;
   height: 100vh;
   min-height: 810px;
+  max-height: 880px;
   margin: 0 auto;
   padding: 2rem;
 
