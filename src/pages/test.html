@@ -25,31 +25,33 @@
   </head>
   <body>
     <h1 class="sr-only">두근두근 플레이리스트 게임</h1>
+
     <main class="phone-wrap">
       <!-- BGM -->
       <audio id="bgmAudio" src="../../public/bgm/bgm.mp3" autoplay loop></audio>
       <!-- BGM ON / OFF 버튼 -->
       <button class="bgmBtn">
-        <img class="bgmOn" src="/src/assets/img/bgmOn.png" alt="백그라운드 사운드 on" />
+        <img
+          class="bgmOn"
+          src="/public/assets/img/bgmOn.png"
+          alt="백그라운드 사운드 on" />
         <img
           class="bgmOff"
-          src="/src/assets/img/bgmOff.png"
+          src="/public/assets/img/bgmOff.png"
           alt="백그라운드 사운드 off"
           style="display: none" />
       </button>
-
       <!-- 프롤로그 1 : 등굣길 -->
       <section class="playlists-wrap" data-prolog="scene1" style="display: block">
         <!-- 캐릭터 이미지 -->
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <!-- 대화 컨테이너 1-->
         <div class="container">
           <!-- 캐릭터 대화 -->
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line"><span class="sr-only">나레이션</span>[등굣길]</li>
               <li class="line" data-emotion="worried">
@@ -57,7 +59,6 @@
                 <p>설마 어제 잠 못 잔 거야?</p>
               </li>
               <li class="line" data-emotion="default">
-                <span class="sr-only">나레이션</span>
                 (잠깐 <span class="user-name"></span>을 바라보다가 조심스럽게 말을 잇는다)
               </li>
               <li class="line" data-emotion="shy">
@@ -72,15 +73,13 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <!-- 사용자 선택지 -->
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 2-1 : 교실 창가-->
       <section
         class="playlists-wrap"
@@ -89,10 +88,9 @@
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
                 <span class="sr-only">나레이션</span>[교실 창가에 기대어]
@@ -106,29 +104,25 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 2-2 : 수업시간 쪽지 -->
       <section class="playlists-wrap" data-prolog="classNoteScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
                 <span class="sr-only">나레이션</span>[수업시간, 쪽지를 받는다]
               </li>
               <li class="line changeScene" data-emotion="default">
-                <span class="sr-only">나레이션</span>
                 『살짝 접힌 쪽지, 조심스럽게 펼치면…』
               </li>
               <li class="line" data-emotion="shy">
@@ -141,14 +135,12 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 2-3 : 복도 창가 -->
       <section
         class="playlists-wrap"
@@ -157,13 +149,12 @@
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
-                <span class="sr-only">나레이션</span> [복도 창가에 기대어 조용히 말한다]
+                <span class="sr-only">나레이션</span>[복도 창가에 기대어 조용히 말한다]
               </li>
               <li class="line" data-emotion="happy">
                 <p>햇살 따듯하고... 바람도 살랑거리고...</p>
@@ -176,32 +167,28 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 3-1 : 매점 -->
       <section class="playlists-wrap" data-prolog="stallScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">[점심시간, 매점 안에서]</li>
-              <li class="line" data-emotion="shy">
+              <li class="line">
                 <span class="sr-only">나레이션</span>
                 <p>(매점에 도착하자, 서로 살짝 눈을 마주친다.</p>
                 <p>분위기가 어색한 듯, 하지만 설렘은 가득하다)</p>
               </li>
               <li class="line" data-emotion="default">
-                <span class="sr-only">나레이션</span>
                 <p>(피자빵을 고르며)</p>
                 <p>네가 고른 걸 먹을까? 아니면 내가 고른 걸 먹을까?</p>
               </li>
@@ -211,29 +198,25 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 3-2 : 급식실 -->
       <section class="playlists-wrap" data-prolog="cafeteriaScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
                 <span class="sr-only">나레이션</span>[점심시간, 급식실 안에서]
               </li>
-              <li class="line" data-emotion="default">
-                <span class="sr-only">나레이션</span>
+              <li class="line">
                 <p>
                   (식탁에 둘이 앉아 가볍게 대화 중, 주변은 소란스러운데, 둘만의 특별한
                   공기가 흐른다.)
@@ -249,23 +232,20 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 4 : 동아리 -->
       <section class="playlists-wrap" data-prolog="clubScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
                 <span class="sr-only">나레이션</span>[동아리 활동 시간 종이 울린다]
@@ -279,23 +259,20 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 5 : 비 -->
       <section class="playlists-wrap" data-prolog="rainScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line"><span class="sr-only">나레이션</span>[비 오는 하굣길]</li>
               <li class="line" data-emotion="surprised">
@@ -310,23 +287,20 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 6 : 비 그침 -->
       <section class="playlists-wrap" data-prolog="rainStopScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
                 <span class="sr-only">나레이션</span>
@@ -344,23 +318,20 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 7-1 : 오락실 -->
       <section class="playlists-wrap" data-prolog="arcadeScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line"><span class="sr-only">나레이션</span>[다음날]</li>
               <li class="line changeScene">
@@ -381,31 +352,26 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 7-2 : 영화관 -->
       <section class="playlists-wrap" data-prolog="movieScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line"><span class="sr-only">나레이션</span>[다음날]</li>
               <li class="line changeScene">
                 <span class="sr-only">나레이션</span>[영화가 끝난 후]
               </li>
-              <li class="line">
-                <span class="sr-only">나레이션</span>갑자기 누군가 내 이름을 부른다
-              </li>
+              <li class="line" data-emotion="cdefault">갑자기 누군가 내 이름을 부른다</li>
               <li class="line" data-emotion="csurprised">
                 어? <span class="user-name"></span>, 너도 이 영화 봤어?
               </li>
@@ -416,23 +382,20 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 7-3 : 서점 -->
       <section class="playlists-wrap" data-prolog="bookstoreScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line"><span class="sr-only">나레이션</span>[다음날]</li>
               <li class="line changeScene">
@@ -456,23 +419,20 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 8 : 카페 -->
       <section class="playlists-wrap" data-prolog="cafeScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
                 <span class="sr-only">나레이션</span>
@@ -496,23 +456,20 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 9-1 : 버스 -->
       <section class="playlists-wrap" data-prolog="busScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
                 <span class="sr-only">나레이션</span>
@@ -532,23 +489,20 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 9-2 : 공원 -->
       <section class="playlists-wrap" data-prolog="parkScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
                 <span class="sr-only">나레이션</span>[밤, 조명이 은은한 공원 하늘 아래서]
@@ -572,23 +526,20 @@
               <button class="next-btn" title="다음대화로 이동하기">다음</button>
             </div>
           </div>
-
           <div class="conversation-wrap user-select">
-            <p class="name-tag"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 10-1 : 러브엔딩 -->
       <section class="playlists-wrap" data-prolog="loveScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
                 <span class="sr-only">나레이션</span>
@@ -603,16 +554,14 @@
           </div>
         </div>
       </section>
-
       <!-- 프롤로그 10-2 : 헤어짐엔딩 -->
       <section class="playlists-wrap" data-prolog="breakScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="display: none" />
         </div>
-
         <div class="container">
           <div class="conversation-wrap line-box">
-            <p class="name-tag"><span class="char-name"></span></p>
+            <p class="name-tag" style="display: none"><span class="char-name"></span></p>
             <ul class="conversation-box">
               <li class="line">
                 <span class="sr-only">나레이션</span>
@@ -627,7 +576,6 @@
           </div>
         </div>
       </section>
-
       <!-- 결과 화면 -->
       <section class="playlists-wrap" data-prolog="resultScene" style="display: none">
         <div class="character-img-wrap">
@@ -635,7 +583,7 @@
         </div>
         <div class="container">
           <div class="conversation-wrap line-box">
-            <!-- <p class="name-tag"><span class="char-name"></span></p> -->
+            <!-- <p class="name-tag" style="display: none;"><span class="char-name"></span></p> -->
             <ul class="conversation-box"></ul>
             <button
               class="resultBtn btn gradient"
