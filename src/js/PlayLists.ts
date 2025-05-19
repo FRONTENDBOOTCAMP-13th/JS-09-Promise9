@@ -270,7 +270,7 @@ function updateMusic(song: Song, mood: string) {
 // ==========================================
 
 // 1. 로컬스토리지에서 감정 점수 가져오기
-const highScoreMusic = localStorage.getItem('highSchore') as string;
+const highScoreMusic = localStorage.getItem('highScore') as string;
 
 // 2. 감정에 해당하는 노래 중 무작위로 하나 선택
 const randomSong = getRandomSong(playLists, highScoreMusic);

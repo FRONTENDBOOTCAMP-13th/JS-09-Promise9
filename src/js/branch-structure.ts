@@ -349,11 +349,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const nameTags = document.querySelectorAll('.char-name') as NodeListOf<HTMLElement>;
   if (genderCheck === '여자') {
     nameTags.forEach((nameTag) => {
-      nameTag.innerHTML = '카리나';
+      nameTag.innerHTML = '유키';
     });
   } else {
     nameTags.forEach((nameTag) => {
-      nameTag.innerHTML = '남캐';
+      nameTag.innerHTML = '카이';
     });
   }
 
@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
       emotionPick = highScore[0];
     }
 
-    localStorage.setItem('highSchore', emotionPick);
+    localStorage.setItem('highScore', emotionPick);
     if (sceneId === 'nextDayScene') {
       switch (emotionPick) {
         case 'happy':
@@ -509,8 +509,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // 다음 질문지로 넘아가기
-        moveToScene(choice.nextScene);
         handleChoice(choice.emotion);
+        moveToScene(choice.nextScene);
 
         // 이스터에그 점수 저장
         if (choice.easterEgg !== undefined) {
@@ -570,36 +570,42 @@ document.addEventListener('DOMContentLoaded', () => {
       '.conversation-box > .line',
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
+    const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
     if (index < lines.length - 1) {
       prevIndex.push(index);
       lines[index].style.display = 'none';
       index++;
+      if (lines[index].querySelector('.sr-only')) {
+        nowNameTag.style.display = 'none';
+      } else {
+        nowNameTag.style.display = 'block';
+      }
       if (lines[index].classList.contains('changeScene')) {
         const nowScene = section.dataset.prolog;
         switch (nowScene) {
           case 'classNoteScene':
             section.style.background =
-              'url(/src/assets/img/room.png) center center / cover no-repeat';
+              'url(/public/assets/img/room.png) center center / cover no-repeat';
             break;
           case 'arcadeScene':
             section.style.background =
-              'url(/src/assets/img/arcadeScene.png) center center / cover no-repeat';
+              'url(/public/assets/img/arcadeScene.png) center center / cover no-repeat';
             break;
           case 'movieScene':
             section.style.background =
-              'url(/src/assets/img/movieScene.png) center center / cover no-repeat';
+              'url(/public/assets/img/movieScene.png) center center / cover no-repeat';
             break;
           case 'bookstoreScene':
             section.style.background =
-              'url(/src/assets/img/bookstoreScene.png) center center / cover no-repeat';
+              'url(/public/assets/img/bookstoreScene.png) center center / cover no-repeat';
             break;
           case 'cafeScene':
             section.style.background =
-              'url(/src/assets/img/cafeScene.png) center center / cover no-repeat';
+              'url(/public/assets/img/cafeScene.png) center center / cover no-repeat';
             break;
           case 'parkScene':
             section.style.background =
-              'url(/src/assets/img/parkLoveScene.png) center center / cover no-repeat';
+              'url(/public/assets/img/parkLoveScene.png) center center / cover no-repeat';
             break;
         }
       }
@@ -668,10 +674,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (emotion) {
       if (genderCheck === '여자') {
         const filename = girlEmotionImages[emotion];
-        characterImg.src = `/src/assets/img/${filename}`;
+        characterImg.src = `/public/assets/img/${filename}`;
       } else if (genderCheck === '남자') {
         const filename = boyEmotionImages[emotion];
-        characterImg.src = `/src/assets/img/${filename}`;
+        characterImg.src = `/public/assets/img/${filename}`;
       }
     } else {
       characterImg.style.display = 'none';

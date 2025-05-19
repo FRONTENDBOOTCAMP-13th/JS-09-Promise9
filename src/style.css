@@ -17,9 +17,9 @@ body {
           [Item - bgmBtn/resultBtn] 
 ==========================================*/
 .bgmBtn {
-  position: fixed;
-  top: 1rem;
-  left: calc(50% - 200px);
+  position: absolute;
+  top: 3rem;
+  left: calc(50% - 150px);
   transform: translateX(-50%);
 
   width: 3rem;
@@ -31,42 +31,58 @@ body {
 
   z-index: 10;
 
-  @media (max-width: 500px) {
-    left: 1rem;
+  @media (max-width: 400px) {
+    top: 1.5rem;
+    left: 1.5rem;
     transform: translateX(0);
   }
 }
 
 .resultBtn {
-  box-shadow: 0 4px 15px 0 rgb(190 190 190);
-
-  &:hover,
-  &:focus,
-  &:active {
-    background: #e06678;
-
-    color: #fff;
-  }
+  margin-top: 0.5rem;
 }
 /*========================================
           [Item - 게임화면] 
 ==========================================*/
+.phone-wrap {
+  position: relative;
+  width: 500px;
+  height: 880px;
+  margin: 0 auto;
+  padding: 1.5rem 3.5rem 1.9rem;
+  background: url('/assets/img/phone.webp') center center / cover no-repeat;
+
+  @media (max-width: 400px) {
+    width: 100%;
+    background: transparent;
+    padding: 0;
+  }
+}
+
 .playlists-wrap {
+  position: relative;
+  left: -0.25rem;
+  top: 0;
+
   width: 100%;
-  max-width: 500px;
-  height: 100vh;
-  min-height: 810px;
+  height: 100%;
+  border-radius: 3.4rem;
 
   /* align-content: center; */
   align-content: end;
   margin: 0 auto;
   padding: 5rem 0;
-  background: url(/src/assets/img/room.png) center center / cover no-repeat;
+  background: url(/public/assets/img/room.png) center center / cover no-repeat;
   position: relative;
 
   @media (max-width: 400px) {
     padding: 2rem 0;
     min-height: 710px;
+    width: 100%;
+    height: 100vh;
+    min-height: 810px;
+    max-height: 880px;
+    border-radius: 0;
   }
 }
 
@@ -80,104 +96,101 @@ body {
 /*=====***** 상황에 따른 배경이미지 *****=====*/
 /* 등굣길 */
 .playlists-wrap[data-prolog='scene1'] {
-  background: url(/src/assets/img/scene1.png) center center / cover no-repeat;
+  background: url(/public/assets/img/scene1.png) center center / cover no-repeat;
 }
 
 /* 교실창가 */
 .playlists-wrap[data-prolog='classWindowScene'] {
-  background: url(/src/assets/img/classWindowScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/classWindowScene.png) center center / cover no-repeat;
 }
 
 /* 수업시간쪽지 */
 .playlists-wrap[data-prolog='classNoteScene'] {
-  background: url(/src/assets/img/classNoteScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/classNoteScene.png) center center / cover no-repeat;
 }
 
 /* 복도 창가 */
 .playlists-wrap[data-prolog='hallwayWindowScene'] {
-  background: url(/src/assets/img/hallwayWindowScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/hallwayWindowScene.png) center center / cover
+    no-repeat;
 }
 
 /* 매점 */
 .playlists-wrap[data-prolog='stallScene'] {
-  background: url(/src/assets/img/stallScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/stallScene.png) center center / cover no-repeat;
 }
 
 /* 급식실 */
 .playlists-wrap[data-prolog='cafeteriaScene'] {
-  background: url(/src/assets/img/cafeteriaScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/cafeteriaScene.png) center center / cover no-repeat;
 }
 
 /* 동아리 */
 .playlists-wrap[data-prolog='clubScene'] {
-  background: url(/src/assets/img/clubScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/clubScene.png) center center / cover no-repeat;
 }
 
 /* 비 */
 .playlists-wrap[data-prolog='rainScene'] {
-  background: url(/src/assets/img/rainScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/rainScene.png) center center / cover no-repeat;
 }
 
 /* 비 그침 */
 .playlists-wrap[data-prolog='rainStopScene'] {
-  background: url(/src/assets/img/rainStopScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/rainStopScene.png) center center / cover no-repeat;
 }
 
 /* 오락실 */
 .playlists-wrap[data-prolog='arcadeScene'] {
-  background: url(/src/assets/img/nextday.png) center center / cover no-repeat;
+  background: url(/public/assets/img/nextday.png) center center / cover no-repeat;
 }
 
 /* 영화관 */
 .playlists-wrap[data-prolog='movieScene'] {
-  background: url(/src/assets/img/nextday.png) center center / cover no-repeat;
+  background: url(/public/assets/img/nextday.png) center center / cover no-repeat;
 }
 
 /* 서점 */
 .playlists-wrap[data-prolog='bookstoreScene'] {
-  background: url(/src/assets/img/nextday.png) center center / cover no-repeat;
+  background: url(/public/assets/img/nextday.png) center center / cover no-repeat;
 }
 /* 서점 */
 .playlists-wrap[data-prolog='bookstoreScene2'] {
-  background: url(/src/assets/img/bookstoreScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/bookstoreScene.png) center center / cover no-repeat;
 }
 
 /* 카페 */
 .playlists-wrap[data-prolog='cafeScene'] {
-  background: url(/src/assets/img/clouds.png) center center / cover no-repeat;
+  background: url(/public/assets/img/clouds.png) center center / cover no-repeat;
 }
 
 /* 버스 */
 .playlists-wrap[data-prolog='busScene'] {
-  background: url(/src/assets/img/busScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/busScene.png) center center / cover no-repeat;
 }
 
 /* 공원 */
 .playlists-wrap[data-prolog='parkScene'] {
-  background: url(/src/assets/img/parkScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/parkScene.png) center center / cover no-repeat;
 }
 
 /* 러브엔딩 */
 .playlists-wrap[data-prolog='loveScene'] {
-  background: url(/src/assets/img/loveScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/loveScene.png) center center / cover no-repeat;
 }
 
 /* 러브엔딩 */
 .playlists-wrap[data-prolog='sadScene'] {
-  background: url(/src/assets/img/sadScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/sadScene.png) center center / cover no-repeat;
 }
 
 /* 결과보기창 */
 .playlists-wrap[data-prolog='resultScene'] {
-  background: url(/src/assets/img/sadScene.png) center center / cover no-repeat;
+  background: url(/public/assets/img/sadScene.png) center center / cover no-repeat;
 }
 
 .container {
-  padding: 0 2rem;
-
-  @media (max-width: 400px) {
-    padding: 0 1rem;
-  }
+  padding: 0 1rem;
 }
 
 /*=====***** 캐릭터이미지 *****=====*/
@@ -185,7 +198,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 450px;
+  height: auto;
 
   img {
     height: 100%;
@@ -203,7 +216,7 @@ body {
 
   width: 100%;
   min-height: 12.5rem;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem;
 
   word-break: keep-all;
   border-radius: 16px;
@@ -259,8 +272,12 @@ body {
     align-items: flex-start;
     gap: 0.5rem;
 
-    width: 100%;
+    width: 85%;
     height: 100%;
+
+    @media (max-width: 400px) {
+      gap: 0.125rem;
+    }
 
     li {
       width: 100%;
@@ -270,7 +287,7 @@ body {
       display: grid;
       grid-template-columns: auto 1fr;
       width: 100%;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0;
 
       border: none;
       background: none;
