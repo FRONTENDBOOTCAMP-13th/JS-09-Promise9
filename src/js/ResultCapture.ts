@@ -1,9 +1,12 @@
 import html2canvas from 'html2canvas';
 
+const target = document.querySelector('.musiclists-wrap') as HTMLElement;
+const targetBtn = target.querySelector('.btn-wrap') as HTMLElement;
+let viewWidth = window.innerWidth;
+
 function captureResult() {
-  const target = document.querySelector('.musiclists-wrap') as HTMLElement;
-  const targetBtn = target.querySelector('.btn-wrap') as HTMLElement;
-  targetBtn?.setAttribute('style', 'display:none;');
+  target!.style.borderRadius = '0';
+  targetBtn!.style.display = 'none';
 
   if (!target) return;
 
@@ -17,6 +20,21 @@ function captureResult() {
     link.click();
   });
 
-  targetBtn?.setAttribute('style', 'display:flex;');
+  targetBtn!.style.display = 'flex';
+
+  if (viewWidth < 440) {
+    target.style.borderRadius = '0';
+  } else {
+    target.style.borderRadius = '3rem';
+  }
 }
 (window as any).captureResult = captureResult;
+
+window.addEventListener('resize', function () {
+  viewWidth = window.innerWidth;
+  if (viewWidth < 440) {
+    target.style.borderRadius = '0';
+  } else {
+    target.style.borderRadius = '3rem';
+  }
+});
