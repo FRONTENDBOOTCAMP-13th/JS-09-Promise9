@@ -1,3 +1,9 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .components-item-wrap {
   max-width: 500px;
   margin: 1rem;
@@ -52,11 +58,12 @@
   padding: 0.875rem 2rem;
   border-radius: 1.5rem;
   font-size: 1.25rem;
-}
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+
+  @media (max-width: 400px) {
+    width: auto;
+    font-size: 1.125rem;
+    min-width: 8rem;
+  }
 }
 
 .btn.gradient {

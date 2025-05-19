@@ -38,15 +38,7 @@ body {
 }
 
 .resultBtn {
-  box-shadow: 0 4px 15px 0 rgb(190 190 190);
-
-  &:hover,
-  &:focus,
-  &:active {
-    background: #e06678;
-
-    color: #fff;
-  }
+  margin-top: 0.5rem;
 }
 /*========================================
           [Item - 게임화면] 
@@ -56,6 +48,7 @@ body {
   max-width: 500px;
   height: 100vh;
   min-height: 810px;
+  max-height: 880px;
 
   /* align-content: center; */
   align-content: end;
@@ -261,6 +254,10 @@ body {
 
     width: 100%;
     height: 100%;
+
+    @media (max-width: 400px) {
+      gap: 0.125rem;
+    }
 
     li {
       width: 100%;
