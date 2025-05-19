@@ -49,7 +49,7 @@ body {
   width: 500px;
   height: 100vh;
   margin: 0 auto;
-  padding: 1.5rem 2.5rem 1.9rem;
+  padding: 1.5rem 3.5rem 1.9rem;
   background: url('/assets/img/phone.webp') center center / cover no-repeat;
 
   @media (max-width: 440px) {
