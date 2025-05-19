@@ -31,6 +31,7 @@
 
 .btn {
   position: relative;
+  align-content: center;
   min-width: 7rem;
   height: 40px;
   padding: 0.5rem 1rem;
@@ -39,6 +40,7 @@
   transition: background 0.3s;
   color: #222;
   font-size: 0.875rem;
+  text-align: center;
 
   @media (max-width: 400px) {
     min-width: auto;
