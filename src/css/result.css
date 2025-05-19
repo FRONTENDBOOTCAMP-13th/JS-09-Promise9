@@ -159,7 +159,7 @@
 /*=====***** 상태별 배경 *****=====*/
 /* happy */
 .musiclists-wrap.happy {
-  background: url(/assets/img/playlists/playlists-happy.png) center center / cover
+  background: url(/assets/img/playlists/playlists-happy.webp) center center / cover
     no-repeat;
 
   /* 결과타이틀 */
@@ -196,7 +196,8 @@
 
 /* sad */
 .musiclists-wrap.sad {
-  background: url(/assets/img/playlists/playlists-sad.png) center center / cover no-repeat;
+  background: url(/assets/img/playlists/playlists-sad.webp) center center / cover
+    no-repeat;
 
   /* 결과타이틀 */
   .result-title {
@@ -232,7 +233,7 @@
 
 /* excited */
 .musiclists-wrap.excited {
-  background: url(/assets/img/playlists/playlists-excited.png) center center / cover
+  background: url(/assets/img/playlists/playlists-excited.webp) center center / cover
     no-repeat;
 
   /* 결과타이틀 */
@@ -269,7 +270,7 @@
 
 /* relax */
 .musiclists-wrap.relaxed {
-  background: url(/assets/img/playlists/playlists-relaxed.png) center center / cover
+  background: url(/assets/img/playlists/playlists-relaxed.webp) center center / cover
     no-repeat;
 
   /* 결과타이틀 */
@@ -306,7 +307,7 @@
 
 /* fresh */
 .musiclists-wrap.refresh {
-  background: url(/assets/img/playlists/playlists-refresh.png) center center / cover
+  background: url(/assets/img/playlists/playlists-refresh.webp) center center / cover
     no-repeat;
 
   /* 결과타이틀 */
@@ -343,7 +344,7 @@
 
 /* lonely */
 .musiclists-wrap.lonely {
-  background: url(/assets/img/playlists/playlists-lonely.png) center center / cover
+  background: url(/assets/img/playlists/playlists-lonely.webp) center center / cover
     no-repeat;
 
   /* 결과타이틀 */
