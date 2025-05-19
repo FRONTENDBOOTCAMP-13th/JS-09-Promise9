@@ -19,7 +19,7 @@ body {
 .bgmBtn {
   position: absolute;
   top: 3rem;
-  left: calc(50% - 150px);
+  left: calc(50% - 160px);
   transform: translateX(-50%);
 
   width: 3rem;
@@ -31,7 +31,7 @@ body {
 
   z-index: 10;
 
-  @media (max-width: 400px) {
+  @media (max-width: 440px) {
     top: 1.5rem;
     left: 1.5rem;
     transform: translateX(0);
@@ -47,12 +47,12 @@ body {
 .phone-wrap {
   position: relative;
   width: 500px;
-  height: 880px;
+  height: 100vh;
   margin: 0 auto;
   padding: 1.5rem 3.5rem 1.9rem;
   background: url('/assets/img/phone.webp') center center / cover no-repeat;
 
-  @media (max-width: 400px) {
+  @media (max-width: 440px) {
     width: 100%;
     background: transparent;
     padding: 0;
@@ -75,13 +75,13 @@ body {
   background: url(/public/assets/img/room.png) center center / cover no-repeat;
   position: relative;
 
-  @media (max-width: 400px) {
-    padding: 2rem 0;
-    min-height: 710px;
+  @media (max-width: 440px) {
+    left: 0;
+    padding: 3rem 0;
     width: 100%;
     height: 100vh;
-    min-height: 810px;
-    max-height: 880px;
+    min-height: 500px;
+    max-height: 800px;
     border-radius: 0;
   }
 }
@@ -222,7 +222,7 @@ body {
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.8);
 
-  @media (max-width: 400px) {
+  @media (max-width: 440px) {
     padding: 2rem 1.25rem;
   }
 
@@ -275,7 +275,7 @@ body {
     width: 85%;
     height: 100%;
 
-    @media (max-width: 400px) {
+    @media (max-width: 440px) {
       gap: 0.125rem;
     }
 
