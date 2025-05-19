@@ -54,7 +54,7 @@ body {
   height: 880px;
   margin: 0 auto;
   padding: 1.6rem 4rem 2rem;
-  background: url('/assets/img/phone.webp') center center / cover no-repeat;
+  background: url('/public/assets/img/phone.webp') center center / cover no-repeat;
 
   @media (max-width: 440px) {
     width: 100%;
@@ -207,6 +207,7 @@ body {
 
   img {
     height: 100%;
+    transition: all 0.3s;
   }
 
   @media (max-width: 500px) {

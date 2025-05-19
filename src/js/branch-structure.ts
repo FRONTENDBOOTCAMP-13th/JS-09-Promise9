@@ -605,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
           case 'parkScene':
             section.style.background =
-              'url(/assets/img/parkLoveScene.webp) center center / cover no-repeat';
+              'url(/assets/img/parkLoveScene.gif) center center / cover no-repeat';
             break;
         }
       }
@@ -670,7 +670,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateImg(line: HTMLElement) {
     const emotion = line.dataset.emotion as keyof Emotion | undefined;
-    characterImg.style.display = 'block';
+    characterImg.style.opacity = '1';
     if (emotion) {
       if (genderCheck === '여자') {
         const filename = girlEmotionImages[emotion];
@@ -680,7 +680,7 @@ document.addEventListener('DOMContentLoaded', () => {
         characterImg.src = `/assets/img/${filename}`;
       }
     } else {
-      characterImg.style.display = 'none';
+      characterImg.style.opacity = '0';
     }
   }
 });
