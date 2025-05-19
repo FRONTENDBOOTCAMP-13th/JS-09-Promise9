@@ -7,6 +7,7 @@ let currentIndex = 0;
 
 // "시작" 버튼 클릭 시 다음 section으로 이동
 startBtn?.addEventListener('click', () => {
+  localStorage.removeItem('highScore');
   if (currentIndex < sections.length - 1) {
     // 마지막 section이 아니면
     sections[currentIndex].style.display = 'none';
