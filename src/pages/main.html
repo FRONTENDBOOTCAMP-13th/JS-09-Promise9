@@ -23,56 +23,58 @@
   <body>
     <h1 class="sr-only">두근두근 플레이리스트</h1>
 
-    <!-- 시작 화면 -->
-    <section class="playlists-wrap main" style="display: block">
-      <div class="main-container">
-        <div class="main-title">
-          <h2 class="sr-only">두근두근 플레이리스트</h2>
-          <img src="/public/assets/img/title-logo.png" alt="" aria-hidden="true" />
-        </div>
-        <button class="btn btn-lg gradient" id="startBtn">START</button>
-        <div class="main-footer">
-          <p>&copy; 2025 by Promise9</p>
-          <p>본 웹 사이트는 멋쟁이사자처럼 프론트엔드</p>
-          <p>부트캠프의 비상업적 프로젝트입니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 사용자 입력화면 -->
-    <section class="playlists-wrap main">
-      <div class="main-container">
-        <div class="conversation-wrap main">
-          <p class="guide-text">게임에서 사용할 이름을 입력해주세요.</p>
-          <div class="flex-box">
-            <input
-              type="text"
-              class="input-default"
-              id="create-user-name"
-              maxlength="4"
-              placeholder="이름을 입력해주세요." />
-            <button class="btn gradient" id="submit-user-name">확인</button>
+    <main class="phone-wrap">
+      <!-- 시작 화면 -->
+      <section class="playlists-wrap main" style="display: block">
+        <div class="main-container">
+          <div class="main-title">
+            <h2 class="sr-only">두근두근 플레이리스트</h2>
+            <img src="/public/assets/img/title-logo.png" alt="" aria-hidden="true" />
+          </div>
+          <button class="btn btn-lg gradient" id="startBtn">START</button>
+          <div class="main-footer">
+            <p>&copy; 2025 by Promise9</p>
+            <p>본 웹 사이트는 멋쟁이사자처럼 프론트엔드</p>
+            <p>부트캠프의 비상업적 프로젝트입니다.</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 사용자 선택화면 -->
-    <section class="playlists-wrap main">
-      <div class="main-container">
-        <div class="conversation-wrap main">
-          <p class="guide-text">원하는 대화 상대의 성별을 선택해주세요.</p>
-          <div class="flex-box gender">
-            <button class="btn outline-gradient" id="select-gen" data-value="여자">
-              여자
-            </button>
-            <button class="btn outline-gradient" id="select-gen" data-value="남자">
-              남자
-            </button>
-            <button class="btn gradient" id="submit-user-gen">확인</button>
+      <!-- 사용자 입력화면 -->
+      <section class="playlists-wrap main">
+        <div class="main-container">
+          <div class="conversation-wrap main">
+            <p class="guide-text">게임에서 사용할 이름을 입력해주세요.</p>
+            <div class="flex-box">
+              <input
+                type="text"
+                class="input-default"
+                id="create-user-name"
+                maxlength="4"
+                placeholder="이름을 입력해주세요." />
+              <button class="btn gradient" id="submit-user-name">확인</button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- 사용자 선택화면 -->
+      <section class="playlists-wrap main">
+        <div class="main-container">
+          <div class="conversation-wrap main">
+            <p class="guide-text">원하는 대화 상대의 성별을 선택해주세요.</p>
+            <div class="flex-box gender">
+              <button class="btn outline-gradient" id="select-gen" data-value="여자">
+                여자
+              </button>
+              <button class="btn outline-gradient" id="select-gen" data-value="남자">
+                남자
+              </button>
+              <button class="btn gradient" id="submit-user-gen">확인</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
