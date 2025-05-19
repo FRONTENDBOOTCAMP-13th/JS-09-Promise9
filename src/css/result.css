@@ -2,32 +2,34 @@
           [Item - 결과화면] 
 ==========================================*/
 
-.phone-wrap {
-  width: fit-content;
-  height: fit-content;
-  box-sizing: content-box;
-  padding: 5rem 5rem;
-  background: url('/assets/img/phone.webp') center center / cover no-repeat;
-}
 .musiclists-wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  position: relative;
+  left: -0.25rem;
+  top: 0;
 
   width: 100%;
-  max-width: 500px;
-  height: 100vh;
-  min-height: 810px;
-  max-height: 880px;
+  height: 100%;
+
+  border-radius: 3rem;
   margin: 0 auto;
   padding: 2rem;
 
   background: #dee2e6;
 
   @media (max-width: 400px) {
+    left: 0;
     padding: 2rem 1rem;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 810px;
+    max-height: 880px;
+    border-radius: 0;
   }
 
   /* 결과타이틀 */

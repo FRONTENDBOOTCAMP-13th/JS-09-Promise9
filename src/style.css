@@ -17,9 +17,9 @@ body {
           [Item - bgmBtn/resultBtn] 
 ==========================================*/
 .bgmBtn {
-  position: fixed;
-  top: 1rem;
-  left: calc(50% - 200px);
+  position: absolute;
+  top: 3rem;
+  left: calc(50% - 150px);
   transform: translateX(-50%);
 
   width: 3rem;
@@ -31,8 +31,9 @@ body {
 
   z-index: 10;
 
-  @media (max-width: 500px) {
-    left: 1rem;
+  @media (max-width: 400px) {
+    top: 1.5rem;
+    left: 1.5rem;
     transform: translateX(0);
   }
 }
@@ -43,12 +44,29 @@ body {
 /*========================================
           [Item - 게임화면] 
 ==========================================*/
+.phone-wrap {
+  position: relative;
+  width: 500px;
+  height: 880px;
+  margin: 0 auto;
+  padding: 1.5rem 3.5rem 1.9rem;
+  background: url('/assets/img/phone.webp') center center / cover no-repeat;
+
+  @media (max-width: 400px) {
+    width: 100%;
+    background: transparent;
+    padding: 0;
+  }
+}
+
 .playlists-wrap {
+  position: relative;
+  left: -0.25rem;
+  top: 0;
+
   width: 100%;
-  max-width: 500px;
-  height: 100vh;
-  min-height: 810px;
-  max-height: 880px;
+  height: 100%;
+  border-radius: 3.4rem;
 
   /* align-content: center; */
   align-content: end;
@@ -60,6 +78,11 @@ body {
   @media (max-width: 400px) {
     padding: 2rem 0;
     min-height: 710px;
+    width: 100%;
+    height: 100vh;
+    min-height: 810px;
+    max-height: 880px;
+    border-radius: 0;
   }
 }
 
@@ -166,11 +189,7 @@ body {
 }
 
 .container {
-  padding: 0 2rem;
-
-  @media (max-width: 400px) {
-    padding: 0 1rem;
-  }
+  padding: 0 1rem;
 }
 
 /*=====***** 캐릭터이미지 *****=====*/
@@ -178,7 +197,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 450px;
+  height: auto;
 
   img {
     height: 100%;
@@ -196,7 +215,7 @@ body {
 
   width: 100%;
   min-height: 12.5rem;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem;
 
   word-break: keep-all;
   border-radius: 16px;
@@ -252,7 +271,7 @@ body {
     align-items: flex-start;
     gap: 0.5rem;
 
-    width: 100%;
+    width: 85%;
     height: 100%;
 
     @media (max-width: 400px) {
@@ -267,7 +286,7 @@ body {
       display: grid;
       grid-template-columns: auto 1fr;
       width: 100%;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0;
 
       border: none;
       background: none;
