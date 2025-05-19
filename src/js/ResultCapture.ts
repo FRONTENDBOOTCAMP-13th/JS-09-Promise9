@@ -2,6 +2,9 @@ import html2canvas from 'html2canvas';
 
 function captureResult() {
   const target = document.querySelector('.musiclists-wrap') as HTMLElement;
+  const targetBtn = target.querySelector('.btn-wrap') as HTMLElement;
+  targetBtn?.setAttribute('style', 'display:none;');
+
   if (!target) return;
 
   html2canvas(target).then((canvas) => {
@@ -13,5 +16,7 @@ function captureResult() {
     link.download = 'result.png';
     link.click();
   });
+
+  targetBtn?.setAttribute('style', 'display:flex;');
 }
 (window as any).captureResult = captureResult;
