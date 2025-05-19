@@ -30,7 +30,7 @@
 
 /* section01 - project-introduce */
 .project-introduce {
-  background: url(/public/assets/img/project-bg.png) center center / cover no-repeat;
+  background: url(/public/assets/img/project-bg.webp) center center / cover no-repeat;
 
   align-content: center;
 }

@@ -4,11 +4,11 @@ const selectBox = document.querySelector('.user-select');
 const characterImg = document.getElementById('character-img');
 
 const emotionImages = {
-  default: 'girl-default.png',
-  sad: 'girl-sad.png',
-  happy: 'girl-happy.png',
-  concern: 'girl-concern.png',
-  neutral: 'girl-neutral.png',
+  default: 'girl-default.webp',
+  sad: 'girl-sad.webp',
+  happy: 'girl-happy.webp',
+  concern: 'girl-concern.webp',
+  neutral: 'girl-neutral.webp',
 };
 
 let index = 0;

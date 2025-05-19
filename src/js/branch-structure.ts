@@ -29,32 +29,32 @@ interface Emotion {
 
 const girlEmotionImages: Emotion = {
   none: '',
-  default: 'girl-default.png',
-  sad: 'girl-sad.png',
-  happy: 'girl-happy.png',
-  shy: 'girl-shy.png',
-  surprised: 'girl-surprised.png',
-  worried: 'girl-worried.png',
-  cdefault: 'girl-casual-default.png',
-  csurprised: 'girl-casual-surprised.png',
-  chappy: 'girl-casual-happy.png',
-  cshy: 'girl-casual-shy.png',
-  csad: 'girl-casual-sad.png',
+  default: 'girl-default.webp',
+  sad: 'girl-sad.webp',
+  happy: 'girl-happy.webp',
+  shy: 'girl-shy.webp',
+  surprised: 'girl-surprised.webp',
+  worried: 'girl-worried.webp',
+  cdefault: 'girl-casual-default.webp',
+  csurprised: 'girl-casual-surprised.webp',
+  chappy: 'girl-casual-happy.webp',
+  cshy: 'girl-casual-shy.webp',
+  csad: 'girl-casual-sad.webp',
 };
 
 const boyEmotionImages: Emotion = {
   none: '',
-  default: 'boy-default.png',
-  sad: 'boy-sad.png',
-  happy: 'boy-happy.png',
-  shy: 'boy-shy.png',
-  surprised: 'boy-surprised.png',
-  worried: 'boy-worried.png',
-  cdefault: 'boy-casual-default.png',
-  csurprised: 'boy-casual-surprised.png',
-  chappy: 'boy-casual-happy.png',
-  cshy: 'boy-casual-shy.png',
-  csad: 'boy-casual-sad.png',
+  default: 'boy-default.webp',
+  sad: 'boy-sad.webp',
+  happy: 'boy-happy.webp',
+  shy: 'boy-shy.webp',
+  surprised: 'boy-surprised.webp',
+  worried: 'boy-worried.webp',
+  cdefault: 'boy-casual-default.webp',
+  csurprised: 'boy-casual-surprised.webp',
+  chappy: 'boy-casual-happy.webp',
+  cshy: 'boy-casual-shy.webp',
+  csad: 'boy-casual-sad.webp',
 };
 
 // 감정별 점수를 나타내는 타입
@@ -585,27 +585,27 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (nowScene) {
           case 'classNoteScene':
             section.style.background =
-              'url(/assets/img/room.png) center center / cover no-repeat';
+              'url(/assets/img/room.webp) center center / cover no-repeat';
             break;
           case 'arcadeScene':
             section.style.background =
-              'url(/assets/img/arcadeScene.png) center center / cover no-repeat';
+              'url(/assets/img/arcadeScene.webp) center center / cover no-repeat';
             break;
           case 'movieScene':
             section.style.background =
-              'url(/assets/img/movieScene.png) center center / cover no-repeat';
+              'url(/assets/img/movieScene.webp) center center / cover no-repeat';
             break;
           case 'bookstoreScene':
             section.style.background =
-              'url(/assets/img/bookstoreScene.png) center center / cover no-repeat';
+              'url(/assets/img/bookstoreScene.webp) center center / cover no-repeat';
             break;
           case 'cafeScene':
             section.style.background =
-              'url(/assets/img/cafeScene.png) center center / cover no-repeat';
+              'url(/assets/img/cafeScene.webp) center center / cover no-repeat';
             break;
           case 'parkScene':
             section.style.background =
-              'url(/assets/img/parkLoveScene.png) center center / cover no-repeat';
+              'url(/assets/img/parkLoveScene.webp) center center / cover no-repeat';
             break;
         }
       }

@@ -28,7 +28,7 @@ shareBtn?.addEventListener('click', () => {
     content: {
       title: resultUserName, // 제목
       description: `${musicTitle} - ${musicSinger}`, // 내용
-      imageUrl: 'https://dokidoki-playlists.netlify.app/assets/img/dokidoki.jpg', // 카드 대표 이미지
+      imageUrl: 'https://dokidoki-playlists.netlify.app/assets/img/dokidoki.webp', // 카드 대표 이미지
       link: {
         mobileWebUrl: 'https://dokidoki-playlists.netlify.app/src/pages/main.html', // 클릭시 들어갈 홈페이지
         webUrl: 'https://dokidoki-playlists.netlify.app/src/pages/main.html',
