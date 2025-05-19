@@ -585,27 +585,27 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (nowScene) {
           case 'classNoteScene':
             section.style.background =
-              'url(/src/assets/img/room.png) center center / cover no-repeat';
+              'url(/public/assets/img/room.png) center center / cover no-repeat';
             break;
           case 'arcadeScene':
             section.style.background =
-              'url(/src/assets/img/arcadeScene.png) center center / cover no-repeat';
+              'url(/public/assets/img/arcadeScene.png) center center / cover no-repeat';
             break;
           case 'movieScene':
             section.style.background =
-              'url(/src/assets/img/movieScene.png) center center / cover no-repeat';
+              'url(/public/assets/img/movieScene.png) center center / cover no-repeat';
             break;
           case 'bookstoreScene':
             section.style.background =
-              'url(/src/assets/img/bookstoreScene.png) center center / cover no-repeat';
+              'url(/public/assets/img/bookstoreScene.png) center center / cover no-repeat';
             break;
           case 'cafeScene':
             section.style.background =
-              'url(/src/assets/img/cafeScene.png) center center / cover no-repeat';
+              'url(/public/assets/img/cafeScene.png) center center / cover no-repeat';
             break;
           case 'parkScene':
             section.style.background =
-              'url(/src/assets/img/parkLoveScene.png) center center / cover no-repeat';
+              'url(/public/assets/img/parkLoveScene.png) center center / cover no-repeat';
             break;
         }
       }
@@ -674,10 +674,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (emotion) {
       if (genderCheck === '여자') {
         const filename = girlEmotionImages[emotion];
-        characterImg.src = `/src/assets/img/${filename}`;
+        characterImg.src = `/public/assets/img/${filename}`;
       } else if (genderCheck === '남자') {
         const filename = boyEmotionImages[emotion];
-        characterImg.src = `/src/assets/img/${filename}`;
+        characterImg.src = `/public/assets/img/${filename}`;
       }
     } else {
       characterImg.style.display = 'none';
