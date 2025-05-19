@@ -5,6 +5,10 @@
 @import '/src/css/result.css';
 @import '/src/css/main.css';
 
+html {
+  touch-action: manipulation;
+}
+
 body {
   font-family: 'Pretendard Variable', sans-serif;
   font-weight: 400;

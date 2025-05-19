@@ -1,5 +1,5 @@
 import '../style.css';
-import { resultEmotionScore } from './EmotionScore.ts';
+import { resultEmotionScore } from './emotion-score.ts';
 
 interface Choice {
   text: string;
