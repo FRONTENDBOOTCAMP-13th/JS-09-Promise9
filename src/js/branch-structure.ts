@@ -339,7 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
   let prevBtn = document.querySelector('.prev-btn') as HTMLElement;
   let characterImg = document.getElementById('character-img') as HTMLImageElement;
-  // prevBtn.style.display = 'none';
 
   const lines = document.querySelectorAll(
     '.conversation-box > .line',
@@ -448,7 +447,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 버튼 태그 재할당
     nextBtn = section.querySelector('.next-btn') as HTMLElement;
     prevBtn = section.querySelector('.prev-btn') as HTMLElement;
-    // prevBtn.style.display = 'none';
 
     const newNextBtn = nextBtn.cloneNode(true) as HTMLElement;
     const newPrevBtn = prevBtn.cloneNode(true) as HTMLElement;
@@ -575,6 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
     const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
+    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
     if (index < lines.length - 1) {
       prevIndex.push(index);
       lines[index].style.display = 'none';
@@ -651,7 +650,10 @@ document.addEventListener('DOMContentLoaded', () => {
       '.conversation-box > .line',
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
-
+    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+    if (index >= 1) {
+      prevBtn.style.display = 'none';
+    }
     if (prevIndex.length > 0) {
       lines[index].style.display = 'none';
       if (lines[index].classList.contains('changeScene')) {
