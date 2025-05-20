@@ -29,6 +29,7 @@
     <main class="phone-wrap">
       <!-- BGM -->
       <audio id="bgmAudio" src="/public/bgm/bgm.mp3" autoplay loop></audio>
+      <audio id="rainAudio" src="/public/bgm/rain.mp3" loop></audio>
       <!-- BGM ON / OFF 버튼 -->
       <button class="bgmBtn">
         <img
@@ -42,11 +43,10 @@
           style="display: none" />
       </button>
       <!-- 프롤로그 1 : 등굣길 -->
-      <section class="playlists-wrap" data-prolog="scene1" style="display: block">
+      <section class="playlists-wrap" data-prolog="scene1" style="display: none">
         <div class="bgm-notice">
           배경음악이 재생되지 않을 경우, OFF 이후 다시 ON 해 주세요.
         </div>
-
         <!-- 캐릭터 이미지 -->
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="opacity: 0" />
@@ -82,7 +82,7 @@
           </div>
           <!-- 사용자 선택지 -->
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -114,7 +114,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -147,7 +147,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -181,7 +181,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -214,7 +214,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -250,7 +250,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -279,13 +279,13 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
       </section>
       <!-- 프롤로그 5 : 비 -->
-      <section class="playlists-wrap" data-prolog="rainScene" style="display: none">
+      <section class="playlists-wrap rain" data-prolog="rainScene" style="display: none">
         <div class="character-img-wrap">
           <img id="character-img" src="" alt="기본 캐릭터" style="opacity: 0" />
         </div>
@@ -309,7 +309,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -342,7 +342,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -378,7 +378,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -410,7 +410,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -449,7 +449,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -488,7 +488,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -523,7 +523,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
@@ -562,7 +562,7 @@
             </div>
           </div>
           <div class="conversation-wrap user-select">
-            <p class="name-tag" style="display: none"><span class="user-name"></span></p>
+            <p class="name-tag" style="display: block"><span class="user-name"></span></p>
             <ul class="select-box"></ul>
           </div>
         </div>
