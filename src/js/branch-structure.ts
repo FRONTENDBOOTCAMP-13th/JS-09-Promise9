@@ -650,8 +650,9 @@ document.addEventListener('DOMContentLoaded', () => {
       '.conversation-box > .line',
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
+    const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
     prevBtn = section.querySelector('.prev-btn') as HTMLElement;
-    if (index >= 1) {
+    if (index <= 1) {
       prevBtn.style.display = 'none';
     }
     if (prevIndex.length > 0) {
@@ -686,6 +687,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       index = prevIndex.pop()!;
+      if (lines[index].querySelector('.sr-only')) {
+        nowNameTag.style.display = 'none';
+      }
       lines[index].style.display = 'block';
       updateImg(lines[index]);
       const userSelect = document.querySelector('.user-select') as HTMLElement;
