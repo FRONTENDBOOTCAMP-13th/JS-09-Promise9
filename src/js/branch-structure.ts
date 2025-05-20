@@ -339,6 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
   let prevBtn = document.querySelector('.prev-btn') as HTMLElement;
   let characterImg = document.getElementById('character-img') as HTMLImageElement;
+  // prevBtn.style.display = 'none';
 
   const lines = document.querySelectorAll(
     '.conversation-box > .line',
@@ -419,6 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log(sceneId);
+
     // 섹션 찾기
     const section = document.querySelector(
       `section[data-prolog="${sceneId}"]`,
@@ -446,6 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 버튼 태그 재할당
     nextBtn = section.querySelector('.next-btn') as HTMLElement;
     prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+    // prevBtn.style.display = 'none';
 
     const newNextBtn = nextBtn.cloneNode(true) as HTMLElement;
     const newPrevBtn = prevBtn.cloneNode(true) as HTMLElement;
@@ -482,6 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.choices.forEach((choice) => {
       const choiceLi = document.createElement('li');
       const choiceBtn = document.createElement('button');
+      choiceBtn.className = `${choice}`;
 
       choiceBtn.innerHTML = choice.text;
 
@@ -575,6 +579,9 @@ document.addEventListener('DOMContentLoaded', () => {
       prevIndex.push(index);
       lines[index].style.display = 'none';
       index++;
+      if (index >= 1) {
+        prevBtn.style.display = 'block';
+      }
       if (lines[index].querySelector('.sr-only')) {
         nowNameTag.style.display = 'none';
       } else {
@@ -647,6 +654,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (prevIndex.length > 0) {
       lines[index].style.display = 'none';
+      if (lines[index].classList.contains('changeScene')) {
+        const nowScene = section.dataset.prolog;
+        switch (nowScene) {
+          case 'classNoteScene':
+            section.style.background =
+              'url(/public/assets/img/classNoteScene.webp) center center / cover no-repeat';
+            break;
+          case 'arcadeScene':
+            section.style.background =
+              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+            break;
+          case 'movieScene':
+            section.style.background =
+              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+            break;
+          case 'bookstoreScene':
+            section.style.background =
+              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+            break;
+          case 'cafeScene':
+            section.style.background =
+              'url(/public/assets/img/clouds.webp) center center / cover no-repeat';
+            break;
+          case 'parkScene':
+            section.style.background =
+              'url(/public/assets/img/parkScene.webp) center center / cover no-repeat';
+            break;
+        }
+      }
       index = prevIndex.pop()!;
       lines[index].style.display = 'block';
       updateImg(lines[index]);
