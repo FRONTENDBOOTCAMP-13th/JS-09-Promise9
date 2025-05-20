@@ -12,30 +12,33 @@
       href="/fonts/pretendard/woff2/PretendardVariable.woff2"
       as="font"
       type="font/woff2"
-      crossorigin />
+      crossorigin="anonymous" />
     <link rel="stylesheet" href="/fonts/pretendard/pretendardvariable.css" />
 
     <!-- 스타일설정 -->
     <script type="module" src="/src/main.ts"></script>
 
     <!-- 기능설정 -->
-    <script type="module" src="/src/js/PlayLists.ts"></script>
-    <script type="module" src="/src/js/result-playmusic.ts"></script>
-
     <script defer src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="module" src="/src/js/result-playmusic.ts"></script>
+    <script type="module" src="/src/js/result-player.ts"></script>
 
     <!-- Kakao SDK 외부에서 직접 불러오기 -->
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
     <!-- KaKaoApi.ts-->
-    <script type="module" src="/src/js/KakaoApi.ts"></script>
-    <script type="module" src="/src/js/ResultCapture.ts"></script>
+    <script type="module" src="/src/js/kakao-api.ts"></script>
+    <script type="module" src="/src/js/result-capture.ts"></script>
   </head>
   <body>
     <main class="phone-wrap">
       <section class="musiclists-wrap">
         <h2 class="result-title">
-          <span class="user-name"></span>님의 감정에 <br />
-          어울리는 곡이에요 😎
+          <span class="user-name">{user.name}</span>님의 <br />
+          감정 결과는 <span class="emotion-name">{user.emotion}</span><br />
+          이 감정을 노래로 들려드릴게요!
         </h2>
         <div class="music-box">
           <div class="music-img">
@@ -92,7 +95,7 @@
           <a href="/src/pages/main.html" id="retryBtn" class="btn retry">
             <span>다시하기</span>
           </a>
-          <button class="btn" onclick="captureResult()">결과 캡처</button>
+          <button class="btn" onclick="captureResult()">결과 저장</button>
         </div>
       </section>
     </main>

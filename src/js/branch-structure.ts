@@ -1,5 +1,68 @@
 import '../style.css';
-import { resultEmotionScore } from './EmotionScore.ts';
+import { resultEmotionScore } from './emotion-score.ts';
+
+function preload(imageArray: string[]) {
+  let n = imageArray.length;
+  for (let i = 0; i < n; i++) {
+    let img = new Image();
+    img.src = imageArray[i];
+  }
+}
+
+preload([
+  '/assets/img/arcadeScene.webp',
+  '/assets/img/bgmOff.webp',
+  '/assets/img/bgmOn.webp',
+  '/assets/img/bookstoreScene.webp',
+  '/assets/img/boy-casual-default.webp',
+  '/assets/img/boy-casual-happy.webp',
+  '/assets/img/boy-casual-sad.webp',
+  '/assets/img/boy-casual-shy.webp',
+  '/assets/img/boy-casual-surprised.webp',
+  '/assets/img/boy-default.webp',
+  '/assets/img/boy-happy.webp',
+  '/assets/img/boy-sad.webp',
+  '/assets/img/boy-shy.webp',
+  '/assets/img/boy-surprised.webp',
+  '/assets/img/boy-worried.webp',
+  '/assets/img/busScene.webp',
+  '/assets/img/cafeScene.webp',
+  '/assets/img/cafeteriaScene.webp',
+  '/assets/img/classNoteScene.webp',
+  '/assets/img/classWindowScene.webp',
+  '/assets/img/clouds.webp',
+  '/assets/img/clubScene.webp',
+  '/assets/img/dokidoki.webp',
+  '/assets/img/girl-casual-default.webp',
+  '/assets/img/girl-casual-happy.webp',
+  '/assets/img/girl-casual-sad.webp',
+  '/assets/img/girl-casual-shy.webp',
+  '/assets/img/girl-casual-surprised.webp',
+  '/assets/img/girl-default.webp',
+  '/assets/img/girl-happy.webp',
+  '/assets/img/girl-sad.webp',
+  '/assets/img/girl-shy.webp',
+  '/assets/img/girl-surprised.webp',
+  '/assets/img/girl-worried.webp',
+  '/assets/img/hallwayWindowScene.webp',
+  '/assets/img/index-logo.webp',
+  '/assets/img/loveScene.webp',
+  '/assets/img/main-background.gif',
+  '/assets/img/main-background.png',
+  '/assets/img/movieScene.webp',
+  '/assets/img/nextday.webp',
+  '/assets/img/parkLoveScene.gif',
+  '/assets/img/parkLoveScene.webp',
+  '/assets/img/parkScene.webp',
+  '/assets/img/phone.webp',
+  '/assets/img/project-bg.webp',
+  '/assets/img/rainScene.webp',
+  '/assets/img/rainStopScene.webp',
+  '/assets/img/sadScene.webp',
+  '/assets/img/scene1.webp',
+  '/assets/img/stallScene.webp',
+  '/assets/img/title-logo.webp',
+]);
 
 interface Choice {
   text: string;
@@ -338,11 +401,53 @@ const resultScene: Scene = {
 document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
   let prevBtn = document.querySelector('.prev-btn') as HTMLElement;
-  let characterImg = document.getElementById('character-img') as HTMLImageElement;
+  let characterImg = document.querySelector('#character-img') as HTMLImageElement;
 
+  let index = 0;
+  let prevIndex: number[] = [];
   const lines = document.querySelectorAll(
     '.conversation-box > .line',
   ) as NodeListOf<HTMLElement>;
+
+  if (localStorage.getItem('nowScene')) {
+    const continueScene = localStorage.getItem('nowScene') as string;
+    const firstSection = document.querySelector('.playlists-wrap') as HTMLElement;
+    firstSection.style.display = 'none';
+    const nowScene = document.querySelector(
+      `section[data-prolog="${continueScene}"]`,
+    ) as HTMLElement;
+    nowScene.style.display = 'block';
+    continueToScene(continueScene);
+  } else {
+    const nowScene = document.querySelector(
+      `section[data-prolog="scene1"]`,
+    ) as HTMLElement;
+    nowScene.style.display = 'block';
+
+    // 처음엔 모든 줄 숨기기
+    lines.forEach((line) => (line.style.display = 'none'));
+    if (lines.length > 0) {
+      lines[0].style.display = 'block';
+      // updateImg(lines[0]);
+    }
+
+    // 대사 가리기
+    lines.forEach((line) => (line.style.display = 'none'));
+    if (lines.length > 0) {
+      lines[0].style.display = 'block';
+      // updateImg(lines[0]);
+    }
+  }
+
+  const section = document.querySelector(
+    '.playlists-wrap[style*="display: block"]',
+  ) as HTMLElement;
+
+  // 밑에꺼를 다 현재 씬 기준으로 바꿔주는 코드가 필요하다
+
+  nextBtn = section.querySelector('.next-btn') as HTMLElement;
+  prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+  characterImg = section.querySelector('#character-img') as HTMLImageElement;
 
   const genderCheck = localStorage.getItem('gender');
   const userName = localStorage.getItem('userName') as string;
@@ -362,14 +467,31 @@ document.addEventListener('DOMContentLoaded', () => {
     userNameTag.innerHTML = userName;
   });
 
-  let index = 0;
-  let prevIndex: number[] = [];
+  function continueToScene(nowScene: string) {
+    // 섹션 찾기
+    const section = document.querySelector(
+      `section[data-prolog="${nowScene}"]`,
+    ) as HTMLElement;
 
-  // 처음엔 모든 줄 숨기기
-  lines.forEach((line) => (line.style.display = 'none'));
-  if (lines.length > 0) {
-    lines[0].style.display = 'block';
-    // updateImg(lines[0]);
+    if (section) {
+      const lines = section.querySelectorAll(
+        '.conversation-box > .line',
+      ) as NodeListOf<HTMLElement>;
+      // 대사 가리기
+      console.log(lines);
+      lines.forEach((line) => (line.style.display = 'none'));
+      // 첫번째 대사 보이기
+      if (lines.length > 0) {
+        index = 0;
+        prevIndex = [];
+        lines[0].style.display = 'block';
+        console.log('더ㅚㄴㅇㄹ');
+        updateImg(lines[0]);
+      }
+    }
+    nextBtn = section.querySelector('.next-btn') as HTMLElement;
+    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+    characterImg = section.querySelector('#character-img') as HTMLImageElement;
   }
 
   function moveToScene(sceneId: string) {
@@ -419,6 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log(sceneId);
+    localStorage.setItem('nowScene', sceneId);
     // 섹션 찾기
     const section = document.querySelector(
       `section[data-prolog="${sceneId}"]`,
@@ -433,7 +556,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 대사 가리기
       lines.forEach((line) => (line.style.display = 'none'));
-
       // 첫번째 대사 보이기
       if (lines.length > 0) {
         index = 0;
@@ -482,6 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.choices.forEach((choice) => {
       const choiceLi = document.createElement('li');
       const choiceBtn = document.createElement('button');
+      choiceBtn.className = `${choice.nextScene}Btn`;
 
       choiceBtn.innerHTML = choice.text;
 
@@ -571,10 +694,14 @@ document.addEventListener('DOMContentLoaded', () => {
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
     const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
+    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
     if (index < lines.length - 1) {
       prevIndex.push(index);
       lines[index].style.display = 'none';
       index++;
+      if (index >= 1) {
+        prevBtn.style.display = 'block';
+      }
       if (lines[index].querySelector('.sr-only')) {
         nowNameTag.style.display = 'none';
       } else {
@@ -605,7 +732,7 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
           case 'parkScene':
             section.style.background =
-              'url(/assets/img/parkLoveScene.webp) center center / cover no-repeat';
+              'url(/assets/img/parkLoveScene.gif) center center / cover no-repeat';
             break;
         }
       }
@@ -644,10 +771,46 @@ document.addEventListener('DOMContentLoaded', () => {
       '.conversation-box > .line',
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
-
+    const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
+    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+    if (index <= 1) {
+      prevBtn.style.display = 'none';
+    }
     if (prevIndex.length > 0) {
       lines[index].style.display = 'none';
+      if (lines[index].classList.contains('changeScene')) {
+        const nowScene = section.dataset.prolog;
+        switch (nowScene) {
+          case 'classNoteScene':
+            section.style.background =
+              'url(/public/assets/img/classNoteScene.webp) center center / cover no-repeat';
+            break;
+          case 'arcadeScene':
+            section.style.background =
+              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+            break;
+          case 'movieScene':
+            section.style.background =
+              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+            break;
+          case 'bookstoreScene':
+            section.style.background =
+              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+            break;
+          case 'cafeScene':
+            section.style.background =
+              'url(/public/assets/img/clouds.webp) center center / cover no-repeat';
+            break;
+          case 'parkScene':
+            section.style.background =
+              'url(/public/assets/img/parkScene.webp) center center / cover no-repeat';
+            break;
+        }
+      }
       index = prevIndex.pop()!;
+      if (lines[index].querySelector('.sr-only')) {
+        nowNameTag.style.display = 'none';
+      }
       lines[index].style.display = 'block';
       updateImg(lines[index]);
       const userSelect = document.querySelector('.user-select') as HTMLElement;
@@ -670,7 +833,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateImg(line: HTMLElement) {
     const emotion = line.dataset.emotion as keyof Emotion | undefined;
-    characterImg.style.display = 'block';
+    characterImg.style.opacity = '1';
     if (emotion) {
       if (genderCheck === '여자') {
         const filename = girlEmotionImages[emotion];
@@ -680,7 +843,7 @@ document.addEventListener('DOMContentLoaded', () => {
         characterImg.src = `/assets/img/${filename}`;
       }
     } else {
-      characterImg.style.display = 'none';
+      characterImg.style.opacity = '0';
     }
   }
 });
