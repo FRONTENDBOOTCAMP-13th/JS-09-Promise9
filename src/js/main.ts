@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     continueBtn.className = 'btn btn-lg gradient';
     continueBtn.id = 'continueBtn';
     continueBtn.innerHTML = '이어하기';
-    const btnGroup = document.querySelector('.btn-group') as HTMLElement;
+    const btnGroup = document.querySelector('.main-btn-group') as HTMLElement;
 
     btnGroup.appendChild(continueBtn);
   }
