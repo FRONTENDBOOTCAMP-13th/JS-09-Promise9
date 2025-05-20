@@ -34,10 +34,35 @@ const progressBar = document.querySelector('.music-progressbar') as HTMLElement;
 const progressStatus = document.querySelector('.progress-status') as HTMLElement; // 프로그레스바 상태
 const dot = document.querySelector('.dot') as HTMLElement; // 드래그 가능한 점
 
-const userName = localStorage.getItem('userName') as string; // 로컬스토리지에서 사용자 이름 가져오기
+const userName = localStorage.getItem('userName') as string;
 const userNameTag = document.querySelector('.user-name') as HTMLElement;
 userNameTag.innerHTML = userName;
 
+const emotionResult = localStorage.getItem('highScore') as string;
+const emotionTag = document.querySelector('.emotion-name') as HTMLElement;
+
+switch (emotionResult) {
+  case 'happy':
+    emotionTag.textContent = '행복함이에요🩷';
+    break;
+  case 'sad':
+    emotionTag.textContent = '슬픔이에요💧';
+    break;
+  case 'excited':
+    emotionTag.textContent = '신남이에요🎉';
+    break;
+  case 'relaxed':
+    emotionTag.textContent = '차분함이에요☕';
+    break;
+  case 'refresh':
+    emotionTag.textContent = '상쾌함이에요🌱';
+    break;
+  case 'lonely':
+    emotionTag.textContent = '외로움이에요🍂';
+    break;
+  default:
+    emotionTag.textContent = '';
+}
 /**
  * YouTube IFrame API가 로드되면 자동으로 호출되는 전역 함수
  * 이 함수에서 YouTube 플레이어를 생성하고 초기 설정을 실행
