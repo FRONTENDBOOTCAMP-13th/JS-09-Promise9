@@ -1,6 +1,69 @@
 import '../style.css';
 import { resultEmotionScore } from './emotion-score.ts';
 
+function preload(imageArray: string[]) {
+  let n = imageArray.length;
+  for (let i = 0; i < n; i++) {
+    let img = new Image();
+    img.src = imageArray[i];
+  }
+}
+
+preload([
+  '/assets/img/arcadeScene.webp',
+  '/assets/img/bgmOff.webp',
+  '/assets/img/bgmOn.webp',
+  '/assets/img/bookstoreScene.webp',
+  '/assets/img/boy-casual-default.webp',
+  '/assets/img/boy-casual-happy.webp',
+  '/assets/img/boy-casual-sad.webp',
+  '/assets/img/boy-casual-shy.webp',
+  '/assets/img/boy-casual-surprised.webp',
+  '/assets/img/boy-default.webp',
+  '/assets/img/boy-happy.webp',
+  '/assets/img/boy-sad.webp',
+  '/assets/img/boy-shy.webp',
+  '/assets/img/boy-surprised.webp',
+  '/assets/img/boy-worried.webp',
+  '/assets/img/busScene.webp',
+  '/assets/img/cafeScene.webp',
+  '/assets/img/cafeteriaScene.webp',
+  '/assets/img/classNoteScene.webp',
+  '/assets/img/classWindowScene.webp',
+  '/assets/img/clouds.webp',
+  '/assets/img/clubScene.webp',
+  '/assets/img/dokidoki.webp',
+  '/assets/img/girl-casual-default.webp',
+  '/assets/img/girl-casual-happy.webp',
+  '/assets/img/girl-casual-sad.webp',
+  '/assets/img/girl-casual-shy.webp',
+  '/assets/img/girl-casual-surprised.webp',
+  '/assets/img/girl-default.webp',
+  '/assets/img/girl-happy.webp',
+  '/assets/img/girl-sad.webp',
+  '/assets/img/girl-shy.webp',
+  '/assets/img/girl-surprised.webp',
+  '/assets/img/girl-worried.webp',
+  '/assets/img/hallwayWindowScene.webp',
+  '/assets/img/index-logo.webp',
+  '/assets/img/loveScene.webp',
+  '/assets/img/main-background.gif',
+  '/assets/img/main-background.png',
+  '/assets/img/movieScene.webp',
+  '/assets/img/nextday.webp',
+  '/assets/img/parkLoveScene.gif',
+  '/assets/img/parkLoveScene.webp',
+  '/assets/img/parkScene.webp',
+  '/assets/img/phone.webp',
+  '/assets/img/project-bg.webp',
+  '/assets/img/rainScene.webp',
+  '/assets/img/rainStopScene.webp',
+  '/assets/img/sadScene.webp',
+  '/assets/img/scene1.webp',
+  '/assets/img/stallScene.webp',
+  '/assets/img/title-logo.webp',
+]);
+
 interface Choice {
   text: string;
   nextScene: string;
