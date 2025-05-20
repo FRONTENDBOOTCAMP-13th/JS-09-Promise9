@@ -38,3 +38,8 @@ window.addEventListener('resize', function () {
     target.style.borderRadius = '3rem';
   }
 });
+
+const retryBtn = document.querySelector('#retryBtn') as HTMLButtonElement;
+retryBtn.addEventListener('click', function () {
+  localStorage.clear();
+});
