@@ -15,6 +15,7 @@ body {
   line-height: 1.15;
   color: #222;
   background: #fff;
+  align-content: center;
 }
 
 /*========================================
@@ -95,6 +96,36 @@ body {
   justify-content: flex-end;
   gap: 0.5rem;
   width: 100%;
+}
+
+.bgm-notice {
+  position: absolute;
+  top: 1.45rem;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-39%);
+
+  padding: 0.5rem 1rem;
+  width: 15rem;
+  font-size: 0.875rem;
+  word-break: keep-all;
+  background: #f0f0f0;
+  border-radius: 0.625rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 16px solid #f0f0f0;
+  }
 }
 
 /*=====***** 상황에 따른 배경이미지 *****=====*/
@@ -327,4 +358,9 @@ body {
 
 .conversation-wrap.user-select {
   display: none;
+}
+
+/* alert */
+.swal2-html-container {
+  line-height: 1.375;
 }

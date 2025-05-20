@@ -3,6 +3,7 @@
 //    일시정지 버튼 클릭 시 음악을 일시정지하는 기능을 구현
 // 2) 드래그 기능을 통해 음악의 재생 위치를 변경하는 기능을 구현
 // ----------------------------------------------------------
+import Swal from 'sweetalert2';
 
 /**
  * 전역 window 객체에 YouTube API 관련 속성을 선언
@@ -21,6 +22,7 @@ declare global {
 let player: YT.Player | null = null;
 let isPlayerReady = false;
 let isPlaying = false; // 재생 중이면 true, 일시정지 상태면 false
+let shouldAutoPlay = false; // 자동 재생 여부
 
 // 프로그레스바 관련 상태
 let progressUpdateInterval: number | null = null;
@@ -65,7 +67,7 @@ switch (emotionResult) {
 }
 /**
  * YouTube IFrame API가 로드되면 자동으로 호출되는 전역 함수
- * 이 함수에서 YouTube 플레이어를 생성하고 초기 설정을 실행
+ * - 이 함수에서 YouTube 플레이어를 생성하고 초기 설정을 실행
  * @returns {void}
  */
 window.onYouTubeIframeAPIReady = () => {
@@ -74,16 +76,64 @@ window.onYouTubeIframeAPIReady = () => {
       onReady: () => {
         isPlayerReady = true;
         player?.setVolume(30); // 볼륨 설정
+
+        if (shouldAutoPlay) {
+          player?.playVideo();
+          isPlaying = true;
+          updatePlayIcon();
+          startProgressUpdate();
+        }
       },
     },
   });
 };
 
 /**
+ * 페이지 로드 시 자동 재생 여부를 확인하는 함수
+ * - 사용자가 확인 버튼을 클릭하면 음악을 자동으로 재생
+ */
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const result = await Swal.fire({
+      // title: '음악 재생',
+      html: `감정 결과에 따라 추천 음악이 재생됩니다.<br/>바로 재생할까요?`,
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonText: '확인',
+      cancelButtonText: '취소',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#ccc',
+    });
+
+    if (result.isConfirmed) {
+      await Swal.fire({
+        title: '안내',
+        html: `iOS 기기에서는 자동 재생이 제한됩니다.<br/>일시정지 후 재생 버튼을 다시 눌러주세요.`,
+        confirmButtonText: '확인',
+      });
+
+      shouldAutoPlay = true;
+
+      // 플레이어가 이미 준비되어 있다면 바로 실행
+      if (isPlayerReady && shouldAutoPlay) {
+        player?.playVideo();
+        isPlaying = true;
+        updatePlayIcon();
+        startProgressUpdate();
+      }
+    } else {
+      shouldAutoPlay = false;
+      // await Swal.fire('취소됨', '재생버튼을 클릭해서 음악을 제어하세요.', 'info');
+    }
+  } catch (error) {
+    console.error('SweetAlert 오류:', error);
+  }
+});
+
+/**
  * 재생 버튼 클릭 시 호출되는 함수
  * - 플레이어가 준비되지 않았거나 null인 경우 경고 메시지 출력
  * - 재생 상태를 토글하여 음악을 재생하거나 일시정지
- * - 재생 상태에 따라 아이콘을 변경
  *
  * @function toggleMusic
  * @param {HTMLElement} musicBtn - 음악 버튼 요소
@@ -99,11 +149,6 @@ function toggleMusic() {
   // 재생 상태를 토글
   isPlaying = !isPlaying;
 
-  // 토글 아이콘의 표시 상태를 변경
-  // 재생 중이면 일시정지 아이콘을 보여주고, 아니면 재생 아이콘을 보여줌
-  playIcon?.setAttribute('style', isPlaying ? 'display:none;' : 'display:block;');
-  pauseIcon?.setAttribute('style', isPlaying ? 'display:block;' : 'display:none;');
-
   // 재생 중이면 음악을 재생하고, 아니면 음악을 일시정지
   if (isPlaying) {
     player.playVideo(); // 음악 재생
@@ -112,6 +157,21 @@ function toggleMusic() {
     player.pauseVideo(); // 음악 일시정지
     stopProgressUpdate(); // 프로그레스 업데이트 중지
   }
+
+  updatePlayIcon();
+}
+
+/**
+ *
+ * @function updatePlayIcon
+ * 재생/일시정지 아이콘 업데이트 함수
+ * - 현재 재생 상태에 따라 아이콘을 변경
+ */
+function updatePlayIcon() {
+  // 토글 아이콘의 표시 상태를 변경
+  // 재생 중이면 일시정지 아이콘을 보여주고, 아니면 재생 아이콘을 보여줌
+  playIcon?.setAttribute('style', isPlaying ? 'display:none;' : 'display:block;');
+  pauseIcon?.setAttribute('style', isPlaying ? 'display:block;' : 'display:none;');
 
   // 음악 버튼의 aria-label 속성을 업데이트
   musicBtn?.setAttribute('aria-label', isPlaying ? '일시정지' : '재생');
