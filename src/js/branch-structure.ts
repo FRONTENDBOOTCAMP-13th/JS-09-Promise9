@@ -338,11 +338,53 @@ const resultScene: Scene = {
 document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
   let prevBtn = document.querySelector('.prev-btn') as HTMLElement;
-  let characterImg = document.getElementById('character-img') as HTMLImageElement;
+  let characterImg = document.querySelector('#character-img') as HTMLImageElement;
 
+  let index = 0;
+  let prevIndex: number[] = [];
   const lines = document.querySelectorAll(
     '.conversation-box > .line',
   ) as NodeListOf<HTMLElement>;
+
+  if (localStorage.getItem('nowScene')) {
+    const continueScene = localStorage.getItem('nowScene') as string;
+    const firstSection = document.querySelector('.playlists-wrap') as HTMLElement;
+    firstSection.style.display = 'none';
+    const nowScene = document.querySelector(
+      `section[data-prolog="${continueScene}"]`,
+    ) as HTMLElement;
+    nowScene.style.display = 'block';
+    continueToScene(continueScene);
+  } else {
+    const nowScene = document.querySelector(
+      `section[data-prolog="scene1"]`,
+    ) as HTMLElement;
+    nowScene.style.display = 'block';
+
+    // 처음엔 모든 줄 숨기기
+    lines.forEach((line) => (line.style.display = 'none'));
+    if (lines.length > 0) {
+      lines[0].style.display = 'block';
+      // updateImg(lines[0]);
+    }
+
+    // 대사 가리기
+    lines.forEach((line) => (line.style.display = 'none'));
+    if (lines.length > 0) {
+      lines[0].style.display = 'block';
+      // updateImg(lines[0]);
+    }
+  }
+
+  const section = document.querySelector(
+    '.playlists-wrap[style*="display: block"]',
+  ) as HTMLElement;
+
+  // 밑에꺼를 다 현재 씬 기준으로 바꿔주는 코드가 필요하다
+
+  nextBtn = section.querySelector('.next-btn') as HTMLElement;
+  prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+  characterImg = section.querySelector('#character-img') as HTMLImageElement;
 
   const genderCheck = localStorage.getItem('gender');
   const userName = localStorage.getItem('userName') as string;
@@ -362,14 +404,31 @@ document.addEventListener('DOMContentLoaded', () => {
     userNameTag.innerHTML = userName;
   });
 
-  let index = 0;
-  let prevIndex: number[] = [];
+  function continueToScene(nowScene: string) {
+    // 섹션 찾기
+    const section = document.querySelector(
+      `section[data-prolog="${nowScene}"]`,
+    ) as HTMLElement;
 
-  // 처음엔 모든 줄 숨기기
-  lines.forEach((line) => (line.style.display = 'none'));
-  if (lines.length > 0) {
-    lines[0].style.display = 'block';
-    // updateImg(lines[0]);
+    if (section) {
+      const lines = section.querySelectorAll(
+        '.conversation-box > .line',
+      ) as NodeListOf<HTMLElement>;
+      // 대사 가리기
+      console.log(lines);
+      lines.forEach((line) => (line.style.display = 'none'));
+      // 첫번째 대사 보이기
+      if (lines.length > 0) {
+        index = 0;
+        prevIndex = [];
+        lines[0].style.display = 'block';
+        console.log('더ㅚㄴㅇㄹ');
+        updateImg(lines[0]);
+      }
+    }
+    nextBtn = section.querySelector('.next-btn') as HTMLElement;
+    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+    characterImg = section.querySelector('#character-img') as HTMLImageElement;
   }
 
   function moveToScene(sceneId: string) {
@@ -419,7 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log(sceneId);
-
+    localStorage.setItem('nowScene', sceneId);
     // 섹션 찾기
     const section = document.querySelector(
       `section[data-prolog="${sceneId}"]`,
@@ -434,7 +493,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 대사 가리기
       lines.forEach((line) => (line.style.display = 'none'));
-
       // 첫번째 대사 보이기
       if (lines.length > 0) {
         index = 0;
