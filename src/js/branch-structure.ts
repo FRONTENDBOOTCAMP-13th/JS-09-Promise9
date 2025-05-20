@@ -419,6 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log(sceneId);
+
     // 섹션 찾기
     const section = document.querySelector(
       `section[data-prolog="${sceneId}"]`,
@@ -482,6 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.choices.forEach((choice) => {
       const choiceLi = document.createElement('li');
       const choiceBtn = document.createElement('button');
+      choiceBtn.className = `${choice}`;
 
       choiceBtn.innerHTML = choice.text;
 
@@ -571,10 +573,14 @@ document.addEventListener('DOMContentLoaded', () => {
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
     const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
+    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
     if (index < lines.length - 1) {
       prevIndex.push(index);
       lines[index].style.display = 'none';
       index++;
+      if (index >= 1) {
+        prevBtn.style.display = 'block';
+      }
       if (lines[index].querySelector('.sr-only')) {
         nowNameTag.style.display = 'none';
       } else {
@@ -644,10 +650,46 @@ document.addEventListener('DOMContentLoaded', () => {
       '.conversation-box > .line',
     ) as NodeListOf<HTMLElement>;
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
-
+    const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
+    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+    if (index <= 1) {
+      prevBtn.style.display = 'none';
+    }
     if (prevIndex.length > 0) {
       lines[index].style.display = 'none';
+      if (lines[index].classList.contains('changeScene')) {
+        const nowScene = section.dataset.prolog;
+        switch (nowScene) {
+          case 'classNoteScene':
+            section.style.background =
+              'url(/public/assets/img/classNoteScene.webp) center center / cover no-repeat';
+            break;
+          case 'arcadeScene':
+            section.style.background =
+              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+            break;
+          case 'movieScene':
+            section.style.background =
+              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+            break;
+          case 'bookstoreScene':
+            section.style.background =
+              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+            break;
+          case 'cafeScene':
+            section.style.background =
+              'url(/public/assets/img/clouds.webp) center center / cover no-repeat';
+            break;
+          case 'parkScene':
+            section.style.background =
+              'url(/public/assets/img/parkScene.webp) center center / cover no-repeat';
+            break;
+        }
+      }
       index = prevIndex.pop()!;
+      if (lines[index].querySelector('.sr-only')) {
+        nowNameTag.style.display = 'none';
+      }
       lines[index].style.display = 'block';
       updateImg(lines[index]);
       const userSelect = document.querySelector('.user-select') as HTMLElement;
