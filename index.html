@@ -18,50 +18,58 @@
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
-    <div class="container-wrap">
-      <section class="project-inner project-introduce">
-        <h2 class="sr-only">두근두근 플레이리스트 프로젝트 소개</h2>
-
-        <div class="project-introduce-container">
-          <div class="bg-diff"></div>
-          <div class="project-logo">
-            <div class="project-img">
-              <img src="/public/assets/img/index-logo.webp" alt="" aria-hidden="true" />
-            </div>
-            <a class="btn gradient btn-lg" href="/src/pages/main.html">
-              시작 페이지로 이동하기
-            </a>
-          </div>
-          <!-- -->
-        </div>
-
-        <div class="project-introduce-text">
-          <h2 class="title">9팀 Promise9</h2>
-          <h3 class="subtitle">프로젝트 소개</h3>
+    <main class="container-wrap">
+      <!-- 프로젝트 소개 -->
+      <section
+        class="project-inner project-introduce"
+        aria-labelledby="project-introduce">
+        <div class="text-wrap">
           <div class="text-inner">
-            <p>
-              두근두근 플레이리스트는 사용자의 감정을 분석하여 그에 맞는 음악을
-              추천함으로써, 사용자에게 감정적인 위로와 공감을 제공하는 웹게임을
-              개발하였습니다.
-            </p>
-            <p>사용자가 선택한 감정에 따라 추천된 플레이리스트를 제공합니다.</p>
+            <h2 class="title">9팀 Promise9</h2>
+            <h3 class="subtitle" id="project-introduce">프로젝트 소개</h3>
+            <div class="text">
+              <p>
+                두근두근 플레이리스트는 사용자의 감정을 분석하여 그에 맞는 음악을
+                추천함으로써, 사용자에게 감정적인 위로와 공감을 제공하는 웹게임을
+                개발하였습니다.
+              </p>
+              <p>사용자가 선택한 감정에 따라 추천된 플레이리스트를 제공합니다.</p>
+            </div>
+          </div>
+          <a class="btn gradient btn-lg" href="/src/pages/main.html"> 게임 시작하기 </a>
+        </div>
+        <div class="items-wrap">
+          <div class="item">
+            <img src="/public/assets/img/project-intro.png" alt="" />
+          </div>
+          <div class="item">
+            <img src="/public/assets/img/project-intro2.png" alt="" />
+          </div>
+          <div class="item">
+            <img src="/public/assets/img/project-intro3.png" alt="" />
           </div>
         </div>
       </section>
 
+      <!-- 프로젝트 멤버 -->
       <section class="project-inner project-member">
-        <h2>프로젝트 멤버소개</h2>
+        <h2 class="section-title" id="project-member">프로젝트 멤버 소개</h2>
         <div class="member-lists">
           <div class="member-item">
-            <img id="character-img" src="/assets/img/member/psy.webp" alt="기본 캐릭터" />
+            <div class="member-img">
+              <img
+                id="character-img"
+                src="/assets/img/member/psy.webp"
+                alt="기본 캐릭터" />
+            </div>
             <div class="member-info">
               <h3 class="member-name">박선영</h3>
-              <p class="member-grid member-role">
-                <span>역할</span>
+              <p class="member-grid">
+                <span class="member-btn role">역할</span>
                 <span>PM/스크럼마스터</span>
               </p>
-              <p class="member-grid">
-                <span>기능 개발</span>
+              <p class="member-grid feat">
+                <span class="member-btn feat">기능 개발</span>
                 <span>음악 랜덤 재생 및 재생 제어</span>
               </p>
               <div class="member-memo">
@@ -71,111 +79,155 @@
             </div>
           </div>
           <div class="member-item">
-            <img id="character-img" src="/assets/img/member/bsb.webp" alt="기본 캐릭터" />
+            <div class="member-img">
+              <img
+                id="character-img"
+                src="/assets/img/member/bsb.webp"
+                alt="기본 캐릭터" />
+            </div>
             <div class="member-info">
               <h3 class="member-name">배샛별</h3>
-              <p class="member-grid member-role">
-                <span>역할</span>
+              <p class="member-grid">
+                <span class="member-btn role">역할</span>
                 <span>문서관리자/QA</span>
               </p>
-              <p class="member-grid">
-                <span>기능 개발</span>
+              <p class="member-grid feat">
+                <span class="member-btn feat">기능 개발</span>
                 <span>선택값 저장 및 통계</span>
               </p>
             </div>
-          </div>
-          <div class="member-item">
-            <img id="character-img" src="/assets/img/member/ijh.webp" alt="기본 캐릭터" />
-            <div class="member-info">
-              <h3 class="member-name">이진현</h3>
-              <p class="member-grid member-role">
-                <span>역할</span>
-                <span>PL</span>
-              </p>
-              <p class="member-grid">
-                <span>기능 개발</span>
-                <span>감정 분석 로직 개발</span>
-              </p>
+            <div class="member-memo">
+              모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
+              Promise9 팀원 여러분 모두 감사합니다.
             </div>
           </div>
           <div class="member-item">
-            <img id="character-img" src="/assets/img/member/csj.webp" alt="기본 캐릭터" />
+            <div class="member-img">
+              <img
+                id="character-img"
+                src="/assets/img/member/ijh.webp"
+                alt="기본 캐릭터" />
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">이진현</h3>
+              <p class="member-grid">
+                <span class="member-btn role">역할</span>
+                <span>PL</span>
+              </p>
+              <p class="member-grid feat">
+                <span class="member-btn feat">기능 개발</span>
+                <span>감정 분석 로직 개발</span>
+              </p>
+            </div>
+            <div class="member-memo">
+              모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
+              Promise9 팀원 여러분 모두 감사합니다.
+            </div>
+          </div>
+          <div class="member-item">
+            <div class="member-img">
+              <img
+                id="character-img"
+                src="/assets/img/member/csj.webp"
+                alt="기본 캐릭터" />
+            </div>
             <div class="member-info">
               <h3 class="member-name">최승진</h3>
-              <p class="member-grid member-role">
-                <span>역할</span>
+              <p class="member-grid">
+                <span class="member-btn role">역할</span>
                 <span>디자인/QA</span>
               </p>
-              <p class="member-grid">
-                <span>기능 개발</span>
+              <p class="member-grid feat">
+                <span class="member-btn feat">기능 개발</span>
                 <span>결과값 외부 공유 및 이미지 저장, 로컬스토리지 활용</span>
               </p>
+            </div>
+            <div class="member-memo">
+              모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
+              Promise9 팀원 여러분 모두 감사합니다.
             </div>
           </div>
         </div>
       </section>
 
-      <section class="project-inner project-member">
-        <h2>프로젝트 멤버소개</h2>
-        <div class="member-lists">
-          <div class="member-item">
-            <img id="character-img" src="/assets/img/member/psy.webp" alt="기본 캐릭터" />
-            <div class="member-info">
-              <h3 class="member-name">박선영</h3>
-              <p class="member-grid member-role">
-                <span>역할</span>
-                <span>PM/스크럼마스터</span>
-              </p>
-              <p class="member-grid">
-                <span>기능 개발</span>
-                <span>음악 랜덤 재생 및 재생 제어</span>
-              </p>
-            </div>
+      <!-- 프로젝트 기능 -->
+      <section class="project-inner project-feature">
+        <h2 class="section-title" id="project-feature">프로젝트 주요 기능</h2>
+        <div class="active-lists">
+          <div class="active-item">
+            <h3 class="title">감정 선택값 저장</h3>
+            <p>
+              사용자가 대화 흐름 중 클릭한 버튼의 data-emotion 값을 감정 데이터로
+              인식하여, 사전 정의된 emotionScores 객체에 각 감정별 점수로 누적 저장합니다.
+            </p>
           </div>
-          <div class="member-item">
-            <img id="character-img" src="/assets/img/member/bsb.webp" alt="기본 캐릭터" />
-            <div class="member-info">
-              <h3 class="member-name">배샛별</h3>
-              <p class="member-grid member-role">
-                <span>역할</span>
-                <span>문서관리자/QA</span>
-              </p>
-              <p class="member-grid">
-                <span>기능 개발</span>
-                <span>선택값 저장 및 통계</span>
-              </p>
-            </div>
+
+          <div class="active-item">
+            <h3 class="title">감정 점수 기반 음악 추천</h3>
+            <p>
+              저장된 감정 점수 중 가장 높은 값을 기준으로 해당 감정에 맞는 플레이리스트
+              배열 중 하나를 무작위로 추천합니다.
+            </p>
           </div>
-          <div class="member-item">
-            <img id="character-img" src="/assets/img/member/ijh.webp" alt="기본 캐릭터" />
-            <div class="member-info">
-              <h3 class="member-name">이진현</h3>
-              <p class="member-grid member-role">
-                <span>역할</span>
-                <span>PL</span>
-              </p>
-              <p class="member-grid">
-                <span>기능 개발</span>
-                <span>감정 분석 로직 개발</span>
-              </p>
-            </div>
+
+          <div class="active-item">
+            <h3 class="title">결과 화면 재생 여부 선택</h3>
+            <p>
+              결과 화면 진입 시 alert 창을 띄워 사용자가 음악을 바로 재생할지 여부를
+              선택할 수 있도록 구성하였습니다.
+            </p>
           </div>
-          <div class="member-item">
-            <img id="character-img" src="/assets/img/member/csj.webp" alt="기본 캐릭터" />
-            <div class="member-info">
-              <h3 class="member-name">최승진</h3>
-              <p class="member-grid member-role">
-                <span>역할</span>
-                <span>디자인/QA</span>
-              </p>
-              <p class="member-grid">
-                <span>기능 개발</span>
-                <span>결과값 외부 공유 및 이미지 저장, 로컬스토리지 활용</span>
-              </p>
-            </div>
+
+          <div class="active-item">
+            <h3 class="title">음악 재생 제어 기능</h3>
+            <p>
+              음악 재생 시, 프로그레스바를 클릭하거나 드래그하여 원하는 재생 위치로 이동할
+              수 있도록 하여 유동적인 음악 감상이 가능합니다.
+            </p>
+          </div>
+
+          <div class="active-item">
+            <h3 class="title">로컬스토리지 기반 이어하기 기능</h3>
+            <p>
+              사용자의 이름 및 게임 데이터를 로컬스토리지에 저장하여, 게임 중간에
+              브라우저를 종료해도 다시 접속 시 이어서 진행할 수 있도록 구현하였습니다.
+            </p>
+          </div>
+
+          <div class="active-item">
+            <h3 class="title">감정 분석 및 대화 분기 시스템</h3>
+            <p>
+              사용자 선택에 따라 대화 흐름이 분기되는 브랜칭 시스템을 통해, 다양한 감정과
+              상황에 맞는 시나리오를 제공합니다. 또한 ‘이전/다음’ 버튼을 통해 대화 흐름을
+              자유롭게 오갈 수 있습니다.
+            </p>
+          </div>
+
+          <div class="active-item">
+            <h3 class="title">감정 기반 캐릭터 및 배경 변화</h3>
+            <p>
+              대화 진행 중 감정 변화에 따라 캐릭터 이미지가 바뀌고, 상황에 맞춰 배경 또한
+              전환되어 몰입감 있는 사용자 경험을 제공합니다.
+            </p>
+          </div>
+
+          <div class="active-item">
+            <h3 class="title">추천 결과 공유 기능</h3>
+            <p>
+              추천 결과 화면을 이미지로 저장하거나 링크로 공유할 수 있어, 다른 사람들과
+              쉽게 결과를 나눌 수 있습니다.
+            </p>
           </div>
         </div>
       </section>
-    </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="index-footer">
+      <div class="container-wrap">
+        <p>&copy; 2025 멋쟁이사자처럼 프론트엔드 부트캠프 13기</p>
+        <a href="#">JavaScript Project 9팀 Promise9</a>
+      </div>
+    </footer>
   </body>
 </html>
