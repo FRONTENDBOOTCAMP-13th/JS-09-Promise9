@@ -289,6 +289,11 @@ function onDragEnd(event: MouseEvent | TouchEvent) {
   // 드래그 종료 시 실제 재생 위치 변경
   seekToPercent(percent);
 
+  // 💡 현재 상태가 일시정지인 경우 강제로 일시정지 다시 설정
+  if (!isPlaying) {
+    player?.pauseVideo();
+  }
+
   // 드래그 상태 및 이벤트 리스너 정리
   isDragging = false;
   document.removeEventListener('mousemove', onDragMove);
