@@ -1,4 +1,4 @@
-<h1 align="center">멋쟁이 사자처럼 JS 프로젝트 9조 <br>✨ Promise9 💝</h1>
+<h1 align="center">멋쟁이 사자처럼 JS 프로젝트 9팀 <br>✨ Promise9 💝</h1>
 
 <div align="center">
 

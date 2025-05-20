@@ -604,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.choices.forEach((choice) => {
       const choiceLi = document.createElement('li');
       const choiceBtn = document.createElement('button');
-      choiceBtn.className = `${choice}`;
+      choiceBtn.className = `${choice.nextScene}Btn`;
 
       choiceBtn.innerHTML = choice.text;
 
