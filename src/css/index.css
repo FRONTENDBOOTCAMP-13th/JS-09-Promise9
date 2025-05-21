@@ -177,8 +177,12 @@ html {
     }
 
     .member-img {
+      width: 100%;
+      height: 100%;
       max-width: 17rem;
       max-height: 17rem;
+      aspect-ratio: 1/1;
+      background: #dee2e6;
       border-radius: 1rem;
       overflow: hidden;
     }
@@ -259,6 +263,7 @@ html {
 
   .swiper {
     width: 100%;
+    padding: 2rem 0;
   }
 
   .swiper-pagination {
@@ -266,6 +271,10 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #ab7dff;
   }
 }
 
@@ -285,12 +294,11 @@ html {
 .active-lists {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 
   .active-item {
     .title {
       font-size: 1.375rem;
-      margin-bottom: 0.5rem;
     }
   }
 }

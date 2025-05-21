@@ -69,6 +69,7 @@
 }
 
 .btn.gradient {
+  width: 100%;
   background-size: 300% 100%;
   background-image: linear-gradient(to right, #ed6ea0, #9769ec, #7e73d2, #fe96c0);
   box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
@@ -94,12 +95,22 @@
 
 .btn.outline-gradient {
   transition: background 0.3s linear;
-  box-shadow: 0 0px 4px 0 rgba(236, 116, 149, 0.75);
+  box-shadow: 0 0px 4px 0 rgba(167, 167, 167, 0.75);
+  cursor: pointer;
 
   &:hover,
   &:focus,
   &:active {
-    background: #e06697;
+    background: #9768e2c9;
+    color: #fff;
+  }
+}
+
+.btn.outline-gradient.male {
+  &:hover,
+  &:focus,
+  &:active {
+    background: #116cbbb7;
     color: #fff;
   }
 }
