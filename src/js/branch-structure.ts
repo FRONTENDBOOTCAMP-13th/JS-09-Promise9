@@ -57,25 +57,6 @@ const boyEmotionImages: Emotion = {
   csad: 'boy-casual-sad.webp',
 };
 
-// // 감정별 점수를 나타내는 타입
-// type EmotionScores = {
-//   relaxed: number;
-//   happy: number;
-//   sad: number;
-//   lonely: number;
-//   excited: number;
-//   refresh: number;
-// };
-
-// const emotionScores: EmotionScores = {
-//   relaxed: 0,
-//   happy: 0,
-//   sad: 0,
-//   lonely: 0,
-//   excited: 0,
-//   refresh: 0,
-// };
-
 let easterEggScore = 0; //이스터에그 변수
 
 // 선택지 객체
@@ -494,6 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sceneId = 'busScene';
       }
     }
+    localStorage.setItem('nowScene', sceneId);
 
     if (
       sceneId === 'loveScene' ||
@@ -503,8 +485,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const highScore = resultEmotionScore(emotionScore);
       localStorage.setItem('highScore', highScore);
       getRandomSong(playLists, highScore);
+      localStorage.removeItem('highScore');
     }
-    localStorage.setItem('nowScene', sceneId);
 
     // 다음 섹션 찾기
     section = document.querySelector(`section[data-prolog="${sceneId}"]`) as HTMLElement;
