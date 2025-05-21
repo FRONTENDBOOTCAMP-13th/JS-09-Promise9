@@ -49,8 +49,10 @@
 
 .gender input {
   visibility: hidden;
+  position: absolute;
 }
-.gender input.selected + .btn.outline-gradient {
+
+input:checked + .btn.outline-gradient {
   background: #e06697;
   color: #fff;
 }
@@ -59,6 +61,7 @@
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 
   input:first-child {
     margin-bottom: 1rem;
