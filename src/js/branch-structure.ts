@@ -202,7 +202,7 @@ const rainScene: Scene = {
     {
       text: '어, 내가 우산 갖고 있어. 같이 가자',
       nextScene: 'rainStopScene',
-      emotion: 1,
+      emotion: 3,
     },
     {
       text: '혹시 우산 없으면 같이 기다릴까?<br/>비가 좀 그칠 때까지...',
@@ -213,7 +213,7 @@ const rainScene: Scene = {
     {
       text: '아쉽게도 우산은 없는데... 그냥 뛰어서 갈래?',
       nextScene: 'rainStopScene',
-      emotion: 3,
+      emotion: 2,
     },
   ],
 };
@@ -244,7 +244,7 @@ const arcadeScene: Scene = {
     {
       text: '헐, 너였어? 나 진짜 몰랐는데...<br/>여긴 어떻게 온 거야?',
       nextScene: 'cafeScene',
-      emotion: 2,
+      emotion: 1,
     },
   ],
 };
@@ -274,7 +274,7 @@ const bookstoreScene: Scene = {
     {
       text: '어?! 이렇게 마주칠 줄은 몰랐어...<br/>사실, 조금 놀랐어',
       nextScene: 'cafeScene',
-      emotion: 2,
+      emotion: 1,
     },
   ],
 };
@@ -340,7 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
   let prevBtn = document.querySelector('.prev-btn') as HTMLElement;
   let characterImg = document.querySelector('#character-img') as HTMLImageElement;
-  let resultBtn = document.querySelector('.resultBtn') as HTMLElement;
 
   let index = 0;
   let prevIndex: number[] = [];
@@ -422,14 +421,12 @@ document.addEventListener('DOMContentLoaded', () => {
         '.conversation-box > .line',
       ) as NodeListOf<HTMLElement>;
       // 대사 가리기
-      console.log(lines);
       lines.forEach((line) => (line.style.display = 'none'));
       // 첫번째 대사 보이기
       if (lines.length > 0) {
         index = 0;
         prevIndex = [];
         lines[0].style.display = 'block';
-        console.log('더ㅚㄴㅇㄹ');
         updateImg(lines[0]);
       }
     }
@@ -441,21 +438,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function emotoinBranch(emotionScore: number): string {
-    let emotionPick: string;
     if (emotionScore >= 17) {
-      return (emotionPick = 'excited');
+      return 'excited';
     } else if (emotionScore >= 15) {
-      return (emotionPick = 'happy');
+      return 'happy';
     } else if (emotionScore >= 13) {
-      return (emotionPick = 'refresh');
+      return 'refresh';
     } else if (emotionScore >= 11) {
-      return (emotionPick = 'relaxed');
+      return 'relaxed';
     } else if (emotionScore >= 9) {
-      return (emotionPick = 'lonely');
-    } else if (emotionScore >= 7) {
-      return (emotionPick = 'sad');
+      return 'lonely';
     } else {
-      return (emotionPick = '');
+      return 'sad';
     }
   }
   // 다음 씬 섹션으로 이동하기
@@ -472,20 +466,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let section = document.querySelector(
       `section[data-prolog="${sceneId}"]`,
     ) as HTMLElement;
-    // 감정 점수 계산
-    // const highScore: string[] = resultEmotionScore(emotionScores);
-
-    // const emotionIndex: number = highScore.length;
-    // let emotionPick: string;
-
-    // if (emotionIndex !== 1) {
-    //   const emotionIndex = Math.floor(Math.random() * highScore.length);
-    //   emotionPick = highScore[emotionIndex];
-    // } else {
-    //   emotionPick = highScore[0];
-    // }
-
-    // localStorage.setItem('highScore', emotionPick);
 
     // 중간 감정 점수 별 다음 씬 선택
     if (sceneId === 'nextDayScene') {
@@ -523,10 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const highScore = resultEmotionScore(emotionScore);
       localStorage.setItem('highScore', highScore);
       getRandomSong(playLists, highScore);
-
-      console.log(highScore);
     }
-    console.log(sceneId);
     localStorage.setItem('nowScene', sceneId);
 
     // 다음 섹션 찾기
@@ -585,7 +562,6 @@ document.addEventListener('DOMContentLoaded', () => {
       '.user-select .select-box',
     ) as HTMLUListElement;
 
-    console.log();
     selectBox.innerHTML = '';
 
     // 선택지 버튼 생성
@@ -626,7 +602,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // 이스터에그 점수 저장
         if (choice.easterEgg !== undefined) {
           easterEggScore++;
-          console.log('이스터에그', easterEggScore);
         }
       });
 

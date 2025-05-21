@@ -8,13 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
 
   if (localStorage.getItem('nowScene')) {
-    const continueBtn = document.createElement('button');
-    continueBtn.className = 'btn btn-lg gradient';
-    continueBtn.id = 'continueBtn';
-    continueBtn.innerHTML = '이어하기';
-    const btnGroup = document.querySelector('.main-btn-group') as HTMLElement;
-
-    btnGroup.appendChild(continueBtn);
+    const continueBtn = document.querySelector('#continueBtn') as HTMLButtonElement;
+    continueBtn.disabled = false;
   }
 
   const continueBtn = document.querySelector('#continueBtn');
