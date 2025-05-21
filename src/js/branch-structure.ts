@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const highScore = resultEmotionScore(emotionScore);
       localStorage.setItem('highScore', highScore);
       getRandomSong(playLists, highScore);
-      localStorage.removeItem('highScore');
+      localStorage.removeItem('nowScene');
     }
 
     // 다음 섹션 찾기
