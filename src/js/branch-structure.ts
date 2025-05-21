@@ -1,73 +1,10 @@
 import '../style.css';
 import { resultEmotionScore } from './emotion-score.ts';
 
-function preload(imageArray: string[]) {
-  let n = imageArray.length;
-  for (let i = 0; i < n; i++) {
-    let img = new Image();
-    img.src = imageArray[i];
-  }
-}
-
-preload([
-  '/assets/img/arcadeScene.webp',
-  '/assets/img/bgmOff.webp',
-  '/assets/img/bgmOn.webp',
-  '/assets/img/bookstoreScene.webp',
-  '/assets/img/boy-casual-default.webp',
-  '/assets/img/boy-casual-happy.webp',
-  '/assets/img/boy-casual-sad.webp',
-  '/assets/img/boy-casual-shy.webp',
-  '/assets/img/boy-casual-surprised.webp',
-  '/assets/img/boy-default.webp',
-  '/assets/img/boy-happy.webp',
-  '/assets/img/boy-sad.webp',
-  '/assets/img/boy-shy.webp',
-  '/assets/img/boy-surprised.webp',
-  '/assets/img/boy-worried.webp',
-  '/assets/img/busScene.webp',
-  '/assets/img/cafeScene.webp',
-  '/assets/img/cafeteriaScene.webp',
-  '/assets/img/classNoteScene.webp',
-  '/assets/img/classWindowScene.webp',
-  '/assets/img/clouds.webp',
-  '/assets/img/clubScene.webp',
-  '/assets/img/dokidoki.webp',
-  '/assets/img/girl-casual-default.webp',
-  '/assets/img/girl-casual-happy.webp',
-  '/assets/img/girl-casual-sad.webp',
-  '/assets/img/girl-casual-shy.webp',
-  '/assets/img/girl-casual-surprised.webp',
-  '/assets/img/girl-default.webp',
-  '/assets/img/girl-happy.webp',
-  '/assets/img/girl-sad.webp',
-  '/assets/img/girl-shy.webp',
-  '/assets/img/girl-surprised.webp',
-  '/assets/img/girl-worried.webp',
-  '/assets/img/hallwayWindowScene.webp',
-  '/assets/img/index-logo.webp',
-  '/assets/img/loveScene.webp',
-  '/assets/img/main-background.gif',
-  '/assets/img/main-background.png',
-  '/assets/img/movieScene.webp',
-  '/assets/img/nextday.webp',
-  '/assets/img/parkLoveScene.gif',
-  '/assets/img/parkLoveScene.webp',
-  '/assets/img/parkScene.webp',
-  '/assets/img/phone.webp',
-  '/assets/img/project-bg.webp',
-  '/assets/img/rainScene.webp',
-  '/assets/img/rainStopScene.webp',
-  '/assets/img/sadScene.webp',
-  '/assets/img/scene1.webp',
-  '/assets/img/stallScene.webp',
-  '/assets/img/title-logo.webp',
-]);
-
 interface Choice {
   text: string;
   nextScene: string;
-  emotion: string;
+  emotion: number;
   easterEgg?: number;
 }
 
@@ -120,44 +57,45 @@ const boyEmotionImages: Emotion = {
   csad: 'boy-casual-sad.webp',
 };
 
-// 감정별 점수를 나타내는 타입
-type EmotionScores = {
-  relaxed: number;
-  happy: number;
-  sad: number;
-  lonely: number;
-  excited: number;
-  refresh: number;
-};
+// // 감정별 점수를 나타내는 타입
+// type EmotionScores = {
+//   relaxed: number;
+//   happy: number;
+//   sad: number;
+//   lonely: number;
+//   excited: number;
+//   refresh: number;
+// };
 
-const emotionScores: EmotionScores = {
-  relaxed: 0,
-  happy: 0,
-  sad: 0,
-  lonely: 0,
-  excited: 0,
-  refresh: 0,
-};
+// const emotionScores: EmotionScores = {
+//   relaxed: 0,
+//   happy: 0,
+//   sad: 0,
+//   lonely: 0,
+//   excited: 0,
+//   refresh: 0,
+// };
 
 let easterEggScore = 0; //이스터에그 변수
 
+// 선택지 객체
 const scene1: Scene = {
   choices: [
     {
       text: '오늘은 왠지 모르게 기분이 좋아!<br/>네가 있어서 그런가 봐',
       nextScene: 'classWindowScene',
-      emotion: 'excited',
+      emotion: 3,
       easterEgg: 0,
     },
     {
       text: '...그냥 멍한 느낌이야. 뭔가 비어있는 느낌?',
       nextScene: 'classNoteScene',
-      emotion: 'lonely',
+      emotion: 2,
     },
     {
       text: '기분이 별로야... 그냥 많이 지쳤어',
       nextScene: 'hallwayWindowScene',
-      emotion: 'sad',
+      emotion: 1,
     },
   ],
 };
@@ -167,13 +105,13 @@ const classWindowScene: Scene = {
     {
       text: '그런 사람... 나한텐... 바로 너 뿐이야',
       nextScene: 'stallScene',
-      emotion: 'happy',
+      emotion: 3,
       easterEgg: 0,
     },
     {
       text: '...지금도 그래 너랑 있으면... 마음이 편해져',
       nextScene: 'cafeteriaScene',
-      emotion: 'relaxed',
+      emotion: 2,
     },
   ],
 };
@@ -182,13 +120,13 @@ const classNoteScene: Scene = {
     {
       text: '좋아, 오늘은 특별히 네 입맛 따라줄게.<br/>신상이라니 궁금하긴 하네',
       nextScene: 'stallScene',
-      emotion: 'refresh',
+      emotion: 3,
       easterEgg: 0,
     },
     {
       text: '...근데 나, 급식 먹고 싶은데',
       nextScene: 'cafeteriaScene',
-      emotion: 'sad',
+      emotion: 1,
     },
   ],
 };
@@ -198,12 +136,12 @@ const hallwayWindowScene: Scene = {
     {
       text: '누군가랑 아무 말 없이 같이 걷고 싶어',
       nextScene: 'stallScene',
-      emotion: 'lonely',
+      emotion: 2,
     },
     {
       text: '이어폰 꽂고 좋아하는 노래 들으면서 걷고 싶어',
       nextScene: 'cafeteriaScene',
-      emotion: 'relaxed',
+      emotion: 1,
     },
   ],
 };
@@ -213,13 +151,13 @@ const stallScene: Scene = {
     {
       text: '네가 고른 거! 꼭 먹어보고 싶어!<br/>너의 취향이 궁금하거든...',
       nextScene: 'clubScene',
-      emotion: 'excited',
+      emotion: 3,
       easterEgg: 0,
     },
     {
       text: '음, 둘 다 먹어야지! 두 개 다 맛있을 거 같아.',
       nextScene: 'clubScene',
-      emotion: 'excited',
+      emotion: 2,
     },
   ],
 };
@@ -228,13 +166,13 @@ const cafeteriaScene: Scene = {
     {
       text: '나도, 너랑 먹으니까 괜히 맛있어',
       nextScene: 'clubScene',
-      emotion: 'happy',
+      emotion: 3,
       easterEgg: 0,
     },
     {
       text: '그치만, 급식은 그냥 그런 맛인 것 같아. 평소랑 다를 게 없네...',
       nextScene: 'clubScene',
-      emotion: 'sad',
+      emotion: 1,
     },
   ],
 };
@@ -244,17 +182,17 @@ const clubScene: Scene = {
     {
       text: '시끌벅적 흥이 넘치는 밴드부',
       nextScene: 'rainScene',
-      emotion: 'excited',
+      emotion: 3,
     },
     {
       text: '최신 영화를 즐겨보는 영화감상부',
       nextScene: 'rainScene',
-      emotion: 'refresh',
+      emotion: 2,
     },
     {
       text: '조용하게 차를 즐기는 다도부',
       nextScene: 'rainScene',
-      emotion: 'relaxed',
+      emotion: 1,
     },
   ],
 };
@@ -264,18 +202,18 @@ const rainScene: Scene = {
     {
       text: '어, 내가 우산 갖고 있어. 같이 가자',
       nextScene: 'rainStopScene',
-      emotion: 'happy',
+      emotion: 1,
     },
     {
       text: '혹시 우산 없으면 같이 기다릴까?<br/>비가 좀 그칠 때까지...',
       nextScene: 'rainStopScene',
-      emotion: 'refresh',
+      emotion: 2,
       easterEgg: 0,
     },
     {
       text: '아쉽게도 우산은 없는데... 그냥 뛰어서 갈래?',
       nextScene: 'rainStopScene',
-      emotion: 'refresh',
+      emotion: 3,
     },
   ],
 };
@@ -285,13 +223,13 @@ const rainStopScene: Scene = {
     {
       text: '그래, 비도 그쳤으니까<br/>걷는 김에 집에 데려다줄게.',
       nextScene: 'nextDayScene',
-      emotion: 'refresh',
+      emotion: 3,
       easterEgg: 0,
     },
     {
       text: '미안... 오늘은 좀 피곤해서, 먼저 집에 갈게',
       nextScene: 'nextDayScene',
-      emotion: 'lonely',
+      emotion: 1,
     },
   ],
 };
@@ -301,12 +239,12 @@ const arcadeScene: Scene = {
     {
       text: '계속 옆에 있었는데... 네가 너무 집중하고 있어서, 괜히 말 걸기 망설여졌어.',
       nextScene: 'cafeScene',
-      emotion: 'sad',
+      emotion: 1,
     },
     {
       text: '헐, 너였어? 나 진짜 몰랐는데...<br/>여긴 어떻게 온 거야?',
       nextScene: 'cafeScene',
-      emotion: 'excited',
+      emotion: 2,
     },
   ],
 };
@@ -315,12 +253,12 @@ const movieScene: Scene = {
     {
       text: '그러게, 같이 봤으면 더 재밌었을 텐데.<br/>다음에는 같이 보자~ 약속!',
       nextScene: 'cafeScene',
-      emotion: 'refresh',
+      emotion: 2,
     },
     {
       text: '사실... 나는 영화 혼자 보는 거 좋아해',
       nextScene: 'cafeScene',
-      emotion: 'lonely',
+      emotion: 1,
     },
   ],
 };
@@ -330,13 +268,13 @@ const bookstoreScene: Scene = {
     {
       text: '(얼굴이 붉어지며)<br/>응, 나도! 이렇게 우연히 만날 줄 몰랐어. 기분 진짜 좋다',
       nextScene: 'cafeScene',
-      emotion: 'happy',
+      emotion: 3,
       easterEgg: 0,
     },
     {
       text: '어?! 이렇게 마주칠 줄은 몰랐어...<br/>사실, 조금 놀랐어',
       nextScene: 'cafeScene',
-      emotion: 'refresh',
+      emotion: 2,
     },
   ],
 };
@@ -345,17 +283,17 @@ const cafeScene: Scene = {
     {
       text: '신나는 댄스 음악 듣는 걸 좋아해.<br/>기분 좋을 때 듣기 딱 좋아',
       nextScene: 'lastChoiceScene',
-      emotion: 'refresh',
+      emotion: 3,
     },
     {
       text: '클래식이나 어쿠스틱 음악을 많이 들어.<br/>차분한 분위기에서 힐링되는 느낌이 좋아',
       nextScene: 'lastChoiceScene',
-      emotion: 'lonely',
+      emotion: 2,
     },
     {
       text: '슬픈 노래 들으면서 우는 걸 좋아해.<br/>그런 노래가 위로가 되는 것 같아.',
       nextScene: 'lastChoiceScene',
-      emotion: 'lonely',
+      emotion: 1,
     },
   ],
 };
@@ -364,12 +302,12 @@ const busScene: Scene = {
     {
       text: '오, 진짜? 나도 오늘 즐거웠어!<br/>월요일에 같이 가면 좋겠다. 기대된다!',
       nextScene: 'resultScene',
-      emotion: 'happy',
+      emotion: 2,
     },
     {
       text: '월요일에는 친구랑 약속이 있어서...<br/>다음에 꼭 같이 가자!',
       nextScene: 'resultScene',
-      emotion: 'lonely',
+      emotion: 1,
     },
   ],
 };
@@ -378,12 +316,12 @@ const parkScene: Scene = {
     {
       text: '고마워. 나도 너무 좋아! 오늘부터 1일이다!',
       nextScene: 'loveScene',
-      emotion: 'excited',
+      emotion: 3,
     },
     {
       text: '나는... 우리 그냥 친구로 지내는게 좋을 것 같아. 친구 이상은 아닌 것 같아...',
       nextScene: 'breakScene',
-      emotion: 'sad',
+      emotion: 1,
     },
   ],
 };
@@ -393,7 +331,7 @@ const resultScene: Scene = {
     {
       text: '',
       nextScene: '',
-      emotion: '',
+      emotion: 0,
     },
   ],
 };
@@ -402,13 +340,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
   let prevBtn = document.querySelector('.prev-btn') as HTMLElement;
   let characterImg = document.querySelector('#character-img') as HTMLImageElement;
+  let resultBtn = document.querySelector('.resultBtn') as HTMLElement;
 
   let index = 0;
   let prevIndex: number[] = [];
+  let emotionScore = 0;
   const lines = document.querySelectorAll(
     '.conversation-box > .line',
   ) as NodeListOf<HTMLElement>;
 
+  // 로컬스토리지에 현재 씬이 있는 경우
   if (localStorage.getItem('nowScene')) {
     const continueScene = localStorage.getItem('nowScene') as string;
     const firstSection = document.querySelector('.playlists-wrap') as HTMLElement;
@@ -431,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // updateImg(lines[0]);
     }
 
-    // 대사 가리기
+    // 전체 대사 가리기
     lines.forEach((line) => (line.style.display = 'none'));
     if (lines.length > 0) {
       lines[0].style.display = 'block';
@@ -439,16 +380,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // 현재 씬 찾기
   const section = document.querySelector(
     '.playlists-wrap[style*="display: block"]',
   ) as HTMLElement;
 
-  // 밑에꺼를 다 현재 씬 기준으로 바꿔주는 코드가 필요하다
-
+  // 현재 씬의 버튼 및 캐릭터 이미지 찾기
   nextBtn = section.querySelector('.next-btn') as HTMLElement;
   prevBtn = section.querySelector('.prev-btn') as HTMLElement;
   characterImg = section.querySelector('#character-img') as HTMLImageElement;
 
+  // 로컬스토리지에서 캐릭터 성별, 이름 가져와서 html에 넣어주기
   const genderCheck = localStorage.getItem('gender');
   const userName = localStorage.getItem('userName') as string;
   const nameTags = document.querySelectorAll('.char-name') as NodeListOf<HTMLElement>;
@@ -462,13 +404,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 사용자 이름 html에 넣어주기
   const userNameTags = document.querySelectorAll('.user-name') as NodeListOf<HTMLElement>;
   userNameTags.forEach((userNameTag) => {
     userNameTag.innerHTML = userName;
   });
 
+  // 게임 이어할 경우 사용
   function continueToScene(nowScene: string) {
-    // 섹션 찾기
+    // 이전에 마지막으로 진행한 섹션 찾기
     const section = document.querySelector(
       `section[data-prolog="${nowScene}"]`,
     ) as HTMLElement;
@@ -489,11 +433,32 @@ document.addEventListener('DOMContentLoaded', () => {
         updateImg(lines[0]);
       }
     }
+
+    // 현재 씬의 버튼 재할당
     nextBtn = section.querySelector('.next-btn') as HTMLElement;
     prevBtn = section.querySelector('.prev-btn') as HTMLElement;
     characterImg = section.querySelector('#character-img') as HTMLImageElement;
   }
 
+  function emotoinBranch(emotionScore: number): string {
+    let emotionPick: string;
+    if (emotionScore >= 17) {
+      return (emotionPick = 'excited');
+    } else if (emotionScore >= 15) {
+      return (emotionPick = 'happy');
+    } else if (emotionScore >= 13) {
+      return (emotionPick = 'refresh');
+    } else if (emotionScore >= 11) {
+      return (emotionPick = 'relaxed');
+    } else if (emotionScore >= 9) {
+      return (emotionPick = 'lonely');
+    } else if (emotionScore >= 7) {
+      return (emotionPick = 'sad');
+    } else {
+      return (emotionPick = '');
+    }
+  }
+  // 다음 씬 섹션으로 이동하기
   function moveToScene(sceneId: string) {
     // 모든 섹션 숨기기
     const allSections = document.querySelectorAll(
@@ -503,19 +468,28 @@ document.addEventListener('DOMContentLoaded', () => {
       section.style.display = 'none';
     });
 
-    const highScore: string[] = resultEmotionScore(emotionScores);
-    const emotionIndex: number = highScore.length;
-    let emotionPick: string;
+    // 현재 섹션 찾기
+    let section = document.querySelector(
+      `section[data-prolog="${sceneId}"]`,
+    ) as HTMLElement;
+    // 감정 점수 계산
+    // const highScore: string[] = resultEmotionScore(emotionScores);
 
-    if (emotionIndex !== 1) {
-      const emotionIndex = Math.floor(Math.random() * highScore.length);
-      emotionPick = highScore[emotionIndex];
-    } else {
-      emotionPick = highScore[0];
-    }
+    // const emotionIndex: number = highScore.length;
+    // let emotionPick: string;
 
-    localStorage.setItem('highScore', emotionPick);
+    // if (emotionIndex !== 1) {
+    //   const emotionIndex = Math.floor(Math.random() * highScore.length);
+    //   emotionPick = highScore[emotionIndex];
+    // } else {
+    //   emotionPick = highScore[0];
+    // }
+
+    // localStorage.setItem('highScore', emotionPick);
+
+    // 중간 감정 점수 별 다음 씬 선택
     if (sceneId === 'nextDayScene') {
+      const emotionPick = emotoinBranch(emotionScore);
       switch (emotionPick) {
         case 'happy':
         case 'excited':
@@ -532,6 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // 히든 엔딩 조건 계산
     if (sceneId === 'lastChoiceScene') {
       if (easterEggScore >= 5) {
         sceneId = 'parkScene';
@@ -540,13 +515,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    if (
+      sceneId === 'loveScene' ||
+      sceneId === 'breakScene' ||
+      sceneId === 'resultScene'
+    ) {
+      const highScore = resultEmotionScore(emotionScore);
+      localStorage.setItem('highScore', highScore);
+      console.log(highScore);
+    }
     console.log(sceneId);
     localStorage.setItem('nowScene', sceneId);
-    // 섹션 찾기
-    const section = document.querySelector(
-      `section[data-prolog="${sceneId}"]`,
-    ) as HTMLElement;
 
+    // 다음 섹션 찾기
+    section = document.querySelector(`section[data-prolog="${sceneId}"]`) as HTMLElement;
+
+    // 다음 섹션으로 이동 및 대사 보이기 처리
     if (section) {
       section.style.display = 'block';
 
@@ -582,13 +566,14 @@ document.addEventListener('DOMContentLoaded', () => {
     characterImg = section.querySelector('#character-img') as HTMLImageElement;
   }
 
-  function handleChoice(emotion: string): void {
-    emotionScores[emotion as keyof EmotionScores]++;
-    console.log(`선택한 감정: ${emotion}`);
-    console.log('현재 감정 점수:', { ...emotionScores });
+  // 이스터에그 점수 계산
+  function handleChoice(emotion: number): void {
+    emotionScore += emotion;
+    let emtionScoreSum = `${emotionScore}`;
+    localStorage.setItem('emotionScore', emtionScoreSum);
   }
 
-  // 선택지 함수
+  // 장면 별 선택지 보여주는 함수
   function showChoices(scene: Scene) {
     const section = document.querySelector(
       '.playlists-wrap[style*="display: block"]',
@@ -601,6 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log();
     selectBox.innerHTML = '';
 
+    // 선택지 버튼 생성
     scene.choices.forEach((choice) => {
       const choiceLi = document.createElement('li');
       const choiceBtn = document.createElement('button');
@@ -647,7 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 씬 찾기
+  // 씬 넘겨주기
   function getSceneByPrologId(prologId: string): Scene {
     switch (prologId) {
       case 'classWindowScene':
@@ -685,6 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // 다음 버튼 함수
   function handleNext() {
     const section = document.querySelector(
       '.playlists-wrap[style*="display: block"]',
@@ -699,14 +686,20 @@ document.addEventListener('DOMContentLoaded', () => {
       prevIndex.push(index);
       lines[index].style.display = 'none';
       index++;
+
+      // 첫 대사가 아닐 경우 이전 버튼 활성화
       if (index >= 1) {
         prevBtn.style.display = 'block';
       }
+
+      // 나래이션일 경우 캐릭터 이름 비활성화
       if (lines[index].querySelector('.sr-only')) {
         nowNameTag.style.display = 'none';
       } else {
         nowNameTag.style.display = 'block';
       }
+
+      // 대사 중간 배경 이미지 바뀌는 기능
       if (lines[index].classList.contains('changeScene')) {
         const nowScene = section.dataset.prolog;
         switch (nowScene) {
@@ -739,6 +732,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lines[index].style.display = 'block';
       updateImg(lines[index]);
     } else {
+      // 마지막 대사인 경우
       lines[index].style.display = 'none';
       girlTalk.style.display = 'none';
 
@@ -746,6 +740,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const currentSection = document.querySelector(
         '.playlists-wrap[style*="display: block"]',
       ) as HTMLElement;
+
+      // 선택지 보여주는 함수 호출
       if (currentSection) {
         const currentSceneId = currentSection.getAttribute('data-prolog');
 
@@ -763,6 +759,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // 이전 버튼
   function handlePrev() {
     const section = document.querySelector(
       '.playlists-wrap[style*="display: block"]',
@@ -783,27 +780,27 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (nowScene) {
           case 'classNoteScene':
             section.style.background =
-              'url(/public/assets/img/classNoteScene.webp) center center / cover no-repeat';
+              'url(/assets/img/classNoteScene.webp) center center / cover no-repeat';
             break;
           case 'arcadeScene':
             section.style.background =
-              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+              'url(/assets/img/nextday.webp) center center / cover no-repeat';
             break;
           case 'movieScene':
             section.style.background =
-              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+              'url(/assets/img/nextday.webp) center center / cover no-repeat';
             break;
           case 'bookstoreScene':
             section.style.background =
-              'url(/public/assets/img/nextday.webp) center center / cover no-repeat';
+              'url(/assets/img/nextday.webp) center center / cover no-repeat';
             break;
           case 'cafeScene':
             section.style.background =
-              'url(/public/assets/img/clouds.webp) center center / cover no-repeat';
+              'url(/assets/img/clouds.webp) center center / cover no-repeat';
             break;
           case 'parkScene':
             section.style.background =
-              'url(/public/assets/img/parkScene.webp) center center / cover no-repeat';
+              'url(/assets/img/parkScene.webp) center center / cover no-repeat';
             break;
         }
       }
@@ -831,6 +828,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handlePrev();
   });
 
+  // 대사 별 캐릭터 이미지 변경
   function updateImg(line: HTMLElement) {
     const emotion = line.dataset.emotion as keyof Emotion | undefined;
     characterImg.style.opacity = '1';
