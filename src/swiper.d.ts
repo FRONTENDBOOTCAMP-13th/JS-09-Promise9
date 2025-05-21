@@ -9,6 +9,7 @@ declare module 'swiper' {
       delay?: number;
       disableOnInteraction?: boolean;
     };
+    speed: number;
     pagination?: {
       el: string;
       clickable?: boolean;
