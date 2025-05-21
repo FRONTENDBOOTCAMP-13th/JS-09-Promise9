@@ -100,7 +100,6 @@
   &:focus,
   &:active {
     background: #e06697;
-
     color: #fff;
   }
 }
