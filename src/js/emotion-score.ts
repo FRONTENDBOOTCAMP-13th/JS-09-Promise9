@@ -71,23 +71,23 @@ export function attachChoiceHandler(containerSelector: string): void {
 }
 
 // 🏆 가장 점수가 높은 감정을 배열로 반환
-export function resultEmotionScore(scores: EmotionScores): string[] {
-  let highScore = -1; // 가장 높은 점수 저장
-  let resultEmotion: string[] = []; // 가장 점수 높은 감정들 저장할 배열
-
-  // 모든 감정을 순회하면서 점수 비교
-  for (const emotion in scores) {
-    const score = scores[emotion as Emotion];
-
-    if (score > highScore) {
-      highScore = score;
-      resultEmotion = [emotion]; // 새로운 최고 점수 감정만 저장
-    } else if (score === highScore) {
-      resultEmotion.push(emotion); // 점수가 같으면 추가
-    }
+export function resultEmotionScore(emotionScore: number): string {
+  let emotionPick: string;
+  if (emotionScore >= 24) {
+    emotionPick = 'excited';
+  } else if (emotionScore >= 22) {
+    emotionPick = 'happy';
+  } else if (emotionScore >= 20) {
+    emotionPick = 'refresh';
+  } else if (emotionScore >= 18) {
+    emotionPick = 'relaxed';
+  } else if (emotionScore >= 16) {
+    emotionPick = 'lonely';
+  } else {
+    emotionPick = 'sad';
   }
 
-  return resultEmotion;
+  return emotionPick;
 }
 
 // 현재 감정 점수를 복사해서 외부에서 사용할 수 있도록 반환

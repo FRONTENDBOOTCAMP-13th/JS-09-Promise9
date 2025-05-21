@@ -16,7 +16,7 @@ function captureResult() {
     // 다운로드
     const link = document.createElement('a');
     link.href = image;
-    link.download = 'result.webp';
+    link.download = 'dokidoki-playlists.png';
     link.click();
   });
 

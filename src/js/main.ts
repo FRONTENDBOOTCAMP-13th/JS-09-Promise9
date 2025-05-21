@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 document.addEventListener('DOMContentLoaded', () => {
   // START 버튼 요소를 가져오기
   const startBtn = document.querySelector('#startBtn');
@@ -8,13 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
 
   if (localStorage.getItem('nowScene')) {
-    const continueBtn = document.createElement('button');
-    continueBtn.className = 'btn btn-lg gradient';
-    continueBtn.id = 'continueBtn';
-    continueBtn.innerHTML = '이어하기';
-    const btnGroup = document.querySelector('.main-btn-group') as HTMLElement;
-
-    btnGroup.appendChild(continueBtn);
+    const continueBtn = document.querySelector('#continueBtn') as HTMLButtonElement;
+    continueBtn.disabled = false;
   }
 
   const continueBtn = document.querySelector('#continueBtn');
@@ -49,50 +45,65 @@ document.addEventListener('DOMContentLoaded', () => {
     // 입력된 이름에서 앞뒤 공백 제거 후 저장
     if (nameValue) {
       // 값이 있을 경우
-      localStorage.setItem('userName', nameValue);
+      Swal.fire({
+        icon: 'question',
+        text: `${nameValue}으로 결정하시겠습니까?`,
+        showCancelButton: true,
+        confirmButtonText: '확인',
+        cancelButtonText: '재설정',
+        confirmButtonColor: '#ed6ea0',
+        cancelButtonColor: '#9769ec',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          if (currentIndex < sections.length - 1) {
+            // 다음 section으로 이동
+            sections[currentIndex].style.display = 'none';
+            currentIndex++;
+            sections[currentIndex].style.display = 'block';
+            localStorage.setItem('userName', nameValue);
+          }
+        }
+      });
       // localStorage에 'userName' 이름 저장
-      if (currentIndex < sections.length - 1) {
-        // 다음 section으로 이동
-        sections[currentIndex].style.display = 'none';
-        currentIndex++;
-        sections[currentIndex].style.display = 'block';
-      }
     } else {
-      alert('이름을 입력해주세요.');
+      Swal.fire({
+        icon: 'error',
+        // title: '이름 넣으시죠.',
+        text: '이름이 입력되지 않았습니다.',
+      });
       // 이름이 비어있을 경우 경고 표시
     }
   });
 
-  let selectedGender: string | null = null; // 선택된 성별을 저장할 변수 (처음엔 null)
-
-  const genderButtons = document.querySelectorAll<HTMLButtonElement>('#select-gen');
-  // 성별 선택 버튼들 가져오기 (id가 같으면 여러 개 있어도 querySelectorAll로 모두 가져올 수 있음)
   const submitButton = document.getElementById('submit-user-gen') as HTMLButtonElement;
-  // 성별 확인 버튼 가져오기
 
-  // 성별 선택 버튼 각각에 클릭 이벤트 추가
-  genderButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      selectedGender = btn.dataset.value || null;
-      // 클릭된 버튼의 data-value 속성 값 가져와서 selectedGender에 저장
-      genderButtons.forEach((b) => b.classList.remove('selected'));
-      // 모든 버튼에서 'selected' 클래스 제거하고
-      btn.classList.add('selected');
-      // 현재 선택된 버튼에만 'selected' 클래스 추가
-    });
-  });
-
-  // 성별 확인 버튼 클릭 시 실행되는 핸들러
   submitButton.addEventListener('click', () => {
-    if (selectedGender) {
-      // 성별이 선택되어 있으면
-      localStorage.setItem('gender', selectedGender);
-      // localStorage에 성별 저장
-      location.replace('/src/pages/test.html');
-      // 다음 페이지로 이동
+    const selectedInput = document.querySelector<HTMLInputElement>(
+      'input[name="select-gen"]:checked',
+    );
+
+    if (selectedInput) {
+      const gender = selectedInput.value;
+
+      Swal.fire({
+        icon: 'question',
+        text: `${gender}로 결정하시겠습니까?`,
+        showCancelButton: true,
+        confirmButtonText: '확인',
+        cancelButtonText: '재설정',
+        confirmButtonColor: '#ed6ea0',
+        cancelButtonColor: '#9769ec',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.setItem('gender', gender);
+          location.replace('/src/pages/test.html');
+        }
+      });
     } else {
-      alert('성별을 먼저 선택해 주세요!');
-      // 성별이 선택되지 않았으면 경고
+      Swal.fire({
+        icon: 'error',
+        text: '성별을 결정해주세요.',
+      });
     }
   });
 });

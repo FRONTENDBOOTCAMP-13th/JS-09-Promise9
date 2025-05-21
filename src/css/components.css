@@ -81,6 +81,15 @@
     background-position: 100% 0;
     transition: all 0.4s ease-in-out;
   }
+
+  &:disabled {
+    background-position: 100% 0;
+    background-image: linear-gradient(to right, #ed6ea0, #9769ec, #7e73d2, #fe96c0);
+    opacity: 0.9;
+    filter: grayscale(1);
+    color: #d1d1d1;
+    box-shadow: none;
+  }
 }
 
 .btn.outline-gradient {
@@ -91,7 +100,6 @@
   &:focus,
   &:active {
     background: #e06697;
-
     color: #fff;
   }
 }

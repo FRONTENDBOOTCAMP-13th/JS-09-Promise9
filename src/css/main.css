@@ -22,7 +22,7 @@
       border: 1px solid #ffffff83;
     }
 
-    .flex-box.gender {
+    .gender-box.gender {
       .btn {
         min-width: 4rem;
         width: 100%;
@@ -44,5 +44,29 @@
       line-height: 1.375;
       color: #fff;
     }
+  }
+}
+
+.gender input {
+  visibility: hidden;
+  position: absolute;
+}
+
+input:checked + .btn.outline-gradient {
+  background: #e06697;
+  color: #fff;
+}
+
+.gender-box {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  input:first-child {
+    margin-bottom: 1rem;
+  }
+  label:last-child {
+    margin-bottom: 1rem;
   }
 }

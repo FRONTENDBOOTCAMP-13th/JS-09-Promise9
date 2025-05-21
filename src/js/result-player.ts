@@ -16,7 +16,7 @@ type PlayLists = {
 };
 
 // 감정에 따른 플레이리스트
-const playLists: PlayLists = {
+export const playLists: PlayLists = {
   happy: [
     {
       url: 'https://www.youtube.com/embed/A9MjGpCRmoQ?enablejsapi=1',
@@ -230,11 +230,11 @@ const playLists: PlayLists = {
  * @throws {Error} 해당 감정에 대한 노래 목록이 없거나 비어있을 경우
  */
 
-function getRandomSong(playLists: PlayLists, mood: string): Song {
+export function getRandomSong(playLists: PlayLists, mood: string): void {
   const resultSongs = playLists[mood];
   const randomIndex = Math.floor(Math.random() * resultSongs.length);
 
-  return resultSongs[randomIndex];
+  localStorage.setItem('randomSong', JSON.stringify(resultSongs[randomIndex]));
 }
 
 /**
@@ -248,21 +248,29 @@ function getRandomSong(playLists: PlayLists, mood: string): Song {
 
 function updateMusic(song: Song, mood: string) {
   const musicLists = document.querySelector('.musiclists-wrap') as HTMLElement;
-  const musicImg = document.querySelector('.music-box img') as HTMLImageElement;
-  const musicTitle = document.querySelector('.music-box .music-title') as HTMLElement;
-  const musicSinger = document.querySelector('.music-box .music-singer') as HTMLElement;
-  const musicIframe = document.querySelector('#youtubePlayer') as HTMLIFrameElement;
+  const musicImg = document.querySelector('.music-box img');
+  const musicTitle = document.querySelector('.music-box .music-title');
+  const musicSinger = document.querySelector('.music-box .music-singer');
+  const musicIframe = document.querySelector('#youtubePlayer');
 
-  // 감정 클래스 추가
-  musicLists.classList.add(mood);
+  if (
+    musicLists instanceof HTMLElement &&
+    musicImg instanceof HTMLImageElement &&
+    musicTitle instanceof HTMLElement &&
+    musicSinger instanceof HTMLElement &&
+    musicIframe instanceof HTMLIFrameElement
+  ) {
+    // 감정 클래스 추가
+    musicLists.classList.add(mood);
 
-  // UI업데이트
-  musicImg.src = `/assets/img/playlists/${song.img}`;
-  musicTitle.textContent = song.title;
-  musicSinger.textContent = song.singer;
+    // UI 업데이트
+    musicImg.src = `/assets/img/playlists/${song.img}`;
+    musicTitle.textContent = song.title;
+    musicSinger.textContent = song.singer;
 
-  // Iframe업데이트
-  musicIframe.src = song.url;
+    // Iframe 업데이트
+    musicIframe.src = song.url;
+  }
 }
 
 // ==========================================
@@ -272,8 +280,8 @@ function updateMusic(song: Song, mood: string) {
 // 1. 로컬스토리지에서 감정 점수 가져오기
 const highScoreMusic = localStorage.getItem('highScore') as string;
 
-// 2. 감정에 해당하는 노래 중 무작위로 하나 선택
-const randomSong = getRandomSong(playLists, highScoreMusic);
+// 2. 로컬스토리지에서 노래 객체 가져오기기
+export const choiceSong = JSON.parse(localStorage.getItem('randomSong') as string);
 
 // 3. UI에 음악 정보 적용
-updateMusic(randomSong, highScoreMusic);
+updateMusic(choiceSong, highScoreMusic);
