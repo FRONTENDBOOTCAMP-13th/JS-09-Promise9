@@ -15,6 +15,16 @@
       crossorigin="anonymous" />
     <link rel="stylesheet" href="/fonts/pretendard/pretendardvariable.css" />
 
+    <!-- 라이브러리 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- 기능 -->
+    <script type="module" src="/src/js/index.ts"></script>
+
+    <!-- 스타일 -->
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
@@ -40,20 +50,7 @@
           <a class="btn gradient btn-lg" href="/src/pages/main.html"> 게임 시작하기 </a>
         </div>
 
-        <div class="index-title-img">
-          <!-- <img src="/public/assets/img/index-title.png" alt="ddd" /> -->
-        </div>
-        <!-- <div class="items-wrap">
-          <div class="item">
-            <img src="/public/assets/img/project-intro.png" alt="" />
-          </div>
-          <div class="item">
-            <img src="/public/assets/img/project-intro2.png" alt="" />
-          </div>
-          <div class="item">
-            <img src="/public/assets/img/project-intro3.png" alt="" />
-          </div>
-        </div> -->
+        <div class="index-title-img"></div>
       </section>
 
       <!-- 프로젝트 멤버 -->
@@ -154,85 +151,84 @@
           </div>
         </div>
       </section>
+
       <!-- 프로젝트 기능 -->
       <section class="project-inner project-feature" aria-labelledby="project-feature">
         <h2 class="section-title" id="project-feature">프로젝트 주요 기능</h2>
-        <div class="items-wrap">
-          <div class="item">
-            <img src="/public/assets/img/project-intro.png" alt="" />
+        <div class="feature-inner">
+          <div class="swiper mySwiper">
+            <div class="items-wrap swiper-wrapper">
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro.png" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro2.png" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro3.png" alt="" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
           </div>
-          <div class="item">
-            <img src="/public/assets/img/project-intro2.png" alt="" />
-          </div>
-          <div class="item">
-            <img src="/public/assets/img/project-intro3.png" alt="" />
-          </div>
-        </div>
-
-        <div class="active-lists">
-          <div class="active-item">
-            <h3 class="title">감정 선택값 저장</h3>
-            <p>
-              사용자가 대화 흐름 중 클릭한 버튼의 data-emotion 값을 감정 데이터로
-              인식하여, 사전 정의된 emotionScores 객체에 각 감정별 점수로 누적 저장합니다.
-            </p>
-          </div>
-
-          <div class="active-item">
-            <h3 class="title">감정 점수 기반 음악 추천</h3>
-            <p>
-              저장된 감정 점수 중 가장 높은 값을 기준으로 해당 감정에 맞는 플레이리스트
-              배열 중 하나를 무작위로 추천합니다.
-            </p>
-          </div>
-
-          <div class="active-item">
-            <h3 class="title">결과 화면 재생 여부 선택</h3>
-            <p>
-              결과 화면 진입 시 alert 창을 띄워 사용자가 음악을 바로 재생할지 여부를
-              선택할 수 있도록 구성하였습니다.
-            </p>
-          </div>
-
-          <div class="active-item">
-            <h3 class="title">음악 재생 제어 기능</h3>
-            <p>
-              음악 재생 시, 프로그레스바를 클릭하거나 드래그하여 원하는 재생 위치로 이동할
-              수 있도록 하여 유동적인 음악 감상이 가능합니다.
-            </p>
-          </div>
-
-          <div class="active-item">
-            <h3 class="title">로컬스토리지 기반 이어하기 기능</h3>
-            <p>
-              사용자의 이름 및 게임 데이터를 로컬스토리지에 저장하여, 게임 중간에
-              브라우저를 종료해도 다시 접속 시 이어서 진행할 수 있도록 구현하였습니다.
-            </p>
-          </div>
-
-          <div class="active-item">
-            <h3 class="title">감정 분석 및 대화 분기 시스템</h3>
-            <p>
-              사용자 선택에 따라 대화 흐름이 분기되는 브랜칭 시스템을 통해, 다양한 감정과
-              상황에 맞는 시나리오를 제공합니다. 또한 ‘이전/다음’ 버튼을 통해 대화 흐름을
-              자유롭게 오갈 수 있습니다.
-            </p>
-          </div>
-
-          <div class="active-item">
-            <h3 class="title">감정 기반 캐릭터 및 배경 변화</h3>
-            <p>
-              대화 진행 중 감정 변화에 따라 캐릭터 이미지가 바뀌고, 상황에 맞춰 배경 또한
-              전환되어 몰입감 있는 사용자 경험을 제공합니다.
-            </p>
-          </div>
-
-          <div class="active-item">
-            <h3 class="title">추천 결과 공유 기능</h3>
-            <p>
-              추천 결과 화면을 이미지로 저장하거나 링크로 공유할 수 있어, 다른 사람들과
-              쉽게 결과를 나눌 수 있습니다.
-            </p>
+          <div class="active-lists">
+            <div class="active-item">
+              <h3 class="title">감정 선택값 저장</h3>
+              <p>
+                사용자가 대화 흐름 중 클릭한 버튼의 data-emotion 값을 감정 데이터로
+                인식하여, 사전 정의된 emotionScores 객체에 각 감정별 점수로 누적
+                저장합니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">감정 점수 기반 음악 추천</h3>
+              <p>
+                저장된 감정 점수 중 가장 높은 값을 기준으로 해당 감정에 맞는 플레이리스트
+                배열 중 하나를 무작위로 추천합니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">결과 화면 재생 여부 선택</h3>
+              <p>
+                결과 화면 진입 시 alert 창을 띄워 사용자가 음악을 바로 재생할지 여부를
+                선택할 수 있도록 구성하였습니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">음악 재생 제어 기능</h3>
+              <p>
+                음악 재생 시, 프로그레스바를 클릭하거나 드래그하여 원하는 재생 위치로
+                이동할 수 있도록 하여 유동적인 음악 감상이 가능합니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">로컬스토리지 기반 이어하기 기능</h3>
+              <p>
+                사용자의 이름 및 게임 데이터를 로컬스토리지에 저장하여, 게임 중간에
+                브라우저를 종료해도 다시 접속 시 이어서 진행할 수 있도록 구현하였습니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">감정 분석 및 대화 분기 시스템</h3>
+              <p>
+                사용자 선택에 따라 대화 흐름이 분기되는 브랜칭 시스템을 통해, 다양한
+                감정과 상황에 맞는 시나리오를 제공합니다. 또한 ‘이전/다음’ 버튼을 통해
+                대화 흐름을 자유롭게 오갈 수 있습니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">감정 기반 캐릭터 및 배경 변화</h3>
+              <p>
+                대화 진행 중 감정 변화에 따라 캐릭터 이미지가 바뀌고, 상황에 맞춰 배경
+                또한 전환되어 몰입감 있는 사용자 경험을 제공합니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">추천 결과 공유 기능</h3>
+              <p>
+                추천 결과 화면을 이미지로 저장하거나 링크로 공유할 수 있어, 다른 사람들과
+                쉽게 결과를 나눌 수 있습니다.
+              </p>
+            </div>
           </div>
         </div>
       </section>
