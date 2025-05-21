@@ -202,7 +202,7 @@ const rainScene: Scene = {
     {
       text: '어, 내가 우산 갖고 있어. 같이 가자',
       nextScene: 'rainStopScene',
-      emotion: 1,
+      emotion: 3,
     },
     {
       text: '혹시 우산 없으면 같이 기다릴까?<br/>비가 좀 그칠 때까지...',
@@ -213,7 +213,7 @@ const rainScene: Scene = {
     {
       text: '아쉽게도 우산은 없는데... 그냥 뛰어서 갈래?',
       nextScene: 'rainStopScene',
-      emotion: 3,
+      emotion: 2,
     },
   ],
 };
@@ -244,7 +244,7 @@ const arcadeScene: Scene = {
     {
       text: '헐, 너였어? 나 진짜 몰랐는데...<br/>여긴 어떻게 온 거야?',
       nextScene: 'cafeScene',
-      emotion: 2,
+      emotion: 1,
     },
   ],
 };
@@ -274,7 +274,7 @@ const bookstoreScene: Scene = {
     {
       text: '어?! 이렇게 마주칠 줄은 몰랐어...<br/>사실, 조금 놀랐어',
       nextScene: 'cafeScene',
-      emotion: 2,
+      emotion: 1,
     },
   ],
 };
@@ -422,14 +422,12 @@ document.addEventListener('DOMContentLoaded', () => {
         '.conversation-box > .line',
       ) as NodeListOf<HTMLElement>;
       // 대사 가리기
-      console.log(lines);
       lines.forEach((line) => (line.style.display = 'none'));
       // 첫번째 대사 보이기
       if (lines.length > 0) {
         index = 0;
         prevIndex = [];
         lines[0].style.display = 'block';
-        console.log('더ㅚㄴㅇㄹ');
         updateImg(lines[0]);
       }
     }
@@ -452,10 +450,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return (emotionPick = 'relaxed');
     } else if (emotionScore >= 9) {
       return (emotionPick = 'lonely');
-    } else if (emotionScore >= 7) {
-      return (emotionPick = 'sad');
     } else {
-      return (emotionPick = '');
+      return (emotionPick = 'sad');
     }
   }
   // 다음 씬 섹션으로 이동하기
@@ -523,10 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const highScore = resultEmotionScore(emotionScore);
       localStorage.setItem('highScore', highScore);
       getRandomSong(playLists, highScore);
-
-      console.log(highScore);
     }
-    console.log(sceneId);
     localStorage.setItem('nowScene', sceneId);
 
     // 다음 섹션 찾기
@@ -585,7 +578,6 @@ document.addEventListener('DOMContentLoaded', () => {
       '.user-select .select-box',
     ) as HTMLUListElement;
 
-    console.log();
     selectBox.innerHTML = '';
 
     // 선택지 버튼 생성
@@ -626,7 +618,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // 이스터에그 점수 저장
         if (choice.easterEgg !== undefined) {
           easterEggScore++;
-          console.log('이스터에그', easterEggScore);
         }
       });
 
