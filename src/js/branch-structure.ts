@@ -510,18 +510,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 버튼 태그 재할당
-    nextBtn = section.querySelector('.next-btn') as HTMLElement;
-    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+    if (
+      !(sceneId === 'loveScene' || sceneId === 'breakScene' || sceneId === 'resultScene')
+    ) {
+      console.log('재할당');
+      // 버튼 태그 재할당
+      nextBtn = section.querySelector('.next-btn') as HTMLElement;
+      prevBtn = section.querySelector('.prev-btn') as HTMLElement;
 
-    const newNextBtn = nextBtn.cloneNode(true) as HTMLElement;
-    const newPrevBtn = prevBtn.cloneNode(true) as HTMLElement;
+      const newNextBtn = nextBtn.cloneNode(true) as HTMLElement;
+      const newPrevBtn = prevBtn.cloneNode(true) as HTMLElement;
 
-    nextBtn.replaceWith(newNextBtn);
-    prevBtn.replaceWith(newPrevBtn);
+      nextBtn.replaceWith(newNextBtn);
+      prevBtn.replaceWith(newPrevBtn);
 
-    newNextBtn.addEventListener('click', handleNext);
-    newPrevBtn.addEventListener('click', handlePrev); // 이것도 동일하게 수정
+      newNextBtn.addEventListener('click', handleNext);
+      newPrevBtn.addEventListener('click', handlePrev); // 이것도 동일하게 수정
+    }
 
     // 이미지 태그 재할당
     characterImg = section.querySelector('#character-img') as HTMLImageElement;

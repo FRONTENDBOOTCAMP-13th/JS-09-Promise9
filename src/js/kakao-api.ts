@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
 const shareBtn = document.querySelector('#shareBtn');
 
 shareBtn?.addEventListener('click', () => {
-  const resultUserName = document.querySelector('.result-title')?.textContent; // ~~에게 어울리는 ... 텍스트
+  const resultUserName = document.querySelector('.main-text')?.textContent; // ~~에게 어울리는 ... 텍스트 // ~~에게 어울리는 ... 텍스트
   const musicTitle = document.querySelector('.music-title')?.textContent; // 노래 제목
   const musicSinger = document.querySelector('.music-singer')?.textContent; // 가수
   window.Kakao.Share.sendDefault({
