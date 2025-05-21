@@ -107,10 +107,23 @@ html {
 .index-title-img {
   border-radius: 2rem;
   overflow: hidden;
-  background: url('/public/assets/img/index-title.png') center center / cover no-repeat;
+  background: url('/public/assets/img/main.gif') center center / cover no-repeat;
+  background-size: 130%;
   width: 100%;
   height: 500px;
+  position: relative;
 
+  &::after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '';
+    background: #ffffff6e;
+    backdrop-filter: blur(1px);
+    opacity: 0.3;
+  }
   @media (max-width: 1400px) {
     display: none;
   }
