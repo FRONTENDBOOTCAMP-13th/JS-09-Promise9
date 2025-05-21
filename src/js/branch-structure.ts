@@ -340,7 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
   let prevBtn = document.querySelector('.prev-btn') as HTMLElement;
   let characterImg = document.querySelector('#character-img') as HTMLImageElement;
-  let resultBtn = document.querySelector('.resultBtn') as HTMLElement;
 
   let index = 0;
   let prevIndex: number[] = [];
@@ -439,19 +438,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function emotoinBranch(emotionScore: number): string {
-    let emotionPick: string;
     if (emotionScore >= 17) {
-      return (emotionPick = 'excited');
+      return 'excited';
     } else if (emotionScore >= 15) {
-      return (emotionPick = 'happy');
+      return 'happy';
     } else if (emotionScore >= 13) {
-      return (emotionPick = 'refresh');
+      return 'refresh';
     } else if (emotionScore >= 11) {
-      return (emotionPick = 'relaxed');
+      return 'relaxed';
     } else if (emotionScore >= 9) {
-      return (emotionPick = 'lonely');
+      return 'lonely';
     } else {
-      return (emotionPick = 'sad');
+      return 'sad';
     }
   }
   // 다음 씬 섹션으로 이동하기
@@ -468,20 +466,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let section = document.querySelector(
       `section[data-prolog="${sceneId}"]`,
     ) as HTMLElement;
-    // 감정 점수 계산
-    // const highScore: string[] = resultEmotionScore(emotionScores);
-
-    // const emotionIndex: number = highScore.length;
-    // let emotionPick: string;
-
-    // if (emotionIndex !== 1) {
-    //   const emotionIndex = Math.floor(Math.random() * highScore.length);
-    //   emotionPick = highScore[emotionIndex];
-    // } else {
-    //   emotionPick = highScore[0];
-    // }
-
-    // localStorage.setItem('highScore', emotionPick);
 
     // 중간 감정 점수 별 다음 씬 선택
     if (sceneId === 'nextDayScene') {
