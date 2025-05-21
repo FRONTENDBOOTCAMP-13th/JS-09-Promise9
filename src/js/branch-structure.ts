@@ -1,6 +1,6 @@
 import '../style.css';
 import { resultEmotionScore } from './emotion-score.ts';
-
+import { getRandomSong, playLists } from './result-player.ts';
 interface Choice {
   text: string;
   nextScene: string;
@@ -522,6 +522,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ) {
       const highScore = resultEmotionScore(emotionScore);
       localStorage.setItem('highScore', highScore);
+      getRandomSong(playLists, highScore);
+
       console.log(highScore);
     }
     console.log(sceneId);
