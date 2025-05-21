@@ -68,13 +68,13 @@
         <div class="main-container">
           <div class="conversation-wrap main">
             <p class="guide-text">원하는 대화 상대의 성별을 선택해주세요.</p>
-            <div class="flex-box gender">
-              <button class="btn outline-gradient" id="select-gen" data-value="여자">
-                여자
-              </button>
-              <button class="btn outline-gradient" id="select-gen" data-value="남자">
-                남자
-              </button>
+            <div class="gender-box gender">
+              <input type="radio" name="select-gen" id="select-gen-female" value="여자" />
+              <label for="select-gen-female" class="btn outline-gradient">여자</label>
+
+              <input type="radio" name="select-gen" id="select-gen-male" value="남자" />
+              <label for="select-gen-male" class="btn outline-gradient">남자</label>
+
               <button class="btn gradient" id="submit-user-gen">확인</button>
             </div>
           </div>
