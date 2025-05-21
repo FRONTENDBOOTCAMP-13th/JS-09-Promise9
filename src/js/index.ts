@@ -1,20 +1,17 @@
 import Swiper from 'swiper';
-// import { Pagination, Autoplay } from 'swiper/modules';
 
-import 'swiper/css';
-// import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
 
 const mySwiper = document.querySelector('.mySwiper') as HTMLElement | null;
 
 if (mySwiper) {
   const swiper = new Swiper(mySwiper, {
-    // modules: [Pagination, Autoplay],
     slidesPerView: 1,
+    loop: true,
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
     },
-    loop: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -22,5 +19,5 @@ if (mySwiper) {
     },
   });
 
-  console.log(swiper);
+  swiper.autoplay.start();
 }
