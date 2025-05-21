@@ -42,9 +42,9 @@ window.addEventListener('scroll', function () {
 
   if (window.scrollY === 0) {
     indexHeader?.classList.remove('scroll');
-    headerLogo?.setAttribute('src', '/public/assets/img/promise9.png');
+    headerLogo?.setAttribute('src', '/public/assets/img/promise9.webp');
   } else {
     indexHeader?.classList.add('scroll');
-    headerLogo?.setAttribute('src', '/public/assets/img/promise9-gradient.png');
+    headerLogo?.setAttribute('src', '/public/assets/img/promise9-gradient.webp');
   }
 });

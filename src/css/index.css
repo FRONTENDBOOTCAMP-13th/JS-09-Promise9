@@ -607,7 +607,7 @@ html {
       flex-shrink: 0;
       position: relative;
       left: 0.375rem;
-      background: url('/assets/img/controller.png') center center / contain no-repeat;
+      background: url('/assets/img/controller.webp') center center / contain no-repeat;
       transition: transform 0.3s ease;
 
       @media (max-width: 700px) {
