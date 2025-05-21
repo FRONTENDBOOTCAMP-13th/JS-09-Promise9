@@ -56,9 +56,10 @@
 
 .btn-lg {
   min-width: 9rem;
+  max-width: 14rem;
   height: auto;
   padding: 0.875rem 2rem;
-  border-radius: 1.5rem;
+  border-radius: 1.875rem;
   font-size: 1.25rem;
 
   @media (max-width: 400px) {
@@ -93,6 +94,24 @@
   }
 }
 
+.btn.outline-btn {
+  border: 1px solid #fff;
+  background: #b8a8b165;
+  backdrop-filter: blur(1px);
+  box-shadow: 0 4px 15px 0 rgba(218, 218, 218, 0.4);
+  color: #fff;
+  text-shadow: 0 0 3px #96194b;
+  transition: all 0.3s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-image: linear-gradient(to right, #ed6e94e3, #9769ecce);
+    border: 1px solid #fff;
+    text-shadow: 0 0 3px #444243;
+  }
+}
+
 .btn.outline-gradient {
   transition: background 0.3s linear;
   box-shadow: 0 0px 4px 0 rgba(167, 167, 167, 0.75);
@@ -114,6 +133,7 @@
     color: #fff;
   }
 }
+
 /*========================================
           [Components - input] 
 ==========================================*/

@@ -39,26 +39,31 @@
   </head>
   <body>
     <!-- 헤더 -->
-    <header>
-      <ul class="container-wrap">
-        <li><a href="#location1">INTRODUCE</a></li>
+    <header class="index-header filter">
+      <div class="container-wrap">
+        <h1 class="logo">
+          <a href="#"> <img src="/public/assets/img/promise9.png" alt="로고" /></a>
+        </h1>
+        <ul class="menu-wrap">
+          <li><a href="#location1">프로젝트 개요</a></li>
 
-        <li><a href="#location2">TEAM</a></li>
+          <li><a href="#location2">주요 기능</a></li>
 
-        <li><a href="#location3">FEATURE</a></li>
-      </ul>
+          <li><a href="#location3">팀원 소개</a></li>
+        </ul>
+      </div>
     </header>
+
     <main class="container-wrap">
       <!-- 프로젝트 소개 -->
       <section
         id="location1"
         class="project-inner project-introduce"
         aria-labelledby="project-introduce">
-        <div class="bg-diff"></div>
         <div class="text-wrap">
           <div class="text-inner">
             <h2 class="title">9팀 Promise9</h2>
-            <h3 class="subtitle" id="project-introduce">프로젝트 소개</h3>
+            <h3 class="subtitle" id="project-introduce">프로젝트 개요</h3>
             <div class="text">
               <p>
                 두근두근 플레이리스트는 사용자의 감정을 분석하여 그에 맞는 음악을
@@ -68,123 +73,44 @@
               <p>사용자가 선택한 감정에 따라 추천된 플레이리스트를 제공합니다.</p>
             </div>
           </div>
-          <a class="btn gradient btn-lg" href="/src/pages/main.html"> 게임 시작하기 </a>
+          <a class="btn outline-btn btn-lg" href="/src/pages/main.html">
+            게임 시작하기
+          </a>
         </div>
 
-        <div class="index-title-img"></div>
-      </section>
-
-      <!-- 프로젝트 멤버 -->
-      <section
-        id="location2"
-        class="project-inner project-member"
-        aria-labelledby="project-member">
-        <h2 class="section-title" id="project-member">프로젝트 멤버 소개</h2>
-        <div class="member-lists">
-          <div class="member-item">
-            <div class="member-img">
-              <img
-                id="character-img"
-                src="/assets/img/member/psy.webp"
-                alt="기본 캐릭터" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">박선영</h3>
-              <p class="member-grid">
-                <span class="member-btn role">역할</span>
-                <span>PM/스크럼마스터</span>
-              </p>
-              <p class="member-grid feat">
-                <span class="member-btn feat">기능 개발</span>
-                <span>음악 랜덤 재생 및 재생 제어</span>
-              </p>
-              <div class="member-memo">
-                모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
-                Promise9 팀원 여러분 모두 감사합니다.
-              </div>
+        <div class="character-wrap">
+          <div class="character-line">
+            <div class="character-item">
+              <img src="/public/assets/img/boy-casual-happy.webp" alt="" />
             </div>
           </div>
-          <div class="member-item">
-            <div class="member-img">
-              <img
-                id="character-img"
-                src="/assets/img/member/bsb.webp"
-                alt="기본 캐릭터" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">배샛별</h3>
-              <p class="member-grid">
-                <span class="member-btn role">역할</span>
-                <span>문서관리자/QA</span>
-              </p>
-              <p class="member-grid feat">
-                <span class="member-btn feat">기능 개발</span>
-                <span>선택값 저장 및 통계</span>
-              </p>
-            </div>
-            <div class="member-memo">
-              모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
-              Promise9 팀원 여러분 모두 감사합니다.
-            </div>
-          </div>
-          <div class="member-item">
-            <div class="member-img">
-              <img
-                id="character-img"
-                src="/assets/img/member/ijh.webp"
-                alt="기본 캐릭터" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">이진현</h3>
-              <p class="member-grid">
-                <span class="member-btn role">역할</span>
-                <span>PL</span>
-              </p>
-              <p class="member-grid feat">
-                <span class="member-btn feat">기능 개발</span>
-                <span>감정 분석 로직 개발</span>
-              </p>
-            </div>
-            <div class="member-memo">
-              모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
-              Promise9 팀원 여러분 모두 감사합니다.
-            </div>
-          </div>
-          <div class="member-item">
-            <div class="member-img">
-              <img
-                id="character-img"
-                src="/assets/img/member/csj.webp"
-                alt="기본 캐릭터" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">최승진</h3>
-              <p class="member-grid">
-                <span class="member-btn role">역할</span>
-                <span>디자인/QA</span>
-              </p>
-              <p class="member-grid feat">
-                <span class="member-btn feat">기능 개발</span>
-                <span>결과값 외부 공유 및 이미지 저장, 로컬스토리지 활용</span>
-              </p>
-            </div>
-            <div class="member-memo">
-              모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
-              Promise9 팀원 여러분 모두 감사합니다.
+          <div class="character-line">
+            <div class="character-item">
+              <img src="/public/assets/img/girl-casual-happy.webp" alt="" />
             </div>
           </div>
         </div>
+        <!-- <div class="index-title-img"></div> -->
       </section>
 
       <!-- 프로젝트 기능 -->
       <section
-        id="location3"
+        id="location2"
         class="project-inner project-feature"
         aria-labelledby="project-feature">
         <h2 class="section-title" id="project-feature">프로젝트 주요 기능</h2>
         <div class="feature-inner">
           <div class="swiper mySwiper">
             <div class="items-wrap swiper-wrapper">
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro.png" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro2.png" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro3.png" alt="" />
+              </div>
               <div class="item swiper-slide">
                 <img src="/public/assets/img/project-intro.png" alt="" />
               </div>
@@ -259,6 +185,108 @@
           </div>
         </div>
       </section>
+
+      <!-- 프로젝트 멤버 -->
+      <section
+        id="location3"
+        class="project-inner project-member"
+        aria-labelledby="project-member">
+        <h2 class="section-title" id="project-member">프로젝트 팀원 소개</h2>
+        <div class="member-lists">
+          <div class="member-item">
+            <div class="member-img">
+              <img
+                id="character-img"
+                src="/assets/img/member/psy.webp"
+                alt="기본 캐릭터" />
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">박선영</h3>
+              <p class="member-grid">
+                <span class="member-btn role">역할</span>
+                <span>PM/스크럼마스터</span>
+              </p>
+              <p class="member-grid feat">
+                <span class="member-btn feat">기능 개발</span>
+                <span>음악 랜덤 재생 및 재생 제어</span>
+              </p>
+              <div class="member-memo">
+                모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
+                Promise9 팀원 여러분 모두 감사합니다.
+              </div>
+            </div>
+          </div>
+          <div class="member-item">
+            <div class="member-img">
+              <img
+                id="character-img"
+                src="/assets/img/member/bsb.webp"
+                alt="기본 캐릭터" />
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">배샛별</h3>
+              <p class="member-grid">
+                <span class="member-btn role">역할</span>
+                <span>문서관리자/QA</span>
+              </p>
+              <p class="member-grid feat">
+                <span class="member-btn feat">기능 개발</span>
+                <span>선택값 저장 및 통계</span>
+              </p>
+              <div class="member-memo">
+                모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
+                Promise9 팀원 여러분 모두 감사합니다.
+              </div>
+            </div>
+          </div>
+          <div class="member-item">
+            <div class="member-img">
+              <img
+                id="character-img"
+                src="/assets/img/member/ijh.webp"
+                alt="기본 캐릭터" />
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">이진현</h3>
+              <p class="member-grid">
+                <span class="member-btn role">역할</span>
+                <span>PL</span>
+              </p>
+              <p class="member-grid feat">
+                <span class="member-btn feat">기능 개발</span>
+                <span>감정 분석 로직 개발</span>
+              </p>
+              <div class="member-memo">
+                모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
+                Promise9 팀원 여러분 모두 감사합니다.
+              </div>
+            </div>
+          </div>
+          <div class="member-item">
+            <div class="member-img">
+              <img
+                id="character-img"
+                src="/assets/img/member/csj.webp"
+                alt="기본 캐릭터" />
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">최승진</h3>
+              <p class="member-grid">
+                <span class="member-btn role">역할</span>
+                <span>디자인/QA</span>
+              </p>
+              <p class="member-grid feat">
+                <span class="member-btn feat">기능 개발</span>
+                <span>결과값 외부 공유 및 이미지 저장, 로컬스토리지 활용</span>
+              </p>
+              <div class="member-memo">
+                모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
+                Promise9 팀원 여러분 모두 감사합니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- 푸터 -->
@@ -268,5 +296,12 @@
         <a href="#">JavaScript Project 9팀 Promise9</a>
       </div>
     </footer>
+
+    <!-- Aside -->
+    <aside class="playgame-wrap">
+      <a class="btn gradient btn-rounded">
+        <span class="inner-text">게임바로가기</span>
+      </a>
+    </aside>
   </body>
 </html>
