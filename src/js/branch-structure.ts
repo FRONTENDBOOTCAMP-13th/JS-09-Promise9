@@ -738,6 +738,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (index === 1) {
       prevBtn.style.display = 'none';
+      prevBtn.offsetHeight; //강제 리플로우
     }
     // 선택지에서 대사로 돌아가는 부분
     if (userSelect.style.display === 'block') {
