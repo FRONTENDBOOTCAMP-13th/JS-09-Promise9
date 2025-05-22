@@ -75,6 +75,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // 성별 선택
+  const genderInput = document.querySelectorAll(
+    'input[name="select-gen"]',
+  ) as NodeListOf<HTMLInputElement>;
+  const genderBoy = document.querySelector(
+    '.playlists-wrap.main .character-item img.male',
+  ) as HTMLElement;
+  const genderGirl = document.querySelector(
+    '.playlists-wrap.main .character-item img.female',
+  ) as HTMLElement;
+
+  genderInput.forEach((input) => {
+    input.addEventListener('change', () => {
+      const genderValue = input.value;
+      console.log(genderValue);
+      if (genderValue === '남자') {
+        genderBoy?.classList.remove('hidden');
+        genderGirl?.classList.add('hidden');
+      } else if (genderValue === '여자') {
+        genderBoy?.classList.add('hidden');
+        genderGirl?.classList.remove('hidden');
+      }
+    });
+  });
+
   const submitButton = document.getElementById('submit-user-gen') as HTMLButtonElement;
 
   submitButton.addEventListener('click', () => {
