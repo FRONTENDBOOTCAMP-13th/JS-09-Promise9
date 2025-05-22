@@ -38,33 +38,38 @@ const dot = document.querySelector('.dot') as HTMLElement; // 드래그 가능�
 
 const userName = localStorage.getItem('userName') as string;
 const userNameTag = document.querySelector('.user-name') as HTMLElement;
-userNameTag.innerHTML = userName;
+userNameTag.innerHTML = `${userName}님의`;
 
 const emotionResult = localStorage.getItem('highScore') as string;
 const emotionTag = document.querySelector('.emotion-name') as HTMLElement;
+const shareTitle = document.querySelector('.share-title') as HTMLElement;
+let emotionText = '' as string;
 
 switch (emotionResult) {
   case 'happy':
-    emotionTag.textContent = '행복함이에요🩷';
+    emotionText = '행복함이에요🩷';
     break;
   case 'sad':
-    emotionTag.textContent = '슬픔이에요💧';
+    emotionText = '슬픔이에요💧';
     break;
   case 'excited':
-    emotionTag.textContent = '신남이에요🎉';
+    emotionText = '신남이에요🎉';
     break;
   case 'relaxed':
-    emotionTag.textContent = '차분함이에요☕';
+    emotionText = '차분함이에요☕';
     break;
   case 'refresh':
-    emotionTag.textContent = '상쾌함이에요🌱';
+    emotionText = '상쾌함이에요🌱';
     break;
   case 'lonely':
-    emotionTag.textContent = '외로움이에요🍂';
+    emotionText = '외로움이에요🍂';
     break;
   default:
-    emotionTag.textContent = '';
+    emotionText = '';
 }
+
+emotionTag.textContent = `감정 결과는 ${emotionText}`;
+shareTitle.textContent = `${userName}님의 감정 상태는 ${emotionText}`;
 /**
  * YouTube IFrame API가 로드되면 자동으로 호출되는 전역 함수
  * - 이 함수에서 YouTube 플레이어를 생성하고 초기 설정을 실행
