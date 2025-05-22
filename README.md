@@ -4,7 +4,7 @@
 
 ## TEAM MEMBERS 🧑‍💻
 
-|    <img src="https://github.com/FRONTENDBOOTCAMP-13th/JS-09-Promise9/raw/develop/public/assets/img/member/psy.png" width="120" />    |    <img src="https://github.com/FRONTENDBOOTCAMP-13th/JS-09-Promise9/raw/develop/public/assets/img/member/bsb.png" width="120" />     |     <img src="https://github.com/FRONTENDBOOTCAMP-13th/JS-09-Promise9/raw/develop/public/assets/img/member/ijh.png" width="120" />      |  <img src="https://github.com/FRONTENDBOOTCAMP-13th/JS-09-Promise9/raw/develop/public/assets/img/member/csj.png" width="120" />   |
+|   <img src="https://github.com/FRONTENDBOOTCAMP-13th/JS-09-Promise9/raw/develop/public/assets/img/member/psy.webp" width="120" />    |    <img src="https://github.com/FRONTENDBOOTCAMP-13th/JS-09-Promise9/raw/develop/public/assets/img/member/bsb.webp" width="120" />    |     <img src="https://github.com/FRONTENDBOOTCAMP-13th/JS-09-Promise9/raw/develop/public/assets/img/member/ijh.webp" width="120" />     |  <img src="https://github.com/FRONTENDBOOTCAMP-13th/JS-09-Promise9/raw/develop/public/assets/img/member/csj.webp" width="120" />  |
 | :----------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: |
 |                                                              **박선영**                                                              |                                                              **배샛별**                                                               |                                                               **이진현**                                                                |                                                            **최승진**                                                             |
 |                                                          PM / Scrum Master                                                           |                                                             QA / 문서관리                                                             |                                                                   PL                                                                    |                                                            QA / 디자인                                                            |
@@ -41,8 +41,8 @@
 **✅ 결과 저장**  
 사용자의 감정 결과를 저장하여 추후에 다시 볼 수 있도록 합니다.
 
-**✅ 공유 링크 생성**  
-저장된 데이터를 기반으로 공유 가능한 URL을 생성합니다.
+**✅ 감정 결과 공유**
+분석된 감정 결과를 카카오톡으로 손쉽게 공유할 수 있는 기능을 제공합니다.
 <br><br><br>
 **🌟 기대 효과**
 
@@ -54,7 +54,6 @@
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 
@@ -69,4 +68,32 @@
 
 ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 
+## PROJECT STRUCTURE 📁
+
 </div>
+
+```
+📂📂EagleSauce
+├── 📂assets/
+├── 📂public/
+│   ├── 📂assets/
+│   │   └── 📂img/
+│   ├── 📂bgm/
+│   └── 📂fonts/
+├── 📂src/
+│   ├── 📂components/
+│   ├── 📂css/
+│   ├── 📂js/
+│   ├── 📂pages/
+│   ├── 📄main.ts
+│   ├── 📄style.css
+│   └── 📄vite-env.d.ts
+├── 📄index.html
+├── 📄.gitignore
+├── 📄eslint.config.js
+├── 📄prettier.config.js
+├── 📄package-lock.json
+├── 📄package.json
+├── 📄vite.config.js
+└── 📄README.md
+```

@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         icon: 'question',
         text: `${nameValue}으로 결정하시겠습니까?`,
         showCancelButton: true,
+        reverseButtons: true,
         confirmButtonText: '확인',
         cancelButtonText: '재설정',
         confirmButtonColor: '#ed6ea0',
@@ -75,6 +76,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // 성별 선택
+  const genderInput = document.querySelectorAll(
+    'input[name="select-gen"]',
+  ) as NodeListOf<HTMLInputElement>;
+  const genderBoy = document.querySelector(
+    '.playlists-wrap.main .character-item img.male',
+  ) as HTMLElement;
+  const genderGirl = document.querySelector(
+    '.playlists-wrap.main .character-item img.female',
+  ) as HTMLElement;
+
+  genderInput.forEach((input) => {
+    input.addEventListener('change', () => {
+      const genderValue = input.value;
+      console.log(genderValue);
+      if (genderValue === '카이') {
+        genderBoy?.classList.remove('hidden');
+        genderGirl?.classList.add('hidden');
+      } else if (genderValue === '유키') {
+        genderBoy?.classList.add('hidden');
+        genderGirl?.classList.remove('hidden');
+      }
+    });
+  });
+
   const submitButton = document.getElementById('submit-user-gen') as HTMLButtonElement;
 
   submitButton.addEventListener('click', () => {
@@ -89,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         icon: 'question',
         text: `${gender}로 결정하시겠습니까?`,
         showCancelButton: true,
+        reverseButtons: true,
         confirmButtonText: '확인',
         cancelButtonText: '재설정',
         confirmButtonColor: '#ed6ea0',

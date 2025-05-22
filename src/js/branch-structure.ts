@@ -151,7 +151,7 @@ const cafeteriaScene: Scene = {
       easterEgg: 0,
     },
     {
-      text: '그치만, 급식은 그냥 그런 맛인 것 같아. 평소랑 다를 게 없네...',
+      text: '그치만, 급식은 그냥 그런 맛인 것 같아. <br/>평소랑 다를 게 없네...',
       nextScene: 'clubScene',
       emotion: 1,
     },
@@ -218,7 +218,7 @@ const rainStopScene: Scene = {
 const arcadeScene: Scene = {
   choices: [
     {
-      text: '계속 옆에 있었는데... 네가 너무 집중하고 있어서, 괜히 말 걸기 망설여졌어.',
+      text: '계속 옆에 있었는데... 네가 너무 집중하고 있어서, <br/>괜히 말 걸기 망설여졌어.',
       nextScene: 'cafeScene',
       emotion: 1,
     },
@@ -247,7 +247,7 @@ const movieScene: Scene = {
 const bookstoreScene: Scene = {
   choices: [
     {
-      text: '(얼굴이 붉어지며)<br/>응, 나도! 이렇게 우연히 만날 줄 몰랐어. 기분 진짜 좋다',
+      text: '(얼굴이 붉어지며) 응, 나도!<br/>이렇게 우연히 만날 줄 몰랐어. 기분 진짜 좋다',
       nextScene: 'cafeScene',
       emotion: 3,
       easterEgg: 0,
@@ -272,7 +272,7 @@ const cafeScene: Scene = {
       emotion: 2,
     },
     {
-      text: '슬픈 노래 들으면서 우는 걸 좋아해.<br/>그런 노래가 위로가 되는 것 같아.',
+      text: '슬픈 노래 들으면서 위로받는 걸 좋아해.<br/>그런 노래가 위로가 되는 것 같아.',
       nextScene: 'lastChoiceScene',
       emotion: 1,
     },
@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const genderCheck = localStorage.getItem('gender');
   const userName = localStorage.getItem('userName') as string;
   const nameTags = document.querySelectorAll('.char-name') as NodeListOf<HTMLElement>;
-  if (genderCheck === '여자') {
+  if (genderCheck === '유키') {
     nameTags.forEach((nameTag) => {
       nameTag.innerHTML = '유키';
     });
@@ -510,18 +510,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 버튼 태그 재할당
-    nextBtn = section.querySelector('.next-btn') as HTMLElement;
-    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+    if (
+      !(sceneId === 'loveScene' || sceneId === 'breakScene' || sceneId === 'resultScene')
+    ) {
+      // 버튼 태그 재할당
+      nextBtn = section.querySelector('.next-btn') as HTMLElement;
+      prevBtn = section.querySelector('.prev-btn') as HTMLElement;
 
-    const newNextBtn = nextBtn.cloneNode(true) as HTMLElement;
-    const newPrevBtn = prevBtn.cloneNode(true) as HTMLElement;
+      const newNextBtn = nextBtn.cloneNode(true) as HTMLElement;
+      const newPrevBtn = prevBtn.cloneNode(true) as HTMLElement;
 
-    nextBtn.replaceWith(newNextBtn);
-    prevBtn.replaceWith(newPrevBtn);
+      nextBtn.replaceWith(newNextBtn);
+      prevBtn.replaceWith(newPrevBtn);
 
-    newNextBtn.addEventListener('click', handleNext);
-    newPrevBtn.addEventListener('click', handlePrev); // 이것도 동일하게 수정
+      newNextBtn.addEventListener('click', handleNext);
+      newPrevBtn.addEventListener('click', handlePrev); // 이것도 동일하게 수정
+    }
 
     // 이미지 태그 재할당
     characterImg = section.querySelector('#character-img') as HTMLImageElement;
@@ -543,8 +547,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectBox = section.querySelector(
       '.user-select .select-box',
     ) as HTMLUListElement;
+    const prevBtnGroup = section.querySelector('.user-select') as HTMLElement;
 
     selectBox.innerHTML = '';
+    prevBtn = prevBtnGroup.querySelector('.prev-btn') as HTMLElement;
+    const newPrevBtn = prevBtn.cloneNode(true) as HTMLElement;
+    prevBtn.replaceWith(newPrevBtn);
+    newPrevBtn.addEventListener('click', handlePrev); // 이것도 동일하게 수정
 
     // 선택지 버튼 생성
     scene.choices.forEach((choice) => {
@@ -664,23 +673,23 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (nowScene) {
           case 'classNoteScene':
             section.style.background =
-              'url(/assets/img/room.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.webp) -3623px -10px';
             break;
           case 'arcadeScene':
             section.style.background =
-              'url(/assets/img/arcadeScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.webp) -8880px -80px';
             break;
           case 'movieScene':
             section.style.background =
-              'url(/assets/img/movieScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.webp) -7263px -80px';
             break;
           case 'bookstoreScene':
             section.style.background =
-              'url(/assets/img/bookstoreScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.webp) -5183px -80px';
             break;
           case 'cafeScene':
             section.style.background =
-              'url(/assets/img/cafeScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.webp) -6800px -80px';
             break;
           case 'parkScene':
             section.style.background =
@@ -694,7 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // 마지막 대사인 경우
       lines[index].style.display = 'none';
       girlTalk.style.display = 'none';
-
+      prevIndex.push(index);
       // 현재 씬 찾기
       const currentSection = document.querySelector(
         '.playlists-wrap[style*="display: block"]',
@@ -729,8 +738,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
     const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
     prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+    const userSelect = section.querySelector('.user-select') as HTMLElement;
+
     if (index <= 1) {
       prevBtn.style.display = 'none';
+    }
+    // 선택지에서 대사로 돌아가는 부분
+    if (userSelect.style.display === 'block') {
+      userSelect.style.display = 'none';
+      girlTalk.style.display = 'block';
+      lines.forEach((line) => (line.style.display = 'none'));
+      index = prevIndex.pop()!;
+      lines[index].style.display = 'block';
+
+      return;
     }
     if (prevIndex.length > 0) {
       lines[index].style.display = 'none';
@@ -739,27 +760,21 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (nowScene) {
           case 'classNoteScene':
             section.style.background =
-              'url(/assets/img/classNoteScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.webp) -4200px -88px';
             break;
           case 'arcadeScene':
-            section.style.background =
-              'url(/assets/img/nextday.webp) center center / cover no-repeat';
-            break;
           case 'movieScene':
-            section.style.background =
-              'url(/assets/img/nextday.webp) center center / cover no-repeat';
-            break;
           case 'bookstoreScene':
             section.style.background =
-              'url(/assets/img/nextday.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.webp) -2583px -80px';
             break;
           case 'cafeScene':
             section.style.background =
-              'url(/assets/img/clouds.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.webp) -2063px -80px';
             break;
           case 'parkScene':
             section.style.background =
-              'url(/assets/img/parkScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.webp) -9423px -80px';
             break;
         }
       }
@@ -792,10 +807,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const emotion = line.dataset.emotion as keyof Emotion | undefined;
     characterImg.style.opacity = '1';
     if (emotion) {
-      if (genderCheck === '여자') {
+      if (genderCheck === '유키') {
         const filename = girlEmotionImages[emotion];
         characterImg.src = `/assets/img/${filename}`;
-      } else if (genderCheck === '남자') {
+      } else if (genderCheck === '카이') {
         const filename = boyEmotionImages[emotion];
         characterImg.src = `/assets/img/${filename}`;
       }

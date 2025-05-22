@@ -99,10 +99,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       html: `감정 결과에 따라 추천 음악이 재생됩니다.<br/>바로 재생할까요?`,
       icon: 'info',
       showCancelButton: true,
+      reverseButtons: true,
       confirmButtonText: '확인',
       cancelButtonText: '취소',
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#ccc',
+      confirmButtonColor: '#ed6ea0',
+      cancelButtonColor: '#9769ec',
     });
 
     if (result.isConfirmed) {

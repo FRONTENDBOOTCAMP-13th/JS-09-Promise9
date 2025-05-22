@@ -3,6 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- index.html의 <head> 안에 삽입 -->
+    <meta property="og:title" content="두근두근 플레이리스트" />
+    <meta
+      property="og:description"
+      content="나의 감정에 어울리는 음악을 추천받아보세요!" />
+    <meta
+      property="og:image"
+      content="https://dokidoki-playlists.netlify.app/assets/img/preview.jpg" />
+    <meta property="og:url" content="https://dokidoki-playlists.netlify.app/" />
+    <meta property="og:type" content="website" />
     <title>두근두근 플레이리스트</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -29,26 +39,31 @@
   </head>
   <body>
     <!-- 헤더 -->
-    <header>
-      <ul class="container-wrap">
-        <li><a href="#location1">INTRODUCE</a></li>
+    <header class="index-header filter">
+      <div class="container-wrap">
+        <h1 class="logo">
+          <a href="#"> <img src="/public/assets/img/Promise9.webp" alt="로고" /></a>
+        </h1>
+        <ul class="menu-wrap">
+          <li><a href="#location1">프로젝트 개요</a></li>
 
-        <li><a href="#location2">TEAM</a></li>
+          <li><a href="#location2">주요 기능</a></li>
 
-        <li><a href="#location3">FEATURE</a></li>
-      </ul>
+          <li><a href="#location3">팀원 소개</a></li>
+        </ul>
+      </div>
     </header>
+
     <main class="container-wrap">
       <!-- 프로젝트 소개 -->
       <section
         id="location1"
         class="project-inner project-introduce"
         aria-labelledby="project-introduce">
-        <div class="bg-diff"></div>
         <div class="text-wrap">
           <div class="text-inner">
             <h2 class="title">9팀 Promise9</h2>
-            <h3 class="subtitle" id="project-introduce">프로젝트 소개</h3>
+            <h3 class="subtitle" id="project-introduce">프로젝트 개요</h3>
             <div class="text">
               <p>
                 두근두근 플레이리스트는 사용자의 감정을 분석하여 그에 맞는 음악을
@@ -58,18 +73,136 @@
               <p>사용자가 선택한 감정에 따라 추천된 플레이리스트를 제공합니다.</p>
             </div>
           </div>
-          <a class="btn gradient btn-lg" href="/src/pages/main.html"> 게임 시작하기 </a>
+          <a
+            class="btn outline-btn btn-lg"
+            href="/src/pages/main.html"
+            title="게임 시작하기">
+            게임 시작하기
+          </a>
         </div>
 
-        <div class="index-title-img"></div>
+        <div class="character-wrap">
+          <div class="character-line">
+            <div class="character-item">
+              <img src="/public/assets/img/boy-casual-happy.webp" alt="남자캐릭터터" />
+            </div>
+          </div>
+          <div class="character-line">
+            <div class="character-item">
+              <img src="/public/assets/img/girl-casual-happy.webp" alt="여자캐릭터" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 프로젝트 기능 -->
+      <section
+        id="location2"
+        class="project-inner project-feature"
+        aria-labelledby="project-feature">
+        <h2 class="section-title" id="project-feature">프로젝트 주요 기능</h2>
+        <div class="feature-inner">
+          <div class="swiper mySwiper">
+            <div class="items-wrap swiper-wrapper">
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro.webp" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro2.webp" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro3.webp" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro4.webp" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro5.webp" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro6.webp" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro7.webp" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro8.webp" alt="" />
+              </div>
+              <div class="item swiper-slide">
+                <img src="/public/assets/img/project-intro9.webp" alt="" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="active-lists">
+            <div class="active-item">
+              <h3 class="title">감정 분석 및 대화 분기 시스템</h3>
+              <p>
+                사용자 선택에 따라 대화 흐름이 분기되는 브랜칭 시스템을 통해, 다양한
+                감정과 상황에 맞는 시나리오를 제공합니다. 또한 ‘이전/다음’ 버튼을 통해
+                대화 흐름을 자유롭게 오갈 수 있습니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">감정 기반 캐릭터 및 배경 변화</h3>
+              <p>
+                대화 진행 중 감정 변화에 따라 캐릭터 이미지가 바뀌고, 상황에 맞춰 배경
+                또한 전환되어 몰입감 있는 사용자 경험을 제공합니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">배경음악(BGM) 재생 및 제어 기능</h3>
+              <p>
+                하나의 배경음악이 흐름에 따라 자동 재생되며, 재생과 일시정지 같은 기본
+                제어 기능을 제공합니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">로컬스토리지 기반 이어하기 기능</h3>
+              <p>
+                사용자의 이름 및 게임 데이터를 로컬스토리지에 저장하여, 게임 중간에
+                브라우저를 종료해도 다시 접속 시 이어서 진행할 수 있도록 구현하였습니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">감정 선택값 저장</h3>
+              <p>
+                사용자가 대화 흐름 중 클릭한 버튼의 data-emotion 값을 감정 데이터로
+                인식하여, 사전 정의된 emotionScores 객체에 각 감정별 점수로 누적
+                저장합니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">감정 점수 기반 음악 추천</h3>
+              <p>
+                저장된 감정 점수 중 가장 높은 값을 기준으로 해당 감정에 맞는 플레이리스트
+                배열 중 하나를 무작위로 추천합니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">음악 재생 제어 기능</h3>
+              <p>
+                음악 재생 시, 프로그레스바를 클릭하거나 드래그하여 원하는 재생 위치로
+                이동할 수 있도록 하여 유동적인 음악 감상이 가능합니다.
+              </p>
+            </div>
+            <div class="active-item">
+              <h3 class="title">추천 결과 공유 기능</h3>
+              <p>
+                추천 결과 화면을 이미지로 저장하거나 링크로 공유할 수 있어, 다른 사람들과
+                쉽게 결과를 나눌 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- 프로젝트 멤버 -->
       <section
-        id="location2"
+        id="location3"
         class="project-inner project-member"
         aria-labelledby="project-member">
-        <h2 class="section-title" id="project-member">프로젝트 멤버 소개</h2>
+        <h2 class="section-title" id="project-member">프로젝트 팀원 소개</h2>
         <div class="member-lists">
           <div class="member-item">
             <div class="member-img">
@@ -86,11 +219,11 @@
               </p>
               <p class="member-grid feat">
                 <span class="member-btn feat">기능 개발</span>
-                <span>음악 랜덤 재생 및 재생 제어</span>
+                <span>감정 점수 기반 음악 추천, 음악 재생 제어</span>
               </p>
               <div class="member-memo">
                 모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
-                Promise9 팀원 여러분 모두 감사합니다.
+                최고로 든든한 Promise9 팀원 여러분 모두 감사합니다🥰
               </div>
             </div>
           </div>
@@ -109,12 +242,13 @@
               </p>
               <p class="member-grid feat">
                 <span class="member-btn feat">기능 개발</span>
-                <span>선택값 저장 및 통계</span>
+                <span>감정 선택값 저장, 배경음악 재생 및 제어</span>
               </p>
-            </div>
-            <div class="member-memo">
-              모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
-              Promise9 팀원 여러분 모두 감사합니다.
+              <div class="member-memo">
+                정말 부족 했는데 좋은 팀원분들을 만나서 프로젝트 기간 동안 많이 배울 수
+                있었고 즐거웠습니다💖 <br />
+                짧은 기간 동안 정말 감사했어요. 수고하셨습니다🥹👍
+              </div>
             </div>
           </div>
           <div class="member-item">
@@ -132,12 +266,12 @@
               </p>
               <p class="member-grid feat">
                 <span class="member-btn feat">기능 개발</span>
-                <span>감정 분석 로직 개발</span>
+                <span>감정 분석 및 대화 분기 시스템, 로컬스토리지 기반 이어하기</span>
               </p>
-            </div>
-            <div class="member-memo">
-              모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
-              Promise9 팀원 여러분 모두 감사합니다.
+              <div class="member-memo">
+                독특한 주제로 팀원분들과 함께 재미있게 작업했습니다! <br />
+                Promise9 팀원분들 <br />파이널에서도 봐요~~(제발)
+              </div>
             </div>
           </div>
           <div class="member-item">
@@ -155,107 +289,42 @@
               </p>
               <p class="member-grid feat">
                 <span class="member-btn feat">기능 개발</span>
-                <span>결과값 외부 공유 및 이미지 저장, 로컬스토리지 활용</span>
+                <span>
+                  결과값 외부 공유, 결과 화면 이미지 저장, 사용자 입력값 로컬스토리지 저장
+                </span>
               </p>
-            </div>
-            <div class="member-memo">
-              모두가 열심히 해준 덕분에 짧지만 뜻깊은 협업이 가능했습니다💙 <br />
-              Promise9 팀원 여러분 모두 감사합니다.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 프로젝트 기능 -->
-      <section
-        id="location3"
-        class="project-inner project-feature"
-        aria-labelledby="project-feature">
-        <h2 class="section-title" id="project-feature">프로젝트 주요 기능</h2>
-        <div class="feature-inner">
-          <div class="swiper mySwiper">
-            <div class="items-wrap swiper-wrapper">
-              <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro.png" alt="" />
+              <div class="member-memo">
+                부족한 실력 때문에 걱정이 많았는데 팀원 모두가 긍정적으로 프로젝트
+                진행해주셔서 마음 편하게 했던 것 같습니다.🤠 <br />정말 재밌었습니다.
+                감사합니다.
               </div>
-              <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro2.png" alt="" />
-              </div>
-              <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro3.png" alt="" />
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-          <div class="active-lists">
-            <div class="active-item">
-              <h3 class="title">감정 선택값 저장</h3>
-              <p>
-                사용자가 대화 흐름 중 클릭한 버튼의 data-emotion 값을 감정 데이터로
-                인식하여, 사전 정의된 emotionScores 객체에 각 감정별 점수로 누적
-                저장합니다.
-              </p>
-            </div>
-            <div class="active-item">
-              <h3 class="title">감정 점수 기반 음악 추천</h3>
-              <p>
-                저장된 감정 점수 중 가장 높은 값을 기준으로 해당 감정에 맞는 플레이리스트
-                배열 중 하나를 무작위로 추천합니다.
-              </p>
-            </div>
-            <div class="active-item">
-              <h3 class="title">결과 화면 재생 여부 선택</h3>
-              <p>
-                결과 화면 진입 시 alert 창을 띄워 사용자가 음악을 바로 재생할지 여부를
-                선택할 수 있도록 구성하였습니다.
-              </p>
-            </div>
-            <div class="active-item">
-              <h3 class="title">음악 재생 제어 기능</h3>
-              <p>
-                음악 재생 시, 프로그레스바를 클릭하거나 드래그하여 원하는 재생 위치로
-                이동할 수 있도록 하여 유동적인 음악 감상이 가능합니다.
-              </p>
-            </div>
-            <div class="active-item">
-              <h3 class="title">로컬스토리지 기반 이어하기 기능</h3>
-              <p>
-                사용자의 이름 및 게임 데이터를 로컬스토리지에 저장하여, 게임 중간에
-                브라우저를 종료해도 다시 접속 시 이어서 진행할 수 있도록 구현하였습니다.
-              </p>
-            </div>
-            <div class="active-item">
-              <h3 class="title">감정 분석 및 대화 분기 시스템</h3>
-              <p>
-                사용자 선택에 따라 대화 흐름이 분기되는 브랜칭 시스템을 통해, 다양한
-                감정과 상황에 맞는 시나리오를 제공합니다. 또한 ‘이전/다음’ 버튼을 통해
-                대화 흐름을 자유롭게 오갈 수 있습니다.
-              </p>
-            </div>
-            <div class="active-item">
-              <h3 class="title">감정 기반 캐릭터 및 배경 변화</h3>
-              <p>
-                대화 진행 중 감정 변화에 따라 캐릭터 이미지가 바뀌고, 상황에 맞춰 배경
-                또한 전환되어 몰입감 있는 사용자 경험을 제공합니다.
-              </p>
-            </div>
-            <div class="active-item">
-              <h3 class="title">추천 결과 공유 기능</h3>
-              <p>
-                추천 결과 화면을 이미지로 저장하거나 링크로 공유할 수 있어, 다른 사람들과
-                쉽게 결과를 나눌 수 있습니다.
-              </p>
             </div>
           </div>
         </div>
       </section>
     </main>
 
+    <!-- Aside -->
+    <aside class="playgame-wrap">
+      <a
+        class="btn gradient btn-rounded"
+        href="/src/pages/main.html"
+        title="게임 시작하기">
+        <span class="inner-text">게임 시작하기</span>
+      </a>
+    </aside>
+
     <!-- 푸터 -->
     <footer class="index-footer">
       <div class="container-wrap">
         <p>&copy; 2025 멋쟁이사자처럼 프론트엔드 부트캠프 13기</p>
-        <a href="#">JavaScript Project 9팀 Promise9</a>
+        <a
+          href="https://github.com/FRONTENDBOOTCAMP-13th/JS-09-Promise9"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="깃허브저장소로 이동하기">
+          JavaScript Project 9팀 Promise9
+        </a>
       </div>
     </footer>
   </body>
