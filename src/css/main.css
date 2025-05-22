@@ -45,6 +45,10 @@
       color: #fff;
     }
   }
+
+  .character-item > img.hidden {
+    display: none;
+  }
 }
 
 .gender input {
