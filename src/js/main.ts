@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // 값이 있을 경우
       Swal.fire({
         icon: 'question',
-        text: `${nameValue}으로 결정하시겠습니까?`,
+        text: `${nameValue}(으)로 결정하시겠습니까?`,
         showCancelButton: true,
         reverseButtons: true,
         confirmButtonText: '확인',
