@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   continueBtn?.addEventListener('click', () => {
-    location.replace('/src/pages/test.html');
+    location.replace('/src/pages/dokidoki-play.html');
   });
 
   // 이름 입력 input 요소 가져오기 (HTMLInputElement로 타입 단언)
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }).then((result) => {
         if (result.isConfirmed) {
           localStorage.setItem('gender', gender);
-          location.replace('/src/pages/test.html');
+          location.replace('/src/pages/dokidoki-play.html');
         }
       });
     } else {
