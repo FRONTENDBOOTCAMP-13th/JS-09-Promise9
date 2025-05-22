@@ -673,23 +673,23 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (nowScene) {
           case 'classNoteScene':
             section.style.background =
-              'url(/assets/img/room.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.png) -3623px -10px';
             break;
           case 'arcadeScene':
             section.style.background =
-              'url(/assets/img/arcadeScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.png) -8880px -80px';
             break;
           case 'movieScene':
             section.style.background =
-              'url(/assets/img/movieScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.png) -7263px -80px';
             break;
           case 'bookstoreScene':
             section.style.background =
-              'url(/assets/img/bookstoreScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.png) -5183px -80px';
             break;
           case 'cafeScene':
             section.style.background =
-              'url(/assets/img/cafeScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.png) -6800px -80px';
             break;
           case 'parkScene':
             section.style.background =
@@ -760,27 +760,21 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (nowScene) {
           case 'classNoteScene':
             section.style.background =
-              'url(/assets/img/classNoteScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.png) -4200px -88px';
             break;
           case 'arcadeScene':
-            section.style.background =
-              'url(/assets/img/nextday.webp) center center / cover no-repeat';
-            break;
           case 'movieScene':
-            section.style.background =
-              'url(/assets/img/nextday.webp) center center / cover no-repeat';
-            break;
           case 'bookstoreScene':
             section.style.background =
-              'url(/assets/img/nextday.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.png) -2583px -80px';
             break;
           case 'cafeScene':
             section.style.background =
-              'url(/assets/img/clouds.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.png) -2063px -80px';
             break;
           case 'parkScene':
             section.style.background =
-              'url(/assets/img/parkScene.webp) center center / cover no-repeat';
+              'url(/public/assets/img/bg-sprites.png) -9423px -80px';
             break;
         }
       }
