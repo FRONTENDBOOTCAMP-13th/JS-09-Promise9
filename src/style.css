@@ -140,126 +140,126 @@ body {
 .playlists-wrap[data-prolog='scene1'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -6290px -10px;
+  background: url(/public/assets/img/bg-sprites.webp) -6290px -10px;
 }
 
 /* 교실창가 */
 .playlists-wrap[data-prolog='classWindowScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -3103px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -3103px -80px;
 }
 
 /* 수업시간쪽지 */
 .playlists-wrap[data-prolog='classNoteScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -4200px -88px;
+  background: url(/public/assets/img/bg-sprites.webp) -4200px -88px;
 }
 
 /* 복도 창가 */
 .playlists-wrap[data-prolog='hallwayWindowScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -1040px -88px;
+  background: url(/public/assets/img/bg-sprites.webp) -1040px -88px;
 }
 
 /* 매점 */
 .playlists-wrap[data-prolog='stallScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -5803px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -5803px -80px;
 }
 
 /* 급식실 */
 .playlists-wrap[data-prolog='cafeteriaScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -503px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -503px -80px;
 }
 
 /* 동아리 */
 .playlists-wrap[data-prolog='clubScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -3700px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -3700px -80px;
 }
 
 /* 비 */
 .playlists-wrap[data-prolog='rainScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -7820px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -7820px -80px;
 }
 
 /* 비 그침 */
 .playlists-wrap[data-prolog='rainStopScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -8370px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -8370px -80px;
 }
 
 /* 오락실 */
 .playlists-wrap[data-prolog='arcadeScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -2583px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -2583px -80px;
 }
 
 /* 영화관 */
 .playlists-wrap[data-prolog='movieScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -2583px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -2583px -80px;
 }
 
 /* 서점 */
 .playlists-wrap[data-prolog='bookstoreScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -2583px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -2583px -80px;
 }
 
 /* 카페 */
 .playlists-wrap[data-prolog='cafeScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -2063px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -2063px -80px;
 }
 
 /* 버스 */
 .playlists-wrap[data-prolog='busScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -4710px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -4710px -80px;
 }
 
 /* 공원 */
 .playlists-wrap[data-prolog='parkScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -9423px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -9423px -80px;
 }
 
 /* 러브엔딩 */
 .playlists-wrap[data-prolog='loveScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -1590px -85px;
+  background: url(/public/assets/img/bg-sprites.webp) -1590px -85px;
 }
 
 /* 러브엔딩 */
 .playlists-wrap[data-prolog='sadScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -3103px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -3103px -80px;
 }
 
 /* 결과보기창 */
 .playlists-wrap[data-prolog='resultScene'] {
   width: 100%;
   height: 100%;
-  background: url(/public/assets/img/bg-sprites.png) -3103px -80px;
+  background: url(/public/assets/img/bg-sprites.webp) -3103px -80px;
 }
 
 .container {
