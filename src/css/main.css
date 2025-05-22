@@ -1,7 +1,7 @@
 .playlists-wrap.main {
   display: none;
   padding: 3rem 2rem;
-  background: url(/public/assets/img/main-background.gif) center center / cover no-repeat;
+  background: url(/assets/img/main-background.gif) center center / cover no-repeat;
 
   .main-container {
     position: relative;
