@@ -3,14 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- index.html의 <head> 안에 삽입 -->
+
+    <!-- 기본  -->
+    <meta
+      name="description"
+      content="미소년 미소녀 연애 시뮬레이션 심리테스트를 통해 음악 추천을 받아보세요💗" />
+    <meta
+      name="keywords"
+      content="미연시, 연애시뮬레이션, 심리테스트, 플레이리스트추천, 음악추천" />
+    <meta name="author" content="Promise9" />
+
+    <!-- Open Graph  -->
+    <meta property="site_name" content="두근두근 플레이리스트" />
     <meta property="og:title" content="두근두근 플레이리스트" />
     <meta
       property="og:description"
       content="나의 감정에 어울리는 음악을 추천받아보세요!" />
     <meta
       property="og:image"
-      content="https://dokidoki-playlists.netlify.app/assets/img/preview.jpg" />
+      content="https://dokidoki-playlists.netlify.app/assets/img/dokidoki.webp" />
     <meta property="og:url" content="https://dokidoki-playlists.netlify.app/" />
     <meta property="og:type" content="website" />
     <title>두근두근 플레이리스트</title>
@@ -42,7 +53,7 @@
     <header class="index-header filter">
       <div class="container-wrap">
         <h1 class="logo">
-          <a href="#"> <img src="/public/assets/img/Promise9.webp" alt="로고" /></a>
+          <a href="#"> <img src="/assets/img/Promise9.webp" alt="로고" /></a>
         </h1>
         <ul class="menu-wrap">
           <li><a href="#location1">프로젝트 개요</a></li>
@@ -75,7 +86,7 @@
           </div>
           <a
             class="btn outline-btn btn-lg"
-            href="/src/pages/main.html"
+            href="/src/pages/dokidoki-main.html"
             title="게임 시작하기">
             게임 시작하기
           </a>
@@ -84,12 +95,12 @@
         <div class="character-wrap">
           <div class="character-line">
             <div class="character-item">
-              <img src="/public/assets/img/boy-casual-happy.webp" alt="남자캐릭터터" />
+              <img src="/assets/img/boy-casual-happy.webp" alt="남자캐릭터터" />
             </div>
           </div>
           <div class="character-line">
             <div class="character-item">
-              <img src="/public/assets/img/girl-casual-happy.webp" alt="여자캐릭터" />
+              <img src="/assets/img/girl-casual-happy.webp" alt="여자캐릭터" />
             </div>
           </div>
         </div>
@@ -105,31 +116,31 @@
           <div class="swiper mySwiper">
             <div class="items-wrap swiper-wrapper">
               <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro.webp" alt="" />
+                <img src="/assets/img/project-intro.webp" alt="" />
               </div>
               <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro2.webp" alt="" />
+                <img src="/assets/img/project-intro2.webp" alt="" />
               </div>
               <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro3.webp" alt="" />
+                <img src="/assets/img/project-intro3.webp" alt="" />
               </div>
               <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro4.webp" alt="" />
+                <img src="/assets/img/project-intro4.webp" alt="" />
               </div>
               <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro5.webp" alt="" />
+                <img src="/assets/img/project-intro5.webp" alt="" />
               </div>
               <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro6.webp" alt="" />
+                <img src="/assets/img/project-intro6.webp" alt="" />
               </div>
               <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro7.webp" alt="" />
+                <img src="/assets/img/project-intro7.webp" alt="" />
               </div>
               <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro8.webp" alt="" />
+                <img src="/assets/img/project-intro8.webp" alt="" />
               </div>
               <div class="item swiper-slide">
-                <img src="/public/assets/img/project-intro9.webp" alt="" />
+                <img src="/assets/img/project-intro9.webp" alt="" />
               </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -165,11 +176,10 @@
               </p>
             </div>
             <div class="active-item">
-              <h3 class="title">감정 선택값 저장</h3>
+              <h3 class="title">감정 결과 판별</h3>
               <p>
-                사용자가 대화 흐름 중 클릭한 버튼의 data-emotion 값을 감정 데이터로
-                인식하여, 사전 정의된 emotionScores 객체에 각 감정별 점수로 누적
-                저장합니다.
+                대화에서 누적된 감정 점수를 기반으로, 미리 정해진 점수 구간에 따라 최종
+                감정을 판별하여 반환합니다.
               </p>
             </div>
             <div class="active-item">
@@ -187,10 +197,10 @@
               </p>
             </div>
             <div class="active-item">
-              <h3 class="title">추천 결과 공유 기능</h3>
+              <h3 class="title">감정 결과 공유 기능</h3>
               <p>
-                추천 결과 화면을 이미지로 저장하거나 링크로 공유할 수 있어, 다른 사람들과
-                쉽게 결과를 나눌 수 있습니다.
+                감정 결과 화면을 이미지로 저장하거나 카카오톡으로 공유할 수 있어, 다른
+                사람들과 쉽게 결과를 나눌 수 있습니다.
               </p>
             </div>
           </div>
@@ -309,7 +319,7 @@
     <aside class="playgame-wrap">
       <a
         class="btn gradient btn-rounded"
-        href="/src/pages/main.html"
+        href="/src/pages/dokidoki-main.html"
         title="게임 시작하기">
         <span class="inner-text">게임 시작하기</span>
       </a>

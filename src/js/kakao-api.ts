@@ -30,16 +30,18 @@ shareBtn?.addEventListener('click', () => {
       description: `${musicTitle} - ${musicSinger}`, // 내용
       imageUrl: 'https://dokidoki-playlists.netlify.app/assets/img/dokidoki.webp', // 카드 대표 이미지
       link: {
-        mobileWebUrl: 'https://dokidoki-playlists.netlify.app/src/pages/main.html', // 클릭시 들어갈 홈페이지
-        webUrl: 'https://dokidoki-playlists.netlify.app/src/pages/main.html',
+        mobileWebUrl:
+          'https://dokidoki-playlists.netlify.app/src/pages/dokidoki-main.html', // 클릭시 들어갈 홈페이지
+        webUrl: 'https://dokidoki-playlists.netlify.app/src/pages/dokidoki-main.html',
       },
     },
     buttons: [
       {
         title: '내 기분 보러 가기', // 공유하기 눌렀을 때 버튼
         link: {
-          mobileWebUrl: 'https://dokidoki-playlists.netlify.app/src/pages/main.html',
-          webUrl: 'https://dokidoki-playlists.netlify.app/src/pages/main.html',
+          mobileWebUrl:
+            'https://dokidoki-playlists.netlify.app/src/pages/dokidoki-main.html',
+          webUrl: 'https://dokidoki-playlists.netlify.app/src/pages/dokidoki-main.html',
         },
       },
     ],
