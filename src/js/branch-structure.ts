@@ -247,7 +247,7 @@ const movieScene: Scene = {
 const bookstoreScene: Scene = {
   choices: [
     {
-      text: '(얼굴이 붉어지며) 응, 나도! <br/>이렇게 우연히 만날 줄 몰랐어. 기분 진짜 좋다',
+      text: '(얼굴이 붉어지며) 응, 나도!<br/>이렇게 우연히 만날 줄 몰랐어. 기분 진짜 좋다',
       nextScene: 'cafeScene',
       emotion: 3,
       easterEgg: 0,
@@ -513,7 +513,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (
       !(sceneId === 'loveScene' || sceneId === 'breakScene' || sceneId === 'resultScene')
     ) {
-      console.log('재할당');
       // 버튼 태그 재할당
       nextBtn = section.querySelector('.next-btn') as HTMLElement;
       prevBtn = section.querySelector('.prev-btn') as HTMLElement;
@@ -548,8 +547,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectBox = section.querySelector(
       '.user-select .select-box',
     ) as HTMLUListElement;
+    const prevBtnGroup = section.querySelector('.user-select') as HTMLElement;
 
     selectBox.innerHTML = '';
+    prevBtn = prevBtnGroup.querySelector('.prev-btn') as HTMLElement;
+    const newPrevBtn = prevBtn.cloneNode(true) as HTMLElement;
+    prevBtn.replaceWith(newPrevBtn);
+    newPrevBtn.addEventListener('click', handlePrev); // 이것도 동일하게 수정
 
     // 선택지 버튼 생성
     scene.choices.forEach((choice) => {
@@ -699,7 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // 마지막 대사인 경우
       lines[index].style.display = 'none';
       girlTalk.style.display = 'none';
-
+      prevIndex.push(index);
       // 현재 씬 찾기
       const currentSection = document.querySelector(
         '.playlists-wrap[style*="display: block"]',
@@ -734,8 +738,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const girlTalk = section.querySelector('.line-box') as HTMLElement;
     const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
     prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+    const userSelect = section.querySelector('.user-select') as HTMLElement;
+
     if (index <= 1) {
       prevBtn.style.display = 'none';
+    }
+    // 선택지에서 대사로 돌아가는 부분
+    if (userSelect.style.display === 'block') {
+      userSelect.style.display = 'none';
+      girlTalk.style.display = 'block';
+      lines.forEach((line) => (line.style.display = 'none'));
+      index = prevIndex.pop()!;
+      lines[index].style.display = 'block';
+
+      return;
     }
     if (prevIndex.length > 0) {
       lines[index].style.display = 'none';
