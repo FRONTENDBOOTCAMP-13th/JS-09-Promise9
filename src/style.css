@@ -145,9 +145,7 @@ body {
 
 /* 교실창가 */
 .playlists-wrap[data-prolog='classWindowScene'] {
-  width: 100%;
-  height: 100%;
-  background: url(/public/assets/img/classScene.gif);
+  background: url(/public/assets/img/classScene.gif) center center / cover no-repeat;
 }
 
 /* 수업시간쪽지 */
@@ -187,9 +185,7 @@ body {
 
 /* 비 */
 .playlists-wrap[data-prolog='rainScene'] {
-  width: 100%;
-  height: 100%;
-  background: url(/public/assets/img/rainScene.gif) -7820px -80px;
+  background: url(/public/assets/img/rainScene.gif) center center / cover no-repeat;
 }
 
 /* 비 그침 */
@@ -257,9 +253,7 @@ body {
 
 /* 결과보기창 */
 .playlists-wrap[data-prolog='resultScene'] {
-  width: 100%;
-  height: 100%;
-  background: url(/public/assets/img/classScene.gif);
+  background: url(/public/assets/img/classScene.gif) center center / cover no-repeat;
 }
 
 .container {
