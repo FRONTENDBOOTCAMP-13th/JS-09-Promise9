@@ -385,6 +385,11 @@ body {
   }
 }
 
+.conversation-wrap ul {
+  padding-bottom: 1px;
+  padding-top: 1px;
+}
+
 .conversation-wrap.user-select {
   display: none;
 }
