@@ -53,7 +53,7 @@ html {
 .project-introduce {
   padding: 2rem 10rem 8rem;
   min-height: 900px;
-  background: url('/public/assets/img/bg-gradient.svg') 0 -80px / cover no-repeat;
+  background: url('/assets/img/bg-gradient.svg') 0 -80px / cover no-repeat;
   color: #fff;
   display: grid;
   grid-template-columns: 5fr 4fr;
@@ -61,7 +61,7 @@ html {
   align-items: center;
 
   @media (max-width: 1400px) {
-    background: url('/public/assets/img/project-bg.webp') center -10px / cover no-repeat;
+    background: url('/assets/img/project-bg.webp') center -10px / cover no-repeat;
 
     padding: 4rem;
     padding-top: 16rem;
