@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 배경음 오디오 요소를 가져옴
   const bgmAudio = document.getElementById('bgmAudio') as HTMLAudioElement;
-  bgmAudio.volume = 1; // 기본 볼륨 낮게 설정 (사용자에게 너무 크지 않도록)
+  bgmAudio.volume = 0.75; // 기본 볼륨 낮게 설정 (사용자에게 너무 크지 않도록)
 
   // BGM On/Off를 토글할 버튼 요소
   const bgmBtn = document.querySelector('.bgmBtn') as HTMLButtonElement;

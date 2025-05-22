@@ -672,24 +672,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const nowScene = section.dataset.prolog;
         switch (nowScene) {
           case 'classNoteScene':
-            section.style.background =
-              'url(/public/assets/img/bg-sprites.webp) -3623px -10px';
+            section.style.background = 'url(/assets/img/bg-sprites.webp) -3623px -10px';
             break;
           case 'arcadeScene':
-            section.style.background =
-              'url(/public/assets/img/bg-sprites.webp) -8880px -80px';
+            section.style.background = 'url(/assets/img/bg-sprites.webp) -8880px -80px';
             break;
           case 'movieScene':
-            section.style.background =
-              'url(/public/assets/img/bg-sprites.webp) -7263px -80px';
+            section.style.background = 'url(/assets/img/bg-sprites.webp) -7263px -80px';
             break;
           case 'bookstoreScene':
-            section.style.background =
-              'url(/public/assets/img/bg-sprites.webp) -5183px -80px';
+            section.style.background = 'url(/assets/img/bg-sprites.webp) -5183px -80px';
             break;
           case 'cafeScene':
-            section.style.background =
-              'url(/public/assets/img/bg-sprites.webp) -6800px -80px';
+            section.style.background = 'url(/assets/img/bg-sprites.webp) -6800px -80px';
             break;
           case 'parkScene':
             section.style.background =
@@ -704,6 +699,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lines[index].style.display = 'none';
       girlTalk.style.display = 'none';
       prevIndex.push(index);
+      index++;
       // 현재 씬 찾기
       const currentSection = document.querySelector(
         '.playlists-wrap[style*="display: block"]',
@@ -740,7 +736,7 @@ document.addEventListener('DOMContentLoaded', () => {
     prevBtn = section.querySelector('.prev-btn') as HTMLElement;
     const userSelect = section.querySelector('.user-select') as HTMLElement;
 
-    if (index <= 1) {
+    if (index === 1) {
       prevBtn.style.display = 'none';
     }
     // 선택지에서 대사로 돌아가는 부분
@@ -750,7 +746,6 @@ document.addEventListener('DOMContentLoaded', () => {
       lines.forEach((line) => (line.style.display = 'none'));
       index = prevIndex.pop()!;
       lines[index].style.display = 'block';
-
       return;
     }
     if (prevIndex.length > 0) {
@@ -759,22 +754,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const nowScene = section.dataset.prolog;
         switch (nowScene) {
           case 'classNoteScene':
-            section.style.background =
-              'url(/public/assets/img/bg-sprites.webp) -4200px -88px';
+            section.style.background = 'url(/assets/img/bg-sprites.webp) -4200px -88px';
             break;
           case 'arcadeScene':
           case 'movieScene':
           case 'bookstoreScene':
-            section.style.background =
-              'url(/public/assets/img/bg-sprites.webp) -2583px -80px';
+            section.style.background = 'url(/assets/img/bg-sprites.webp) -2583px -80px';
             break;
           case 'cafeScene':
-            section.style.background =
-              'url(/public/assets/img/bg-sprites.webp) -2063px -80px';
+            section.style.background = 'url(/assets/img/bg-sprites.webp) -2063px -80px';
             break;
           case 'parkScene':
-            section.style.background =
-              'url(/public/assets/img/bg-sprites.webp) -9423px -80px';
+            section.style.background = 'url(/assets/img/bg-sprites.webp) -9423px -80px';
             break;
         }
       }
