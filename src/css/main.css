@@ -53,20 +53,25 @@
 }
 
 input:checked + .btn.outline-gradient {
-  background: #e06697;
+  background: #7e73d2;
+  box-shadow: 0 4px 12px 0 rgba(55, 3, 114, 0.75);
+  color: #fff;
+}
+
+input:checked + .btn.outline-gradient.male {
+  background: #0a508e;
+  box-shadow: 0 4px 12px 0 rgba(15, 68, 148, 0.75);
+
   color: #fff;
 }
 
 .gender-box {
   margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 
-  input:first-child {
-    margin-bottom: 1rem;
-  }
-  label:last-child {
-    margin-bottom: 1rem;
+  #submit-user-gen {
+    grid-column: 1/-1;
   }
 }
