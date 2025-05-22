@@ -297,6 +297,10 @@ html {
       font-size: 1rem;
       line-height: 1.5;
       color: #555;
+
+      @media (max-width: 600px) {
+        font-size: 0.875rem;
+      }
     }
   }
 }
@@ -308,7 +312,7 @@ html {
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 
-  @media (max-width: 1500px) {
+  @media (max-width: 1600px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -324,9 +328,10 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     gap: 1.25rem;
 
-    @media (max-width: 1500px) {
+    @media (max-width: 1600px) {
       display: grid;
       grid-template-columns: 1fr 2fr;
     }
@@ -345,6 +350,8 @@ html {
       display: flex;
       flex-direction: column;
       padding: 1.25rem 1.5rem;
+
+      font-size: 0.875rem;
     }
 
     .member-memo {
@@ -354,6 +361,11 @@ html {
       background: #fff1f894;
       border-radius: 0.75rem;
       text-align: center;
+
+      @media (max-width: 1600px) {
+        grid-column: 1/-1;
+        min-height: 6.5rem;
+      }
     }
 
     &:nth-child(even) {
@@ -373,7 +385,7 @@ html {
       border-radius: 1rem;
       overflow: hidden;
 
-      @media (max-width: 1500px) {
+      @media (max-width: 1600px) {
         aspect-ratio: 2/3;
       }
 
@@ -565,6 +577,11 @@ html {
   bottom: 4rem;
   right: 2.5rem;
 
+  @media (max-width: 700px) {
+    bottom: 5rem;
+    right: 1rem;
+  }
+
   .btn.btn-rounded {
     display: flex;
     align-items: center;
@@ -577,6 +594,13 @@ html {
     transition: width 0.3s ease;
     overflow: hidden;
 
+    @media (max-width: 700px) {
+      width: 3rem;
+      min-height: 3rem;
+      border-radius: 1.5rem;
+      font-size: 1rem;
+    }
+
     &::before {
       content: '';
       display: block;
@@ -584,9 +608,15 @@ html {
       height: 2.5rem;
       flex-shrink: 0;
       position: relative;
-      left: 0.25rem;
+      left: 0.375rem;
       background: url('/assets/img/controller.webp') center center / contain no-repeat;
       transition: transform 0.3s ease;
+
+      @media (max-width: 700px) {
+        width: 1.75rem;
+        height: 1.75rem;
+        left: -0.375rem;
+      }
     }
 
     .inner-text {
@@ -600,33 +630,13 @@ html {
       width: 12.5rem;
       background-position: 0;
 
+      @media (max-width: 700px) {
+        width: 10rem;
+      }
+
       .inner-text {
         opacity: 1;
         visibility: visible;
-      }
-    }
-  }
-}
-
-@media (max-width: 700px) {
-  .playgame-wrap {
-    bottom: 5rem;
-    right: 1rem;
-
-    .btn.btn-rounded {
-      width: 3rem;
-      min-height: 3rem;
-      border-radius: 1.5rem;
-      font-size: 1rem;
-
-      &::before {
-        width: 1.75rem;
-        height: 1.75rem;
-        left: -0.375rem;
-      }
-
-      &:hover {
-        width: 10rem;
       }
     }
   }

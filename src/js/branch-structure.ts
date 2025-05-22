@@ -300,7 +300,7 @@ const parkScene: Scene = {
       emotion: 3,
     },
     {
-      text: '나는... 우리 그냥 친구로 지내는게 좋을 것 같아. 친구 이상은 아닌 것 같아...',
+      text: '나는... 우리 그냥 친구로 지내는게 좋을 것 같아.<br/>친구 이상은 아닌 것 같아...',
       nextScene: 'breakScene',
       emotion: 1,
     },
