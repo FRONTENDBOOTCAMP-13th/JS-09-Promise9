@@ -673,23 +673,23 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (nowScene) {
           case 'classNoteScene':
             section.style.background =
-              'url(/public/assets/img/bg-sprites.png) -3623px -10px';
+              'url(/public/assets/img/bg-sprites.webp) -3623px -10px';
             break;
           case 'arcadeScene':
             section.style.background =
-              'url(/public/assets/img/bg-sprites.png) -8880px -80px';
+              'url(/public/assets/img/bg-sprites.webp) -8880px -80px';
             break;
           case 'movieScene':
             section.style.background =
-              'url(/public/assets/img/bg-sprites.png) -7263px -80px';
+              'url(/public/assets/img/bg-sprites.webp) -7263px -80px';
             break;
           case 'bookstoreScene':
             section.style.background =
-              'url(/public/assets/img/bg-sprites.png) -5183px -80px';
+              'url(/public/assets/img/bg-sprites.webp) -5183px -80px';
             break;
           case 'cafeScene':
             section.style.background =
-              'url(/public/assets/img/bg-sprites.png) -6800px -80px';
+              'url(/public/assets/img/bg-sprites.webp) -6800px -80px';
             break;
           case 'parkScene':
             section.style.background =
@@ -760,21 +760,21 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (nowScene) {
           case 'classNoteScene':
             section.style.background =
-              'url(/public/assets/img/bg-sprites.png) -4200px -88px';
+              'url(/public/assets/img/bg-sprites.webp) -4200px -88px';
             break;
           case 'arcadeScene':
           case 'movieScene':
           case 'bookstoreScene':
             section.style.background =
-              'url(/public/assets/img/bg-sprites.png) -2583px -80px';
+              'url(/public/assets/img/bg-sprites.webp) -2583px -80px';
             break;
           case 'cafeScene':
             section.style.background =
-              'url(/public/assets/img/bg-sprites.png) -2063px -80px';
+              'url(/public/assets/img/bg-sprites.webp) -2063px -80px';
             break;
           case 'parkScene':
             section.style.background =
-              'url(/public/assets/img/bg-sprites.png) -9423px -80px';
+              'url(/public/assets/img/bg-sprites.webp) -9423px -80px';
             break;
         }
       }

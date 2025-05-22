@@ -169,7 +169,7 @@
 .musiclists-wrap.happy {
   width: 100%;
   height: 100%;
-  background: url(/assets/img/playlists/emotion-bg-sprites.png) -530px -10px;
+  background: url(/assets/img/playlists/emotion-bg-sprites.webp) -530px -10px;
 
   /* 결과타이틀 */
   .result-title {
@@ -207,7 +207,7 @@
 .musiclists-wrap.sad {
   width: 100%;
   height: 100%;
-  background: url(/assets/img/playlists/emotion-bg-sprites.png) -60px -10px;
+  background: url(/assets/img/playlists/emotion-bg-sprites.webp) -60px -10px;
 
   /* 결과타이틀 */
   .result-title {
@@ -245,7 +245,7 @@
 .musiclists-wrap.excited {
   width: 100%;
   height: 100%;
-  background: url(/assets/img/playlists/emotion-bg-sprites.png) -2610px -10px;
+  background: url(/assets/img/playlists/emotion-bg-sprites.webp) -2610px -10px;
 
   /* 결과타이틀 */
   .result-title {
@@ -283,7 +283,7 @@
 .musiclists-wrap.relaxed {
   width: 100%;
   height: 100%;
-  background: url(/assets/img/playlists/emotion-bg-sprites.png) -1080px -10px;
+  background: url(/assets/img/playlists/emotion-bg-sprites.webp) -1080px -10px;
 
   /* 결과타이틀 */
   .result-title {
@@ -321,7 +321,7 @@
 .musiclists-wrap.refresh {
   width: 100%;
   height: 100%;
-  background: url(/assets/img/playlists/emotion-bg-sprites.png) -2090px -10px;
+  background: url(/assets/img/playlists/emotion-bg-sprites.webp) -2090px -10px;
 
   /* 결과타이틀 */
   .result-title {
@@ -359,7 +359,7 @@
 .musiclists-wrap.lonely {
   width: 100%;
   height: 100%;
-  background: url(/assets/img/playlists/emotion-bg-sprites.png) -1570px -10px;
+  background: url(/assets/img/playlists/emotion-bg-sprites.webp) -1570px -10px;
 
   /* 결과타이틀 */
   .result-title {
