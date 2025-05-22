@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 배경음 오디오 요소를 가져옴
   const bgmAudio = document.getElementById('bgmAudio') as HTMLAudioElement;
-  bgmAudio.volume = 0.13; // 기본 볼륨 낮게 설정 (사용자에게 너무 크지 않도록)
+  bgmAudio.volume = 1; // 기본 볼륨 낮게 설정 (사용자에게 너무 크지 않도록)
 
   // BGM On/Off를 토글할 버튼 요소
   const bgmBtn = document.querySelector('.bgmBtn') as HTMLButtonElement;
@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (bgmBtn) {
     bgmBtn.addEventListener('click', () => {
       isPlaying = !isPlaying; // 상태를 반대로 바꿈
+
+      console.log('isPlaying :', isPlaying);
 
       if (isPlaying) {
         bgmAudio.play(); // BGM 재생
@@ -82,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         rainAudio.dataset.shouldPlay = 'true'; // 이건 rain이 활성화되었음을 저장하는 역할
         if (isPlaying) {
           rainAudio.play(); // BGM이 재생 중인 경우만 실제로 재생
-          rainAudio.volume = 0.12;
+          rainAudio.volume = 1;
         }
       });
     });
