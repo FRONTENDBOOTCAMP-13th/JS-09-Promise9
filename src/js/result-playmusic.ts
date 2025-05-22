@@ -111,7 +111,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       cancelButtonColor: '#9769ec',
     });
 
-    if (result.isConfirmed) {
+    var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
+
+    https: if (
+      varUA.indexOf('ipad') > -1 ||
+      varUA.indexOf('iphone') > -1 ||
+      varUA.indexOf('ipod') > -1
+    ) {
       await Swal.fire({
         title: '안내',
         html: `iOS 기기에서는 자동 재생이 제한됩니다.<br/>일시정지 후 재생 버튼을 다시 눌러주세요.`,
