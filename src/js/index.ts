@@ -40,11 +40,13 @@ window.addEventListener('scroll', function () {
   const indexHeader = document.querySelector('.index-header') as HTMLElement;
   const headerLogo = indexHeader.querySelector('.logo img') as HTMLImageElement;
 
+  const whiteLogo = `/assets/img/promise9.webp`;
+  const gradientLogo = `/assets/img/promise9-gradient.webp`;
   if (window.scrollY === 0) {
     indexHeader?.classList.remove('scroll');
-    headerLogo?.setAttribute('src', '/public/assets/img/promise9.webp');
+    headerLogo?.setAttribute('src', whiteLogo);
   } else {
     indexHeader?.classList.add('scroll');
-    headerLogo?.setAttribute('src', '/public/assets/img/promise9-gradient.webp');
+    headerLogo?.setAttribute('src', gradientLogo);
   }
 });
