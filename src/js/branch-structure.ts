@@ -151,7 +151,7 @@ const cafeteriaScene: Scene = {
       easterEgg: 0,
     },
     {
-      text: '그치만, 급식은 그냥 그런 맛인 것 같아. 평소랑 다를 게 없네...',
+      text: '그치만, 급식은 그냥 그런 맛인 것 같아. <br/>평소랑 다를 게 없네...',
       nextScene: 'clubScene',
       emotion: 1,
     },
@@ -218,7 +218,7 @@ const rainStopScene: Scene = {
 const arcadeScene: Scene = {
   choices: [
     {
-      text: '계속 옆에 있었는데... 네가 너무 집중하고 있어서, 괜히 말 걸기 망설여졌어.',
+      text: '계속 옆에 있었는데... 네가 너무 집중하고 있어서, <br/>괜히 말 걸기 망설여졌어.',
       nextScene: 'cafeScene',
       emotion: 1,
     },
@@ -247,7 +247,7 @@ const movieScene: Scene = {
 const bookstoreScene: Scene = {
   choices: [
     {
-      text: '(얼굴이 붉어지며) 응, 나도! 이렇게 우연히 만날 줄 몰랐어. 기분 진짜 좋다',
+      text: '(얼굴이 붉어지며) 응, 나도!<br/>이렇게 우연히 만날 줄 몰랐어. 기분 진짜 좋다',
       nextScene: 'cafeScene',
       emotion: 3,
       easterEgg: 0,
@@ -272,7 +272,7 @@ const cafeScene: Scene = {
       emotion: 2,
     },
     {
-      text: '슬픈 노래 들으면서 우는 걸 좋아해.<br/>그런 노래가 위로가 되는 것 같아.',
+      text: '슬픈 노래 들으면서 위로받는 걸 좋아해.<br/>그런 노래가 위로가 되는 것 같아.',
       nextScene: 'lastChoiceScene',
       emotion: 1,
     },

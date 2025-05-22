@@ -23,7 +23,7 @@ body {
 ==========================================*/
 .bgmBtn {
   position: absolute;
-  top: 3rem;
+  top: 2.8rem;
   left: calc(50% - 150px);
   transform: translateX(-50%);
 
@@ -39,7 +39,7 @@ body {
   @media (max-width: 440px) {
     top: 1.5rem;
     left: 1.5rem;
-    transform: translateX(0);
+    transform: translateX(0%);
   }
 }
 
@@ -82,7 +82,8 @@ body {
 
   @media (max-width: 440px) {
     left: 0;
-    padding: 3rem 0;
+    padding: 5rem 0;
+    padding-bottom: 12rem;
     width: 100%;
     height: 100vh;
     min-height: 500px;
@@ -100,7 +101,7 @@ body {
 
 .bgm-notice {
   position: absolute;
-  top: 1.45rem;
+  top: 1.35rem;
   left: 50%;
   z-index: 10;
   transform: translateX(-39%);
@@ -112,6 +113,11 @@ body {
   background: #f0f0f0;
   border-radius: 0.625rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 440px) {
+    left: 0;
+    transform: translateX(43%);
+  }
 
   &::after {
     content: '';
@@ -242,7 +248,7 @@ body {
   }
 
   @media (max-width: 500px) {
-    height: auto;
+    height: 300px;
   }
 }
 
@@ -257,7 +263,9 @@ body {
 
   word-break: keep-all;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(1px);
+  box-shadow: 0 0 2px 2px #cecfd1;
 
   @media (max-width: 440px) {
     padding: 2rem 1.25rem;
@@ -318,45 +326,29 @@ body {
     width: 100%;
     height: 100%;
 
-    @media (max-width: 440px) {
-      gap: 0.125rem;
-    }
-
     li {
       width: 100%;
     }
 
     button {
-      display: grid;
-      grid-template-columns: auto 1fr;
+      -webkit-appearance: none;
+      outline: none;
       width: 100%;
-      padding: 0.5rem 0;
+      height: 3rem;
+      padding: 0 0.5rem;
+      background-image: linear-gradient(to top, #d8d9db 0%, #fff 80%, #fdfdfd 100%);
+      border-radius: 2rem;
+      border: 1px solid #8f9092;
+      box-shadow: inset 0 0 3px 0 #cecfd1;
+      transition: all 0.2s ease;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #606060;
+      word-break: keep-all;
 
-      border: none;
-      background: none;
-
-      text-align: start;
-      font: inherit;
-      color: inherit;
-      cursor: pointer;
-
-      &:before {
-        content: '→';
-        margin-right: 0.5rem;
-      }
-
-      p {
-        display: flex;
-        flex-direction: column;
-      }
-
+      &:hover,
       &:focus {
-        outline: 2px solid #888;
-        outline-offset: 2px;
-      }
-
-      &:hover {
-        text-decoration: 1px underline black;
+        box-shadow: inset 0 0 3px 3px #cecfd1;
       }
     }
   }
