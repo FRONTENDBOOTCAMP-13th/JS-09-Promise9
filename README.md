@@ -1,6 +1,9 @@
+
+<div align="center">
 <a href="https://dokidoki-playlists.netlify.app/" target="_blank" title="두근두근 플레이리스트로 이동">
   <img src="./public/assets/img/readme/main.webp" alt="프로젝트이미지" width=600/>
 </a>
+</div>
 
 <h1 align="center">멋쟁이 사자처럼 JS 프로젝트✨ <br> 9팀 Promise9 💝</h1>
 
@@ -98,6 +101,7 @@
 └── 📄README.md
 ```
 
+<div align="center">
 ## PROJECT PREVIEW 🖥️
 
 #### 1. 로컬스토리지 기반 데이터 활용
@@ -134,3 +138,4 @@
   <img src="./public/assets/img/readme/preview06.webp" alt="결과화면 공유" width=400 title="결과화면 공유"/>  
   <img src="./public/assets/img/readme/preview07.webp" alt="결과화면 공유" width=200 title="결과화면 공유"/>
   </div>
+</div>
