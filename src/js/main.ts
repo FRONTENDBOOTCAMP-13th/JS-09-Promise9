@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         icon: 'question',
         text: `${nameValue}으로 결정하시겠습니까?`,
         showCancelButton: true,
+        reverseButtons: true,
         confirmButtonText: '확인',
         cancelButtonText: '재설정',
         confirmButtonColor: '#ed6ea0',
@@ -90,10 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
     input.addEventListener('change', () => {
       const genderValue = input.value;
       console.log(genderValue);
-      if (genderValue === '남자') {
+      if (genderValue === '카이') {
         genderBoy?.classList.remove('hidden');
         genderGirl?.classList.add('hidden');
-      } else if (genderValue === '여자') {
+      } else if (genderValue === '유키') {
         genderBoy?.classList.add('hidden');
         genderGirl?.classList.remove('hidden');
       }
@@ -114,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         icon: 'question',
         text: `${gender}로 결정하시겠습니까?`,
         showCancelButton: true,
+        reverseButtons: true,
         confirmButtonText: '확인',
         cancelButtonText: '재설정',
         confirmButtonColor: '#ed6ea0',
