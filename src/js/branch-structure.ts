@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const genderCheck = localStorage.getItem('gender');
   const userName = localStorage.getItem('userName') as string;
   const nameTags = document.querySelectorAll('.char-name') as NodeListOf<HTMLElement>;
-  if (genderCheck === '여자') {
+  if (genderCheck === '유키') {
     nameTags.forEach((nameTag) => {
       nameTag.innerHTML = '유키';
     });
@@ -807,10 +807,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const emotion = line.dataset.emotion as keyof Emotion | undefined;
     characterImg.style.opacity = '1';
     if (emotion) {
-      if (genderCheck === '여자') {
+      if (genderCheck === '유키') {
         const filename = girlEmotionImages[emotion];
         characterImg.src = `/assets/img/${filename}`;
-      } else if (genderCheck === '남자') {
+      } else if (genderCheck === '카이') {
         const filename = boyEmotionImages[emotion];
         characterImg.src = `/assets/img/${filename}`;
       }
