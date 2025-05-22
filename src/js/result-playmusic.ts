@@ -99,7 +99,7 @@ window.onYouTubeIframeAPIReady = () => {
  */
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const result = await Swal.fire({
+    await Swal.fire({
       // title: '음악 재생',
       html: `감정 결과에 따라 추천 음악이 재생됩니다.<br/>바로 재생할까요?`,
       icon: 'info',
