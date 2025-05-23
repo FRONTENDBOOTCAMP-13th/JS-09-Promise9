@@ -99,7 +99,7 @@ window.onYouTubeIframeAPIReady = () => {
  */
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    await Swal.fire({
+    const result = await Swal.fire({
       // title: '음악 재생',
       html: `감정 결과에 따라 추천 음악이 재생됩니다.<br/>바로 재생할까요?`,
       icon: 'info',
@@ -113,17 +113,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
 
-    https: if (
-      varUA.indexOf('ipad') > -1 ||
-      varUA.indexOf('iphone') > -1 ||
-      varUA.indexOf('ipod') > -1
-    ) {
-      await Swal.fire({
-        title: '안내',
-        html: `iOS 기기에서는 자동 재생이 제한됩니다.<br/>일시정지 후 재생 버튼을 다시 눌러주세요.`,
-        confirmButtonText: '확인',
-      });
-
+    https: if (result.isConfirmed) {
+      if (
+        varUA.indexOf('ipad') > -1 ||
+        varUA.indexOf('iphone') > -1 ||
+        varUA.indexOf('ipod') > -1
+      ) {
+        await Swal.fire({
+          title: '안내',
+          html: `iOS 기기에서는 자동 재생이 제한됩니다.<br/>일시정지 후 재생 버튼을 다시 눌러주세요.`,
+          confirmButtonText: '확인',
+        });
+      }
       shouldAutoPlay = true;
 
       // 플레이어가 이미 준비되어 있다면 바로 실행

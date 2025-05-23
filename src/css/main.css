@@ -98,3 +98,36 @@
     }
   }
 }
+
+.phone-wrap {
+  background: #0a508e;
+}
+.start-guide {
+  position: absolute;
+  display: none;
+  top: 2.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  padding: 0.5rem 1rem;
+  width: 20rem;
+
+  background: #ffffffce;
+  color: #222;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  text-align: center;
+
+  &::before {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+    display: inline-block;
+    background-image: url('/assets/img/info-circle.svg');
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.75;
+  }
+}
