@@ -133,4 +133,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // 맥환경요소 판별
+  const varUA: string = navigator.userAgent.toLowerCase();
+  const startGuide = document.querySelector('.start-guide') as HTMLElement;
+
+  if (!startGuide) return;
+
+  // 뷰포트 너비가 440px 이하이면 숨김처리
+  if (window.innerWidth <= 440) {
+    startGuide.style.display = 'none';
+    return;
+  }
+
+  // Mac 환경인지 확인
+  if (varUA.indexOf('macintosh') > -1 || varUA.indexOf('mac os x') > -1) {
+    startGuide.style.display = 'block';
+  } else {
+    startGuide.style.display = 'none';
+  }
 });
