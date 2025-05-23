@@ -321,7 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let nextBtn = document.querySelector('.next-btn') as HTMLElement;
   let prevBtn = document.querySelector('.prev-btn') as HTMLElement;
   let characterImg = document.querySelector('#character-img') as HTMLImageElement;
-  let conversationBox = document.querySelector('.line-box') as HTMLElement;
 
   let index = 0;
   let prevIndex: number[] = [];
@@ -370,7 +369,6 @@ document.addEventListener('DOMContentLoaded', () => {
   nextBtn = section.querySelector('.next-btn') as HTMLElement;
   prevBtn = section.querySelector('.prev-btn') as HTMLElement;
   characterImg = section.querySelector('#character-img') as HTMLImageElement;
-  conversationBox = section.querySelector('.line-box') as HTMLElement;
 
   // 로컬스토리지에서 캐릭터 성별, 이름 가져와서 html에 넣어주기
   const genderCheck = localStorage.getItem('gender');
@@ -418,7 +416,6 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn = section.querySelector('.next-btn') as HTMLElement;
     prevBtn = section.querySelector('.prev-btn') as HTMLElement;
     characterImg = section.querySelector('#character-img') as HTMLImageElement;
-    conversationBox = document.querySelector('.line-box') as HTMLElement;
   }
 
   function emotoinBranch(emotionScore: number): string {
@@ -519,19 +516,15 @@ document.addEventListener('DOMContentLoaded', () => {
       // 버튼 태그 재할당
       nextBtn = section.querySelector('.next-btn') as HTMLElement;
       prevBtn = section.querySelector('.prev-btn') as HTMLElement;
-      conversationBox = section.querySelector('.line-box') as HTMLElement;
 
       const newNextBtn = nextBtn.cloneNode(true) as HTMLElement;
       const newPrevBtn = prevBtn.cloneNode(true) as HTMLElement;
-      const newConversationBox = conversationBox.cloneNode(true) as HTMLElement;
 
       nextBtn.replaceWith(newNextBtn);
       prevBtn.replaceWith(newPrevBtn);
-      conversationBox.replaceWith(newConversationBox);
 
       newNextBtn.addEventListener('click', handleNext);
       newPrevBtn.addEventListener('click', handlePrev); // 이것도 동일하게 수정
-      newConversationBox.addEventListener('click', touchNext); // 이것도 동일하게 수정
     }
 
     // 이미지 태그 재할당
@@ -729,89 +722,6 @@ document.addEventListener('DOMContentLoaded', () => {
       userSelect.style.display = 'block';
     }
   }
-  // 다음 버튼 함수
-  function touchNext() {
-    const section = document.querySelector(
-      '.playlists-wrap[style*="display: block"]',
-    ) as HTMLElement;
-    const lines = section.querySelectorAll(
-      '.conversation-box > .line',
-    ) as NodeListOf<HTMLElement>;
-    const girlTalk = section.querySelector('.line-box') as HTMLElement;
-    const nowNameTag = section.querySelector('.name-tag') as HTMLElement;
-    prevBtn = section.querySelector('.prev-btn') as HTMLElement;
-    if (index < lines.length - 1) {
-      prevIndex.push(index);
-      lines[index].style.display = 'none';
-      index++;
-
-      // 첫 대사가 아닐 경우 이전 버튼 활성화
-      if (index >= 1) {
-        prevBtn.style.display = 'block';
-      }
-
-      // 나래이션일 경우 캐릭터 이름 비활성화
-      if (lines[index].querySelector('.sr-only')) {
-        nowNameTag.style.display = 'none';
-      } else {
-        nowNameTag.style.display = 'block';
-      }
-
-      // 대사 중간 배경 이미지 바뀌는 기능
-      if (lines[index].classList.contains('changeScene')) {
-        const nowScene = section.dataset.prolog;
-        switch (nowScene) {
-          case 'classNoteScene':
-            section.style.background = 'url(/assets/img/bg-sprites.webp) -3623px -10px';
-            break;
-          case 'arcadeScene':
-            section.style.background = 'url(/assets/img/bg-sprites.webp) -8880px -80px';
-            break;
-          case 'movieScene':
-            section.style.background = 'url(/assets/img/bg-sprites.webp) -7263px -80px';
-            break;
-          case 'bookstoreScene':
-            section.style.background = 'url(/assets/img/bg-sprites.webp) -5183px -80px';
-            break;
-          case 'cafeScene':
-            section.style.background = 'url(/assets/img/bg-sprites.webp) -6800px -80px';
-            break;
-          case 'parkScene':
-            section.style.background =
-              'url(/assets/img/parkLoveScene.gif) center center / cover no-repeat';
-            break;
-        }
-      }
-      lines[index].style.display = 'block';
-      updateImg(lines[index]);
-    } else {
-      // 마지막 대사인 경우
-      lines[index].style.display = 'none';
-      girlTalk.style.display = 'none';
-      prevIndex.push(index);
-      index++;
-      // 현재 씬 찾기
-      const currentSection = document.querySelector(
-        '.playlists-wrap[style*="display: block"]',
-      ) as HTMLElement;
-
-      // 선택지 보여주는 함수 호출
-      if (currentSection) {
-        const currentSceneId = currentSection.getAttribute('data-prolog');
-
-        if (currentSceneId) {
-          showChoices(getSceneByPrologId(currentSceneId));
-        } else {
-          showChoices(scene1);
-        }
-      } else {
-        showChoices(scene1);
-      }
-
-      const userSelect = section.querySelector('.user-select') as HTMLElement;
-      userSelect.style.display = 'block';
-    }
-  }
 
   // 이전 버튼
   function handlePrev() {
@@ -882,10 +792,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   prevBtn.addEventListener('click', () => {
     handlePrev();
-  });
-
-  conversationBox.addEventListener('click', () => {
-    touchNext();
   });
 
   // 대사 별 캐릭터 이미지 변경
